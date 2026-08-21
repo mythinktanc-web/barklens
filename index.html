@@ -870,5 +870,52 @@ a{color:#2E8A6E;text-decoration:none}a:hover{color:#14201C}
 
 
 
+<script>
+(function(){
+  var c = document.querySelector('[data-dc-tpl="100"]');
+  var l = document.querySelector('[data-dc-tpl="101"]');
+  var c1 = document.querySelector('[data-dc-tpl="103"]');
+  var c3 = document.querySelector('[data-dc-tpl="129"]');
+  if(!c||!l||!c1||!c3) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ticking = false;
+  function draw(){
+    ticking = false;
+    var rect = c.getBoundingClientRect(), vh = window.innerHeight;
+    var horiz = Math.abs(c1.offsetTop - c3.offsetTop) < 40;
+    var drawn, absTip;
+    if(horiz){
+      var y = c1.offsetTop + c1.offsetHeight/2, x0 = c1.offsetLeft + c1.offsetWidth/2;
+      var len = (c3.offsetLeft + c3.offsetWidth/3) - x0;
+      var f = reduced ? 1 : Math.max(0, Math.min(1, (vh*0.8 - rect.top)/Math.min(rect.height, vh*0.6)));
+      drawn = Math.max(0, len*f);
+      l.style.left = x0+'px'; l.style.top = (y-2)+'px'; l.style.height = '4px'; l.style.width = drawn+'px';
+      l.style.background = 'repeating-linear-gradient(90deg,rgba(87,206,172,.5) 0 18px,transparent 18px 28px)';
+      absTip = x0 + drawn;
+    } else {
+      var x = c.clientWidth/2, y0 = 0;
+      var len = (c3.offsetTop + c3.offsetHeight/3) - y0;
+      drawn = reduced ? len : Math.max(0, Math.min(len, vh*0.72 - rect.top - y0));
+      l.style.left = (x-2)+'px'; l.style.top = y0+'px'; l.style.width = '4px'; l.style.height = drawn+'px';
+      l.style.background = 'repeating-linear-gradient(180deg,rgba(87,206,172,.5) 0 18px,transparent 18px 28px)';
+      absTip = y0 + drawn;
+    }
+    c.querySelectorAll('[data-pill]').forEach(function(p){
+      var on = reduced || (horiz ? absTip >= p.offsetLeft-6 : absTip >= p.offsetTop-6);
+      var t = p.firstElementChild || p;
+      t.style.transform = on ? 'scale(1)' : 'scale(.65)';
+      t.style.opacity = on ? '1' : '0.35';
+    });
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(draw); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', onScroll);
+  onScroll();
+  setTimeout(onScroll, 500);
+  setTimeout(onScroll, 1500);
+  if(window.ResizeObserver){ var ro = new ResizeObserver(onScroll); ro.observe(c); }
+})();
+</script>
 </body>
 </html>
