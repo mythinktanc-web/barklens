@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="assets/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<title>BarkLens — how it works</title>
+<style>body{margin:0;background:#0B0B0C;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}img{max-width:100%}a{color:#2E8A6E;text-decoration:none}a:hover{color:#57CEAC}
+@media (min-width:768px){#dc-root [style*="max-width: 430px"]{max-width:640px!important}}
+@media (min-width:1200px){#dc-root [style*="max-width: 430px"]{max-width:720px!important}}
+</style>
+</helmet>
+<div style="max-width:430px;margin:0 auto;background:#F5F0E8;min-height:100vh">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #E7DFD0">
+    <a href="index.html" style="display:flex;align-items:center;min-height:44px;font-size:13px;font-weight:600;color:#2E8A6E">← Back</a>
+    <a href="index.html" style="font-size:13px;letter-spacing:.12em;color:#14201C;text-decoration:none"><strong style="font-weight:800">BARK</strong><span style="font-weight:400">LENS</span></a>
+    <span style="width:44px"></span>
+  </div>
+  <section id="the-inbox" data-screen-label="06 the inbox" style="position:relative;color:#14201C;padding:44px 24px 80px;background:#F5F0E8;text-align:center">
+    <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:36px;line-height:1.1;margin:0;text-wrap:pretty">Your dog’s history is already in your inbox.</h2>
+    <p style="font-size:17px;line-height:1.65;color:#14201C;margin:20px auto 0;max-width:34ch">Your vet has been emailing records and lab results for years. Connect Gmail once and BarkLens reads them into your dog’s chart.</p>
+    <p style="font-family:'DM Serif Display',serif;font-size:22px;line-height:1.3;color:#2E8A6E;margin:22px 0 0">No typing. No digging.</p>
+    <span style="display:inline-block;font-weight:600;font-size:15px;color:#0B0B0C;background:#57CEAC;padding:14px 26px;border-radius:999px;margin-top:22px">Connect Gmail</span>
+    <p style="font-size:13px;line-height:1.6;color:#7B7367;margin:12px auto 0;max-width:32ch">Your inbox stays private. BarkLens only keeps the records you approve. <a href="your-records-are-yours.html" style="display:inline-flex;align-items:center;min-height:44px;color:#2E8A6E;white-space:nowrap" style-active="opacity:.6">Your records are yours →</a></p>
+
+    <div style="margin-top:36px;border-radius:20px;overflow:hidden;border:1.5px solid rgba(31,36,33,.26);box-shadow:0 26px 56px rgba(31,36,33,.28),0 8px 18px rgba(31,36,33,.14);text-align:left">
+      <div style="background:#fff;font-family:Inter,sans-serif;padding-top:16px">
+        <div style="margin:0 12px 2px;height:42px;border-radius:22px;background:#F1F3F6;display:flex;align-items:center;gap:12px;padding:0 8px 0 14px">
+          <svg viewBox="0 0 24 24" style="width:17px;height:17px;flex:0 0 auto" fill="none" stroke="#5F6368" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+          <span style="flex:1;font-size:13.5px;color:#5F6368">Search in mail</span>
+          <span style="width:26px;height:26px;border-radius:50%;background:#14A08D;display:grid;place-items:center;font-weight:700;font-size:12px;color:#fff;flex:0 0 auto">B</span>
+        </div>
+        <div style="display:flex;gap:12px;padding:14px 14px 12px;align-items:flex-start">
+          <span style="width:34px;height:34px;border-radius:50%;background:#14A08D;flex:0 0 auto;display:grid;place-items:center;font-weight:600;font-size:15px;color:#fff">A</span>
+          <span style="flex:1;min-width:0">
+            <span style="display:flex;justify-content:space-between;gap:8px"><span style="font-weight:600;font-size:13px;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ABC Vet Clinic</span><span style="font-size:11px;color:#5F6368;flex:0 0 auto">Jun 26</span></span>
+            <span style="display:block;font-size:12.5px;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px">Charlie’s lab results are ready to view</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;margin-top:7px;padding:4px 9px 4px 7px;border:1px solid #E0E2E6;border-radius:8px"><span style="width:16px;height:16px;border-radius:3px;background:#EA4335;display:grid;place-items:center;font-weight:800;font-size:6.5px;color:#fff">PDF</span><span style="font-weight:500;font-size:11.5px;color:#3C4043">Lab_Results.pdf</span></span>
+          </span>
+        </div>
+        <div style="display:flex;gap:12px;padding:12px 14px;align-items:flex-start;border-top:1px solid #F1F1F2">
+          <span style="width:34px;height:34px;border-radius:50%;background:#14A08D;flex:0 0 auto;display:grid;place-items:center;font-weight:600;font-size:15px;color:#fff">A</span>
+          <span style="flex:1;min-width:0">
+            <span style="display:flex;justify-content:space-between;gap:8px"><span style="font-weight:600;font-size:13px;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ABC Vet Clinic</span><span style="font-size:11px;color:#5F6368;flex:0 0 auto">Mar 12</span></span>
+            <span style="display:block;font-size:12.5px;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px">Today’s appointment summary — Charlie</span>
+          </span>
+        </div>
+        <div style="display:flex;gap:12px;padding:12px 14px 16px;align-items:flex-start;border-top:1px solid #F1F1F2">
+          <span style="width:34px;height:34px;border-radius:50%;background:#14A08D;flex:0 0 auto;display:grid;place-items:center;font-weight:600;font-size:15px;color:#fff">A</span>
+          <span style="flex:1;min-width:0">
+            <span style="display:flex;justify-content:space-between;gap:8px"><span style="font-weight:600;font-size:13px;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ABC Vet Clinic</span><span style="font-size:11px;color:#5F6368;flex:0 0 auto">Nov 12</span></span>
+            <span style="display:block;font-size:12.5px;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px">Charlie’s vaccine history — updated</span>
+          </span>
+        </div>
+      </div>
+      <div style="position:relative;background:#161618;padding:22px 20px 24px;margin-top:-10px;border-radius:20px 20px 0 0">
+        <p style="font-family:'DM Serif Display',serif;font-size:23px;line-height:1.2;color:#EDE3D4;margin:0">Let’s bring Charlie’s<br>records in.</p>
+        <div style="display:flex;flex-direction:column;gap:7px;margin:14px 0 20px">
+          <span style="display:flex;align-items:baseline;gap:9px;font-size:13.5px;color:#EDE3D4"><span style="color:#57CEAC;font-weight:700;flex:0 0 auto">✓</span>Only vet mail</span>
+          <span style="display:flex;align-items:baseline;gap:9px;font-size:13.5px;color:#EDE3D4"><span style="color:#57CEAC;font-weight:700;flex:0 0 auto">✓</span>Records, not emails</span>
+          <span style="display:flex;align-items:baseline;gap:9px;font-size:13.5px;color:#EDE3D4"><span style="color:#57CEAC;font-weight:700;flex:0 0 auto">✓</span>Nothing stays open</span>
+        </div>
+        <div style="height:48px;border-radius:999px;background:#fff;display:flex;align-items:center;justify-content:center;gap:9px">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;flex:0 0 auto"><path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.2H12v4.1h6.5c-.1 1.1-.8 2.7-2.4 3.8l3.7 2.9c2.2-2 3.7-5 3.7-8.6z"></path><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.2 1.2-3.2 0-5.9-2.1-6.9-5l-3.9 3C3.2 21.3 7.3 24 12 24z"></path><path fill="#FBBC05" d="M5.1 14.4c-.2-.7-.4-1.5-.4-2.4s.2-1.7.4-2.4l-3.9-3C.4 8.2 0 10 0 12s.4 3.8 1.2 5.4l3.9-3z"></path><path fill="#EA4335" d="M12 4.6c1.8 0 3 .8 3.7 1.4l3.3-3.2C17.9 1 15.2 0 12 0 7.3 0 3.2 2.7 1.2 6.6l3.9 3c1-2.9 3.7-5 6.9-5z"></path></svg>
+          <span style="font-weight:600;font-size:14px;color:#111">Connect with Gmail</span>
+        </div>
+        <p style="text-align:center;font-size:12.5px;color:#A89F92;margin:12px 0 0">or add records yourself</p>
+      </div>
+    </div>
+
+    <p style="font-size:17px;line-height:1.65;color:#7B7367;margin:26px auto 0;max-width:34ch">Lab values, vet notes, dates, medications — in order, each value with the range printed on its own report.</p>
+    <p style="font-family:'DM Serif Display',serif;font-size:24px;line-height:1.3;color:#14201C;margin:28px 0 0">Years of scattered emails. <em style="color:#2E8A6E">One clear picture.</em></p>
+  </section>
+  <footer style="background:#0B0B0C;color:#EDE3D4;padding:40px 24px 48px">
+    <p style="font-family:'DM Serif Display',serif;font-size:20px;line-height:1.3;margin:0">The internet knows dogs.<br><em style="color:#57CEAC">BarkLens knows yours.</em></p>
+    <p style="font-size:12px;color:rgba(168,159,146,.6);margin:18px 0 0">© Think Tanc LLC</p>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

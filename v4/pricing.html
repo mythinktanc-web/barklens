@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="assets/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0B0C;color:#14201C;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2E8A6E;text-decoration:none}a:hover{color:#14201C}
+::selection{background:rgba(87,206,172,.3)}
+
+@media (min-width:768px){#dc-root [style*="max-width: 430px"]{max-width:640px!important}}
+@media (min-width:1200px){#dc-root [style*="max-width: 430px"]{max-width:720px!important}}
+</style>
+</helmet>
+
+<div style="max-width:430px;margin:0 auto;background:#F5F0E8">
+
+  <section data-screen-label="1 pricing hero + plans" style="position:relative;background:#0B0B0C">
+    <div style="position:relative;height:620px;overflow:hidden">
+      <img src="assets/plans-couch.webp" alt="An owner curled up on a couch with her golden retriever" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.5) 0%,rgba(11,11,12,0) 22%,rgba(11,11,12,0) 62%,rgba(11,11,12,.55) 84%,#0B0B0C 100%)"></div>
+      <div style="position:absolute;left:24px;right:24px;top:18px;display:flex;align-items:center;justify-content:space-between">
+        <a href="index.html" style="font-size:13px;letter-spacing:.12em;color:#F5F0E8"><strong style="font-weight:800">BARK</strong><span style="font-weight:400">LENS</span></a>
+        <a href="index.html" style="font-weight:600;font-size:12px;letter-spacing:.02em;color:#9BF0D3">← Back to site</a>
+      </div>
+      <h1 style="position:absolute;left:24px;right:24px;bottom:28px;font-family:'DM Serif Display',serif;font-weight:400;font-size:52px;line-height:1;letter-spacing:-0.01em;color:#EDE3D4;margin:0;text-shadow:0 3px 6px rgba(11,11,12,.6)">Plans</h1>
+    </div>
+    <div style="position:relative;padding:8px 20px 64px;display:flex;flex-direction:column;gap:28px">
+
+    <div style="background:#1C1C1F;border:1.5px solid #57CEAC;border-radius:20px;box-shadow:0 0 0 1px rgba(87,206,172,.35);padding:28px 22px">
+      <sc-if value="{{ billMonthly }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px">
+        <span style="text-align:center;font-size:13.5px;font-weight:600;color:#0B0B0C;background:#57CEAC;padding:9px 0;border-radius:999px">Monthly</span>
+        <span onClick="{{ toAnnual }}" style="text-align:center;font-size:13.5px;font-weight:600;color:#A89F92;padding:9px 0;border-radius:999px;cursor:pointer">Annual · 2 mo free</span>
+      </div>
+      </sc-if>
+      <sc-if value="{{ billAnnual }}" hint-placeholder-val="{{ false }}">
+      <div style="display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px">
+        <span onClick="{{ toMonthly }}" style="text-align:center;font-size:13.5px;font-weight:600;color:#A89F92;padding:9px 0;border-radius:999px;cursor:pointer">Monthly</span>
+        <span style="text-align:center;font-size:13.5px;font-weight:600;color:#0B0B0C;background:#57CEAC;padding:9px 0;border-radius:999px">Annual · 2 mo free</span>
+      </div>
+      </sc-if>
+      <sc-if value="{{ planPlus }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+        <div style="display:flex;align-items:center;gap:12px;border:1.5px solid #57CEAC;background:rgba(87,206,172,.08);border-radius:14px;padding:14px">
+          <span style="width:16px;height:16px;border-radius:50%;border:5px solid #57CEAC;box-sizing:border-box;flex:0 0 auto"></span>
+          <span style="font-size:14.5px;font-weight:600;color:#EDE3D4;flex:1">Plus<span style="display:block;font-size:12px;font-weight:500;color:#A89F92">one dog</span></span>
+          <span style="font-size:14.5px;color:#EDE3D4;text-align:right">$14.95/mo<span style="display:block;font-size:12px;color:#A89F92">or $149/yr</span></span>
+        </div>
+        <div onClick="{{ pickFam }}" style="display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:14px;cursor:pointer">
+          <span style="width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);flex:0 0 auto"></span>
+          <span style="font-size:14.5px;font-weight:600;color:#EDE3D4;flex:1">Family<span style="display:block;font-size:12px;font-weight:500;color:#A89F92">up to 4 dogs</span></span>
+          <span style="font-size:14.5px;color:#A89F92;text-align:right">$24.95/mo<span style="display:block;font-size:12px">or $249/yr</span></span>
+        </div>
+      </div>
+      </sc-if>
+      <sc-if value="{{ planFam }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+        <div onClick="{{ pickPlus }}" style="display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:14px;cursor:pointer">
+          <span style="width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);flex:0 0 auto"></span>
+          <span style="font-size:14.5px;font-weight:600;color:#EDE3D4;flex:1">Plus<span style="display:block;font-size:12px;font-weight:500;color:#A89F92">one dog</span></span>
+          <span style="font-size:14.5px;color:#A89F92;text-align:right">$14.95/mo<span style="display:block;font-size:12px">or $149/yr</span></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;border:1.5px solid #57CEAC;background:rgba(87,206,172,.08);border-radius:14px;padding:14px">
+          <span style="width:16px;height:16px;border-radius:50%;border:5px solid #57CEAC;box-sizing:border-box;flex:0 0 auto"></span>
+          <span style="font-size:14.5px;font-weight:600;color:#EDE3D4;flex:1">Family<span style="display:block;font-size:12px;font-weight:500;color:#A89F92">up to 4 dogs</span></span>
+          <span style="font-size:14.5px;color:#EDE3D4;text-align:right">$24.95/mo<span style="display:block;font-size:12px;color:#A89F92">or $249/yr</span></span>
+        </div>
+      </div>
+      </sc-if>
+      <sc-if value="{{ billMonthly }}" hint-placeholder-val="{{ true }}">
+      <p style="margin:20px 0 0"><span style="font-family:'DM Serif Display',serif;font-size:34px;color:#EDE3D4">{{ mPrice }}</span><span style="font-size:17px;color:#A89F92">/month</span></p>
+      <p style="font-size:13.5px;color:#A89F92;margin:4px 0 0">or {{ yPrice }}/year — two months free</p>
+      </sc-if>
+      <sc-if value="{{ billAnnual }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:20px 0 0"><span style="font-family:'DM Serif Display',serif;font-size:34px;color:#EDE3D4">{{ yPrice }}</span><span style="font-size:17px;color:#A89F92">/year</span></p>
+      <p style="font-size:13.5px;color:#57CEAC;margin:4px 0 0">{{ perMo }} a month — save {{ save }} vs monthly</p>
+      </sc-if>
+      <sc-if value="{{ planPlus }}" hint-placeholder-val="{{ true }}">
+      <p style="font-size:16px;line-height:1.6;color:#EDE3D4;margin:14px 0 0">One dog, one chart.</p>
+      </sc-if>
+      <sc-if value="{{ planFam }}" hint-placeholder-val="{{ false }}">
+      <p style="font-size:16px;line-height:1.6;color:#EDE3D4;margin:14px 0 0">Up to four dogs, each with its own chart.</p>
+      </sc-if>
+      <div style="height:1px;background:rgba(255,255,255,.1);margin:20px 0 0"></div>
+      <span onClick="{{ togglePlus }}" style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 0 0;cursor:pointer;font-size:14.5px;font-weight:600;color:#57CEAC">{{ plusLabel }}</span>
+      <sc-if value="{{ plusOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
+        <sc-if value="{{ planFam }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#EDE3D4"><span style="color:#57CEAC;flex:0 0 auto">–</span><span>Up to four dogs, each with its own chart</span></div>
+        </sc-if>
+        <div style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#EDE3D4"><span style="color:#57CEAC;flex:0 0 auto">–</span><span>Vet records brought in from Gmail, or added manually</span></div>
+        <div style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#EDE3D4"><span style="color:#57CEAC;flex:0 0 auto">–</span><span>Photo capture: stool, food labels, medications and supplements, products</span></div>
+        <div style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#EDE3D4"><span style="color:#57CEAC;flex:0 0 auto">–</span><span>Lab values shown with the range printed on their own report</span></div>
+        <div style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#EDE3D4"><span style="color:#57CEAC;flex:0 0 auto">–</span><span>Values compared side by side over time</span></div>
+        <div style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#EDE3D4"><span style="color:#57CEAC;flex:0 0 auto">–</span><span>Questions answered from your dog’s own chart</span></div>
+        <div style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#EDE3D4"><span style="color:#57CEAC;flex:0 0 auto">–</span><span>Care team: a co-owner seat included, and helper seats free</span></div>
+        <div style="display:flex;gap:10px;font-size:16px;line-height:1.55;color:#EDE3D4"><span style="color:#57CEAC;flex:0 0 auto">–</span><span>Export everything at any time, including after you cancel</span></div>
+      </div>
+      </sc-if>
+      <a href="#join" style="display:block;text-align:center;font-weight:600;font-size:15px;color:#0B0B0C;background:#57CEAC;padding:16px 28px;border-radius:999px;margin-top:24px">Join Today</a>
+    </div>
+
+    <p style="font-size:17px;line-height:1.65;color:#EDE3D4;margin:0;text-align:center;text-shadow:0 2px 4px rgba(11,11,12,.6)"><strong style="font-weight:700;color:#57CEAC">Start with Seven Days.</strong> If you don’t feel more relief and a sense of empowerment using BarkLens, cancel your membership. We will email you before the trial expires.</p>
+    <div id="join" style="text-align:center;padding:0 4px 0">
+      <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:34px;line-height:1.12;color:#EDE3D4;margin:0;text-shadow:0 2px 5px rgba(11,11,12,.6)">Start with seven days.</h2>
+      <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:17px;line-height:1.65;color:#57CEAC;margin:24px auto 0;max-width:30ch;text-shadow:0 2px 4px rgba(11,11,12,.6)">You’re on the list. We’ll email you when it’s your turn — and before anything else happens.</p>
+      </sc-if>
+      <p style="font-size:13.5px;line-height:1.6;color:#A89F92;margin:14px 0 0">We’ll tell you before we charge you.</p>
+    </div>
+
+  </section>
+
+
+
+  <section data-screen-label="5 pricing faq" style="background:#0B0B0C;padding:56px 24px 64px">
+    <p style="font-size:15px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#57CEAC;margin:0;text-align:center">Frequently asked questions</p>
+    <h2 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:32px;line-height:1.12;color:#EDE3D4;margin:14px 0 0;text-align:center;text-wrap:pretty">Before you <em style="color:#57CEAC">join.</em></h2>
+    <div style="margin-top:28px;border-top:1px solid rgba(255,255,255,.12)">
+      <div style="border-bottom:1px solid rgba(255,255,255,.12)">
+        <p onClick="{{ faqT1 }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:17px;font-weight:600;line-height:1.4;color:#EDE3D4;margin:0;padding:18px 0;cursor:pointer">What happens when the trial ends?<span style="display:grid;place-items:center;width:34px;height:34px;border-radius:999px;border:1.5px solid rgba(237,227,212,.35);flex:0 0 auto"><svg viewBox="0 0 24 24" style="width:13px;height:13px" fill="none" stroke="rgba(237,227,212,.8)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></p>
+        <sc-if value="{{ faqO1 }}" hint-placeholder-val="{{ false }}"><p style="font-size:17px;line-height:1.6;color:rgba(237,227,212,.85);margin:0;padding:0 0 20px;max-width:34ch">We email you before it does, and again before we charge you. If you cancel, you keep your records and your export.</p></sc-if>
+      </div>
+      <div style="border-bottom:1px solid rgba(255,255,255,.12)">
+        <p onClick="{{ faqT2 }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:17px;font-weight:600;line-height:1.4;color:#EDE3D4;margin:0;padding:18px 0;cursor:pointer">What if I cancel later?<span style="display:grid;place-items:center;width:34px;height:34px;border-radius:999px;border:1.5px solid rgba(237,227,212,.35);flex:0 0 auto"><svg viewBox="0 0 24 24" style="width:13px;height:13px" fill="none" stroke="rgba(237,227,212,.8)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></p>
+        <sc-if value="{{ faqO2 }}" hint-placeholder-val="{{ false }}"><p style="font-size:17px;line-height:1.6;color:rgba(237,227,212,.85);margin:0;padding:0 0 20px;max-width:34ch">You keep your chart and your export. Features stop. History doesn’t.</p></sc-if>
+      </div>
+      <div style="border-bottom:1px solid rgba(255,255,255,.12)">
+        <p onClick="{{ faqT3 }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:17px;font-weight:600;line-height:1.4;color:#EDE3D4;margin:0;padding:18px 0;cursor:pointer">Do I need a card to start the trial?<span style="display:grid;place-items:center;width:34px;height:34px;border-radius:999px;border:1.5px solid rgba(237,227,212,.35);flex:0 0 auto"><svg viewBox="0 0 24 24" style="width:13px;height:13px" fill="none" stroke="rgba(237,227,212,.8)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></p>
+        <sc-if value="{{ faqO3 }}" hint-placeholder-val="{{ false }}"><p style="font-size:17px;line-height:1.6;color:rgba(237,227,212,.85);margin:0;padding:0 0 20px;max-width:34ch">If you start through the App Store or Google Play, the payment method already on your store account is used. Either way, you are not charged during the seven days, we email you before the trial ends, and you can cancel any time before then at no cost.</p></sc-if>
+      </div>
+      <div style="border-bottom:1px solid rgba(255,255,255,.12)">
+        <p onClick="{{ faqT4 }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:17px;font-weight:600;line-height:1.4;color:#EDE3D4;margin:0;padding:18px 0;cursor:pointer">Can I add someone who helps care for my dog?<span style="display:grid;place-items:center;width:34px;height:34px;border-radius:999px;border:1.5px solid rgba(237,227,212,.35);flex:0 0 auto"><svg viewBox="0 0 24 24" style="width:13px;height:13px" fill="none" stroke="rgba(237,227,212,.8)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></p>
+        <sc-if value="{{ faqO4 }}" hint-placeholder-val="{{ false }}"><p style="font-size:17px;line-height:1.6;color:rgba(237,227,212,.85);margin:0;padding:0 0 20px;max-width:34ch">Yes, and it’s free. Send them a link and they can see today’s medications, log a dose, and reach your emergency contacts. You can revoke it whenever you want.</p></sc-if>
+      </div>
+      <div style="border-bottom:1px solid rgba(255,255,255,.12)">
+        <p onClick="{{ faqT5 }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:17px;font-weight:600;line-height:1.4;color:#EDE3D4;margin:0;padding:18px 0;cursor:pointer">Is there a plan for more than four dogs?<span style="display:grid;place-items:center;width:34px;height:34px;border-radius:999px;border:1.5px solid rgba(237,227,212,.35);flex:0 0 auto"><svg viewBox="0 0 24 24" style="width:13px;height:13px" fill="none" stroke="rgba(237,227,212,.8)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></p>
+        <sc-if value="{{ faqO5 }}" hint-placeholder-val="{{ false }}"><p style="font-size:17px;line-height:1.6;color:rgba(237,227,212,.85);margin:0;padding:0 0 20px;max-width:34ch">Not yet. If you’re fostering or running a rescue, write to <a href="mailto:hello@barklens.com" style="color:#57CEAC">hello@barklens.com</a> — we’d rather hear from you than guess.</p></sc-if>
+      </div>
+    </div>
+  </section>
+
+  <footer data-screen-label="7 disclosure" style="background:#0B0B0C;border-top:1px solid rgba(255,255,255,.1);padding:32px 24px 56px">
+    <p style="font-size:13.5px;line-height:1.7;color:#A89F92;margin:0;max-width:34ch">BarkLens uses AI and can make mistakes. It does not diagnose, and it is not a substitute for veterinary care. Anything it tells you about your dog’s health traces to a source you can check.</p>
+    <p style="font-size:13.5px;line-height:1.7;color:#A89F92;margin:14px 0 0">Verified veterinary sources · Reviewed by a licensed veterinarian · Never diagnoses</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  state = { email: '', joined: false, plusOpen: false, famOpen: false, featOpen: false, openFaq: null, billAnnual: false, planFam: false };
+  toggleFaq(n) { this.setState(s => ({ openFaq: s.openFaq === n ? null : n })); }
+  careTasks() {
+    const items = this.state.careItems || [
+      { title: 'Breakfast', sub: 'Half cup · omega-3 chew alongside', by: 'You · 7:42am' },
+      { title: 'Rimadyl', sub: 'Morning dose, with food', by: 'You · 8:05am' },
+      { title: 'Light walk', sub: 'Around the block, easy pace', by: 'Mark · 9:20am' },
+      { title: 'Lunch', sub: 'Quarter cup', by: null },
+      { title: 'Light walk', sub: 'Second of the day', by: null },
+      { title: 'Dinner', sub: 'Half cup', by: null }
+    ];
+    return {
+      doneCount: items.filter(i => i.by).length,
+      tasks: items.map((i, n) => {
+        const done = !!i.by;
+        return {
+          title: i.title, sub: i.sub, by: done ? i.by : 'Tap when done',
+          toggle: () => this.setState(st => {
+            const arr = (st.careItems || items).slice();
+            arr[n] = { ...arr[n], by: arr[n].by ? null : 'You · just now' };
+            return { careItems: arr };
+          }),
+          box: { display: 'grid', placeItems: 'center', width: '22px', height: '22px', borderRadius: '7px', border: done ? '1.5px solid #57CEAC' : '1.5px solid rgba(237,227,212,.34)', background: done ? '#57CEAC' : 'transparent', transition: 'background .18s, border-color .18s' },
+          tick: { width: '14px', height: '14px', opacity: done ? 1 : 0, transition: 'opacity .18s' },
+          titleStyle: { fontFamily: "'DM Serif Display', serif", fontSize: '19px', lineHeight: 1.2, color: '#EDE3D4' },
+          byStyle: { fontSize: '13px', lineHeight: 1.3, whiteSpace: 'nowrap', color: done ? '#57CEAC' : 'rgba(168,159,146,.7)' }
+        };
+      })
+    };
+  }
+  renderVals() {
+    return {
+      plusOpen: this.state.plusOpen,
+      famOpen: this.state.famOpen,
+      plusLabel: this.state.plusOpen ? 'Hide details ▴' : "See what's included ▾",
+      famLabel: this.state.famOpen ? 'Hide details ▴' : "See what's included ▾",
+      billMonthly: !this.state.billAnnual, billAnnual: this.state.billAnnual,
+      toAnnual: () => this.setState({ billAnnual: true }), toMonthly: () => this.setState({ billAnnual: false }),
+      planPlus: !this.state.planFam, planFam: this.state.planFam,
+      pickPlus: () => this.setState({ planFam: false }), pickFam: () => this.setState({ planFam: true }),
+      mPrice: this.state.planFam ? '$24.95' : '$14.95',
+      yPrice: this.state.planFam ? '$249' : '$149',
+      perMo: this.state.planFam ? '$20.75' : '$12.42',
+      save: this.state.planFam ? '$50' : '$30',
+      faqO1: this.state.openFaq === 1, faqO2: this.state.openFaq === 2, faqO3: this.state.openFaq === 3, faqO4: this.state.openFaq === 4, faqO5: this.state.openFaq === 5,
+      faqT1: () => this.toggleFaq(1), faqT2: () => this.toggleFaq(2), faqT3: () => this.toggleFaq(3), faqT4: () => this.toggleFaq(4), faqT5: () => this.toggleFaq(5),
+      featOpen: this.state.featOpen,
+      featLabel: this.state.featOpen ? 'Every feature, in both plans ▴' : 'Every feature, in both plans ▾',
+      toggleFeat: () => this.setState(s => ({ featOpen: !s.featOpen })),
+      togglePlus: () => this.setState(s => ({ plusOpen: !s.plusOpen })),
+      toggleFam: () => this.setState(s => ({ famOpen: !s.famOpen })),
+      email: this.state.email,
+      joined: this.state.joined,
+      notJoined: !this.state.joined,
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      join: () => { if (this.state.email.trim()) this.setState({ joined: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
