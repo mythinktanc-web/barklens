@@ -3,212 +3,614 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import ButtonLink from '@components/ButtonLink.astro';
 import { routes } from '@config/site';
 
-const domains = [
+const comparisonRows = [
   {
-    label: 'Kidney & urinary',
-    example: 'Kidney markers, urine findings, and chronic kidney disease staging.',
-    sources: 'IRIS, Merck Veterinary Manual, Cornell eClinPath'
+    label: 'Draws on',
+    barklens: 'Your dog’s own dated records',
+    general: 'Whatever it was trained on',
+    why: 'Your dog isn’t the average dog'
   },
   {
-    label: 'Liver & biliary',
-    example: 'Liver enzymes, bilirubin, bile acids, and related laboratory context.',
-    sources: 'Merck Veterinary Manual, Cornell eClinPath, ACVIM'
+    label: 'Sources',
+    barklens: 'Veterinary textbooks, peer-reviewed journals, university references, clinical guidelines',
+    general: 'A forum post and a textbook count the same',
+    why: 'No message boards. Ever.'
   },
   {
-    label: 'Endocrine',
-    example: 'Diabetes, thyroid disease, and Cushing’s disease.',
-    sources: 'AAHA, Merck Veterinary Manual, ACVIM'
+    label: 'Every source is',
+    barklens: 'Reviewed by a licensed veterinarian',
+    general: 'Not reviewed by anyone',
+    why: 'A vet decided what counts'
   },
   {
-    label: 'Heart',
-    example: 'Cardiac history, respiratory-rate records, and published consensus guidance.',
-    sources: 'ACVIM, Merck Veterinary Manual'
-  },
-  {
-    label: 'Medications',
-    example: 'Approved labels, precautions, and laboratory language tied to a prescription.',
-    sources: 'FDA-approved drug labeling, manufacturer prescribing information'
-  },
-  {
-    label: 'Nutrition & digestion',
-    example: 'Pancreatitis, diet history, stool records, and digestive-health context.',
-    sources: 'Merck Veterinary Manual, AAHA, peer-reviewed veterinary literature'
+    label: 'Proof',
+    barklens: 'Tap any claim, read the source',
+    general: 'Take its word for it',
+    why: 'You don’t have to trust us'
   }
-];
+] as const;
 ---
 
 <BaseLayout
   title="Where BarkLens answers come from | Veterinary sources"
   description="See how BarkLens connects your dog’s records to published veterinary sources and keeps each source available for review."
   canonicalPath="/where-the-answers-come-from/"
+  compactFooter
+  hideFooterOnMobile
 >
-  <section class="sources-hero">
-    <div class="sources-hero__grid container">
-      <div>
-        <p class="eyebrow">Sources</p>
-        <h1>Where the answers come from.</h1>
-      </div>
-      <div class="sources-hero__copy">
-        <p>
-          See how BarkLens connects your dog’s records to published veterinary sources and keeps
-          each source available for review.
+  <div class="sources-page">
+    <section class="sources-hero sources-wrap">
+      <div class="sources-inner">
+        <p class="eyebrow">Not all answers are built the same.</p>
+        <h1>The BarkLens <em>Standard.</em></h1>
+        <p class="sources-hero__desktop-copy">
+          Everything BarkLens tells you about your dog comes from one of two places: your dog’s
+          own records, or a published veterinary source that a licensed veterinarian approved.
+          Not the open internet, and not whatever a model happens to remember.
         </p>
+        <p class="sources-hero__mobile-copy">
+          Everything BarkLens tells you comes from your dog’s own records, or a veterinary
+          source a licensed vet approved.
+        </p>
+      </div>
+    </section>
+
+    <section class="sources-comparison sources-wrap" aria-label="BarkLens and general AI comparison">
+      <div class="sources-inner">
+        <div class="comparison-desktop">
+          <div class="comparison-desktop__header" aria-hidden="true">
+            <span></span><span>BarkLens</span><span>General AI</span><span>Why it matters</span>
+          </div>
+          {comparisonRows.map((row) => (
+            <div class="comparison-desktop__row">
+              <span>{row.label}</span>
+              <span>{row.barklens}</span>
+              <span>{row.general}</span>
+              <span>{row.why}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="comparison-mobile">
+          <div class="comparison-mobile__header">
+            <span>BarkLens</span><span>General AI</span>
+          </div>
+          {comparisonRows.map((row) => (
+            <div class="comparison-mobile__row">
+              <span class="comparison-mobile__label">{row.label}</span>
+              <div><span>{row.barklens}</span><span>{row.general}</span></div>
+              <p>→ {row.why}</p>
+            </div>
+          ))}
+        </div>
+
+        <p class="source-names source-names--desktop">
+          Merck Veterinary Manual · Cornell University eClinPath · Animal Health Diagnostic
+          Center · AAHA practice guidelines · ACVIM consensus statements · ACVS · IRIS ·
+          FDA-approved drug labeling
+        </p>
+        <p class="source-names source-names--mobile">
+          Merck · Cornell eClinPath · Animal Health Diagnostic Center · AAHA · ACVIM · ACVS ·
+          IRIS · FDA drug labels
+        </p>
+      </div>
+    </section>
+
+    <section class="sources-explainers sources-wrap">
+      <div class="sources-inner sources-explainers__grid">
+        <article>
+          <h2>What counts as a source</h2>
+          <p>Textbooks. Peer-reviewed journals. University veterinary references. The guidelines vets follow. FDA-approved drug labels.</p>
+          <p>Nothing from a search engine, a blog, or a forum.</p>
+        </article>
+        <article>
+          <h2>Who checks them</h2>
+          <p>A licensed veterinarian reviews every source before it’s used.</p>
+          <p class="desktop-only">They’re not reviewing your dog’s results. Those belong to your own vet, who has examined your dog. What gets reviewed here is the material behind the answers.</p>
+          <p class="mobile-only">Not your dog’s results. Those belong to your own vet.</p>
+        </article>
+        <article>
+          <h2>What you can see</h2>
+          <p>Every claim shows the passage it came from, word for word, and where it was published.</p>
+          <p>If a source is unclear or contradicts itself, the claim doesn’t get used.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sources-standards sources-wrap">
+      <div class="sources-inner">
+        <div class="sources-standards__panel">
+          <h2>What BarkLens won’t do</h2>
+          <p>It won’t diagnose. It won’t tell you what’s wrong with your dog, and it won’t tell you nothing is.</p>
+          <p>It explains, organizes, and gives you the questions worth asking. Your vet makes the calls.</p>
+          <p>BarkLens uses AI and can be wrong. That’s why every claim points to a source you can check.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sources-evidence sources-wrap">
+      <div class="sources-inner">
+        <h2>Why we’re this strict</h2>
+        <div class="sources-evidence__desktop-copy">
+          <p>
+            In a study of 636 citations from AI-generated papers, 55% of the works cited by
+            GPT-3.5 were fabricated
+            (<a href="https://www.nature.com/articles/s41598-023-41032-5" target="_blank" rel="noopener">Scientific Reports</a>).
+            In another, eight AI search tools were asked to name the source of a direct quote
+            across 1,600 queries and got it wrong more than 60% of the time
+            (<a href="https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php" target="_blank" rel="noopener">Columbia Journalism Review</a>).
+          </p>
+          <p>Newer models do better. We still think you should be able to check.</p>
+        </div>
+        <div class="sources-evidence__mobile-copy">
+          <p>
+            In one study, 55% of the works cited by GPT-3.5 were fabricated
+            (<a href="https://www.nature.com/articles/s41598-023-41032-5" target="_blank" rel="noopener">Scientific Reports</a>).
+            Newer models do better. We still think you should be able to check.
+          </p>
+        </div>
+        <ButtonLink href={routes.waitlist}>Start your dog’s chart</ButtonLink>
         <p class="sources-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="source-system container">
-    <div class="source-system__intro">
-      <p class="eyebrow">The library</p>
-      <h2>The record leads. The science provides context.</h2>
-    </div>
-    <div class="source-system__cards">
-      <article>
-        <span>01</span>
-        <h3>Published</h3>
-        <p>
-          General health information comes from veterinary manuals, practice guidelines,
-          consensus statements, peer-reviewed literature, and approved drug labeling.
-        </p>
-      </article>
-      <article>
-        <span>02</span>
-        <h3>Traceable</h3>
-        <p>
-          The source stays attached, so you can see the publication behind the information
-          and return to the original.
-        </p>
-      </article>
-      <article>
-        <span>03</span>
-        <h3>Source-reviewed</h3>
-        <p>Every source reviewed by a licensed veterinarian.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="source-list">
-    <div class="source-list__grid container">
-      <div>
-        <p class="eyebrow">The sources</p>
-        <h2>Recognized veterinary institutions and original publications.</h2>
-        <p>
-          The library includes sources such as the Merck Veterinary Manual, Cornell
-          University’s eClinPath and Animal Health Diagnostic Center, AAHA practice
-          guidelines, ACVIM consensus statements, ACVS, IRIS, and FDA-approved drug
-          labeling.
-        </p>
-      </div>
-      <ul aria-label="Veterinary source institutions">
-        <li><span>Merck</span><strong>Veterinary Manual</strong></li>
-        <li><span>Cornell</span><strong>eClinPath · AHDC</strong></li>
-        <li><span>AAHA</span><strong>Practice guidelines</strong></li>
-        <li><span>ACVIM</span><strong>Consensus statements</strong></li>
-        <li><span>ACVS</span><strong>Surgical information</strong></li>
-        <li><span>IRIS</span><strong>Kidney guidelines</strong></li>
-        <li><span>FDA</span><strong>Approved drug labeling</strong></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="domain-library container">
-    <div class="domain-library__heading">
-      <p class="eyebrow">The library, by domain</p>
-      <h2>Open a section to see what sits behind it.</h2>
-    </div>
-    <div class="domain-library__accordions">
-      {domains.map((domain, index) => (
-        <article data-source-domain>
-          <h3>
-            <button
-              type="button"
-              aria-expanded="false"
-              aria-controls={`source-domain-${index}`}
-            >
-              <span>{domain.label}</span><i aria-hidden="true">+</i>
-            </button>
-          </h3>
-          <div id={`source-domain-${index}`} hidden>
-            <p>{domain.example}</p>
-            <small><strong>Source set:</strong> {domain.sources}</small>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="sources-cta">
-    <div class="container">
-      <p class="eyebrow">Your dog’s history</p>
-      <h2>The internet knows dogs. BarkLens knows yours.</h2>
-      <p>
-        Keep the records, values, dates, and published context together, ready for the next
-        question.
-      </p>
-      <ButtonLink href={routes.waitlist}>Join Waitlist</ButtonLink>
-    </div>
-  </section>
+    </section>
+  </div>
 </BaseLayout>
 
-<script is:inline>
-  document.querySelectorAll('[data-source-domain] button').forEach((button) => {
-    button.addEventListener('click', () => {
-      const panel = document.getElementById(button.getAttribute('aria-controls'));
-      const open = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!open));
-      panel.hidden = open;
-      button.querySelector('i').textContent = open ? '+' : '−';
-    });
-  });
-</script>
-
 <style>
-  .sources-hero { padding: var(--space-24) 0; background: var(--color-forest-900); color: var(--color-copy-inverse); }
-  .sources-hero__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: var(--space-20); align-items: end; }
-  .sources-hero .eyebrow { color: var(--color-mint-400); }
-  .sources-hero h1 { max-width: 11ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
-  .sources-hero__copy > p:first-child { max-width: 41ch; color: #d8cfc0; font-size: var(--text-lg); }
-  .sources-boundary { margin-top: var(--space-6); color: #a9bdb6; font-size: var(--text-sm); font-style: italic; }
-  .source-system { padding-block: var(--space-20); }
-  .source-system__intro { display: grid; grid-template-columns: .65fr 1.35fr; gap: var(--space-12); align-items: start; }
-  .source-system__intro h2 { max-width: 15ch; font-size: var(--text-2xl); }
-  .source-system__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); margin-top: var(--space-12); }
-  .source-system__cards article { min-height: 18rem; padding: var(--space-8); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #fff; }
-  .source-system__cards span { color: var(--color-green-600); font-size: var(--text-xs); font-weight: 800; letter-spacing: .12em; }
-  .source-system__cards h3 { margin-top: var(--space-12); font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; }
-  .source-system__cards p { margin-top: var(--space-4); color: var(--color-copy-muted); }
-  .source-list { padding-block: var(--space-20); background: var(--color-cream-200); }
-  .source-list__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--space-20); align-items: start; }
-  .source-list h2 { max-width: 15ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
-  .source-list__grid > div > p:last-child { max-width: 50ch; margin-top: var(--space-6); color: var(--color-copy-muted); }
-  .source-list ul { list-style: none; border-top: 1px solid var(--color-border); }
-  .source-list li { display: grid; grid-template-columns: 6rem 1fr; gap: var(--space-6); padding: var(--space-5) 0; border-bottom: 1px solid var(--color-border); }
-  .source-list li span { color: var(--color-green-600); font-size: var(--text-sm); font-weight: 800; text-transform: uppercase; }
-  .source-list li strong { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 400; }
-  .domain-library { display: grid; grid-template-columns: .8fr 1.2fr; gap: var(--space-20); padding-block: var(--space-20); }
-  .domain-library__heading h2 { max-width: 13ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
-  .domain-library__accordions { border-top: 1px solid var(--color-border); }
-  .domain-library__accordions article { border-bottom: 1px solid var(--color-border); }
-  .domain-library__accordions h3 { font-size: inherit; }
-  .domain-library__accordions button { display: flex; width: 100%; align-items: center; justify-content: space-between; padding: var(--space-6) 0; text-align: left; }
-  .domain-library__accordions button span { font-family: var(--font-display); font-size: var(--text-xl); }
-  .domain-library__accordions button i { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border: 1px solid var(--color-border); border-radius: 50%; color: var(--color-green-600); font-style: normal; }
-  .domain-library__accordions article > div { padding: 0 var(--space-12) var(--space-6) 0; }
-  .domain-library__accordions article > div p { color: var(--color-copy-muted); }
-  .domain-library__accordions article > div small { display: block; margin-top: var(--space-3); color: var(--color-copy-muted); }
-  .sources-cta { padding-block: var(--space-24); background: var(--color-green-600); color: var(--color-copy-inverse); text-align: center; }
-  .sources-cta .eyebrow { color: var(--color-copy-inverse); }
-  .sources-cta h2 { max-width: 18ch; margin: var(--space-5) auto 0; font-size: var(--text-2xl); }
-  .sources-cta p:not(.eyebrow) { max-width: 46ch; margin: var(--space-5) auto 0; color: var(--color-copy-inverse); }
-  .sources-cta :global(.button-link) { margin-top: var(--space-8); color: var(--color-forest-900); background: var(--color-mint-500); }
-  @media (max-width: 63.99rem) {
-    .sources-hero__grid, .source-list__grid, .domain-library { grid-template-columns: 1fr; gap: var(--space-12); }
-    .source-system__cards { grid-template-columns: 1fr; }
-    .source-system__cards article { min-height: auto; }
+  .sources-page {
+    background: #fff;
+    color: var(--color-forest-900);
   }
+
+  .sources-wrap {
+    padding-inline: var(--space-10);
+  }
+
+  .sources-inner {
+    width: min(100%, 68.75rem);
+    margin-inline: auto;
+  }
+
+  .sources-hero {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+  }
+
+  .sources-hero h1 {
+    max-width: 16ch;
+    margin-top: 1.125rem;
+    font-size: 4rem;
+    line-height: 1.04;
+  }
+
+  .sources-hero h1 em {
+    font-style: normal;
+  }
+
+  .sources-hero__desktop-copy {
+    max-width: 60ch;
+    margin-top: 1.625rem;
+    font-size: 1.1875rem;
+    line-height: 1.65;
+  }
+
+  .sources-hero__mobile-copy,
+  .comparison-mobile,
+  .source-names--mobile,
+  .mobile-only,
+  .sources-evidence__mobile-copy {
+    display: none;
+  }
+
+  .sources-comparison {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .comparison-desktop__header,
+  .comparison-desktop__row {
+    display: grid;
+    grid-template-columns: 9.375rem 1.3fr 1fr 1fr;
+  }
+
+  .comparison-desktop__header {
+    border-top: 1px solid var(--color-forest-900);
+  }
+
+  .comparison-desktop__header span {
+    padding: 1rem 1.25rem .875rem;
+    color: #5a6660;
+    font-size: .8125rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .comparison-desktop__header span:first-child {
+    padding-left: 0;
+  }
+
+  .comparison-desktop__header span:nth-child(2) {
+    color: var(--color-forest-900);
+  }
+
+  .comparison-desktop__header span:last-child {
+    color: var(--color-green-600);
+  }
+
+  .comparison-desktop__row {
+    border-top: 1px solid #e4ded2;
+  }
+
+  .comparison-desktop__row:last-child {
+    border-bottom: 1px solid var(--color-forest-900);
+  }
+
+  .comparison-desktop__row > span {
+    padding: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .comparison-desktop__row > span:first-child {
+    padding-left: 0;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .comparison-desktop__row > span:nth-child(2) {
+    background: var(--color-cream-200);
+  }
+
+  .comparison-desktop__row > span:nth-child(3) {
+    color: #5a6660;
+  }
+
+  .comparison-desktop__row > span:last-child {
+    color: var(--color-green-600);
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-style: italic;
+    line-height: 1.35;
+  }
+
+  .source-names {
+    margin-top: 1.25rem;
+    color: #5a6660;
+    font-size: .875rem;
+    line-height: 1.6;
+  }
+
+  .sources-explainers {
+    padding-block: 4rem;
+  }
+
+  .sources-explainers__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+  }
+
+  .sources-explainers article {
+    min-width: 0;
+  }
+
+  .sources-explainers h2 {
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-forest-900);
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .sources-explainers p {
+    margin-top: .75rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .sources-standards {
+    padding-bottom: 4rem;
+  }
+
+  .sources-standards__panel {
+    padding: 2.5rem 2rem;
+    border-radius: 1.25rem;
+    background: var(--color-forest-900);
+    color: var(--color-cream-300);
+  }
+
+  .sources-standards h2,
+  .sources-evidence h2 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  .sources-standards h2 {
+    color: var(--color-cream-200);
+  }
+
+  .sources-standards p {
+    max-width: 62ch;
+    margin-top: .875rem;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .sources-standards h2 + p {
+    margin-top: 1.25rem;
+  }
+
+  .sources-evidence {
+    padding-bottom: 6rem;
+  }
+
+  .sources-evidence__desktop-copy {
+    max-width: 62ch;
+    margin-top: 1rem;
+  }
+
+  .sources-evidence__desktop-copy p {
+    margin-top: .875rem;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+  }
+
+  .sources-evidence__desktop-copy p:first-child {
+    margin-top: 0;
+  }
+
+  .sources-evidence a {
+    color: var(--color-green-600);
+    text-decoration: underline;
+    text-underline-offset: .2rem;
+  }
+
+  .sources-evidence :global(.button-link) {
+    margin-top: 2.5rem;
+    padding: 1rem 1.75rem;
+  }
+
+  .sources-boundary {
+    margin-top: 2.5rem;
+    color: #5a6660;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 63.99rem) and (min-width: 48rem) {
+    .comparison-desktop__header,
+    .comparison-desktop__row {
+      grid-template-columns: 7rem 1.2fr 1fr 1fr;
+    }
+
+    .sources-explainers__grid {
+      gap: var(--space-8);
+    }
+  }
+
   @media (max-width: 47.99rem) {
-    .sources-hero { padding: var(--space-16) 0; }
-    .source-system__intro { grid-template-columns: 1fr; }
+    .sources-page {
+      background: var(--color-forest-900);
+      color: var(--color-cream-300);
+    }
+
+    .sources-wrap {
+      padding-inline: var(--space-6);
+    }
+
+    .sources-hero {
+      padding-top: 2.5rem;
+      padding-bottom: 0;
+    }
+
+    .sources-hero .eyebrow {
+      color: var(--color-mint-500);
+    }
+
+    .sources-hero h1 {
+      max-width: none;
+      margin-top: .875rem;
+      color: var(--color-cream-200);
+      font-size: var(--type-section-size);
+      line-height: var(--type-section-line);
+    }
+
+    .sources-hero h1 em {
+      color: var(--color-mint-500);
+      font-style: italic;
+    }
+
+    .sources-hero__desktop-copy,
+    .comparison-desktop,
+    .source-names--desktop,
+    .desktop-only,
+    .sources-evidence__desktop-copy {
+      display: none;
+    }
+
+    .sources-hero__mobile-copy,
+    .comparison-mobile,
+    .source-names--mobile,
+    .mobile-only,
+    .sources-evidence__mobile-copy {
+      display: block;
+    }
+
+    .sources-hero__mobile-copy {
+      max-width: 34ch;
+      margin-top: 1.125rem;
+      color: rgb(237 227 212 / 95%);
+    }
+
+    .sources-comparison {
+      padding-top: 2rem;
+      padding-bottom: 0;
+    }
+
+    .comparison-mobile {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .comparison-mobile__header {
+      position: sticky;
+      z-index: 2;
+      top: var(--header-height);
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 1rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid rgb(237 227 212 / 20%);
+      background: var(--color-forest-900);
+    }
+
+    .comparison-mobile__header span {
+      color: var(--color-cream-300);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .comparison-mobile__header span:first-child {
+      color: var(--color-mint-500);
+    }
+
+    .comparison-mobile__row {
+      display: flex;
+      flex-direction: column;
+      gap: .625rem;
+      padding: 1.125rem 0;
+      border-bottom: 1px solid rgb(237 227 212 / 10%);
+    }
+
+    .comparison-mobile__row:last-child {
+      padding-bottom: .25rem;
+      border-bottom: 0;
+    }
+
+    .comparison-mobile__label {
+      color: #a89f92;
+      font-size: var(--type-micro-size);
+      font-weight: 700;
+      letter-spacing: .14em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .comparison-mobile__row > div {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 1rem;
+    }
+
+    .comparison-mobile__row > div span {
+      color: var(--color-cream-300);
+      font-size: .9375rem;
+      line-height: 1.45;
+    }
+
+    .comparison-mobile__row > div span:last-child {
+      text-decoration: line-through;
+      text-decoration-color: rgb(237 227 212 / 60%);
+    }
+
+    .comparison-mobile__row > p {
+      color: var(--color-mint-500);
+      font-size: .875rem !important;
+      line-height: 1.4 !important;
+    }
+
+    .source-names {
+      margin-top: 1.125rem;
+      color: #a89f92;
+      font-size: var(--type-caption-size) !important;
+      line-height: var(--type-caption-line) !important;
+    }
+
+    .sources-explainers {
+      padding-block: 2.75rem;
+    }
+
+    .sources-explainers__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .sources-explainers h2 {
+      padding-top: 1rem;
+      border-color: rgb(237 227 212 / 30%);
+      color: var(--color-cream-200);
+      font-size: 1.5rem !important;
+      line-height: 1.2 !important;
+    }
+
+    .sources-explainers p {
+      margin-top: .75rem;
+      color: rgb(237 227 212 / 95%);
+      font-size: 1rem !important;
+      line-height: 1.65 !important;
+    }
+
+    .sources-standards {
+      padding-bottom: 0;
+    }
+
+    .sources-standards__panel {
+      padding: 1.625rem 1.375rem;
+      border: 1px solid rgb(237 227 212 / 14%);
+      background: #182522;
+    }
+
+    .sources-standards h2,
+    .sources-evidence h2 {
+      color: var(--color-cream-200);
+      font-size: 1.625rem !important;
+      line-height: 1.15 !important;
+    }
+
+    .sources-standards p {
+      margin-top: .875rem;
+      color: var(--color-cream-300);
+    }
+
+    .sources-standards h2 + p {
+      margin-top: 1rem;
+    }
+
+    .sources-evidence {
+      padding-top: 2.75rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .sources-evidence__mobile-copy {
+      margin-top: .875rem;
+    }
+
+    .sources-evidence__mobile-copy p {
+      color: rgb(237 227 212 / 95%);
+    }
+
+    .sources-evidence a {
+      color: var(--color-mint-500);
+    }
+
+    .sources-evidence :global(.button-link) {
+      margin-top: 2.25rem;
+      color: #0b0b0c;
+      background: var(--color-mint-500);
+    }
+
+    .sources-boundary {
+      margin-top: 2.25rem;
+      color: #a89f92;
+      font-size: 1.25rem !important;
+      line-height: 1.4 !important;
+    }
   }
 </style>

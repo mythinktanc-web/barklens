@@ -12,6 +12,8 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  compactFooter?: boolean;
+  hideFooterOnMobile?: boolean;
 }
 
 const {
@@ -21,7 +23,9 @@ const {
   noindex = import.meta.env.PUBLIC_SITE_NOINDEX !== 'false',
   image = '/images/desktop-hero.webp',
   type = 'website',
-  structuredData
+  structuredData,
+  compactFooter = false,
+  hideFooterOnMobile = false
 } = Astro.props;
 const canonical = new URL(canonicalPath, site.canonicalOrigin);
 const socialImage = new URL(image, site.canonicalOrigin);
@@ -70,6 +74,6 @@ const schemas = structuredData
     <main id="main-content">
       <slot />
     </main>
-    <Footer />
+    <Footer compact={compactFooter} hideOnMobile={hideFooterOnMobile} />
   </body>
 </html>

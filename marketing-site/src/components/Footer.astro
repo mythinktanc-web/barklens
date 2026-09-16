@@ -1,12 +1,24 @@
 ---
 import Wordmark from './Wordmark.astro';
 import { routes, site } from '@config/site';
+
+interface Props {
+  compact?: boolean;
+  hideOnMobile?: boolean;
+}
+
+const { compact = false, hideOnMobile = false } = Astro.props;
 ---
 
-<footer class="site-footer">
+<footer class:list={['site-footer', { 'site-footer--compact': compact, 'site-footer--mobile-hidden': hideOnMobile }]}>
   <div class="site-footer__grid container">
     <div class="site-footer__brand">
       <Wordmark inverse />
+      {compact && (
+        <p class="site-footer__statement">
+          The internet knows dogs. <em>BarkLens knows yours.</em>
+        </p>
+      )}
       <p>
         BarkLens doesn’t diagnose. Your vet does.<br />
         <a href={routes.terms}>Not veterinary advice — see Terms.</a>
@@ -104,6 +116,51 @@ import { routes, site } from '@config/site';
     font-size: var(--text-xs);
   }
 
+  .site-footer--compact {
+    padding: 2.5rem 0 2.25rem;
+    background: #0f2a2e;
+  }
+
+  .site-footer--compact .site-footer__grid {
+    display: block;
+    width: min(calc(100% - 2 * var(--space-10)), 68.75rem);
+  }
+
+  .site-footer--compact :global(.wordmark),
+  .site-footer--compact nav {
+    display: none;
+  }
+
+  .site-footer--compact .site-footer__brand {
+    max-width: none;
+  }
+
+  .site-footer--compact .site-footer__brand .site-footer__statement {
+    margin-top: 0;
+    color: var(--color-cream-200);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .site-footer--compact .site-footer__statement em {
+    color: var(--color-mint-500);
+  }
+
+  .site-footer--compact .site-footer__brand > p:last-child {
+    margin-top: var(--space-4);
+    font-size: .75rem;
+    line-height: 1.55;
+  }
+
+  .site-footer--compact .site-footer__bottom {
+    width: min(calc(100% - 2 * var(--space-10)), 68.75rem);
+    margin-top: var(--space-5);
+    padding-top: 0;
+    border-top: 0;
+    text-align: right;
+  }
+
   @media (max-width: 63.99rem) {
     .site-footer__grid {
       grid-template-columns: repeat(3, 1fr);
@@ -116,6 +173,10 @@ import { routes, site } from '@config/site';
   }
 
   @media (max-width: 47.99rem) {
+    .site-footer--mobile-hidden {
+      display: none;
+    }
+
     .site-footer {
       padding: var(--space-10) 0 calc(var(--space-6) + env(safe-area-inset-bottom));
     }
@@ -135,6 +196,30 @@ import { routes, site } from '@config/site';
 
     .site-footer__bottom {
       margin-top: var(--space-8);
+    }
+
+    .site-footer--compact {
+      padding: var(--space-8) 0 calc(var(--space-6) + env(safe-area-inset-bottom));
+    }
+
+    .site-footer--compact .site-footer__grid,
+    .site-footer--compact .site-footer__bottom {
+      width: min(calc(100% - 2 * var(--space-5)), 68.75rem);
+    }
+
+    .site-footer--compact .site-footer__brand .site-footer__statement {
+      font-size: var(--type-card-size) !important;
+      line-height: var(--type-card-line) !important;
+    }
+
+    .site-footer--compact .site-footer__brand > p:last-child {
+      font-size: var(--type-caption-size) !important;
+      line-height: var(--type-caption-line) !important;
+    }
+
+    .site-footer--compact .site-footer__bottom {
+      margin-top: var(--space-5);
+      text-align: left;
     }
   }
 </style>
