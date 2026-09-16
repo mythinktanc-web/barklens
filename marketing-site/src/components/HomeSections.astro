@@ -53,6 +53,11 @@ const mobileCaptureImages = [
       <p class="section-label section-label--light">Closer Look</p>
       <h2>Brings together the pieces of your dog’s chart <em>you might not think to connect.</em></h2>
       <p class="closer__desktop-copy">Something you noticed today. A lab value from months ago. A medication change from March.</p>
+      <p class="closer__desktop-answer">
+        Increased thirst, a BUN above range, and a steroid started in March are worth mentioning
+        together at Charlie’s next visit.
+      </p>
+      <small class="closer__desktop-boundary">BarkLens doesn’t diagnose. Your vet does.</small>
     </div>
     <article class="chart-card">
       <p class="number-label">Closer Look</p>
@@ -62,11 +67,6 @@ const mobileCaptureImages = [
         <div><dt>Prednisone started</dt><dd>Mar 3</dd></div>
       </dl>
       <div class="chart-card__prompt"><span>Ask about these…</span><b aria-hidden="true">↑</b></div>
-      <p>
-        Increased thirst, a BUN above range, and a steroid started in March are worth mentioning
-        together at Charlie’s next visit.
-      </p>
-      <small>BarkLens doesn’t diagnose. Your vet does.</small>
     </article>
     <div class="closer__mobile-copy">
       <p>Closer Look brings them together from across your dog’s chart, because published veterinary research says they belong in the same conversation.</p>
@@ -289,7 +289,6 @@ const mobileCaptureImages = [
     <p>Laura · Tucker, 9</p>
   </div>
   <picture class="testimonial__image">
-    <source media="(max-width: 47.99rem)" srcset="/images/mobile/testimonial.webp" />
     <img src="/images/home/testimonial.webp" alt="An owner smiling at their dog on a pebbled beach" width="1198" height="1800" loading="lazy" />
   </picture>
 </section>
@@ -408,17 +407,18 @@ const mobileCaptureImages = [
   .closer__content, .trends__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(28rem, .9fr); align-items: center; gap: var(--space-16); }
   .closer__intro h2, .trends h2 { max-width: 18ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
   .closer__intro h2 em, .trends h2 em { display: block; color: var(--color-mint-400); font-weight: 400; }
-  .closer__intro > p:last-child, .trends__grid > div > p { margin-top: var(--space-6); font-size: var(--text-lg); }
+  .closer__intro > p:not(.section-label), .trends__grid > div > p { margin-top: var(--space-6); font-size: var(--text-lg); }
+  .closer__desktop-answer { max-width: 38ch; }
+  .closer__desktop-boundary { display: block; margin-top: var(--space-5); color: #a9bdb6; }
   .closer__mobile-copy { display: none; }
-  .chart-card { padding: var(--space-8); border: 1px solid rgb(255 255 255 / 20%); border-radius: var(--radius-xl); background: rgb(20 32 28 / 90%); box-shadow: var(--shadow-card); }
-  .chart-card dl { display: grid; margin-top: var(--space-4); }
-  .chart-card dl div { display: flex; justify-content: space-between; gap: var(--space-5); padding: var(--space-4) 0; border-bottom: 1px solid rgb(255 255 255 / 16%); }
-  .chart-card dd { color: #a9bdb6; }
+  .chart-card { overflow: hidden; padding: 0; border: 1px solid rgb(255 255 255 / 28%); border-radius: var(--radius-xl); background: #29272d; box-shadow: var(--shadow-card); }
+  .chart-card > .number-label { padding: .875rem 1rem; border-bottom: 1px solid rgb(255 255 255 / 14%); color: var(--color-cream-100); }
+  .chart-card dl { display: grid; padding: 0 1rem; }
+  .chart-card dl div { display: grid; gap: .25rem; padding: .875rem 0; border-bottom: 1px solid rgb(255 255 255 / 16%); }
+  .chart-card dd { color: #a9bdb6; font-size: .6875rem; }
   .chart-card__range { color: #c08a72; }
-  .chart-card__prompt { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-6); padding: .375rem .375rem .375rem .875rem; border: 1px solid rgb(255 255 255 / 25%); border-radius: var(--radius-pill); color: #9eaaa5; font-size: .8125rem; }
+  .chart-card__prompt { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: .875rem; padding: .375rem .375rem .375rem .875rem; border: 1px solid rgb(255 255 255 / 25%); border-radius: var(--radius-pill); color: #9eaaa5; font-size: .8125rem; }
   .chart-card__prompt b { display: grid; width: 1.75rem; height: 1.75rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-forest-950); background: var(--color-mint-500); }
-  .chart-card > p:last-of-type { margin-top: var(--space-3); }
-  .chart-card small { display: block; margin-top: var(--space-5); color: #a9bdb6; }
 
   .capture { display: flex; min-height: 75rem; align-items: center; padding: 3.75rem 0; background: var(--color-cream-200); }
   .capture__grid { display: grid; grid-template-columns: minmax(0, 1fr) 35rem; gap: 4rem; align-items: stretch; }
@@ -668,14 +668,13 @@ const mobileCaptureImages = [
     .closer__intro .section-label { order: 1; text-align: center; }
     .closer__intro h2 { order: 2; max-width: 15ch; margin: var(--space-4) auto 0; font-size: 2rem; line-height: 1.08; text-align: center; }
     .closer__desktop-copy { display: none; }
+    .closer__desktop-answer, .closer__desktop-boundary { display: none; }
     .closer .chart-card { order: 3; width: 100%; margin-top: var(--space-8); border-color: rgb(255 255 255 / 28%); background: #29272d; }
     .closer .chart-card > .number-label { color: var(--color-cream-100); }
-    .closer .chart-card > p:not(.number-label):not(.chart-card__prompt), .closer .chart-card > small { display: none; }
     .closer__mobile-copy { order: 4; display: grid; gap: var(--space-5); margin-top: var(--space-8); font-size: .875rem; line-height: 1.65; }
     .closer__content, .trends__grid { gap: var(--space-8); }
     .closer__intro > p:last-child, .trends__grid > div > p { font-size: 1rem; }
-    .chart-card { padding: var(--space-5); border-radius: var(--radius-lg); }
-    .chart-card dl div { display: grid; gap: var(--space-1); }
+    .chart-card { border-radius: var(--radius-lg); }
 
     .why { position: relative; isolation: isolate; overflow: hidden; background: var(--color-forest-950); color: var(--color-copy-inverse); }
     .why::before { position: absolute; inset: 0; z-index: -2; content: ''; background: url('/images/home/testimonial.webp') center 42% / cover; opacity: .23; }
