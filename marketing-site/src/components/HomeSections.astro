@@ -51,72 +51,91 @@ const mobileCaptureImages = [
   <div class="closer__content container">
     <div class="closer__intro">
       <p class="section-label section-label--light">Closer Look</p>
-      <h2>Bring together the pieces of your dog’s chart <em>you might not think to connect.</em></h2>
-      <p>Something you noticed today. A lab value from months ago. A medication change from March.</p>
+      <h2>Brings together the pieces of your dog’s chart <em>you might not think to connect.</em></h2>
+      <p class="closer__desktop-copy">Something you noticed today. A lab value from months ago. A medication change from March.</p>
     </div>
     <article class="chart-card">
       <p class="number-label">Closer Look</p>
       <dl>
         <div><dt>“Drinking more than usual”</dt><dd>Jun 20</dd></div>
-        <div><dt>BUN 32 mg/dL · range 7–27</dt><dd>Jun 3</dd></div>
+        <div><dt>BUN 32 mg/dL · <span class="chart-card__range">range 7–27</span></dt><dd>Jun 3</dd></div>
         <div><dt>Prednisone started</dt><dd>Mar 3</dd></div>
       </dl>
-      <p class="chart-card__prompt">Ask about these…</p>
+      <div class="chart-card__prompt"><span>Ask about these…</span><b aria-hidden="true">↑</b></div>
       <p>
         Increased thirst, a BUN above range, and a steroid started in March are worth mentioning
         together at Charlie’s next visit.
       </p>
       <small>BarkLens doesn’t diagnose. Your vet does.</small>
     </article>
+    <div class="closer__mobile-copy">
+      <p>Closer Look brings them together from across your dog’s chart, because published veterinary research says they belong in the same conversation.</p>
+      <p>Something you noticed today. A lab value from months ago. A medication change from March.</p>
+    </div>
   </div>
 </section>
 
-<section class="capture section" id="capture" data-capture>
+<section class="capture section" id="capture" data-capture data-capture-phase="done">
   <div class="container">
-    <p class="section-label">Snap a picture</p>
-    <h2>You snap it. We answer from your dog’s history and veterinary literature.</h2>
     <div class="capture__grid">
-      <div class="capture__tabs" role="tablist" aria-label="Record types">
-        {captureItems.map((item, index) => (
-          <button
-            type="button"
-            role="tab"
-            aria-selected={index === 0 ? 'true' : 'false'}
-            aria-controls={`capture-panel-${index}`}
-            id={`capture-tab-${index}`}
-            data-capture-tab={index}
-          >
-            <span>{item.number}</span>
-            <strong>{item.label}</strong>
-            <b class="capture__mobile-label">{mobileCaptureLabels[index]}</b>
-            <small>{item.blurb}</small>
-          </button>
-        ))}
+      <div class="capture__copy">
+        <p class="section-label">Snap a picture</p>
+        <h2><em>You snap it. We answer</em> from your dog’s history and veterinary literature.</h2>
+        <div class="capture__tabs" role="tablist" aria-label="Record types">
+          {captureItems.map((item, index) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-controls={`capture-panel-${index}`}
+              id={`capture-tab-${index}`}
+              data-capture-tab={index}
+            >
+              <span aria-hidden="true"></span>
+              <strong>{item.label}</strong>
+              <b class="capture__mobile-label">{mobileCaptureLabels[index]}</b>
+              <small>{item.blurb}</small>
+            </button>
+          ))}
+        </div>
       </div>
-      <div class="capture__display">
-        {captureItems.map((item, index) => (
-          <article
-            id={`capture-panel-${index}`}
-            role="tabpanel"
-            aria-labelledby={`capture-tab-${index}`}
-            data-capture-panel={index}
-            hidden={index !== 0}
-          >
-            <picture>
-              <source media="(max-width: 47.99rem)" srcset={mobileCaptureImages[index]} />
-              <img src={item.image} alt={item.alt} loading="lazy" />
-            </picture>
-            <div class="capture__scrim"></div>
-            <div class="capture__heading">
-              <p>{item.eyebrow}</p>
-              <span>{item.caption}</span>
-            </div>
-            <div class="capture__result">
-              <p class="number-label">BarkLens</p>
-              {item.rows.map((row) => <p>{row}</p>)}
-            </div>
-          </article>
-        ))}
+      <div class="capture__device-wrap">
+        <div class="capture__phone">
+          <i class="capture__side capture__side--mute"></i>
+          <i class="capture__side capture__side--up"></i>
+          <i class="capture__side capture__side--down"></i>
+          <i class="capture__side capture__side--power"></i>
+          <i class="capture__notch"></i>
+          <div class="capture__display">
+            {captureItems.map((item, index) => (
+              <article
+                id={`capture-panel-${index}`}
+                role="tabpanel"
+                aria-labelledby={`capture-tab-${index}`}
+                data-capture-panel={index}
+                hidden={index !== 0}
+              >
+                <picture>
+                  <source media="(max-width: 47.99rem)" srcset={mobileCaptureImages[index]} />
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                </picture>
+                <div class="capture__scrim"></div>
+                <div class="capture__aim" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <div class="capture__flash" aria-hidden="true"></div>
+                <div class="capture__heading">
+                  <p>{item.eyebrow}</p>
+                  <span>{item.caption}</span>
+                </div>
+                <div class="capture__result">
+                  <p class="number-label">BarkLens</p>
+                  {item.rows.map((row) => <p>{row}</p>)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -127,17 +146,18 @@ const mobileCaptureImages = [
   <img class="trends__mobile-image" src="/images/mobile/trends-dog.webp" alt="" width="900" height="1495" loading="lazy" />
   <div class="image-shade image-shade--soft"></div>
   <div class="trends__grid container">
-    <div>
+    <div class="trends__copy">
       <p class="section-label section-label--light">Connecting their dots</p>
-      <h2>Every result was ‘in range.’ <em>Together, they told a different story.</em></h2>
-      <p>
+      <h2 class="trends__desktop-title">Every result was ‘in range.’ <em>Together, they told a different story.</em></h2>
+      <h2 class="trends__mobile-title">All three values were normal. <em>The direction wasn’t.</em></h2>
+      <p class="trends__desktop-copy">
         A single laboratory result shows one moment. BarkLens brings every draw into one view, so
         change is easier to see and the next veterinary conversation starts with the full story.
       </p>
       <blockquote>Because the more of their story you can see, the better you can show up for them.</blockquote>
     </div>
     <article class="trend-card">
-      <p class="number-label">Trend</p>
+      <p class="number-label trend-card__label">Trends</p>
       <svg viewBox="0 0 520 192" role="img" aria-label="BUN results increased from 19 to 23 to 27 milligrams per deciliter across three draws, all within the reported range of 7 to 27">
         <rect x="56" y="26" width="452" height="120" rx="6" fill="#2f3533" />
         <line x1="56" y1="26" x2="508" y2="26" stroke="#7d8581" stroke-width="1" stroke-dasharray="4 5" />
@@ -147,9 +167,13 @@ const mobileCaptureImages = [
         <text class="value" x="130" y="65">19</text><text class="value" x="286" y="41">23</text><text class="value" x="442" y="18">27</text>
         <text class="date" x="130" y="178">JUN ’24</text><text class="date" x="286" y="178">JAN ’25</text><text class="date date--latest" x="442" y="178">JUN ’25</text>
       </svg>
-      <p class="trend-card__caption">BUN · Three draws · All within the reported range</p>
+      <p class="trend-card__caption">BUN · mg/dL · Range 7–27 · Three draws</p>
       <div class="trend-card__ask"><span>Ask about this trend…</span><b aria-hidden="true">↑</b></div>
     </article>
+    <div class="trends__mobile-copy">
+      <p>Every one of these results came back normal. But the direction didn’t. A single number tells you where your dog is. Three tell you where your dog is going.</p>
+      <p>BarkLens flags a trend when three or more results move the same direction.</p>
+    </div>
   </div>
 </section>
 
@@ -277,18 +301,38 @@ const mobileCaptureImages = [
       const panels = [...root.querySelectorAll('[data-capture-panel]')];
       let active = 0;
       let automatic = true;
-      const select = (index) => {
+      let aimTimer;
+      let doneTimer;
+      const phoneLayout = window.matchMedia('(max-width: 47.99rem)');
+      panels.forEach((panel) => {
+        const source = panel.querySelector('source');
+        const image = panel.querySelector('img');
+        const preload = new Image();
+        preload.src = phoneLayout.matches && source?.srcset ? source.srcset : image?.currentSrc || image?.src || '';
+      });
+      const select = (index, animate = false) => {
+        window.clearTimeout(aimTimer);
+        window.clearTimeout(doneTimer);
         active = index;
         tabs.forEach((tab, i) => tab.setAttribute('aria-selected', String(i === index)));
         panels.forEach((panel, i) => { panel.hidden = i !== index; });
+        if (animate) {
+          root.dataset.capturePhase = 'aim';
+          aimTimer = window.setTimeout(() => { root.dataset.capturePhase = 'flash'; }, 780);
+          doneTimer = window.setTimeout(() => { root.dataset.capturePhase = 'done'; }, 1010);
+        } else {
+          root.dataset.capturePhase = 'done';
+        }
       };
       tabs.forEach((tab, index) => tab.addEventListener('click', () => {
         automatic = false;
-        select(index);
+        select(index, true);
       }));
-      window.setInterval(() => {
-        if (automatic) select((active + 1) % tabs.length);
-      }, 4200);
+      if (!phoneLayout.matches) {
+        window.setInterval(() => {
+          if (automatic) select((active + 1) % tabs.length, true);
+        }, 4200);
+      }
     });
 
     document.querySelectorAll('[data-faq-button]').forEach((button) => {
@@ -325,39 +369,82 @@ const mobileCaptureImages = [
   .closer__intro h2, .trends h2 { max-width: 18ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
   .closer__intro h2 em, .trends h2 em { display: block; color: var(--color-mint-400); font-weight: 400; }
   .closer__intro > p:last-child, .trends__grid > div > p { margin-top: var(--space-6); font-size: var(--text-lg); }
+  .closer__mobile-copy { display: none; }
   .chart-card { padding: var(--space-8); border: 1px solid rgb(255 255 255 / 20%); border-radius: var(--radius-xl); background: rgb(20 32 28 / 90%); box-shadow: var(--shadow-card); }
   .chart-card dl { display: grid; margin-top: var(--space-4); }
   .chart-card dl div { display: flex; justify-content: space-between; gap: var(--space-5); padding: var(--space-4) 0; border-bottom: 1px solid rgb(255 255 255 / 16%); }
   .chart-card dd { color: #a9bdb6; }
-  .chart-card__prompt { margin-top: var(--space-6); color: var(--color-mint-400); font-family: var(--font-display); font-size: var(--text-lg); }
+  .chart-card__range { color: #c08a72; }
+  .chart-card__prompt { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-6); padding: .375rem .375rem .375rem .875rem; border: 1px solid rgb(255 255 255 / 25%); border-radius: var(--radius-pill); color: #9eaaa5; font-size: .8125rem; }
+  .chart-card__prompt b { display: grid; width: 1.75rem; height: 1.75rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-forest-950); background: var(--color-mint-500); }
   .chart-card > p:last-of-type { margin-top: var(--space-3); }
   .chart-card small { display: block; margin-top: var(--space-5); color: #a9bdb6; }
 
-  .capture > .container > h2 { max-width: 20ch; margin-top: var(--space-4); font-size: var(--text-2xl); }
-  .capture__grid { display: grid; grid-template-columns: minmax(20rem, .8fr) minmax(28rem, 1.2fr); gap: var(--space-16); align-items: center; margin-top: var(--space-16); }
-  .capture__tabs { display: grid; }
-  .capture__tabs button { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0 var(--space-4); padding: var(--space-5) 0; border-bottom: 1px solid var(--color-border); background: transparent; text-align: left; }
-  .capture__tabs button > span { grid-row: 1 / 3; color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; }
-  .capture__tabs button strong { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 400; }
+  .capture { display: flex; min-height: 75rem; align-items: center; padding: 3.75rem 0; background: var(--color-cream-200); }
+  .capture__grid { display: grid; grid-template-columns: minmax(0, 1fr) 35rem; gap: 4rem; align-items: stretch; }
+  .capture__copy > h2 { max-width: 18ch; margin-top: 2.5rem; font-size: 3.5rem; line-height: 1.06; }
+  .capture__copy > h2 em { color: var(--color-green-600); }
+  .capture__tabs { display: flex; max-width: 32.5rem; flex-direction: column; margin-top: 2.5rem; border-top: 1px solid var(--color-border); }
+  .capture__tabs button { display: grid; grid-template-columns: 3px 1fr; gap: 0 1.375rem; padding: 1.125rem 0; border-bottom: 1px solid var(--color-border); background: transparent; text-align: left; cursor: pointer; }
+  .capture__tabs button > span { grid-row: 1 / 3; border-radius: 2px; background: transparent; transition: background var(--transition); }
+  .capture__tabs button[aria-selected='true'] > span { background: var(--color-green-600); }
+  .capture__tabs button strong { color: #a39b8d; font-family: var(--font-display); font-size: 1.875rem; line-height: 1.1; font-weight: 400; transition: color var(--transition); }
+  .capture__tabs button[aria-selected='true'] strong { color: var(--color-copy); }
   .capture__mobile-label { display: none; }
-  .capture__tabs button small { max-height: 0; overflow: hidden; color: var(--color-copy-muted); opacity: 0; transition: all var(--transition); }
-  .capture__tabs button[aria-selected='true'] small { max-height: 5rem; margin-top: var(--space-2); opacity: 1; }
-  .capture__display { min-height: 42rem; }
-  .capture__display article { position: relative; min-height: 42rem; overflow: hidden; border-radius: 2rem; background: var(--color-forest-900); color: var(--color-copy-inverse); box-shadow: var(--shadow-card); }
+  .capture__tabs button small { max-height: 0; overflow: hidden; color: var(--color-copy-muted); font-size: .90625rem; line-height: 1.5; opacity: 0; transition: all .4s ease; }
+  .capture__tabs button[aria-selected='true'] small { max-height: 3.75rem; margin-top: .375rem; opacity: 1; }
+  .capture__device-wrap { display: flex; align-items: center; justify-content: center; }
+  .capture__phone { position: relative; width: 25rem; height: 51.25rem; padding: .75rem; border-radius: 3.75rem; background: #0b0b0c; box-shadow: 0 40px 80px rgb(20 32 28 / 28%), inset 0 0 0 2px #3a3a3e; }
+  .capture__side, .capture__notch { position: absolute; z-index: 20; display: block; background: #0b0b0c; }
+  .capture__side { width: 3px; border-radius: 2px; background: #2a2a2e; }
+  .capture__side--mute { top: 9.375rem; left: -3px; height: 2.125rem; }
+  .capture__side--up { top: 12.5rem; left: -3px; height: 4rem; }
+  .capture__side--down { top: 17.25rem; left: -3px; height: 4rem; }
+  .capture__side--power { top: 14.375rem; right: -3px; height: 6.25rem; }
+  .capture__notch { top: 1.5625rem; left: 50%; width: 7.625rem; height: 2.1875rem; border-radius: 1.25rem; transform: translateX(-50%); }
+  .capture__display { position: relative; height: 100%; overflow: hidden; border-radius: 3rem; background: #101312; }
+  .capture__display article { position: relative; height: 100%; overflow: hidden; background: var(--color-forest-900); color: var(--color-copy-inverse); }
   .capture__display article[hidden] { display: none; }
   .capture__display picture, .capture__display img, .capture__scrim { position: absolute; inset: 0; width: 100%; height: 100%; }
   .capture__display img { object-fit: cover; }
-  .capture__scrim { background: linear-gradient(180deg, rgb(15 31 26 / 35%), transparent 35%, rgb(15 31 26 / 92%)); }
-  .capture__heading { position: absolute; top: var(--space-8); left: var(--space-8); right: var(--space-8); display: flex; justify-content: space-between; gap: var(--space-4); }
-  .capture__heading p { color: var(--color-mint-400); font-size: var(--text-xs); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-  .capture__heading span { font-size: var(--text-sm); }
-  .capture__result { position: absolute; left: var(--space-6); right: var(--space-6); bottom: var(--space-6); padding: var(--space-6); border: 1px solid rgb(255 255 255 / 15%); border-radius: var(--radius-lg); background: rgb(15 31 26 / 90%); }
+  .capture__display article:nth-child(1) img { object-position: 50% 96%; }
+  .capture__display article:nth-child(2) img { object-position: 50% 50%; }
+  .capture__display article:nth-child(3) img { object-position: 50% 48%; }
+  .capture__display article:nth-child(4) img { object-position: 50% 50%; }
+  .capture__display article:nth-child(5) img { object-position: 50% 60%; }
+  .capture__display article:nth-child(6) img { object-position: 50% 34%; }
+  .capture__display img { transition: filter .55s ease; }
+  .capture[data-capture-phase='done'] .capture__display img { filter: blur(5px) brightness(.8); }
+  .capture__scrim { background: linear-gradient(180deg, rgb(16 19 18 / 60%), rgb(16 19 18 / 10%) 30%, rgb(16 19 18 / 20%) 55%, rgb(16 19 18 / 90%)); transition: opacity .55s ease; }
+  .capture__heading { position: absolute; z-index: 4; top: 4.875rem; left: 1.75rem; right: 1.75rem; display: flex; justify-content: space-between; gap: .75rem; transition: opacity .55s ease, transform .6s ease; }
+  .capture__heading p { color: var(--color-cream-100); font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  .capture__heading span { color: #c3ccc7; font-size: .8125rem; }
+  .capture__result { position: absolute; z-index: 5; left: 1.5rem; right: 1.5rem; bottom: 1.5rem; padding: var(--space-6); border: 1.5px solid rgb(255 255 255 / 26%); border-radius: 1.25rem; background: #2a2a2e; box-shadow: 0 26px 56px rgb(0 0 0 / 60%), 0 8px 18px rgb(0 0 0 / 35%); transition: opacity .55s ease, transform .6s ease; }
   .capture__result > p:not(.number-label) { padding: var(--space-3) 0; border-bottom: 1px solid rgb(255 255 255 / 14%); }
+  .capture[data-capture-phase='aim'] .capture__heading,
+  .capture[data-capture-phase='aim'] .capture__result,
+  .capture[data-capture-phase='aim'] .capture__scrim,
+  .capture[data-capture-phase='flash'] .capture__heading,
+  .capture[data-capture-phase='flash'] .capture__result,
+  .capture[data-capture-phase='flash'] .capture__scrim { opacity: 0; }
+  .capture[data-capture-phase='aim'] .capture__result,
+  .capture[data-capture-phase='flash'] .capture__result { transform: translateY(.875rem); }
+  .capture__aim { position: absolute; z-index: 4; inset: 10% 1.875rem 42%; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+  .capture[data-capture-phase='aim'] .capture__aim { opacity: 1; }
+  .capture__aim span { position: absolute; width: 2.375rem; height: 2.375rem; border: 3px solid rgb(255 255 255 / 95%); }
+  .capture__aim span:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+  .capture__aim span:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+  .capture__aim span:nth-child(3) { bottom: 0; left: 0; border-top: 0; border-right: 0; }
+  .capture__aim span:nth-child(4) { right: 0; bottom: 0; border-top: 0; border-left: 0; }
+  .capture__flash { position: absolute; z-index: 6; inset: 0; pointer-events: none; background: #fff; opacity: 0; transition: opacity .5s ease; }
+  .capture[data-capture-phase='flash'] .capture__flash { opacity: .92; transition-duration: .05s; }
 
   .trends { min-height: 50rem; display: grid; align-items: center; }
   .trends__mobile-image { display: none; }
+  .trends__mobile-title, .trends__mobile-copy { display: none; }
   .trends blockquote { margin-top: var(--space-8); font-family: var(--font-display); font-size: var(--text-lg); }
   .trend-card { padding: var(--space-8); border: 1px solid #6b7773; border-radius: var(--radius-xl); background: #242928; box-shadow: var(--shadow-card); }
+  .trend-card__label { color: #c8bfb1; }
   .trend-card svg { width: 100%; margin-top: var(--space-4); font-family: var(--font-body); }
   .trend-card svg > rect:not(:first-child) { fill: #c8bfb1; }
   .trend-card svg > rect:nth-of-type(4) { fill: #d7ccba; }
@@ -465,33 +552,59 @@ const mobileCaptureImages = [
     .how__step .number-label { color: var(--color-mint-500); }
     .how__step > p:last-child { color: #d8cfc0; }
 
-    .capture > .container > h2,
+    .capture__copy > h2,
     .closer__intro h2,
     .trends h2,
     .story h2,
     .conditions__intro h2,
     .pricing h2,
     .faq h2 { font-size: clamp(2rem, 9vw, 2.75rem); }
-    .capture > .container > h2 { max-width: 12ch; }
+    .capture__copy > h2 { max-width: 12ch; }
     .capture__grid { gap: var(--space-8); margin-top: var(--space-10); }
     .capture { background: var(--color-forest-900); color: var(--color-copy-inverse); }
     .capture .section-label { color: var(--color-mint-500); text-align: center; }
-    .capture > .container > h2 { max-width: 16ch; margin-inline: auto; text-align: center; }
-    .capture > .container > h2 em { color: var(--color-mint-400); }
-    .capture__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
-    .capture__tabs button { display: grid; min-height: 3rem; place-items: center; align-content: center; padding: .5rem .35rem; border: 1px solid rgb(255 255 255 / 24%); border-radius: var(--radius-pill); color: var(--color-copy-inverse); background: rgb(255 255 255 / 4%); text-align: center; }
+    .capture > .container { width: 100%; }
+    .capture__copy > .section-label, .capture__copy > h2 { margin-inline: var(--space-6); }
+    .capture__copy > h2 { max-width: 16ch; margin-top: var(--space-4); margin-inline: auto; font-size: 2rem; line-height: 1.12; text-align: center; }
+    .capture__copy > h2 em { color: var(--color-mint-400); }
+    .capture__grid { display: block; margin-top: var(--space-6); }
+    .capture__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin-inline: var(--space-4); }
+    .capture__tabs button { display: grid; grid-template-columns: 1fr; gap: 0; min-height: 2.75rem; place-items: center; align-content: center; padding: .6875rem .25rem; border: 1.5px solid rgb(237 227 212 / 22%); border-radius: .75rem; color: #c3ccc7; background: transparent; text-align: center; }
     .capture__tabs button[aria-selected='true'] { border-color: var(--color-mint-500); color: var(--color-forest-950); background: var(--color-mint-500); }
     .capture__tabs button > span, .capture__tabs button strong, .capture__tabs button small { display: none; }
-    .capture__mobile-label { display: block; font-family: var(--font-body); font-size: .75rem; font-weight: 700; line-height: 1; white-space: nowrap; }
-    .capture__display, .capture__display article { min-height: 31rem; }
+    .capture__mobile-label { display: block; font-family: var(--font-body); font-size: .78125rem; font-weight: 600; line-height: 1.15; white-space: nowrap; }
+    .capture__tabs button[aria-selected='true'] .capture__mobile-label { font-weight: 700; }
+    .capture__device-wrap { display: block; }
+    .capture__phone { width: 100%; height: auto; padding: 0; border-radius: 0; background: transparent; box-shadow: none; }
+    .capture__side, .capture__notch { display: none; }
+    .capture__display { height: 35rem; margin-top: var(--space-6); border-radius: 0; }
+    .capture__display article { height: 35rem; border-radius: 0; }
+    .capture__display article:nth-child(1) img { object-position: 50% 96%; }
+    .capture__display article:nth-child(2) img { object-position: 50% 50%; }
+    .capture__display article:nth-child(3) img { object-position: 50% 48%; }
+    .capture__display article:nth-child(4) img { object-position: 50% 50%; }
+    .capture__display article:nth-child(5) img { object-position: 50% 60%; }
+    .capture__display article:nth-child(6) img { object-position: 50% 34%; }
+    .capture__display img { transition: filter .55s ease; }
+    .capture[data-capture-phase='done'] .capture__display img { filter: blur(5px) brightness(.86) saturate(.95); }
     .capture__heading { top: var(--space-5); left: var(--space-5); right: var(--space-5); display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: var(--space-3); }
     .capture__heading p { max-width: 12ch; font-size: .6875rem; }
     .capture__heading span { max-width: 16ch; justify-self: end; font-size: .6875rem; line-height: 1.35; text-align: right; }
     .capture__result { left: var(--space-4); right: var(--space-4); bottom: var(--space-4); padding: var(--space-5); }
+    .capture__aim { inset: 12% 1.625rem 44%; filter: drop-shadow(0 1px 2px rgb(0 0 0 / 35%)); }
 
     .closer, .trends, .story { min-height: auto; }
-    .closer { padding-block: var(--space-16); background: var(--color-forest-900); }
-    .closer > img { opacity: .24; }
+    .closer { padding-block: var(--space-16); background: #11251f; }
+    .closer > img, .closer > .image-shade { display: none; }
+    .closer__content { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+    .closer__intro { display: contents; }
+    .closer__intro .section-label { order: 1; text-align: center; }
+    .closer__intro h2 { order: 2; max-width: 15ch; margin: var(--space-4) auto 0; font-size: 2rem; line-height: 1.08; text-align: center; }
+    .closer__desktop-copy { display: none; }
+    .closer .chart-card { order: 3; width: 100%; margin-top: var(--space-8); border-color: rgb(255 255 255 / 28%); background: #29272d; }
+    .closer .chart-card > .number-label { color: var(--color-cream-100); }
+    .closer .chart-card > p:not(.number-label):not(.chart-card__prompt), .closer .chart-card > small { display: none; }
+    .closer__mobile-copy { order: 4; display: grid; gap: var(--space-5); margin-top: var(--space-8); font-size: .875rem; line-height: 1.65; }
     .closer__content, .trends__grid { gap: var(--space-8); }
     .closer__intro > p:last-child, .trends__grid > div > p { font-size: 1rem; }
     .chart-card { padding: var(--space-5); border-radius: var(--radius-lg); }
@@ -510,11 +623,17 @@ const mobileCaptureImages = [
     .why__grid h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; }
     .why__grid p { display: none; }
 
-    .trends { padding-block: var(--space-16); }
-    .trends__desktop-image { display: none; }
-    .trends > .trends__mobile-image { display: block; object-position: center; filter: brightness(1.24) saturate(1.08); }
-    .trends .image-shade { background: linear-gradient(180deg, rgb(10 25 20 / 44%), rgb(10 25 20 / 56%)); }
-    .trend-card { padding: var(--space-5); }
+    .trends { padding-block: var(--space-16); color: var(--color-copy); background: var(--color-cream-100); }
+    .trends__desktop-image, .trends__mobile-image, .trends > .image-shade { display: none; }
+    .trends__grid { display: flex; flex-direction: column; gap: 0; }
+    .trends__copy { display: contents; }
+    .trends .section-label { order: 1; color: var(--color-green-600); text-align: center; }
+    .trends__desktop-title, .trends__desktop-copy, .trends blockquote { display: none; }
+    .trends__mobile-title { order: 2; display: block; max-width: 14ch; margin: var(--space-4) auto 0; font-size: 2rem; line-height: 1.08; text-align: center; }
+    .trends .trends__mobile-title em { display: block; color: #2e8a6e; }
+    .trend-card { order: 3; width: 100%; margin-top: var(--space-8); padding: var(--space-5); }
+    .trends__mobile-copy { order: 4; display: grid; gap: var(--space-5); margin-top: var(--space-8); color: var(--color-copy); font-size: .875rem; line-height: 1.65; }
+    .trends__mobile-copy p:last-child { color: var(--color-copy-muted); }
     .trend-card svg { margin-top: var(--space-2); }
     .trend-card__caption { font-size: .75rem; }
 
