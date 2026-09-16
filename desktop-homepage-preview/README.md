@@ -42,3 +42,14 @@ The homepage trend card uses three labeled bars instead of a line graph:
 19, 23, and 27 mg/dL across Jun 2024, Jan 2025, and Jun 2025. The displayed
 range remains 7–27 mg/dL, the three-draw context remains visible, and the
 `Ask about this trend…` control is preserved.
+
+## Record import language
+
+Gmail, inbox-access, and email-import promises are removed until that
+integration is approved and live. The homepage, How It Works, Privacy, and
+Your Records pages describe only records the owner chooses to upload or
+photograph. The Google-styled mock interface is replaced with a neutral
+file-upload panel.
+
+General marketing and instructional copy uses `your dog` and `their`.
+Illustrative chart examples may use the dog’s actual name.
