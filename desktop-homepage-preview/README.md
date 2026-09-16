@@ -35,3 +35,10 @@ recommendation. The homepage uses `Built for the owner in the room.` as its
 hero microcopy. The exact approved footer legal line is used on the homepage,
 waitlist, and Plans pages. The Plans page carries the approved boundary line
 once.
+
+## Desktop trend graphic
+
+The homepage trend card uses three labeled bars instead of a line graph:
+19, 23, and 27 mg/dL across Jun 2024, Jan 2025, and Jun 2025. The displayed
+range remains 7–27 mg/dL, the three-draw context remains visible, and the
+`Ask about this trend…` control is preserved.
