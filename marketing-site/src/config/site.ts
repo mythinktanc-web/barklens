@@ -17,6 +17,7 @@ export const site = {
 export const routes = {
   home: '/',
   howItWorks: '/how-it-works/',
+  vetImports: '/vet-imports/',
   plans: '/plans/',
   conditions: '/conditions/',
   arthritis: '/conditions/arthritis/',

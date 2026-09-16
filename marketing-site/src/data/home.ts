@@ -105,9 +105,9 @@ export const captureItems = [
 export const whyItems = [
   {
     number: '01',
-    title: 'Vet history',
-    body: 'Add years of veterinary records to one organized history.',
-    href: routes.howItWorks
+    title: 'Vet imports',
+    body: 'Upload reports and photos into one organized history.',
+    href: routes.vetImports
   },
   {
     number: '02',
