@@ -87,3 +87,17 @@ Phase 6 keeps one Astro site and changes presentation by screen width.
   BarkCode share sheet.
 - Shared social links use Instagram `@Gobarklens`, TikTok `@Barklens`,
   Pinterest `GoBarkLens`, Facebook, and YouTube `@gobarklens`.
+
+## Blog editor
+
+Phase 7 adds an Astro content collection and a Pages CMS editor.
+
+- Articles live in `src/content/blog`.
+- Blog images live in `public/images/blog`.
+- `.pages.yml` at the repository root defines the nontechnical editor.
+- Draft articles are excluded from routes and the Blog library.
+- Published articles require at least one complete source and the
+  `sourcesVerified` publication gate.
+- Pages CMS reads the editor from the GitHub branch
+  `desktop-homepage-preview` during prelaunch.
+- The editor walkthrough is in `reference/blog-editor-guide.md`.

@@ -1,13 +1,13 @@
 # Phase 7 Blog and Editor QA
 
-**Completed locally:** September 16, 2026  
+**Completed:** September 16, 2026  
 **Scope:** Pages CMS configuration, Markdown article system, Blog library,
 article template, and publication checks
 
 ## Gate result
 
-The Phase 7 implementation is complete locally. GitHub branch activation is
-the remaining external step required for Pages CMS to display the editor.
+Phase 7 passed. The implementation is complete locally and is available to
+Pages CMS on the GitHub feature branch.
 
 ## Editor configuration
 
@@ -77,9 +77,14 @@ visible in the body and article source card.
 - Browser errors: 0
 - Retired visible language matches: 0
 
-## External activation boundary
+## GitHub activation
 
-Pages CMS reads configuration per repository and branch. The
-`desktop-homepage-preview` branch must exist on GitHub before the hosted editor
-can load this implementation. Pushing that branch does not merge it into
-`main` or change the live site.
+- Repository: `mythinktanc-web/barklens`
+- Branch: `desktop-homepage-preview`
+- Remote branch head at activation: `9fa7053`
+- Remote `.pages.yml` contains the Blog collection.
+- Remote Blog folder contains the starter article.
+- `main` remained unchanged.
+
+Pages CMS reads configuration per repository and branch. Select
+`desktop-homepage-preview` in Pages CMS during the prelaunch phases.
