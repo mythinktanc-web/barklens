@@ -17,7 +17,10 @@ export default async function handler(request, response) {
       sendJson(response, 200, { ok: true });
       return;
     }
-    const result = await waitlistService().signup(input, publicOrigin(request, input));
+    const result = await waitlistService().signup({
+      ...input,
+      signupIp: String(request.headers['x-forwarded-for'] || request.socket?.remoteAddress || '').split(',')[0].trim()
+    }, publicOrigin(request, input));
     sendJson(response, 200, result);
   } catch (error) {
     sendError(response, error);

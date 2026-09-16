@@ -1,8 +1,8 @@
 export const site = {
   name: 'BarkLens',
-  legalName: 'Think Tanc LLC',
+  legalName: 'ThinkTanc LLC',
   canonicalOrigin: 'https://barklens.com',
-  contactEmail: 'hello@barklens.com',
+  contactEmail: 'info@barklens.com',
   socialProfiles: [
     'https://www.instagram.com/gobarklens/',
     'https://www.tiktok.com/@barklens',

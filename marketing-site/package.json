@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "server": "node server/index.mjs",
     "test:waitlist": "node --test server/*.test.mjs",
+    "legal:build": "node scripts/build-approved-legal.mjs",
     "build": "astro build",
     "audit:build": "node scripts/audit-build.mjs",
     "test:launch": "npm run check && npm run test:waitlist && npm run build && npm run audit:build",

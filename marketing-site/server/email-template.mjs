@@ -31,6 +31,7 @@ function escapeHtml(value) {
 
 export function welcomeEmail(unsubscribeUrl) {
   const safeUnsubscribeUrl = escapeHtml(unsubscribeUrl);
+  const oneClickUnsubscribeUrl = unsubscribeUrl.replace('/unsubscribe/?token=', '/api/unsubscribe?token=');
   const paragraphs = body.split('\n\n');
   const htmlBody = paragraphs
     .map((paragraph) => {
@@ -43,6 +44,7 @@ export function welcomeEmail(unsubscribeUrl) {
 
   return {
     subject,
+    oneClickUnsubscribeUrl,
     text: `${body}\n\nUnsubscribe from BarkLens email: ${unsubscribeUrl}`,
     html: `<!doctype html>
 <html lang="en">
@@ -57,7 +59,8 @@ export function welcomeEmail(unsubscribeUrl) {
                 <p style="font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;margin:0 0 26px;color:#177158;">BARKLENS</p>
                 ${htmlBody}
                 <p style="font-family:Arial,sans-serif;font-size:12px;line-height:1.5;margin:30px 0 0;color:#68736f;">
-                  You joined the BarkLens founding-member waitlist.
+                  You joined the BarkLens founding-member waitlist.<br>
+                  ThinkTanc LLC d/b/a BarkLens · 7804 Fairview Rd C-162, Charlotte, NC 28226<br>
                   <a href="${safeUnsubscribeUrl}" style="color:#177158;">Unsubscribe</a>
                 </p>
               </td>

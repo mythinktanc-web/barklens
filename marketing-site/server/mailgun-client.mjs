@@ -154,12 +154,14 @@ export class MailgunClient {
 
   async sendWelcome({ to, email }) {
     const form = new FormData();
-    form.set('from', 'Ben at BarkLens <hello@barklens.com>');
-    form.set('h:Reply-To', 'hello@barklens.com');
+    form.set('from', 'Ben at BarkLens <info@barklens.com>');
+    form.set('h:Reply-To', 'info@barklens.com');
     form.set('to', to);
     form.set('subject', email.subject);
     form.set('text', email.text);
     form.set('html', email.html);
+    form.set('h:List-Unsubscribe', `<${email.oneClickUnsubscribeUrl}>`);
+    form.set('h:List-Unsubscribe-Post', 'List-Unsubscribe=One-Click');
     form.set('o:tag', 'waitlist-welcome');
     return this.request(`/v3/${encodeURIComponent(this.domain)}/messages`, {
       method: 'POST',

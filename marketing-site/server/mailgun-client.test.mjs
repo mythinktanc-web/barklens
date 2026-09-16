@@ -46,3 +46,33 @@ test('production API keys use Mailgun basic authentication without exposing the 
   assert.equal(authorization, `Basic ${Buffer.from('api:test-key').toString('base64')}`);
   assert.equal(client.configured, true);
 });
+
+test('welcome email includes one-click unsubscribe headers', async () => {
+  let submittedForm;
+  const fetchImpl = async (_url, options) => {
+    submittedForm = options.body;
+    return new Response(JSON.stringify({ id: 'queued' }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  };
+  const client = new MailgunClient({
+    baseUrl: 'https://api.mailgun.test',
+    apiKey: 'test-key',
+    fetchImpl
+  });
+  await client.sendWelcome({
+    to: 'ben@example.com',
+    email: {
+      subject: 'Thank you — from Ben',
+      text: 'Welcome',
+      html: '<p>Welcome</p>',
+      oneClickUnsubscribeUrl: 'https://barklens.com/api/unsubscribe?token=test-token'
+    }
+  });
+  assert.equal(
+    submittedForm.get('h:List-Unsubscribe'),
+    '<https://barklens.com/api/unsubscribe?token=test-token>'
+  );
+  assert.equal(submittedForm.get('h:List-Unsubscribe-Post'), 'List-Unsubscribe=One-Click');
+});

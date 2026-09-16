@@ -1,52 +1,11 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
+import LegalPage from '@components/LegalPage.astro';
 ---
 
-<BaseLayout
-  title="Terms of use | BarkLens"
-  description="The BarkLens terms coverage for accounts, records, AI output, subscriptions, sharing, and acceptable use."
+<LegalPage
+  documentId="terms"
+  eyebrow="Terms of use"
+  heading="The terms that govern BarkLens."
+  lede="These Terms cover BarkLens accounts, records, source-backed answers, subscriptions, email, and Care Team sharing."
   canonicalPath="/terms/"
->
-  <article class="terms-page">
-    <header class="container">
-      <p class="eyebrow">Terms of use</p>
-      <h1>The short version, then the fine print.</h1>
-      <p>The BarkLens terms coverage for accounts, records, AI output, subscriptions, sharing, and acceptable use.</p>
-      <p>This is a structured draft for counsel. Final legal language will replace it before launch.</p>
-    </header>
-    <div class="terms-page__grid container">
-      <ol>
-        <li><h2>Nature of the service</h2><p>BarkLens is an informational and record-keeping service. It does not create a veterinarian-client-patient relationship or provide diagnosis, prognosis, treatment, dosing, or a clinical recommendation.</p></li>
-        <li><h2>Emergencies</h2><p>Do not wait for BarkLens in an emergency. Contact a veterinarian or emergency clinic.</p></li>
-        <li><h2>No detection or alerting guarantee</h2><p>BarkLens can surface data patterns, but it does not guarantee detection, notification, or timing. The absence of a flag is not evidence that nothing is wrong. Output depends on the records and logs the owner provides, and no flag or absence of one should be relied on for a health decision.</p></li>
-        <li><h2>Sources and accuracy</h2><p>The library draws from published veterinary sources. Sources are not exhaustive, guidance changes, and quoted passages remain the source publisher’s words rather than a BarkLens clinical opinion.</p></li>
-        <li><h2>User-provided data</h2><p>Owners are responsible for checking entries and text extracted from documents against the original record. The final terms will include the limited permission BarkLens needs to process uploaded photographs and documents.</p></li>
-        <li><h2>Record import</h2><p>The current website describes owner-directed file and photo uploads only. The final terms will explain what is retained, what the owner reviews before a record joins the chart, and how import access ends. Email-account access is not part of the current service description.</p></li>
-        <li><h2>Care Team sharing</h2><p>Account owners choose whom to invite and are responsible for removing access when it is no longer appropriate. Final language will describe what a helper can see and do, revocation, and the status of information already viewed.</p></li>
-        <li><h2>Subscriptions and billing</h2><p>Plus covers one dog. Family covers a household with up to four dogs. Final terms will match the actual trial, app-store billing, renewal, cancellation, refund, and post-cancellation feature rules before enrollment opens.</p></li>
-        <li><h2>Ownership, export, and deletion</h2><p>Owners keep their records and export access according to the final product rules. Account-closure deletion timing will match the Privacy Policy.</p></li>
-        <li><h2>Acceptable use</h2><p>Use is limited to animals the user is authorized to manage. The source library may not be resold or redistributed.</p></li>
-        <li><h2>Standard provisions</h2><p>Final terms will include eligibility, changes, warranty language, liability limits, indemnification, governing law, dispute resolution, and contact information.</p></li>
-        <li><h2>Privacy</h2><p>How BarkLens collects, processes, retains, exports, and deletes information will be governed by the separate <a href="/privacy/">Privacy Policy</a>.</p></li>
-      </ol>
-      <aside><p class="eyebrow">The boundary</p><blockquote>BarkLens doesn’t diagnose. Your vet does.</blockquote><a href="mailto:hello@barklens.com">hello@barklens.com</a></aside>
-    </div>
-  </article>
-</BaseLayout>
-
-<style>
-  .terms-page > header { padding-block: var(--space-24) var(--space-12); }
-  .terms-page h1 { max-width: 14ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
-  .terms-page header > p:not(.eyebrow) { max-width: 54ch; margin-top: var(--space-5); color: var(--color-copy-muted); }
-  .terms-page__grid { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: var(--space-20); padding-bottom: var(--space-20); align-items: start; }
-  .terms-page ol { display: grid; gap: var(--space-8); max-width: var(--content-narrow); padding-left: var(--space-8); }
-  .terms-page li { padding-left: var(--space-3); }
-  .terms-page li::marker { color: var(--color-green-600); font-weight: 700; }
-  .terms-page h2 { font-family: var(--font-body); font-size: var(--text-base); font-weight: 700; }
-  .terms-page li p { margin-top: var(--space-2); color: var(--color-copy-muted); }
-  .terms-page aside { position: sticky; top: calc(var(--header-height) + var(--space-6)); padding: var(--space-8); border-radius: var(--radius-xl); background: var(--color-forest-900); color: var(--color-copy-inverse); }
-  .terms-page aside .eyebrow { color: var(--color-mint-400); }
-  .terms-page blockquote { margin-top: var(--space-5); font-family: var(--font-display); font-size: var(--text-xl); }
-  .terms-page aside a { display: inline-block; margin-top: var(--space-8); color: var(--color-mint-400); }
-  @media (max-width: 63.99rem) { .terms-page__grid { grid-template-columns: 1fr; } .terms-page aside { position: static; } }
-</style>
+/>

@@ -54,7 +54,7 @@ Phase 4 adds a portable Node backend under `server/`.
 - `POST /api/waitlist` validates and stores a founding-member signup in the
   Mailgun list `waitlist@barklens.com`.
 - New members receive the approved welcome email from
-  `Ben at BarkLens <hello@barklens.com>`.
+  `Ben at BarkLens <info@barklens.com>`.
 - Existing members keep their original referral identity and do not receive a
   second welcome email.
 - Referral codes and referrer attribution are stored in Mailgun member
@@ -85,7 +85,9 @@ Phase 11 work.
 - Analytics is disabled by default. It requires both
   `PUBLIC_ANALYTICS_ENABLED=true` and a valid `PUBLIC_GA_MEASUREMENT_ID`, plus
   the approved privacy and cookie position.
-- The counsel request is in `reference/legal-counsel-request.md`.
+- The approved legal source is in `reference/BarkLens-Legal-Package-Approved-Source.md`.
+- `npm run legal:build` regenerates the public Terms and Privacy Markdown from
+  the approved source while removing internal drafting artifacts.
 - The production checklist is in `reference/phase-9-launch-checklist.md`.
 
 ## Responsive layouts

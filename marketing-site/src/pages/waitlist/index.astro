@@ -47,7 +47,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
           <div class="two"><label><input type="radio" name="multi" value="Yes" required /><span>Yes</span></label><label><input type="radio" name="multi" value="No" /><span>No</span></label></div>
         </fieldset>
         <button class="waitlist-form__submit" type="submit" data-submit-button>Confirm Spot →</button>
-        <p data-form-status aria-live="polite">No spam. No credit card. Just early access.</p>
+        <p data-form-status aria-live="polite">By confirming, you agree to receive your welcome email, launch updates, and founding-member offers. Unsubscribe anytime. No credit card.</p>
       </form>
     </div>
 
@@ -127,6 +127,8 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
             multi: data.get('multi'),
             company: data.get('company'),
             referredBy: new URLSearchParams(window.location.search).get('refer') || '',
+            consentVersion: 'waitlist-v1-2026-09-16',
+            signupSource: window.location.pathname,
             siteOrigin: new URL('../', window.location.href).href
           })
         });

@@ -133,7 +133,10 @@ const server = createServer(async (request, response) => {
         allowedSiteBase(process.env.WAITLIST_PUBLIC_ORIGIN) ||
         allowedSiteBase(input.siteOrigin) ||
         requestOrigin(request);
-      const result = await waitlist.signup(input, publicBase);
+      const result = await waitlist.signup({
+        ...input,
+        signupIp: String(request.headers['x-forwarded-for'] || request.socket.remoteAddress || '').split(',')[0].trim()
+      }, publicBase);
       sendJson(response, 200, result);
       return;
     }
@@ -141,7 +144,7 @@ const server = createServer(async (request, response) => {
     if (request.method === 'POST' && url.pathname === '/api/unsubscribe') {
       enforceRateLimit(request);
       const input = await readJson(request);
-      const result = await waitlist.unsubscribe(input.token);
+      const result = await waitlist.unsubscribe(input.token || url.searchParams.get('token'));
       sendJson(response, 200, result);
       return;
     }

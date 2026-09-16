@@ -36,7 +36,10 @@ export function validateSignup(input) {
     breed: cleanText(input.breed, 'Dog’s breed', 120),
     age,
     multipleDogs,
-    referredBy: String(input.referredBy || '').trim().slice(0, 32)
+    referredBy: String(input.referredBy || '').trim().slice(0, 32),
+    consentVersion: String(input.consentVersion || '').trim().slice(0, 80),
+    signupSource: String(input.signupSource || '').trim().slice(0, 160),
+    signupIp: String(input.signupIp || '').trim().slice(0, 80)
   };
 }
 
@@ -73,6 +76,9 @@ export class WaitlistService {
         referral_code: makeToken(8),
         referred_by: signup.referredBy || null,
         joined_at: new Date().toISOString(),
+        consent_version: signup.consentVersion || 'waitlist-v1-2026-09-16',
+        signup_source: signup.signupSource || '/waitlist/',
+        signup_ip: signup.signupIp || null,
         unsubscribe_token: makeToken(24),
         welcome_sent_at: null
       };

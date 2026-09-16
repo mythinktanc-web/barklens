@@ -13,6 +13,13 @@ const prohibited = [
   'ai dog health tracker',
   'gmail'
 ];
+const legalDraftArtifacts = [
+  'counsel confirm',
+  'model disagreement',
+  'ai-generated first draft',
+  'not for publication',
+  '[effective:'
+];
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -44,6 +51,9 @@ for (const file of htmlFiles) {
   const lower = html.toLowerCase();
   for (const phrase of prohibited) {
     if (lower.includes(phrase)) failures.push(`${relative}: prohibited phrase "${phrase}"`);
+  }
+  for (const phrase of legalDraftArtifacts) {
+    if (lower.includes(phrase)) failures.push(`${relative}: legal drafting artifact "${phrase}"`);
   }
 
   for (const match of html.matchAll(/\b(?:href|src)="([^"#?]+)(?:[?#][^"]*)?"/g)) {

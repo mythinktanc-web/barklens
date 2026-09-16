@@ -40,6 +40,8 @@ test('new signup is stored and receives one welcome email', async () => {
     assert.match(result.referralUrl, /^https:\/\/barklens\.com\/waitlist\/\?refer=/);
     assert.equal(stored.sent.length, 1);
     assert.equal(stored.members['ben@example.com'].vars.referred_by, 'friend123');
+    assert.equal(stored.members['ben@example.com'].vars.consent_version, 'waitlist-v1-2026-09-16');
+    assert.equal(stored.members['ben@example.com'].vars.signup_source, '/waitlist/');
     assert.ok(stored.members['ben@example.com'].vars.welcome_sent_at);
   } finally {
     await testFixture.cleanup();

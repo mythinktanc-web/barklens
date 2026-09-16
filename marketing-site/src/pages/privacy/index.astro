@@ -1,53 +1,11 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
+import LegalPage from '@components/LegalPage.astro';
 ---
 
-<BaseLayout
-  title="Privacy | BarkLens"
-  description="We keep only the records you approve, never sell your data, and let you export or delete everything at any time."
+<LegalPage
+  documentId="privacy"
+  eyebrow="Privacy"
+  heading="Your records are not our business model."
+  lede="This Policy explains what BarkLens collects, how it is used, who processes it, how long it is kept, and the choices available to you."
   canonicalPath="/privacy/"
->
-  <article class="policy-page">
-    <header class="container">
-      <p class="eyebrow">Privacy</p>
-      <h1>Your records are not our business model.</h1>
-      <p>We keep only the records you approve, never sell your data, and let you export or delete everything at any time.</p>
-      <p>The plain-English version first. Counsel-approved policy language will replace the draft below before launch.</p>
-    </header>
-    <section class="policy-page__promises container">
-      <article><h2>We read what you add, nothing else.</h2><p>BarkLens processes only the records and information you choose to add.</p></article>
-      <article><h2>You approve what stays.</h2><p>Each record is shown to you first. Approve it and it joins your dog’s chart.</p></article>
-      <article><h2>Never sold.</h2><p>No data brokers and no advertising business built from your dog’s records.</p></article>
-      <article><h2>Leave with everything.</h2><p>Export your dog’s records. Account-deletion details will match the final policy and product.</p></article>
-    </section>
-    <section class="policy-page__draft container">
-      <p class="eyebrow">Draft coverage</p>
-      <h2>The final policy will explain:</h2>
-      <ul>
-        <li>Account information, records, questions, and technical information BarkLens collects.</li>
-        <li>How uploaded records and photographs are processed and retained.</li>
-        <li>Service providers involved in storage, AI processing, analytics, and email.</li>
-        <li>Access, export, correction, account closure, and deletion.</li>
-        <li>Care Team sharing and what invited people can see.</li>
-        <li>Security practices, retention periods, and contact information.</li>
-      </ul>
-      <p>Contact: <a href="mailto:hello@barklens.com">hello@barklens.com</a></p>
-    </section>
-  </article>
-</BaseLayout>
-
-<style>
-  .policy-page > header { padding-block: var(--space-24) var(--space-12); }
-  .policy-page h1 { max-width: 15ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
-  .policy-page header > p:not(.eyebrow) { max-width: 52ch; margin-top: var(--space-5); color: var(--color-copy-muted); }
-  .policy-page__promises { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
-  .policy-page__promises article { padding: var(--space-8); border-radius: var(--radius-lg); background: var(--color-forest-900); color: var(--color-copy-inverse); }
-  .policy-page__promises h2 { color: var(--color-mint-400); font-size: var(--text-lg); }
-  .policy-page__promises p { margin-top: var(--space-3); color: #d8cfc0; }
-  .policy-page__draft { max-width: var(--content-narrow); padding-block: var(--space-20); }
-  .policy-page__draft h2 { margin-top: var(--space-5); font-size: var(--text-xl); }
-  .policy-page__draft ul { display: grid; gap: var(--space-4); margin-top: var(--space-6); padding-left: var(--space-6); color: var(--color-copy-muted); }
-  .policy-page__draft > p:last-child { margin-top: var(--space-8); }
-  .policy-page__draft a { color: var(--color-green-600); font-weight: 700; }
-  @media (max-width: 47.99rem) { .policy-page__promises { grid-template-columns: 1fr; } }
-</style>
+/>

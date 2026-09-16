@@ -12,7 +12,7 @@ export default async function handler(request, response) {
   try {
     enforceRateLimit(request);
     const input = await readBody(request);
-    const result = await waitlistService().unsubscribe(input.token);
+    const result = await waitlistService().unsubscribe(input.token || request.query?.token);
     sendJson(response, 200, result);
   } catch (error) {
     sendError(response, error);
