@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "preview:bundle": "node scripts/prepare-preview.mjs",
     "preview": "astro preview",
     "check": "astro check"
   },

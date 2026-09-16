@@ -16,6 +16,7 @@ progress.
 npm install
 npm run check
 npm run build
+npm run preview:bundle
 npm run dev
 ```
 
@@ -31,6 +32,8 @@ npm run dev
 - Twenty generated route placeholders for Phase 3 conversion
 - Optimized approved desktop hero asset
 - SVG favicon and wordmark
+- Preview-safe packaging that preserves production root paths while making the
+  private Perplexity preview use relative assets and routes
 
 ## Guardrails
 
