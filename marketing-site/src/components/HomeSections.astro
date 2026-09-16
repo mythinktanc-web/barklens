@@ -128,10 +128,50 @@ const mobileCaptureImages = [
                   <p>{item.eyebrow}</p>
                   <span>{item.caption}</span>
                 </div>
-                <div class="capture__result">
-                  <p class="number-label">BarkLens</p>
-                  {item.rows.map((row) => <p>{row}</p>)}
-                </div>
+                {index === 0 ? (
+                  <div class="capture__result capture__result--lab">
+                    <p class="capture__card-label">Labs</p>
+                    <div class="capture__lab-chart" aria-label="ALT values increased from 62 to 78 to 95 to 118 units per liter">
+                      <div class="capture__lab-range"></div>
+                      {[
+                        ['62', 'Aug ’25', '27'],
+                        ['78', 'Nov ’25', '34'],
+                        ['95', 'Feb ’26', '42'],
+                        ['118', 'Jun ’26', '52']
+                      ].map(([value, date, height], barIndex) => (
+                        <div class:list={['capture__lab-bar', { 'capture__lab-bar--latest': barIndex === 3 }]}>
+                          <b>{value}</b>
+                          <i style={`--bar-height:${height}px`}></i>
+                          <span>{date}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <p class="capture__lab-caption">ALT · U/L · Lab range 10–100</p>
+                    <div class="capture__lab-legend">
+                      <span><i></i>In range</span>
+                      <span><i></i>Out of range</span>
+                    </div>
+                    <div class="capture__ask"><span>Ask about this…</span><b aria-hidden="true">↑</b></div>
+                  </div>
+                ) : (
+                  <div class="capture__result capture__result--chat">
+                    <p class="capture__card-label">Chat</p>
+                    <div class="capture__sent">
+                      <p>Photo sent · {item.label}</p>
+                      <small>Delivered</small>
+                    </div>
+                    <div class="capture__reply">
+                      <b aria-hidden="true">B</b>
+                      <div>
+                        <div class="capture__reply-copy">
+                          {item.rows.map((row) => <p>{row}</p>)}
+                        </div>
+                        <small>BarkLens · Just now</small>
+                      </div>
+                    </div>
+                    <div class="capture__ask"><span>Ask about this…</span><b aria-hidden="true">↑</b></div>
+                  </div>
+                )}
               </article>
             ))}
           </div>
@@ -419,8 +459,33 @@ const mobileCaptureImages = [
   .capture__heading { position: absolute; z-index: 4; top: 4.875rem; left: 1.75rem; right: 1.75rem; display: flex; justify-content: space-between; gap: .75rem; transition: opacity .55s ease, transform .6s ease; }
   .capture__heading p { color: var(--color-cream-100); font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
   .capture__heading span { color: #c3ccc7; font-size: .8125rem; }
-  .capture__result { position: absolute; z-index: 5; left: 1.5rem; right: 1.5rem; bottom: 1.5rem; padding: var(--space-6); border: 1.5px solid rgb(255 255 255 / 26%); border-radius: 1.25rem; background: #2a2a2e; box-shadow: 0 26px 56px rgb(0 0 0 / 60%), 0 8px 18px rgb(0 0 0 / 35%); transition: opacity .55s ease, transform .6s ease; }
-  .capture__result > p:not(.number-label) { padding: var(--space-3) 0; border-bottom: 1px solid rgb(255 255 255 / 14%); }
+  .capture__result { position: absolute; z-index: 5; left: 1.5rem; right: 1.5rem; bottom: 1.5rem; overflow: hidden; border: 1.5px solid rgb(255 255 255 / 26%); border-radius: 1.25rem; background: #2a2a2e; box-shadow: 0 26px 56px rgb(0 0 0 / 60%), 0 8px 18px rgb(0 0 0 / 35%); transition: opacity .55s ease, transform .6s ease; }
+  .capture__card-label { padding: .8125rem 1rem; border-bottom: 1px solid rgb(255 255 255 / 10%); color: var(--color-cream-100); font-size: .8125rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  .capture__result--chat .capture__card-label { padding: .75rem 1rem 0; border-bottom: 0; color: rgb(245 240 232 / 45%); font-size: .6875rem; font-weight: 800; letter-spacing: .2em; }
+  .capture__lab-chart { position: relative; display: flex; height: 7.5rem; align-items: flex-end; justify-content: space-between; margin: 1rem 1.0625rem 0; padding: 0 .125rem 1.625rem; }
+  .capture__lab-range { position: absolute; top: 2rem; right: .125rem; bottom: 1.625rem; left: .125rem; border-top: 1px solid rgb(87 206 172 / 50%); border-bottom: 1px solid rgb(87 206 172 / 50%); background: rgb(87 206 172 / 14%); }
+  .capture__lab-bar { position: relative; z-index: 1; display: flex; flex: 1; flex-direction: column; align-items: center; gap: .3125rem; }
+  .capture__lab-bar b { color: var(--color-cream-100); font-size: .75rem; font-weight: 600; }
+  .capture__lab-bar i { width: 1.625rem; height: var(--bar-height); border-radius: 3px; background: #8a877f; }
+  .capture__lab-bar span { position: absolute; top: calc(100% + .3125rem); color: #c9c0b2; font-size: .6875rem; font-weight: 600; white-space: nowrap; }
+  .capture__lab-bar--latest b, .capture__lab-bar--latest span { color: var(--color-cream-100); font-weight: 700; }
+  .capture__lab-bar--latest i { background: var(--color-cream-100); }
+  .capture__lab-caption { padding: .875rem 1.125rem 0; border-top: 1px solid rgb(255 255 255 / 10%); color: var(--color-cream-100); font-size: .8125rem; font-weight: 700; text-align: center; }
+  .capture__lab-legend { display: flex; justify-content: center; gap: 1.125rem; padding: .625rem 1.125rem .875rem; color: #c9c0b2; font-size: .75rem; }
+  .capture__lab-legend span { display: inline-flex; align-items: center; gap: .4375rem; white-space: nowrap; }
+  .capture__lab-legend i { width: .5625rem; height: .5625rem; border-radius: 2px; background: #8a877f; }
+  .capture__lab-legend span:last-child i { background: var(--color-cream-100); }
+  .capture__sent { display: flex; flex-direction: column; align-items: flex-end; gap: .25rem; padding: .5rem 1rem 0; }
+  .capture__sent p { max-width: 78%; padding: .5625rem .8125rem; border-radius: 1.125rem 1.125rem .25rem 1.125rem; color: #ede3d4; background: #4a4a50; font-size: .9375rem; line-height: 1.4; }
+  .capture__sent small, .capture__reply small { color: #8c9a93; font-size: .6875rem; }
+  .capture__reply { display: flex; align-items: flex-end; gap: .5rem; padding: .75rem 1rem 0; }
+  .capture__reply > b { display: grid; width: 1.625rem; height: 1.625rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #0b0b0c; background: var(--color-mint-500); font-size: .6875rem; font-weight: 800; }
+  .capture__reply > div { min-width: 0; }
+  .capture__reply-copy { display: grid; gap: .625rem; overflow: hidden; padding: .6875rem .875rem; border-radius: 1.125rem 1.125rem 1.125rem .25rem; background: #3a3a40; }
+  .capture__reply-copy p { color: #ede3d4; font-size: .875rem; line-height: 1.45; }
+  .capture__reply small { display: block; padding: .25rem 0 0 .25rem; }
+  .capture__ask { display: flex; align-items: center; justify-content: space-between; gap: .625rem; margin: .875rem; padding: .375rem .375rem .375rem 1rem; border: 1px solid rgb(255 255 255 / 22%); border-radius: var(--radius-pill); color: #a89f92; font-size: .8125rem; }
+  .capture__ask b { display: grid; width: 1.75rem; height: 1.75rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #0b1f19; background: var(--color-mint-500); }
   .capture[data-capture-phase='aim'] .capture__heading,
   .capture[data-capture-phase='aim'] .capture__result,
   .capture[data-capture-phase='aim'] .capture__scrim,
@@ -561,14 +626,14 @@ const mobileCaptureImages = [
     .faq h2 { font-size: clamp(2rem, 9vw, 2.75rem); }
     .capture__copy > h2 { max-width: 12ch; }
     .capture__grid { gap: var(--space-8); margin-top: var(--space-10); }
-    .capture { background: var(--color-forest-900); color: var(--color-copy-inverse); }
+    .capture { display: block; min-height: 0; padding: 3rem 0 0; background: var(--color-forest-900); color: var(--color-copy-inverse); }
     .capture .section-label { color: var(--color-mint-500); text-align: center; }
     .capture > .container { width: 100%; }
     .capture__copy > .section-label, .capture__copy > h2 { margin-inline: var(--space-6); }
     .capture__copy > h2 { max-width: 16ch; margin-top: var(--space-4); margin-inline: auto; font-size: 2rem; line-height: 1.12; text-align: center; }
     .capture__copy > h2 em { color: var(--color-mint-400); }
-    .capture__grid { display: block; margin-top: var(--space-6); }
-    .capture__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin-inline: var(--space-4); }
+    .capture__grid { display: block; margin-top: 0; }
+    .capture__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin: 1.375rem var(--space-4) 0; }
     .capture__tabs button { display: grid; grid-template-columns: 1fr; gap: 0; min-height: 2.75rem; place-items: center; align-content: center; padding: .6875rem .25rem; border: 1.5px solid rgb(237 227 212 / 22%); border-radius: .75rem; color: #c3ccc7; background: transparent; text-align: center; }
     .capture__tabs button[aria-selected='true'] { border-color: var(--color-mint-500); color: var(--color-forest-950); background: var(--color-mint-500); }
     .capture__tabs button > span, .capture__tabs button strong, .capture__tabs button small { display: none; }
@@ -590,11 +655,13 @@ const mobileCaptureImages = [
     .capture__heading { top: var(--space-5); left: var(--space-5); right: var(--space-5); display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: var(--space-3); }
     .capture__heading p { max-width: 12ch; font-size: .6875rem; }
     .capture__heading span { max-width: 16ch; justify-self: end; font-size: .6875rem; line-height: 1.35; text-align: right; }
-    .capture__result { left: var(--space-4); right: var(--space-4); bottom: var(--space-4); padding: var(--space-5); }
+    .capture__result { left: var(--space-4); right: var(--space-4); }
+    .capture__result--chat { bottom: 1.5rem; }
+    .capture__result--lab { bottom: 2.75rem; }
     .capture__aim { inset: 12% 1.625rem 44%; filter: drop-shadow(0 1px 2px rgb(0 0 0 / 35%)); }
 
     .closer, .trends, .story { min-height: auto; }
-    .closer { padding-block: var(--space-16); background: #11251f; }
+    .closer { padding: 3rem 0; background: #11251f; }
     .closer > img, .closer > .image-shade { display: none; }
     .closer__content { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
     .closer__intro { display: contents; }
