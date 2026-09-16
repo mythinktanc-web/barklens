@@ -1,0 +1,164 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ButtonLink from '@components/ButtonLink.astro';
+import { routes } from '@config/site';
+---
+
+<BaseLayout
+  title="BarkLens | Your dog’s health history, in one place"
+  description="BarkLens holds your dog’s health history, connects what you notice at home to what is on the report, and traces every answer to published veterinary sources."
+>
+  <section class="hero">
+    <img
+      src="/images/desktop-hero.webp"
+      alt="A woman carrying her grey-muzzled dachshund down a forest road"
+      width="1774"
+      height="887"
+      fetchpriority="high"
+    />
+    <div class="hero__shade"></div>
+    <div class="hero__content container">
+      <p class="eyebrow">Your dog can’t talk.</p>
+      <h1><span>Let their records</span><em>do the talking.</em></h1>
+      <p class="hero__lede">
+        For years, you remembered everything. Now the chart does. Ask anything and get answers from
+        your dog’s history and veterinary science.
+      </p>
+      <p class="hero__proof">Not just AI. Their history.<br />Real veterinary science. One answer.</p>
+      <div class="hero__actions">
+        <ButtonLink href={routes.waitlist} variant="light">Join Waitlist</ButtonLink>
+        <ButtonLink href={routes.howItWorks} variant="text">See how it works →</ButtonLink>
+      </div>
+      <p class="hero__microcopy">Built for the owner in the room.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: calc(100dvh - var(--header-height));
+    overflow: hidden;
+    background: var(--color-forest-900);
+    color: var(--color-copy-inverse);
+  }
+
+  .hero > img,
+  .hero__shade {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero > img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero__shade {
+    z-index: -1;
+    background: linear-gradient(90deg, rgb(8 22 17 / 90%) 0%, rgb(8 22 17 / 68%) 36%, transparent 74%);
+  }
+
+  .hero__content {
+    display: flex;
+    min-height: calc(100dvh - var(--header-height));
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-block: var(--space-16);
+  }
+
+  .hero .eyebrow {
+    color: var(--color-mint-400);
+  }
+
+  .hero h1 {
+    margin-top: var(--space-5);
+    font-size: clamp(3.5rem, 5.2vw, 4.75rem);
+  }
+
+  .hero h1 span,
+  .hero h1 em {
+    display: block;
+  }
+
+  .hero h1 em {
+    color: var(--color-mint-400);
+    font-weight: 400;
+  }
+
+  .hero__lede {
+    max-width: 34ch;
+    margin-top: var(--space-6);
+    font-size: var(--text-base);
+  }
+
+  .hero__proof {
+    margin-top: var(--space-5);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    margin-top: var(--space-8);
+  }
+
+  .hero__microcopy {
+    margin-top: var(--space-5);
+    color: rgb(245 240 232 / 78%);
+    font-size: var(--text-xs);
+  }
+
+  @media (max-width: 63.99rem) {
+    .hero > img {
+      object-position: 60% center;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .hero {
+      min-height: 48rem;
+    }
+
+    .hero > img {
+      object-position: 68% center;
+    }
+
+    .hero__shade {
+      background:
+        linear-gradient(180deg, rgb(8 22 17 / 45%) 0%, rgb(8 22 17 / 25%) 40%, rgb(8 22 17 / 94%) 100%),
+        linear-gradient(90deg, rgb(8 22 17 / 35%), transparent);
+    }
+
+    .hero__content {
+      min-height: 48rem;
+      justify-content: flex-end;
+      padding-bottom: var(--space-12);
+    }
+
+    .hero h1 {
+      font-size: var(--text-2xl);
+    }
+
+    .hero h1 span {
+      max-width: 8ch;
+    }
+
+    .hero__lede {
+      font-size: var(--text-base);
+    }
+
+    .hero__actions {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  href?: string;
+  inverse?: boolean;
+}
+
+const { href = '/', inverse = false } = Astro.props;
+---
+
+<a class:list={['wordmark', { 'wordmark--inverse': inverse }]} href={href} aria-label="BarkLens home">
+  <svg viewBox="0 0 132 22" role="img" aria-hidden="true">
+    <text x="0" y="16" font-family="Inter, sans-serif" font-size="15" letter-spacing="2.2">
+      <tspan font-weight="800">BARK</tspan><tspan font-weight="400">LENS</tspan>
+    </text>
+  </svg>
+</a>
+
+<style>
+  .wordmark {
+    display: inline-flex;
+    width: 8.25rem;
+    color: var(--color-forest-900);
+  }
+
+  .wordmark--inverse {
+    color: var(--color-copy-inverse);
+  }
+
+  .wordmark svg {
+    width: 100%;
+    fill: currentColor;
+  }
+</style>

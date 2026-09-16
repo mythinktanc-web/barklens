@@ -9,8 +9,8 @@ gate, active task, and excluded work.
 | Phase | Name | Status |
 |---|---|---|
 | 1 | Lock decisions | Complete |
-| 2 | Build production foundation | Next |
-| 3 | Complete desktop website | Not started |
+| 2 | Build production foundation | Complete |
+| 3 | Complete desktop website | Next |
 | 4 | Make the waitlist real | Not started |
 | 5 | Connect payment path | Not started |
 | 6 | Add mobile designs | Not started |

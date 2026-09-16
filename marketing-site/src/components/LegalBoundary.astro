@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<p class:list={['legal-boundary', className]}>BarkLens doesn’t diagnose. Your vet does.</p>
+
+<style>
+  .legal-boundary {
+    color: var(--color-copy-muted);
+    font-size: var(--text-sm);
+    font-style: italic;
+  }
+</style>
