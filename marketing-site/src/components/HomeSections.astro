@@ -451,10 +451,10 @@ const testimonials = [
   .closer__desktop-answer { max-width: 38ch; }
   .closer__desktop-boundary { display: block; margin-top: var(--space-5); color: #a9bdb6; }
   .closer__mobile-copy { display: none; }
-  .chart-card { overflow: hidden; padding: 0; border: 1px solid rgb(255 255 255 / 28%); border-radius: var(--radius-xl); background: #29272d; box-shadow: var(--shadow-card); }
+  .chart-card { display: flex; height: 23.5rem; flex-direction: column; overflow: hidden; padding: 0; border: 1px solid rgb(255 255 255 / 28%); border-radius: var(--radius-xl); background: #29272d; box-shadow: var(--shadow-card); }
   .chart-card > .number-label { padding: .875rem 1rem; border-bottom: 1px solid rgb(255 255 255 / 14%); color: var(--color-cream-100); }
-  .chart-card dl { display: grid; padding: 0 1rem; }
-  .chart-card dl div { display: grid; gap: .25rem; padding: .875rem 0; border-bottom: 1px solid rgb(255 255 255 / 16%); }
+  .chart-card dl { display: flex; flex: 1; flex-direction: column; padding: 0 1rem; }
+  .chart-card dl div { display: grid; flex: 1; align-content: center; gap: .25rem; padding: .875rem 0; border-bottom: 1px solid rgb(255 255 255 / 16%); }
   .chart-card dd { color: #a9bdb6; font-size: .6875rem; }
   .chart-card__range { color: #c08a72; }
   .chart-card__prompt { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: .875rem; padding: .375rem .375rem .375rem .875rem; border: 1px solid rgb(255 255 255 / 25%); border-radius: var(--radius-pill); color: #9eaaa5; font-size: .8125rem; }
@@ -548,18 +548,18 @@ const testimonials = [
   .trends__mobile-image { display: none; }
   .trends__mobile-title, .trends__mobile-copy { display: none; }
   .trends blockquote { margin-top: var(--space-8); font-family: var(--font-display); font-size: var(--text-lg); }
-  .trend-card { padding: var(--space-8); border: 1px solid #6b7773; border-radius: var(--radius-xl); background: #242928; box-shadow: var(--shadow-card); }
-  .trend-card__label { color: #c8bfb1; }
-  .trend-card svg { width: 100%; margin-top: var(--space-4); font-family: var(--font-body); }
+  .trend-card { display: flex; height: 23.5rem; flex-direction: column; overflow: hidden; padding: 0; border: 1px solid rgb(255 255 255 / 28%); border-radius: var(--radius-xl); background: #29272d; box-shadow: var(--shadow-card); }
+  .trend-card__label { padding: .875rem 1rem; border-bottom: 1px solid rgb(255 255 255 / 14%); color: #c8bfb1; }
+  .trend-card svg { display: block; width: calc(100% - 2rem); min-height: 0; flex: 1; margin: 1rem 1rem 0; font-family: var(--font-body); }
   .trend-card svg > rect:not(:first-child) { fill: #c8bfb1; }
   .trend-card svg > rect:nth-of-type(4) { fill: #d7ccba; }
   .trend-card text { fill: #8c958f; font-size: 12px; font-weight: 600; }
   .trend-card text.value, .trend-card text.date { text-anchor: middle; fill: #f2f5f3; font-size: 14px; font-weight: 700; }
   .trend-card text.date { fill: #8c958f; font-size: 13px; }
   .trend-card text.date--latest { fill: #f2f5f3; }
-  .trend-card__caption { color: #8c958f; font-size: var(--text-sm); font-weight: 600; text-align: center; }
-  .trend-card__ask { display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-5); padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5); border: 1px solid #454e4b; border-radius: var(--radius-pill); color: #8c958f; background: #2a302f; }
-  .trend-card__ask b { display: grid; width: 2.625rem; height: 2.625rem; place-items: center; border-radius: 50%; color: var(--color-forest-900); background: #36c48e; }
+  .trend-card__caption { padding: .875rem 1rem 0; border-top: 1px solid rgb(255 255 255 / 14%); color: #8c958f; font-size: var(--text-sm); font-weight: 600; text-align: center; }
+  .trend-card__ask { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: .875rem; padding: .375rem .375rem .375rem .875rem; border: 1px solid rgb(255 255 255 / 25%); border-radius: var(--radius-pill); color: #9eaaa5; background: transparent; font-size: .8125rem; }
+  .trend-card__ask b { display: grid; width: 1.75rem; height: 1.75rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-forest-950); background: var(--color-mint-500); }
 
   .why > .container > h2 { margin-top: var(--space-4); font-size: var(--text-2xl); }
   .why__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-top: var(--space-12); }
@@ -745,7 +745,8 @@ const testimonials = [
     .trends__desktop-title, .trends__desktop-copy, .trends blockquote { display: none; }
     .trends__mobile-title { order: 2; display: block; max-width: 14ch; margin: var(--space-4) auto 0; font-size: 2rem; line-height: 1.08; text-align: center; }
     .trends .trends__mobile-title em { display: block; color: #2e8a6e; }
-    .trend-card { order: 3; width: 100%; margin-top: var(--space-8); padding: var(--space-5); }
+    .closer .chart-card, .trend-card { height: 21.8rem; border-radius: var(--radius-lg); }
+    .trend-card { order: 3; width: 100%; margin-top: var(--space-8); padding: 0; }
     .trends__mobile-copy { order: 4; display: grid; gap: var(--space-5); margin-top: var(--space-8); color: var(--color-copy); font-size: .875rem; line-height: 1.65; }
     .trends__mobile-copy p:last-child { color: var(--color-copy-muted); }
     .trend-card svg { margin-top: var(--space-2); }
