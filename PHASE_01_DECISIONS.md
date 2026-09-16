@@ -99,7 +99,8 @@ role.
 
 - Public route: `/plans/`.
 - Homepage links to Plans but does not contain a Buy button.
-- Before payment is live, plan actions route to the waitlist.
+- Before payment is live, Plans displays the packages without an enrollment or
+  payment action.
 - After payment is live, only the Plans page routes to the approved checkout.
 - Payment platform details are verified in Phase 5 before activation.
 
