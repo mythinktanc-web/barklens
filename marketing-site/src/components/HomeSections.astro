@@ -422,13 +422,100 @@ import {
   }
 
   @media (max-width: 47.99rem) {
+    :global(main) { display: flex; flex-direction: column; }
     .section { padding: var(--space-16) 0; }
+    .how { order: 1; background: var(--color-forest-950); color: var(--color-copy-inverse); }
+    .capture { order: 2; }
+    .closer { order: 3; }
+    .why { order: 4; }
+    .trends { order: 5; }
+    .story { order: 6; }
+    .conditions { order: 7; }
+    .testimonial { order: 8; }
+    .pricing { order: 9; }
+    .faq { order: 10; }
+    .closing { order: 11; }
+
+    .how .section-label { color: var(--color-mint-500); text-align: center; }
     .how__grid, .why__grid, .conditions__grid { grid-template-columns: 1fr; }
-    .capture__display, .capture__display article { min-height: 36rem; }
-    .closer__content, .trends__grid { gap: var(--space-10); }
-    .closer__intro h2, .trends h2, .capture > .container > h2, .story h2, .conditions__intro h2, .pricing h2, .faq h2 { font-size: var(--text-xl); }
-    .testimonial__copy { padding: var(--space-16) var(--space-5); }
+    .how__grid { gap: var(--space-10); margin-top: var(--space-10); }
+    .how__step img { aspect-ratio: 16 / 10; }
+    .how__step .number-label { color: var(--color-mint-500); }
+    .how__step > p:last-child { color: #d8cfc0; }
+
+    .capture > .container > h2,
+    .closer__intro h2,
+    .trends h2,
+    .story h2,
+    .conditions__intro h2,
+    .pricing h2,
+    .faq h2 { font-size: clamp(2rem, 9vw, 2.75rem); }
+    .capture > .container > h2 { max-width: 12ch; }
+    .capture__grid { gap: var(--space-8); margin-top: var(--space-10); }
+    .capture__tabs { grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .capture__tabs::-webkit-scrollbar { display: none; }
+    .capture__tabs button { min-height: 8.5rem; align-content: start; padding: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-lg); scroll-snap-align: start; }
+    .capture__tabs button + button { margin-left: var(--space-3); }
+    .capture__tabs button small { max-height: 5rem; margin-top: var(--space-2); opacity: 1; }
+    .capture__display, .capture__display article { min-height: 31rem; }
+    .capture__heading { top: var(--space-5); left: var(--space-5); right: var(--space-5); }
+    .capture__result { left: var(--space-4); right: var(--space-4); bottom: var(--space-4); padding: var(--space-5); }
+
+    .closer, .trends, .story { min-height: auto; }
+    .closer { padding-block: var(--space-16); background: var(--color-forest-900); }
+    .closer > img { opacity: .24; }
+    .closer__content, .trends__grid { gap: var(--space-8); }
+    .closer__intro > p:last-child, .trends__grid > div > p { font-size: 1rem; }
+    .chart-card { padding: var(--space-5); border-radius: var(--radius-lg); }
+    .chart-card dl div { display: grid; gap: var(--space-1); }
+
+    .why { position: relative; isolation: isolate; overflow: hidden; background: var(--color-forest-950); color: var(--color-copy-inverse); }
+    .why::before { position: absolute; inset: 0; z-index: -2; content: ''; background: url('/images/home/testimonial.webp') center 42% / cover; opacity: .23; }
+    .why::after { position: absolute; inset: 0; z-index: -1; content: ''; background: linear-gradient(180deg, rgb(11 11 12 / 50%), rgb(11 11 12 / 90%)); }
+    .why .section-label { color: var(--color-mint-500); text-align: center; }
+    .why > .container > h2 { color: var(--color-copy-inverse); text-align: center; }
+    .why > .container > h2 em { color: var(--color-mint-400); }
+    .why__grid { gap: 0; margin-top: var(--space-8); border-top: 1px solid rgb(255 255 255 / 18%); }
+    .why__grid a { position: relative; min-height: 0; padding: var(--space-5) 3.75rem var(--space-5) 0; border-bottom: 1px solid rgb(255 255 255 / 18%); border-radius: 0; background: transparent; }
+    .why__grid a::after { position: absolute; top: 50%; right: 0; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid rgb(255 255 255 / 35%); border-radius: 50%; content: '›'; transform: translateY(-50%); }
+    .why__grid > a > span { margin-bottom: var(--space-2); }
+    .why__grid h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; }
+    .why__grid p { display: none; }
+
+    .trends { padding-block: var(--space-16); }
+    .trends .image-shade { background: rgb(10 25 20 / 72%); }
+    .trend-card { padding: var(--space-5); }
+    .trend-card svg { margin-top: var(--space-2); }
+    .trend-card__caption { font-size: .75rem; }
+
+    .story { min-height: 42rem; }
+    .story__content { min-height: 42rem; justify-content: flex-end; padding-block: var(--space-10); }
+    .story__content > p:not(.section-label) { font-size: .95rem; }
+
+    .conditions__intro { gap: var(--space-5); }
+    .conditions__grid { margin-top: var(--space-10); border-left: 0; }
+    .conditions__grid a { position: relative; min-height: 0; padding: var(--space-5) 3.5rem var(--space-5) 0; border-right: 0; }
+    .conditions__grid h3 { font-size: 1.35rem; }
+    .conditions__grid p { font-size: .875rem; }
+    .conditions__grid span { margin-top: var(--space-3); padding-top: 0; }
+    .conditions__grid b { position: absolute; top: 50%; right: 0; font-size: 0; transform: translateY(-50%); }
+    .conditions__grid b::after { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid var(--color-border); border-radius: 50%; content: '›'; color: var(--color-green-600); font-size: 1.25rem; }
+
+    .testimonial { min-height: 0; }
+    .testimonial__copy { order: 2; padding: var(--space-12) var(--space-5); }
+    .testimonial blockquote { font-size: 1.8rem; }
+    .testimonial img { order: 1; max-height: 28rem; aspect-ratio: 4 / 5; }
+
+    .pricing__grid { gap: var(--space-10); }
     .pricing dl div { grid-template-columns: 1fr; gap: var(--space-2); }
+    .pricing :global(.button-link) { width: 100%; }
+
+    .faq__inner { gap: var(--space-8); }
+    .faq__list button { min-height: 4rem; }
+    .faq__list button span { font-size: 1.2rem; }
+
+    .closing, .closing__content { min-height: 36rem; }
     .closing__content { padding-inline: var(--space-5); }
+    .closing h2 { font-size: 2.5rem; }
   }
 </style>

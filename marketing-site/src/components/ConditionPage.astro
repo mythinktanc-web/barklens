@@ -142,9 +142,16 @@ const { page } = Astro.props;
     .condition-content__side { position: static; }
   }
   @media (max-width: 47.99rem) {
-    .condition-hero { min-height: 26rem; }
-    .condition-hero h1, .condition-cta h2 { font-size: var(--text-xl); }
+    .condition-hero { min-height: 24rem; }
+    .condition-hero__content { padding-bottom: var(--space-8); }
+    .condition-hero h1, .condition-cta h2 { font-size: clamp(2rem, 9vw, 2.75rem); }
     .condition-intro, .condition-content { padding-block: var(--space-12); }
+    .condition-intro { gap: var(--space-8); }
+    .condition-intro > div > p { font-size: 1.25rem; }
+    .condition-content__main > section + section { margin-top: var(--space-12); padding-top: var(--space-12); }
+    .condition-content h2 { font-size: 1.85rem; }
     .instrument { padding: var(--space-6); }
+    .condition-content__side { padding: var(--space-6); }
+    .condition-cta { padding: var(--space-16) 0; }
   }
 </style>

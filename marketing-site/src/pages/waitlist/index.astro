@@ -31,6 +31,8 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
         <hr />
         <label>Dog’s name<input name="dogName" placeholder="Your dog’s name" required /></label>
         <label>Dog’s breed<input name="breed" list="breeds" placeholder="Start typing a breed…" required /></label>
+        <label data-second-breed hidden>Second breed<input name="breed2" list="breeds" placeholder="Second breed" /></label>
+        <button class="second-breed-toggle" type="button" data-second-breed-toggle>+ Add second breed (mixed dog?)</button>
         <datalist id="breeds">
           <option value="Dachshund"></option><option value="Labrador Retriever"></option><option value="Golden Retriever"></option>
           <option value="German Shepherd"></option><option value="Poodle"></option><option value="Mixed breed"></option>
@@ -81,6 +83,13 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
         <button type="button" data-native-share>Share link</button>
       </div>
     </dialog>
+
+    <dialog class="multi-dialog" data-multi-dialog aria-labelledby="multi-title">
+      <p class="eyebrow">Multiple dogs</p>
+      <h2 id="multi-title">Good news. <em>They’re all welcome.</em></h2>
+      <p>When BarkLens goes live, you’ll be able to add your other dogs after you sign in.</p>
+      <button type="button" data-close-multi>Got it</button>
+    </dialog>
   </section>
 </BaseLayout>
 
@@ -92,6 +101,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
     const formView = root.querySelector('[data-form-view]');
     const successView = root.querySelector('[data-success-view]');
     const dialog = root.querySelector('[data-share-dialog]');
+    const multiDialog = root.querySelector('[data-multi-dialog]');
     const submitButton = root.querySelector('[data-submit-button]');
     const formStatus = root.querySelector('[data-form-status]');
     let referralUrl = 'https://barklens.com/waitlist/?refer=you7k2';
@@ -111,7 +121,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
             email: data.get('email'),
             firstName: data.get('firstName'),
             dogName: data.get('dogName'),
-            breed: data.get('breed'),
+            breed: [data.get('breed'), data.get('breed2')].filter(Boolean).join(' + '),
             age: data.get('age'),
             multi: data.get('multi'),
             company: data.get('company'),
@@ -172,6 +182,21 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
       } catch { return; }
       await copy();
     });
+
+    const secondBreed = root.querySelector('[data-second-breed]');
+    const secondBreedToggle = root.querySelector('[data-second-breed-toggle]');
+    secondBreedToggle?.addEventListener('click', () => {
+      const opening = secondBreed.hidden;
+      secondBreed.hidden = !opening;
+      secondBreedToggle.textContent = opening ? '− Remove second breed' : '+ Add second breed (mixed dog?)';
+      if (!opening) secondBreed.querySelector('input').value = '';
+      if (opening) secondBreed.querySelector('input').focus();
+    });
+
+    root.querySelector('input[name="multi"][value="Yes"]')?.addEventListener('change', () => {
+      if (window.matchMedia('(max-width: 47.99rem)').matches) multiDialog.showModal();
+    });
+    root.querySelector('[data-close-multi]')?.addEventListener('click', () => multiDialog.close());
   }
 </script>
 
@@ -200,6 +225,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
   .waitlist-form input[type='radio'] { position: absolute; opacity: 0; }
   .waitlist-form fieldset span { display: grid; min-height: 2.875rem; place-items: center; border: 1px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; font-size: var(--text-sm); }
   .waitlist-form input[type='radio']:checked + span { border-color: var(--color-green-600); background: #e8f3ef; }
+  .second-breed-toggle { justify-self: start; margin-top: calc(-1 * var(--space-3)); color: var(--color-green-600); background: transparent; font-size: var(--text-sm); font-weight: 700; }
   .waitlist-form__submit { min-height: 3.25rem; border-radius: var(--radius-pill); color: #fff; background: var(--color-forest-900); font-weight: 700; }
   .waitlist-form__submit:disabled { cursor: wait; opacity: .7; }
   .waitlist-form > p { color: var(--color-copy-muted); font-size: var(--text-xs); text-align: center; }
@@ -230,6 +256,48 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
   .share-dialog__tools input { min-width: 0; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
   .share-dialog__tools > div button { padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); color: #fff; background: var(--color-green-600); }
   .share-dialog__tools > button:last-child { min-height: 3.25rem; border-radius: var(--radius-pill); background: var(--color-mint-500); font-weight: 700; }
+  .multi-dialog { width: min(27rem, calc(100% - 2rem)); margin: auto; padding: var(--space-8); border: 0; border-radius: var(--radius-xl); background: var(--color-cream-200); }
+  .multi-dialog::backdrop { background: rgb(15 31 26 / 58%); backdrop-filter: blur(.4rem); }
+  .multi-dialog h2 { margin-top: var(--space-3); font-size: var(--text-xl); }
+  .multi-dialog h2 em { display: block; color: var(--color-green-600); }
+  .multi-dialog > p:not(.eyebrow) { margin-top: var(--space-4); color: var(--color-copy-muted); }
+  .multi-dialog button { width: 100%; min-height: 3.125rem; margin-top: var(--space-6); border-radius: var(--radius-pill); color: #fff; background: var(--color-forest-950); font-weight: 700; }
   @media (max-width: 63.99rem) { .waitlist-page__form-view, .waitlist-success { grid-template-columns: 1fr; } }
-  @media (max-width: 47.99rem) { .waitlist-page { padding: var(--space-12) 0; } .waitlist-form { padding: var(--space-6); } .share-dialog[open] { grid-template-columns: 1fr; } .share-dialog__copy { min-height: 15rem; } }
+  @media (max-width: 47.99rem) {
+    .waitlist-page { padding: var(--space-8) 0 var(--space-12); }
+    .waitlist-page__form-view, .waitlist-success { gap: var(--space-8); }
+    .waitlist-offer { padding-top: 0; }
+    .waitlist-offer h1, .waitlist-success h2 { max-width: 11ch; font-size: 2.625rem; }
+    .waitlist-offer > p:not(.eyebrow) { margin-top: var(--space-4); }
+    .waitlist-offer dl { margin-top: var(--space-6); }
+    .waitlist-offer dl div { padding: var(--space-4) 5.75rem var(--space-4) 0; }
+    .waitlist-offer dt { font-size: 1.2rem; }
+    .waitlist-offer dd { margin-top: var(--space-1); font-size: .8125rem; }
+    .waitlist-offer dl span { top: var(--space-5); font-size: .625rem; }
+    .waitlist-form { gap: var(--space-5); padding: var(--space-6) var(--space-5) var(--space-5); border-radius: 1.25rem; }
+    .waitlist-form input:not([type='radio']) { height: 3.125rem; font-size: 1rem; }
+    .waitlist-form fieldset > div { grid-template-columns: 1fr 1fr; }
+    .waitlist-form fieldset span { min-height: 3rem; }
+    .waitlist-form__submit { min-height: 3.375rem; background: var(--color-mint-500); color: var(--color-forest-950); }
+    .second-breed-toggle { min-height: 2.75rem; }
+
+    .waitlist-success > div { padding: var(--space-5); }
+    .waitlist-success > div:first-child { padding: var(--space-6); }
+    .waitlist-success button, .waitlist-success a { width: 100%; justify-content: center; margin-right: 0; }
+    .waitlist-success li { grid-template-columns: 2.25rem 1fr; padding: var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+    .waitlist-success li > span { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border-radius: 50%; background: var(--color-cream-200); }
+    .waitlist-success li > em { grid-column: 2; grid-row: 1; justify-self: end; }
+
+    .share-dialog { inset: auto 0 0; width: min(100%, 27rem); max-height: 92svh; margin: 0 auto; border-radius: 1.75rem 1.75rem 0 0; overflow-y: auto; }
+    .share-dialog[open] { grid-template-columns: 1fr; }
+    .share-dialog__copy { min-height: auto; padding: var(--space-6) var(--space-6) 0; }
+    .share-dialog__copy > p:not(.eyebrow) { font-size: .875rem; }
+    .share-dialog__copy button { display: none; }
+    .share-dialog__tools { position: static; padding: var(--space-6) var(--space-6) calc(var(--space-6) + env(safe-area-inset-bottom)); background: var(--color-forest-950); color: var(--color-copy-inverse); }
+    .share-dialog__close { top: var(--space-3); right: var(--space-4); border: 1px solid rgb(255 255 255 / 20%); color: #fff; background: transparent; }
+    .share-dialog__tools > svg { width: 9rem; height: 9rem; }
+    .share-dialog__tools input { border-color: rgb(255 255 255 / 16%); color: #d8cfc0; background: rgb(255 255 255 / 5%); }
+    .share-dialog__tools > div button { color: var(--color-forest-950); background: var(--color-cream-200); }
+    .multi-dialog { inset: auto 0 0; width: min(100%, 27rem); margin: 0 auto; padding: var(--space-8) var(--space-6) calc(var(--space-8) + env(safe-area-inset-bottom)); border-radius: 1.75rem 1.75rem 0 0; }
+  }
 </style>

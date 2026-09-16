@@ -127,40 +127,67 @@ import { routes } from '@config/site';
 
   @media (max-width: 47.99rem) {
     .hero {
-      min-height: 48rem;
+      min-height: calc(100svh - 3.25rem);
     }
 
     .hero > img {
-      object-position: 68% center;
+      object-position: 82% center;
     }
 
     .hero__shade {
       background:
-        linear-gradient(180deg, rgb(8 22 17 / 45%) 0%, rgb(8 22 17 / 25%) 40%, rgb(8 22 17 / 94%) 100%),
-        linear-gradient(90deg, rgb(8 22 17 / 35%), transparent);
+        linear-gradient(180deg, rgb(8 22 17 / 65%) 0%, rgb(8 22 17 / 12%) 38%, rgb(8 22 17 / 94%) 78%, rgb(8 22 17 / 100%) 100%),
+        linear-gradient(90deg, rgb(8 22 17 / 24%), transparent);
     }
 
     .hero__content {
-      min-height: 48rem;
+      position: relative;
+      min-height: calc(100svh - 3.25rem);
       justify-content: flex-end;
-      padding-bottom: var(--space-12);
+      padding-top: var(--space-5);
+      padding-bottom: var(--space-5);
+    }
+
+    .hero .eyebrow {
+      position: absolute;
+      top: var(--space-5);
+      left: 0;
     }
 
     .hero h1 {
-      font-size: var(--text-2xl);
+      position: absolute;
+      top: 3.5rem;
+      left: 0;
+      max-width: 17ch;
+      margin: 0;
+      font-size: clamp(2rem, 8.5vw, 2.25rem);
     }
 
-    .hero h1 span {
-      max-width: 8ch;
+    .hero h1 em {
+      color: var(--color-copy-inverse);
     }
 
     .hero__lede {
-      font-size: var(--text-base);
+      max-width: 33ch;
+      margin-top: 0;
+      font-size: 1rem;
+      line-height: 1.65;
     }
 
     .hero__actions {
       width: 100%;
-      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--space-5);
+    }
+
+    .hero__actions :global(.button-link--text) {
+      display: none;
+    }
+
+    .hero__microcopy {
+      width: 100%;
+      margin-top: var(--space-4);
+      text-align: center;
     }
   }
 </style>

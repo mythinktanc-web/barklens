@@ -71,3 +71,19 @@ Credential-backed environments provide the Mailgun API URL and proxy token
 through the secure credential vault. The private preview proxies to the
 sandbox backend. Durable staging and production hosting remain Phase 9 and
 Phase 11 work.
+
+## Responsive layouts
+
+Phase 6 keeps one Astro site and changes presentation by screen width.
+
+- Desktop at 1024px and wider preserves the completed desktop composition.
+- Tablet bridges the desktop and phone layouts without a separate site.
+- Mobile follows the approved 390px design direction: black sticky header,
+  portrait hero, single-column editorial sections, touch-sized controls,
+  image-backed proof sections, and bottom-sheet dialogs.
+- The real Mailgun waitlist remains shared across every screen size.
+- Mobile waitlist additions include an optional second breed, the
+  multiple-dog information sheet, stacked confirmation cards, and the
+  BarkCode share sheet.
+- Shared social links use Instagram `@Gobarklens`, TikTok `@Barklens`,
+  Pinterest `GoBarkLens`, Facebook, and YouTube `@gobarklens`.

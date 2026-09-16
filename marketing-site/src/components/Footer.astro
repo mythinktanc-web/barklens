@@ -34,6 +34,15 @@ import { routes, site } from '@config/site';
       <a href={routes.terms}>Terms</a>
       <a href={routes.records}>Your records</a>
     </nav>
+
+    <nav class="site-footer__social" aria-label="Social media">
+      <p>Follow</p>
+      <a href="https://www.instagram.com/gobarklens/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@barklens" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.pinterest.com/gobarklens/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="https://www.facebook.com/profile.php?id=61586751886579" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@gobarklens" target="_blank" rel="noopener">YouTube</a>
+    </nav>
   </div>
   <div class="site-footer__bottom container">
     <span>© 2026 {site.legalName}</span>
@@ -49,7 +58,7 @@ import { routes, site } from '@config/site';
 
   .site-footer__grid {
     display: grid;
-    grid-template-columns: 1.5fr repeat(3, minmax(8rem, 1fr));
+    grid-template-columns: 1.5fr repeat(4, minmax(7rem, 1fr));
     gap: var(--space-12);
   }
 
@@ -88,14 +97,37 @@ import { routes, site } from '@config/site';
     font-size: var(--text-xs);
   }
 
-  @media (max-width: 47.99rem) {
+  @media (max-width: 63.99rem) {
     .site-footer__grid {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-10) var(--space-6);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .site-footer__brand {
       grid-column: 1 / -1;
+      max-width: 36rem;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .site-footer {
+      padding: var(--space-10) 0 calc(var(--space-6) + env(safe-area-inset-bottom));
+    }
+
+    .site-footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8) var(--space-5);
+    }
+
+    .site-footer__brand {
+      grid-column: 1 / -1;
+    }
+
+    .site-footer__brand p {
+      font-size: .8125rem;
+    }
+
+    .site-footer__bottom {
+      margin-top: var(--space-8);
     }
   }
 </style>

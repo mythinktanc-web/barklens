@@ -2,6 +2,8 @@
 import ButtonLink from './ButtonLink.astro';
 import Wordmark from './Wordmark.astro';
 import { primaryNavigation, routes } from '@config/site';
+
+const isWaitlistFlow = Astro.url.pathname.startsWith('/waitlist') || Astro.url.pathname.startsWith('/unsubscribe');
 ---
 
 <header class="site-header" data-site-header>
@@ -15,6 +17,9 @@ import { primaryNavigation, routes } from '@config/site';
     <div class="site-header__actions">
       <a class="site-header__questions" href="/#questions">Questions</a>
       <ButtonLink href={routes.waitlist}>Join Waitlist</ButtonLink>
+      <a class="site-header__mobile-spot" href={isWaitlistFlow ? routes.home : routes.waitlist}>
+        {isWaitlistFlow ? '← Back' : 'Save my spot'}
+      </a>
       <button
         class="site-header__menu-button"
         type="button"
@@ -40,6 +45,13 @@ import { primaryNavigation, routes } from '@config/site';
   </nav>
   <div class="mobile-navigation__footer">
     <ButtonLink href={routes.waitlist} variant="mint">Join Waitlist</ButtonLink>
+    <div class="mobile-navigation__socials" aria-label="BarkLens social media">
+      <a href="https://www.instagram.com/gobarklens/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@barklens" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.pinterest.com/gobarklens/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="https://www.facebook.com/profile.php?id=61586751886579" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@gobarklens" target="_blank" rel="noopener">YouTube</a>
+    </div>
     <a href="mailto:hello@barklens.com">hello@barklens.com</a>
   </div>
 </div>
@@ -129,6 +141,10 @@ import { primaryNavigation, routes } from '@config/site';
     background: var(--color-forest-900);
   }
 
+  .site-header__mobile-spot {
+    display: none;
+  }
+
   .site-header__menu-button span {
     display: block;
     width: 1.125rem;
@@ -187,6 +203,15 @@ import { primaryNavigation, routes } from '@config/site';
     gap: var(--space-5);
   }
 
+  .mobile-navigation__socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3) var(--space-5);
+    color: var(--color-copy-muted);
+    font-size: var(--text-xs);
+  }
+
   .mobile-navigation__footer > a:last-child {
     font-size: var(--text-sm);
     text-align: center;
@@ -205,6 +230,59 @@ import { primaryNavigation, routes } from '@config/site';
 
     .site-header__menu-button {
       display: block;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .site-header {
+      min-height: 3.25rem;
+      border-color: rgb(237 227 212 / 10%);
+      background: rgb(11 11 12 / 96%);
+    }
+
+    .site-header__inner {
+      min-height: 3.25rem;
+      gap: var(--space-4);
+    }
+
+    .site-header :global(.wordmark) {
+      width: 6.25rem;
+      color: var(--color-copy-inverse);
+    }
+
+    .site-header__actions {
+      gap: var(--space-4);
+    }
+
+    .site-header__mobile-spot {
+      display: inline-flex;
+      min-height: 2.75rem;
+      align-items: center;
+      color: var(--color-cream-300);
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    .site-header__menu-button {
+      width: 2.75rem;
+      height: 2.75rem;
+      background: transparent;
+    }
+
+    .mobile-navigation {
+      inset: 3.25rem 0 0;
+      padding: var(--space-6) var(--space-5) calc(var(--space-6) + env(safe-area-inset-bottom));
+      background: var(--color-forest-950);
+      color: var(--color-copy-inverse);
+    }
+
+    .mobile-navigation nav a {
+      border-color: rgb(237 227 212 / 16%);
+    }
+
+    .mobile-navigation nav span,
+    .mobile-navigation__socials {
+      color: var(--color-mint-500);
     }
   }
 </style>

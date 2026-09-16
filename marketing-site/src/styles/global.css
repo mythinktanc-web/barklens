@@ -126,8 +126,21 @@ p {
 }
 
 @media (max-width: 47.99rem) {
+  :root {
+    --header-height: 3.25rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
   .container {
     width: min(calc(100% - 2 * var(--space-5)), var(--content-wide));
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
