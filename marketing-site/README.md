@@ -44,5 +44,30 @@ npm run dev
 - General copy uses `your dog` and `their`.
 - Named demonstrations use the dog’s actual name.
 - Placeholder pages remain noindex until complete and approved.
-- WordPress, DNS, and the production domain remain unchanged until the later
-  staging and cutover phases pass.
+- DNS and the production domain remain unchanged until the later staging and
+  cutover phases pass.
+
+## Waitlist backend
+
+Phase 4 adds a portable Node backend under `server/`.
+
+- `POST /api/waitlist` validates and stores a founding-member signup in the
+  Mailgun list `waitlist@barklens.com`.
+- New members receive the approved welcome email from
+  `Ben at BarkLens <hello@barklens.com>`.
+- Existing members keep their original referral identity and do not receive a
+  second welcome email.
+- Referral codes and referrer attribution are stored in Mailgun member
+  variables.
+- `POST /api/unsubscribe` marks the member unsubscribed while preserving the
+  signup record.
+- A hidden honeypot and a basic per-process rate limit reduce automated abuse.
+- `MAILGUN_MODE=fake npm run server` runs the complete flow without touching
+  Mailgun.
+- `npm run test:waitlist` covers Mailgun response parsing, new signups,
+  duplicates, referrals, unsubscribe behavior, and invalid input.
+
+Credential-backed environments provide the Mailgun API URL and proxy token
+through the secure credential vault. The private preview proxies to the
+sandbox backend. Durable staging and production hosting remain Phase 9 and
+Phase 11 work.

@@ -52,8 +52,8 @@ Chase confirmed:
 - Put the approved boundary once near the opening.
 - End each page with the action best suited to that condition.
 - Add factual image descriptions.
-- Use `monitoring` only for owners, veterinarians, or published protocols;
-  BarkLens keeps, shows, organizes, compares, and flags data patterns.
+- BarkLens keeps, shows, organizes, compares, and flags data patterns. Do not
+  describe the product with surveillance-oriented language.
 - Add direct emergency guidance only where medically appropriate, especially
   diabetes and heart content.
 - Keep the two rejected Cushing’s claims removed.
@@ -120,7 +120,7 @@ Phase 7.
 
 - Canonical production domain: `https://barklens.com`.
 - `https://www.barklens.com` redirects to the canonical domain.
-- WordPress remains live until Phases 9 and 10 pass.
+- The current public site remains unchanged until Phases 9 and 10 pass.
 - GitHub remains the source of truth.
 - Vercel becomes the production host after staging approval.
 - Ben approves design and publication.
@@ -135,4 +135,4 @@ Phase 7.
 - Mobile implementation.
 - Blog CMS implementation.
 - Final legal drafting.
-- DNS and WordPress cutover.
+- DNS and production cutover.

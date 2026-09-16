@@ -11,13 +11,13 @@ gate, active task, and excluded work.
 | 1 | Lock decisions | Complete |
 | 2 | Build production foundation | Complete |
 | 3 | Complete desktop website | Complete |
-| 4 | Make the waitlist real | Next |
-| 5 | Connect payment path | Not started |
+| 4 | Make the waitlist real | Complete |
+| 5 | Connect payment path | Next |
 | 6 | Add mobile designs | Not started |
 | 7 | Build blog and editing system | Not started |
 | 8 | Complete legal, SEO, and accessibility | Not started |
 | 9 | Create Vercel staging site | Not started |
-| 10 | Prepare WordPress replacement | Not started |
+| 10 | Prepare production cutover | Not started |
 | 11 | Launch | Not started |
 | 12 | Post-launch operations | Not started |
 
@@ -70,7 +70,7 @@ sitemaps, accessibility, and performance checks pass.
 Complete when the full site is available on private staging and all pages,
 forms, links, devices, analytics, and integrations pass QA.
 
-### Phase 10: Prepare WordPress replacement
+### Phase 10: Prepare production cutover
 
 Complete when redirects, backups, DNS steps, canonical behavior, rollback, and
 cutover timing are documented and tested.
@@ -82,8 +82,8 @@ forms, email, redirects, SSL, search verification, and analytics work.
 
 ### Phase 12: Post-launch operations
 
-Complete when first-week monitoring is stable and the ongoing publishing,
-review, maintenance, and incident process is operating.
+Complete when first-week checks are stable and the ongoing publishing, review,
+maintenance, and incident process is operating.
 
 ## Scope-control format
 

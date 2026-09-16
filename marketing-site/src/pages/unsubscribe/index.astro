@@ -1,0 +1,68 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist';
+const unsubscribeApiUrl = waitlistApiUrl.replace(/\/waitlist\/?$/, '/unsubscribe');
+---
+
+<BaseLayout
+  title="Unsubscribe from BarkLens email"
+  description="Manage the email associated with your BarkLens founding-member waitlist spot."
+  canonicalPath="/unsubscribe/"
+  noindex={true}
+>
+  <section class="unsubscribe-page" data-unsubscribe data-api-url={unsubscribeApiUrl}>
+    <div class="unsubscribe-card">
+      <p class="eyebrow">Email preferences</p>
+      <h1>Leave the BarkLens email list?</h1>
+      <p data-message>
+        You will stop receiving BarkLens waitlist and launch emails. Your original signup
+        record will remain so we can honor the request.
+      </p>
+      <button type="button" data-unsubscribe-button>Unsubscribe</button>
+      <a href="/">Keep me subscribed</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  const root = document.querySelector('[data-unsubscribe]');
+  const button = root?.querySelector('[data-unsubscribe-button]');
+  const message = root?.querySelector('[data-message]');
+  const token = new URLSearchParams(window.location.search).get('token');
+  if (!token && button && message) {
+    button.hidden = true;
+    message.textContent = 'This unsubscribe link is incomplete.';
+  }
+  button?.addEventListener('click', async () => {
+    button.disabled = true;
+    button.textContent = 'Updating…';
+    try {
+      const response = await fetch(root.dataset.apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token })
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || 'Please try again.');
+      message.textContent = 'You’re unsubscribed. You will not receive future BarkLens waitlist or launch emails.';
+      button.hidden = true;
+      root.querySelector('a').textContent = 'Return to BarkLens';
+    } catch (error) {
+      message.textContent = error.message;
+      button.disabled = false;
+      button.textContent = 'Try again';
+    }
+  });
+</script>
+
+<style>
+  .unsubscribe-page { min-height: calc(100dvh - var(--header-height)); display: grid; place-items: center; padding: var(--space-16) var(--space-5); background: var(--color-cream-200); }
+  .unsubscribe-card { width: min(40rem, 100%); padding: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: #fff; box-shadow: var(--shadow-card); text-align: center; }
+  .unsubscribe-card h1 { max-width: 14ch; margin: var(--space-5) auto 0; font-size: var(--text-2xl); }
+  .unsubscribe-card > p:not(.eyebrow) { max-width: 46ch; margin: var(--space-5) auto 0; color: var(--color-copy-muted); }
+  .unsubscribe-card button, .unsubscribe-card a { display: inline-flex; margin-top: var(--space-8); padding: var(--space-3) var(--space-6); border-radius: var(--radius-pill); font-weight: 700; }
+  .unsubscribe-card button { color: #fff; background: var(--color-forest-900); }
+  .unsubscribe-card button:disabled { opacity: .65; }
+  .unsubscribe-card a { color: var(--color-green-600); }
+</style>

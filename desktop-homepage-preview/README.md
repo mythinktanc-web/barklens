@@ -9,7 +9,7 @@ the September 16, 2026 Claude Design export `index-10.html`.
 - Assets: externalized and converted to WebP for preview performance
 - Mobile `/v4/`: unchanged
 - GitHub `main`: unchanged
-- WordPress, DNS, and production domains: unchanged
+- DNS and production domains: unchanged
 
 This is the approved-copy visual checkpoint. Supporting page routes and
 production claim corrections are intentionally outside this phase.

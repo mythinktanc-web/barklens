@@ -297,7 +297,7 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'arthritis',
     title: 'Arthritis in dogs',
-    description: 'Keep movement observations, videos, medications, laboratory monitoring, weight, and veterinary questions in one arthritis history.',
+    description: 'Keep movement observations, videos, medications, laboratory results, weight, and veterinary questions in one arthritis history.',
     image: '/images/conditions/arthritis.webp',
     imageAlt: 'A senior dog walking carefully beside its owner',
     intro: [
