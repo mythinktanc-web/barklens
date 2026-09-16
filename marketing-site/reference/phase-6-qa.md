@@ -77,3 +77,24 @@ This produced 105 route-width checks.
 - Blog CMS remains Phase 7
 - Remaining legal, SEO, and accessibility work remains Phase 8
 - Durable staging and production hosting remain Phases 9 and 11
+
+## Post-review visual corrections
+
+User screenshot review found that the first responsive merge passed numeric
+checks but did not preserve four approved compositions. Those issues were
+corrected before the next phase continued:
+
+- Recovered the three original mobile How It Works illustrations from the
+  supplied mobile file and restored true 4:5 framing.
+- Replaced the unintended horizontal Snap carousel with six fixed click
+  buttons in a 3×2 phone grid.
+- Recovered the original Ben-and-Charlie beach portrait and restored its
+  supplied mobile focal position.
+- Rebuilt the standalone and homepage In Plain English layouts as cream
+  editorial sections with compact white condition cards.
+- Rebuilt the homepage membership block as the approved cream, centered,
+  title-only composition.
+
+The corrected set passed 66 route-width regression checks at phone, tablet,
+and desktop widths, with zero overflow, heading, status, or browser-error
+failures.
