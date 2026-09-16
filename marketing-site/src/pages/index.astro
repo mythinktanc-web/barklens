@@ -11,10 +11,19 @@ import { routes } from '@config/site';
 >
   <section class="hero">
     <img
+      class="hero__desktop-image"
       src="/images/desktop-hero.webp"
       alt="A woman carrying her grey-muzzled dachshund down a forest road"
       width="1774"
       height="887"
+      fetchpriority="high"
+    />
+    <img
+      class="hero__mobile-image"
+      src="/images/mobile/hero.webp"
+      alt="An owner carrying her grey-muzzled dachshund down a quiet road"
+      width="1023"
+      height="1537"
       fetchpriority="high"
     />
     <div class="hero__shade"></div>
@@ -58,6 +67,10 @@ import { routes } from '@config/site';
   .hero > img {
     object-fit: cover;
     object-position: center;
+  }
+
+  .hero__mobile-image {
+    display: none;
   }
 
   .hero__shade {
@@ -132,6 +145,15 @@ import { routes } from '@config/site';
 
     .hero > img {
       object-position: 82% center;
+    }
+
+    .hero > .hero__desktop-image {
+      display: none;
+    }
+
+    .hero > .hero__mobile-image {
+      display: block;
+      object-position: 60% 0%;
     }
 
     .hero__shade {

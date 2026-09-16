@@ -134,6 +134,14 @@ p {
     font-size: 1rem;
   }
 
+  html {
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
   .container {
     width: min(calc(100% - 2 * var(--space-5)), var(--content-wide));
   }

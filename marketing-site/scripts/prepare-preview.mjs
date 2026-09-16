@@ -26,19 +26,35 @@ for (const file of walk(destination).filter((file) => file.endsWith('.html'))) {
   const currentDirectory = path.dirname(file);
   let html = fs.readFileSync(file, 'utf8');
 
+  const makeRelative = (target) => {
+    if (!target.startsWith('/')) return target;
+    const [pathname, suffix = ''] = target.slice(1).split(/(?=[?#])/);
+    const absoluteTarget = path.join(destination, pathname);
+    let relative = path.relative(currentDirectory, absoluteTarget).replaceAll(path.sep, '/');
+    if (!relative || relative === '.') relative = './';
+    if (!relative.startsWith('.')) relative = `./${relative}`;
+    if (pathname.endsWith('/') && !relative.endsWith('/')) relative += '/';
+    return `${relative}${suffix}`;
+  };
+
   html = html.replace(
     /<link rel="stylesheet" href="\/_astro\/[^"]+">/g,
     `<style>${css}</style>`,
   );
 
   html = html.replace(/\b(href|src)="\/([^"]*)"/g, (_match, attribute, target) => {
-    const [pathname, suffix = ''] = target.split(/(?=[?#])/);
-    const absoluteTarget = path.join(destination, pathname);
-    let relative = path.relative(currentDirectory, absoluteTarget).replaceAll(path.sep, '/');
-    if (!relative || relative === '.') relative = './';
-    if (!relative.startsWith('.')) relative = `./${relative}`;
-    if (pathname.endsWith('/') && !relative.endsWith('/')) relative += '/';
-    return `${attribute}="${relative}${suffix}"`;
+    return `${attribute}="${makeRelative(`/${target}`)}"`;
+  });
+
+  html = html.replace(/\bsrcset="([^"]+)"/g, (_match, value) => {
+    const candidates = value.split(',').map((candidate) => {
+      const trimmed = candidate.trim();
+      const separator = trimmed.search(/\s/);
+      const url = separator === -1 ? trimmed : trimmed.slice(0, separator);
+      const descriptor = separator === -1 ? '' : trimmed.slice(separator);
+      return `${makeRelative(url)}${descriptor}`;
+    });
+    return `srcset="${candidates.join(', ')}"`;
   });
 
   fs.writeFileSync(file, html);

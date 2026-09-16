@@ -98,3 +98,26 @@ corrected before the next phase continued:
 The corrected set passed 66 route-width regression checks at phone, tablet,
 and desktop widths, with zero overflow, heading, status, or browser-error
 failures.
+
+## Mobile asset and preview correction
+
+A later hosted-preview review found that the preview packager did not rewrite
+absolute URLs inside `srcset`, so mobile `<picture>` illustrations were blank
+even though they worked locally. The packager now rewrites both `src` and
+`srcset`.
+
+The responsive homepage now uses the mobile file's own:
+
+- Hero photograph
+- Three How It Works illustrations
+- Six Snap photographs
+- Ben-and-Charlie story portrait
+- Testimonial photograph
+- Charlie closing photograph
+
+The trend section uses a phone-specific portrait crop that contains the dog
+and excludes the person. Desktop image assignments remain unchanged.
+
+The phone scrollbar is visually hidden without disabling scrolling. The Snap
+controls use six equal 48-pixel pills with short, centered labels and no
+horizontal carousel.
