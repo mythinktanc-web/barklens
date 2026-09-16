@@ -4,9 +4,11 @@ import Wordmark from './Wordmark.astro';
 import { primaryNavigation, routes } from '@config/site';
 
 const isWaitlistFlow = Astro.url.pathname.startsWith('/waitlist') || Astro.url.pathname.startsWith('/unsubscribe');
-const isSourcesPage = Astro.url.pathname.startsWith('/where-the-answers-come-from');
-const mobileActionHref = isSourcesPage ? '/#why-barklens' : isWaitlistFlow ? routes.home : routes.waitlist;
-const mobileActionLabel = isSourcesPage ? '← Back to site' : isWaitlistFlow ? '← Back' : 'Save my spot';
+const isWhyDetailPage =
+  Astro.url.pathname.startsWith('/where-the-answers-come-from') ||
+  Astro.url.pathname.startsWith('/care-team');
+const mobileActionHref = isWhyDetailPage ? '/#why-barklens' : isWaitlistFlow ? routes.home : routes.waitlist;
+const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow ? '← Back' : 'Save my spot';
 ---
 
 <header class="site-header" data-site-header>
