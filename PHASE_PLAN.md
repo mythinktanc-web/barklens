@@ -13,7 +13,7 @@ gate, active task, and excluded work.
 | 3 | Complete desktop website | Complete |
 | 4 | Make the waitlist real | Complete |
 | 5 | Connect payment path | Deferred until payment destination exists |
-| 6 | Add mobile designs | Next |
+| 6 | Add mobile designs | Paused before build |
 | 7 | Build blog and editing system | Not started |
 | 8 | Complete legal, SEO, and accessibility | Not started |
 | 9 | Create Vercel staging site | Not started |
