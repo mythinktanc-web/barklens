@@ -54,6 +54,10 @@ body[data-nav-open='true'] {
   overflow: hidden;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 img,
 picture,
 svg {

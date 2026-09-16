@@ -27,3 +27,22 @@ test('existing member lookup unwraps Mailgun member responses', async () => {
   assert.equal(member.subscribed, true);
   assert.equal(member.vars.referral_code, 'original-code');
 });
+
+test('production API keys use Mailgun basic authentication without exposing the key', async () => {
+  let authorization = '';
+  const fetchImpl = async (_url, options) => {
+    authorization = options.headers.Authorization;
+    return new Response(JSON.stringify({ items: [] }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  };
+  const client = new MailgunClient({
+    baseUrl: 'https://api.mailgun.test',
+    apiKey: 'test-key',
+    fetchImpl
+  });
+  await client.getLists();
+  assert.equal(authorization, `Basic ${Buffer.from('api:test-key').toString('base64')}`);
+  assert.equal(client.configured, true);
+});

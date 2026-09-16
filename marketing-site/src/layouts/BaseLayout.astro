@@ -29,6 +29,8 @@ const {
 } = Astro.props;
 const canonical = new URL(canonicalPath, site.canonicalOrigin);
 const socialImage = new URL(image, site.canonicalOrigin);
+const analyticsEnabled = import.meta.env.PUBLIC_ANALYTICS_ENABLED === 'true';
+const analyticsId = String(import.meta.env.PUBLIC_GA_MEASUREMENT_ID || '').trim();
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -67,6 +69,15 @@ const schemas = structuredData
     <meta name="twitter:image" content={socialImage} />
     <title>{title}</title>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schemas)} />
+    {analyticsEnabled && analyticsId && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(analyticsId)}`}></script>
+        <script
+          is:inline
+          set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',${JSON.stringify(analyticsId)},{anonymize_ip:true});`}
+        />
+      </>
+    )}
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>

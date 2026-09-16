@@ -6,7 +6,7 @@ export default defineConfig({
   output: 'static',
   integrations: [
     sitemap({
-      filter: (page) => !page.endsWith('/unsubscribe/')
+      filter: (page) => !page.endsWith('/unsubscribe/') && !page.endsWith('/404/')
     })
   ],
   trailingSlash: 'always',

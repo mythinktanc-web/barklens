@@ -72,6 +72,22 @@ through the secure credential vault. The private preview proxies to the
 sandbox backend. Durable staging and production hosting remain Phase 9 and
 Phase 11 work.
 
+## Production launch preparation
+
+- `npm run test:launch` runs type checks, waitlist and serverless API tests,
+  the production build, and the complete metadata/link/claim audit.
+- Vercel configuration lives in `vercel.json`.
+- Production Mailgun calls use `MAILGUN_API_KEY` with the US-region
+  `MAILGUN_API_BASE`.
+- `.env.example` lists required settings without containing secrets.
+- Search indexing is blocked by default. Set `PUBLIC_SITE_NOINDEX=false` only
+  after legal approval and final live-domain QA.
+- Analytics is disabled by default. It requires both
+  `PUBLIC_ANALYTICS_ENABLED=true` and a valid `PUBLIC_GA_MEASUREMENT_ID`, plus
+  the approved privacy and cookie position.
+- The counsel request is in `reference/legal-counsel-request.md`.
+- The production checklist is in `reference/phase-9-launch-checklist.md`.
+
 ## Responsive layouts
 
 Phase 6 keeps one Astro site and changes presentation by screen width.

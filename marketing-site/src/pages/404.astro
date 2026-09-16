@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ButtonLink from '@components/ButtonLink.astro';
+import { routes } from '@config/site';
+---
+
+<BaseLayout
+  title="Page not found | BarkLens"
+  description="The BarkLens page you requested could not be found."
+  canonicalPath="/404/"
+  noindex={true}
+>
+  <section class="not-found">
+    <div class="container">
+      <p class="eyebrow">404</p>
+      <h1>This page wandered off.</h1>
+      <p>The page you requested could not be found. Your dog’s records are still right where you left them.</p>
+      <ButtonLink href={routes.home}>Return to BarkLens</ButtonLink>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    min-height: calc(100dvh - var(--header-height));
+    place-items: center;
+    padding: var(--space-20) 0;
+    background: var(--color-cream-200);
+    text-align: center;
+  }
+
+  .not-found h1 {
+    max-width: 12ch;
+    margin: var(--space-5) auto 0;
+    font-size: var(--text-2xl);
+  }
+
+  .not-found p:not(.eyebrow) {
+    max-width: 42ch;
+    margin: var(--space-5) auto 0;
+    color: var(--color-copy-muted);
+  }
+
+  .not-found :global(.button-link) {
+    margin-top: var(--space-8);
+  }
+</style>

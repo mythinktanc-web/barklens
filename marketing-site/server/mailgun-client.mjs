@@ -32,22 +32,27 @@ export class MailgunClient {
     domain = process.env.MAILGUN_DOMAIN || 'barklens.com',
     baseUrl = process.env[credentialUrlName] || process.env.MAILGUN_API_BASE || 'https://api.mailgun.net',
     proxyToken = process.env[credentialTokenName] || '',
+    apiKey = process.env.MAILGUN_API_KEY || '',
     fetchImpl = fetch
   } = {}) {
     this.listAddress = listAddress;
     this.domain = domain;
     this.baseUrl = baseUrl.replace(/\/$/, '');
     this.proxyToken = proxyToken;
+    this.apiKey = apiKey;
     this.fetch = fetchImpl;
   }
 
   get configured() {
-    return Boolean(this.proxyToken || process.env.MAILGUN_API_BASE);
+    return Boolean(this.proxyToken || this.apiKey);
   }
 
   async request(path, { method = 'GET', form } = {}) {
     const headers = {};
     if (this.proxyToken) headers['x-api-key'] = this.proxyToken;
+    if (!this.proxyToken && this.apiKey) {
+      headers.Authorization = `Basic ${Buffer.from(`api:${this.apiKey}`).toString('base64')}`;
+    }
     const response = await this.fetch(`${this.baseUrl}${path}`, {
       method,
       headers,
