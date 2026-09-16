@@ -67,7 +67,8 @@ const testimonials = [
   <div class="closer__content container">
     <div class="closer__intro">
       <p class="section-label section-label--light">Closer Look</p>
-      <h2>Brings together the pieces of your dog’s chart <em>you might not think to connect.</em></h2>
+      <h2 class="closer__desktop-title">Brings together the pieces of your dog’s chart <em>you might not think to connect.</em></h2>
+      <h2 class="closer__mobile-title">Brings together the pieces of your dog’s story <em>you might not think to connect.</em></h2>
       <p class="closer__desktop-copy">Something you noticed today. A lab value from months ago. A medication change from March.</p>
       <p class="closer__desktop-answer">
         Increased thirst, a BUN above range, and a steroid started in March are worth mentioning
@@ -203,7 +204,7 @@ const testimonials = [
   <div class="image-shade image-shade--soft"></div>
   <div class="trends__grid container">
     <div class="trends__copy">
-      <p class="section-label section-label--light">Connecting their dots</p>
+      <p class="section-label section-label--light">Trends</p>
       <h2 class="trends__desktop-title">Every result was ‘in range.’ <em>Together, they told a different story.</em></h2>
       <h2 class="trends__mobile-title">All three values were normal. <em>The direction wasn’t.</em></h2>
       <p class="trends__desktop-copy">
@@ -213,7 +214,7 @@ const testimonials = [
       <blockquote>Because the more of their story you can see, the better you can show up for them.</blockquote>
     </div>
     <article class="trend-card">
-      <p class="number-label trend-card__label">Trends</p>
+      <p class="number-label trend-card__label">Labs</p>
       <svg viewBox="0 0 520 192" role="img" aria-label="BUN results increased from 19 to 23 to 27 milligrams per deciliter across three draws, all within the reported range of 7 to 27">
         <rect x="56" y="26" width="452" height="120" rx="6" fill="#2f3533" />
         <line x1="56" y1="26" x2="508" y2="26" stroke="#7d8581" stroke-width="1" stroke-dasharray="4 5" />
@@ -494,6 +495,7 @@ const testimonials = [
   .closer__intro > p:not(.section-label), .trends__grid > div > p { margin-top: var(--space-6); font-size: var(--text-lg); }
   .closer__desktop-answer { max-width: 38ch; }
   .closer__desktop-boundary { display: block; margin-top: var(--space-5); color: #a9bdb6; }
+  .closer__mobile-title { display: none; }
   .closer__mobile-copy { display: none; }
   .chart-card { display: flex; height: 23.5rem; flex-direction: column; overflow: hidden; padding: 0; border: 1px solid rgb(255 255 255 / 28%); border-radius: var(--radius-xl); background: #29272d; box-shadow: var(--shadow-card); }
   .chart-card > .number-label { padding: .875rem 1rem; border-bottom: 1px solid rgb(255 255 255 / 14%); color: var(--color-cream-100); }
@@ -753,13 +755,15 @@ const testimonials = [
     .closer__content { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
     .closer__intro { display: contents; }
     .closer__intro .section-label { order: 1; text-align: center; }
+    .closer__desktop-title { display: none; }
+    .closer__mobile-title { display: block; }
     .closer__intro h2 { order: 2; max-width: 15ch; margin: var(--space-4) auto 0; font-size: 2rem; line-height: 1.08; text-align: center; }
     .closer__desktop-copy { display: none; }
     .closer__desktop-answer, .closer__desktop-boundary { display: none; }
     .closer .chart-card { order: 3; width: 100%; margin-top: var(--space-8); border-color: rgb(255 255 255 / 28%); background: #29272d; }
     .closer .chart-card > .number-label { color: var(--color-cream-100); }
     .closer__mobile-copy { order: 4; display: grid; gap: var(--space-5); margin-top: var(--space-8); font-size: .875rem; line-height: 1.65; }
-    .closer__content, .trends__grid { gap: var(--space-8); }
+    .closer__content { gap: 0; }
     .closer__intro > p:last-child, .trends__grid > div > p { font-size: 1rem; }
     .chart-card { border-radius: var(--radius-lg); }
 
@@ -776,15 +780,16 @@ const testimonials = [
     .why__grid h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; }
     .why__grid p { display: none; }
 
-    .trends { padding-block: var(--space-16); color: var(--color-copy); background: var(--color-cream-100); }
+    .trends { padding: 3rem 0; color: var(--color-copy); background: var(--color-cream-100); }
     .trends__desktop-image, .trends__mobile-image, .trends > .image-shade { display: none; }
     .trends__grid { display: flex; flex-direction: column; gap: 0; }
     .trends__copy { display: contents; }
-    .trends .section-label { order: 1; color: var(--color-green-600); text-align: center; }
+    .trends__grid > .trends__copy > .section-label { order: 1; margin-top: 0; color: var(--color-green-600); text-align: center; }
     .trends__desktop-title, .trends__desktop-copy, .trends blockquote { display: none; }
     .trends__mobile-title { order: 2; display: block; max-width: 14ch; margin: var(--space-4) auto 0; font-size: 2rem; line-height: 1.08; text-align: center; }
     .trends .trends__mobile-title em { display: block; color: #2e8a6e; }
-    .closer .chart-card, .trend-card { height: 21.8rem; border-radius: var(--radius-lg); }
+    .closer .chart-card { height: 20.875rem; border-radius: var(--radius-lg); }
+    .trend-card { height: 17.5rem; border-radius: var(--radius-lg); }
     .trend-card { order: 3; width: 100%; margin-top: var(--space-8); padding: 0; }
     .trends__mobile-copy { order: 4; display: grid; gap: var(--space-5); margin-top: var(--space-8); color: var(--color-copy); font-size: .875rem; line-height: 1.65; }
     .trends__mobile-copy p:last-child { color: var(--color-copy-muted); }
