@@ -1,0 +1,15 @@
+---
+import ConditionPage from '@components/ConditionPage.astro';
+import { conditionPages } from '../../data/conditions';
+
+export function getStaticPaths() {
+  return conditionPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+---
+
+<ConditionPage page={page} />

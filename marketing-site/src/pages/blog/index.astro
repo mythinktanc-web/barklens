@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ButtonLink from '@components/ButtonLink.astro';
+import { routes } from '@config/site';
+---
+
+<BaseLayout
+  title="BarkLens Blog | Coming soon"
+  description="Plain-English notes on reading your dog’s chart, reports, labels, and veterinary questions."
+  canonicalPath="/blog/"
+>
+  <section class="blog-coming">
+    <img src="/images/support/blog-1.webp" alt="A dog and its owner on a quiet mountain path" width="1312" height="1600" />
+    <div></div>
+    <article>
+      <p class="eyebrow">Blog</p>
+      <h1>Coming soon.</h1>
+      <p>Plain-English notes on reading your dog’s chart, from the people building BarkLens and the veterinarians who review its sources.</p>
+      <ButtonLink href={routes.conditions} variant="light">Read the conditions guide instead →</ButtonLink>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-coming { position: relative; isolation: isolate; min-height: calc(100dvh - var(--header-height)); display: grid; place-items: center; overflow: hidden; color: var(--color-copy-inverse); text-align: center; }
+  .blog-coming > img, .blog-coming > div { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .blog-coming > div { z-index: -1; background: rgb(15 31 26 / 58%); }
+  .blog-coming article { display: flex; max-width: 44rem; flex-direction: column; align-items: center; padding: var(--space-8); }
+  .blog-coming .eyebrow { color: var(--color-mint-400); }
+  .blog-coming h1 { margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .blog-coming article > p:last-of-type { margin-top: var(--space-5); font-size: var(--text-lg); }
+  .blog-coming :global(.button-link) { margin-top: var(--space-8); }
+</style>

@@ -1,0 +1,191 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Join the BarkLens waitlist | Founding member offer"
+  description="Join the BarkLens founding-member waitlist and receive first-wave access plus three invitations for friends."
+  canonicalPath="/waitlist/"
+>
+  <section class="waitlist-page" data-waitlist>
+    <div class="waitlist-page__form-view container" data-form-view>
+      <div class="waitlist-offer">
+        <p class="eyebrow">Founding member offer</p>
+        <h1>First year at <em>half price.</em></h1>
+        <p>Join while the waitlist is open and lock in 50% off for your first year. When the list closes, so does the offer.</p>
+        <dl>
+          <div><dt>First in the door</dt><dd>Access is granted in the order you joined.</dd><span>Included</span></div>
+          <div><dt>Bring three people with you</dt><dd>Three invitations for friends to skip the list and enter when you do.</dd><span>Included</span></div>
+        </dl>
+      </div>
+
+      <form class="waitlist-form" data-waitlist-form>
+        <label>Email<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label>
+        <label>First name<input name="firstName" autocomplete="given-name" placeholder="Your first name" required /></label>
+        <hr />
+        <label>Dog’s name<input name="dogName" placeholder="Your dog’s name" required /></label>
+        <label>Dog’s breed<input name="breed" list="breeds" placeholder="Start typing a breed…" required /></label>
+        <datalist id="breeds">
+          <option value="Dachshund"></option><option value="Labrador Retriever"></option><option value="Golden Retriever"></option>
+          <option value="German Shepherd"></option><option value="Poodle"></option><option value="Mixed breed"></option>
+        </datalist>
+        <fieldset>
+          <legend>Dog’s age</legend>
+          <div><label><input type="radio" name="age" value="Puppy" required /><span>Puppy</span></label><label><input type="radio" name="age" value="Young Adult" /><span>Young Adult</span></label><label><input type="radio" name="age" value="Adult" /><span>Adult</span></label><label><input type="radio" name="age" value="Senior" /><span>Senior</span></label></div>
+        </fieldset>
+        <fieldset>
+          <legend>Multiple dogs?</legend>
+          <div class="two"><label><input type="radio" name="multi" value="Yes" required /><span>Yes</span></label><label><input type="radio" name="multi" value="No" /><span>No</span></label></div>
+        </fieldset>
+        <button class="waitlist-form__submit" type="submit">Confirm Spot →</button>
+        <p>No spam. No credit card. Just early access.</p>
+      </form>
+    </div>
+
+    <div class="waitlist-success container" data-success-view hidden>
+      <div>
+        <p class="eyebrow">You’re on the list</p>
+        <h2>You’re in.</h2>
+        <p>Thanks, <span data-first-name>friend</span>. <span data-dog-name>Your dog</span>’s spot is held.</p>
+        <button type="button" data-open-share>Share BarkLens with a friend</button>
+        <a href="/">Back to BarkLens →</a>
+      </div>
+      <div>
+        <p class="eyebrow">What happens next</p>
+        <ol>
+          <li><span>01</span><div><strong>Check your inbox</strong><p>A welcome email from hello@barklens.com will arrive after Mailgun is connected.</p></div><em>At launch</em></li>
+          <li><span>02</span><div><strong>Watch for your wave</strong><p>Invites go out in waves. Early joiners get priority.</p></div><em>Soon</em></li>
+          <li><span>03</span><div><strong>Bring three friends</strong><p>Founding members receive three invitations for friends to skip the waitlist.</p></div><em>At launch</em></li>
+        </ol>
+      </div>
+    </div>
+
+    <dialog class="share-dialog" data-share-dialog aria-labelledby="share-title">
+      <div class="share-dialog__copy">
+        <p class="eyebrow">Founding member invites</p>
+        <h2 id="share-title">Spread the <em>BarkLove.</em></h2>
+        <p>Invite three friends to skip the line and enter with you.</p>
+        <button type="button" data-close-share>Maybe later</button>
+      </div>
+      <div class="share-dialog__tools">
+        <button class="share-dialog__close" type="button" data-close-share aria-label="Close share panel">×</button>
+        <svg data-qr viewBox="0 0 1 1" aria-label="BarkLens referral QR code"><path data-qr-path></path></svg>
+        <p>Your BarkCode</p>
+        <div><input data-share-url readonly aria-label="Referral link" /><button type="button" data-copy-link>Copy</button></div>
+        <button type="button" data-native-share>Share link</button>
+      </div>
+    </dialog>
+  </section>
+</BaseLayout>
+
+<script type="module" is:inline>
+  import { qrPath } from '../scripts/qr.js';
+  const root = document.querySelector('[data-waitlist]');
+  if (root) {
+    const form = root.querySelector('[data-waitlist-form]');
+    const formView = root.querySelector('[data-form-view]');
+    const successView = root.querySelector('[data-success-view]');
+    const dialog = root.querySelector('[data-share-dialog]');
+    let referralUrl = 'https://barklens.com/waitlist/?refer=you7k2';
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const firstName = String(data.get('firstName') || 'friend');
+      const dogName = String(data.get('dogName') || 'Your dog');
+      referralUrl = `https://barklens.com/waitlist/?refer=${firstName.toLowerCase().replace(/[^a-z0-9]/g, '') || 'you'}7k2`;
+      root.querySelector('[data-first-name]').textContent = firstName;
+      root.querySelector('[data-dog-name]').textContent = dogName;
+      formView.hidden = true;
+      successView.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const openShare = () => {
+      const qr = qrPath(referralUrl);
+      const svg = root.querySelector('[data-qr]');
+      const path = root.querySelector('[data-qr-path]');
+      const input = root.querySelector('[data-share-url]');
+      svg.setAttribute('viewBox', `0 0 ${qr.size} ${qr.size}`);
+      path.setAttribute('d', qr.d);
+      input.value = referralUrl;
+      dialog.showModal();
+    };
+    root.querySelector('[data-open-share]')?.addEventListener('click', openShare);
+    root.querySelectorAll('[data-close-share]').forEach((button) => button.addEventListener('click', () => dialog.close()));
+
+    const copy = async () => {
+      try { await navigator.clipboard.writeText(referralUrl); } catch {}
+      const button = root.querySelector('[data-copy-link]');
+      button.textContent = 'Copied';
+      window.setTimeout(() => { button.textContent = 'Copy'; }, 1800);
+    };
+    root.querySelector('[data-copy-link]')?.addEventListener('click', copy);
+    root.querySelector('[data-native-share]')?.addEventListener('click', async () => {
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: 'BarkLens', text: 'Skip the BarkLens waitlist with my invite.', url: referralUrl });
+          return;
+        }
+      } catch { return; }
+      await copy();
+    });
+  }
+</script>
+
+<style>
+  .waitlist-page { min-height: calc(100dvh - var(--header-height)); padding: var(--space-20) 0; background: var(--color-cream-200); }
+  .waitlist-page__form-view, .waitlist-success { display: grid; grid-template-columns: 1fr 35rem; gap: var(--space-20); align-items: start; }
+  .waitlist-offer { padding-top: var(--space-8); }
+  .waitlist-offer h1, .waitlist-success h2 { max-width: 9ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .waitlist-offer h1 em { display: block; color: var(--color-green-600); }
+  .waitlist-offer > p:not(.eyebrow) { max-width: 38ch; margin-top: var(--space-6); color: var(--color-copy-muted); }
+  .waitlist-offer dl { margin-top: var(--space-10); }
+  .waitlist-offer dl div { position: relative; padding: var(--space-5) 8rem var(--space-5) 0; border-top: 1px solid var(--color-border); }
+  .waitlist-offer dt { font-family: var(--font-display); font-size: var(--text-lg); }
+  .waitlist-offer dd { color: var(--color-copy-muted); }
+  .waitlist-offer dl span { position: absolute; top: var(--space-6); right: 0; color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .waitlist-form { display: grid; gap: var(--space-5); padding: var(--space-10); border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: #fff; box-shadow: var(--shadow-card); }
+  .waitlist-form > label, .waitlist-form legend { display: grid; gap: var(--space-2); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .waitlist-form input:not([type='radio']) { width: 100%; height: 3.25rem; padding: 0 var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-cream-100); }
+  .waitlist-form hr { border: 0; border-top: 1px solid var(--color-border); }
+  .waitlist-form fieldset { border: 0; }
+  .waitlist-form fieldset > div { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
+  .waitlist-form fieldset > div.two { grid-template-columns: 1fr 1fr; }
+  .waitlist-form fieldset label { position: relative; }
+  .waitlist-form input[type='radio'] { position: absolute; opacity: 0; }
+  .waitlist-form fieldset span { display: grid; min-height: 2.875rem; place-items: center; border: 1px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; font-size: var(--text-sm); }
+  .waitlist-form input[type='radio']:checked + span { border-color: var(--color-green-600); background: #e8f3ef; }
+  .waitlist-form__submit { min-height: 3.25rem; border-radius: var(--radius-pill); color: #fff; background: var(--color-forest-900); font-weight: 700; }
+  .waitlist-form > p { color: var(--color-copy-muted); font-size: var(--text-xs); text-align: center; }
+  .waitlist-success[hidden] { display: none; }
+  .waitlist-success > div { padding: var(--space-8); border-radius: var(--radius-xl); background: #fff; }
+  .waitlist-success > div:first-child { color: var(--color-copy-inverse); background: var(--color-forest-900); }
+  .waitlist-success > div:first-child .eyebrow { color: var(--color-mint-400); }
+  .waitlist-success > div:first-child > p:not(.eyebrow) { margin-top: var(--space-5); color: #d8cfc0; }
+  .waitlist-success button, .waitlist-success a { display: inline-flex; margin-top: var(--space-6); margin-right: var(--space-4); padding: var(--space-3) var(--space-5); border-radius: var(--radius-pill); color: var(--color-forest-900); background: var(--color-mint-500); font-weight: 700; }
+  .waitlist-success ol { display: grid; gap: var(--space-5); margin-top: var(--space-6); list-style: none; }
+  .waitlist-success li { display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-4); }
+  .waitlist-success li > span, .waitlist-success li > em { color: var(--color-green-600); font-size: var(--text-xs); font-style: normal; font-weight: 700; }
+  .waitlist-success li p { margin-top: var(--space-1); color: var(--color-copy-muted); font-size: var(--text-sm); }
+  .share-dialog { position: fixed; inset: 0; width: min(47rem, calc(100% - 2rem)); margin: auto; padding: 0; border: 0; border-radius: var(--radius-xl); overflow: hidden; }
+  .share-dialog::backdrop { background: rgb(15 31 26 / 58%); backdrop-filter: blur(.4rem); }
+  .share-dialog[open] { display: grid; grid-template-columns: 1fr 1fr; }
+  .share-dialog__copy { display: flex; flex-direction: column; padding: var(--space-10); color: var(--color-copy-inverse); background: var(--color-forest-900); }
+  .share-dialog__copy .eyebrow { color: var(--color-mint-400); }
+  .share-dialog h2 { margin-top: var(--space-5); font-size: var(--text-xl); }
+  .share-dialog h2 em { display: block; color: var(--color-mint-500); }
+  .share-dialog__copy > p:last-of-type { margin-top: var(--space-5); color: #d8cfc0; }
+  .share-dialog__copy button { margin-top: auto; color: #a9bdb6; background: transparent; text-align: left; }
+  .share-dialog__tools { position: relative; display: grid; gap: var(--space-4); padding: var(--space-10); background: var(--color-cream-200); }
+  .share-dialog__close { position: absolute; top: var(--space-4); right: var(--space-4); width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #fff; font-size: var(--text-lg); }
+  .share-dialog__tools > svg { width: 11rem; height: 11rem; margin: 0 auto; padding: var(--space-3); border-radius: var(--radius-md); background: #fff; fill: var(--color-forest-900); }
+  .share-dialog__tools > p { color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-align: center; text-transform: uppercase; }
+  .share-dialog__tools > div { display: grid; grid-template-columns: 1fr auto; gap: var(--space-2); }
+  .share-dialog__tools input { min-width: 0; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+  .share-dialog__tools > div button { padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); color: #fff; background: var(--color-green-600); }
+  .share-dialog__tools > button:last-child { min-height: 3.25rem; border-radius: var(--radius-pill); background: var(--color-mint-500); font-weight: 700; }
+  @media (max-width: 63.99rem) { .waitlist-page__form-view, .waitlist-success { grid-template-columns: 1fr; } }
+  @media (max-width: 47.99rem) { .waitlist-page { padding: var(--space-12) 0; } .waitlist-form { padding: var(--space-6); } .share-dialog[open] { grid-template-columns: 1fr; } .share-dialog__copy { min-height: 15rem; } }
+</style>

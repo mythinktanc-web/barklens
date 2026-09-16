@@ -1,0 +1,434 @@
+---
+import ButtonLink from './ButtonLink.astro';
+import { routes } from '@config/site';
+import {
+  captureItems,
+  conditions,
+  faqs,
+  howItWorksSteps,
+  planFeatures,
+  whyItems
+} from '../data/home';
+---
+
+<section class="how section" id="how-it-works">
+  <div class="container">
+    <p class="section-label">How it works</p>
+    <div class="how__grid">
+      {howItWorksSteps.map((step) => (
+        <article class="how__step">
+          <img src={step.image} alt={step.alt} width="1122" height="1402" loading="lazy" />
+          <p class="number-label">Step {step.number}</p>
+          <h2>{step.title}</h2>
+          <p>{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="closer section section--image">
+  <img src="/images/home/closer-look.webp" alt="" width="2200" height="1300" loading="lazy" />
+  <div class="image-shade"></div>
+  <div class="closer__content container">
+    <div class="closer__intro">
+      <p class="section-label section-label--light">Closer Look</p>
+      <h2>Bring together the pieces of your dog’s chart <em>you might not think to connect.</em></h2>
+      <p>Something you noticed today. A lab value from months ago. A medication change from March.</p>
+    </div>
+    <article class="chart-card">
+      <p class="number-label">Closer Look</p>
+      <dl>
+        <div><dt>“Drinking more than usual”</dt><dd>Jun 20</dd></div>
+        <div><dt>BUN 32 mg/dL · range 7–27</dt><dd>Jun 3</dd></div>
+        <div><dt>Prednisone started</dt><dd>Mar 3</dd></div>
+      </dl>
+      <p class="chart-card__prompt">Ask about these…</p>
+      <p>
+        Increased thirst, a BUN above range, and a steroid started in March are worth mentioning
+        together at Charlie’s next visit.
+      </p>
+      <small>BarkLens doesn’t diagnose. Your vet does.</small>
+    </article>
+  </div>
+</section>
+
+<section class="capture section" id="capture" data-capture>
+  <div class="container">
+    <p class="section-label">Snap a picture</p>
+    <h2>You snap it. We answer from your dog’s history and veterinary literature.</h2>
+    <div class="capture__grid">
+      <div class="capture__tabs" role="tablist" aria-label="Record types">
+        {captureItems.map((item, index) => (
+          <button
+            type="button"
+            role="tab"
+            aria-selected={index === 0 ? 'true' : 'false'}
+            aria-controls={`capture-panel-${index}`}
+            id={`capture-tab-${index}`}
+            data-capture-tab={index}
+          >
+            <span>{item.number}</span>
+            <strong>{item.label}</strong>
+            <small>{item.blurb}</small>
+          </button>
+        ))}
+      </div>
+      <div class="capture__display">
+        {captureItems.map((item, index) => (
+          <article
+            id={`capture-panel-${index}`}
+            role="tabpanel"
+            aria-labelledby={`capture-tab-${index}`}
+            data-capture-panel={index}
+            hidden={index !== 0}
+          >
+            <img src={item.image} alt={item.alt} loading="lazy" />
+            <div class="capture__scrim"></div>
+            <div class="capture__heading">
+              <p>{item.eyebrow}</p>
+              <span>{item.caption}</span>
+            </div>
+            <div class="capture__result">
+              <p class="number-label">BarkLens</p>
+              {item.rows.map((row) => <p>{row}</p>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trends section section--image" id="trends">
+  <img src="/images/home/trends.webp" alt="" width="1536" height="1024" loading="lazy" />
+  <div class="image-shade image-shade--soft"></div>
+  <div class="trends__grid container">
+    <div>
+      <p class="section-label section-label--light">Connecting their dots</p>
+      <h2>Every result was ‘in range.’ <em>Together, they told a different story.</em></h2>
+      <p>
+        A single laboratory result shows one moment. BarkLens brings every draw into one view, so
+        change is easier to see and the next veterinary conversation starts with the full story.
+      </p>
+      <blockquote>Because the more of their story you can see, the better you can show up for them.</blockquote>
+    </div>
+    <article class="trend-card">
+      <p class="number-label">Trend</p>
+      <svg viewBox="0 0 520 192" role="img" aria-label="BUN results increased from 19 to 23 to 27 milligrams per deciliter across three draws, all within the reported range of 7 to 27">
+        <rect x="56" y="26" width="452" height="120" rx="6" fill="#2f3533" />
+        <line x1="56" y1="26" x2="508" y2="26" stroke="#7d8581" stroke-width="1" stroke-dasharray="4 5" />
+        <line x1="56" y1="146" x2="508" y2="146" stroke="#454e4b" />
+        <text x="36" y="31" text-anchor="end">27</text><text x="36" y="150" text-anchor="end">7</text>
+        <rect x="92" y="74" width="76" height="72" rx="5" /><rect x="248" y="50" width="76" height="96" rx="5" /><rect x="404" y="26" width="76" height="120" rx="5" />
+        <text class="value" x="130" y="65">19</text><text class="value" x="286" y="41">23</text><text class="value" x="442" y="18">27</text>
+        <text class="date" x="130" y="178">JUN ’24</text><text class="date" x="286" y="178">JAN ’25</text><text class="date date--latest" x="442" y="178">JUN ’25</text>
+      </svg>
+      <p class="trend-card__caption">BUN · Three draws · All within the reported range</p>
+      <div class="trend-card__ask"><span>Ask about this trend…</span><b aria-hidden="true">↑</b></div>
+    </article>
+  </div>
+</section>
+
+<section class="why section" id="why-barklens">
+  <div class="container">
+    <p class="section-label">Why BarkLens</p>
+    <h2>What sets us <em>apart</em></h2>
+    <div class="why__grid">
+      {whyItems.map((item) => (
+        <a href={item.href}>
+          <span>{item.number}</span>
+          <div><h3>{item.title}</h3><p>{item.body}</p></div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="story section section--image">
+  <img src="/images/home/charlie.webp" alt="" width="1774" height="887" loading="lazy" />
+  <div class="image-shade"></div>
+  <div class="story__content container">
+    <p class="section-label section-label--light">Our story</p>
+    <h2>Built for one dog. <em>Made for yours.</em></h2>
+    <p>
+      When I met Charlie, I didn’t realize how much he would shape my life. He wasn’t just a pet.
+      He was my constant, my teacher in patience and responsibility, and the one who quietly
+      raised the bar for how deeply you can show up for another being.
+    </p>
+    <p>
+      Charlie was a rescue with a complicated medical history from the start. Over sixteen and a
+      half years, we navigated chronic conditions, sudden flare-ups, and long stretches of uncertainty.
+    </p>
+    <a href={routes.charlieStory}>Read the full story →</a>
+    <small>Ben Singer, Founder · Charlie, 2009–2025</small>
+  </div>
+</section>
+
+<section class="conditions section" id="conditions">
+  <div class="container">
+    <p class="section-label">In plain English</p>
+    <div class="conditions__intro">
+      <h2>Chronic conditions leave a trail in the chart first.</h2>
+      <div>
+        <p>
+          A laboratory value changing. A new medication. Something you noticed and wrote down.
+          BarkLens keeps each in the same timeline.
+        </p>
+        <a href={routes.conditions}>Read the conditions guide →</a>
+      </div>
+    </div>
+    <div class="conditions__grid">
+      {conditions.map((condition) => (
+        <a href={condition.href}>
+          <h3>{condition.title}</h3>
+          <p>{condition.clue}</p>
+          <span>{condition.tag}</span>
+          <b>Read →</b>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="testimonial__copy">
+    <p class="section-label">From owners</p>
+    <blockquote>
+      “BarkLens put Tucker’s previous results in one place, so I could see what changed and bring
+      better questions to our veterinarian.”
+    </blockquote>
+    <p>Laura · Tucker, 9</p>
+  </div>
+  <img src="/images/home/testimonial.webp" alt="An owner kissing a grey-muzzled chihuahua on the forehead" width="1198" height="1800" loading="lazy" />
+</section>
+
+<section class="pricing section" id="pricing">
+  <div class="pricing__grid container">
+    <div>
+      <p class="section-label">More good years start now.</p>
+      <h2>Everything your dog’s chart needs, <em>one membership.</em></h2>
+      <p>
+        Plus is $14.95 a month or $149 a year for one dog. Family covers up to four dogs for
+        $24.95 a month or $249 a year. Start with a seven-day free trial. Cancel anytime.
+      </p>
+      <ButtonLink href={routes.waitlist}>Join Waitlist</ButtonLink>
+      <small>Seven-day free trial.</small>
+    </div>
+    <dl>
+      {planFeatures.map(([title, body]) => <div><dt>{title}</dt><dd>{body}</dd></div>)}
+    </dl>
+  </div>
+</section>
+
+<section class="faq section" id="questions" data-faq>
+  <div class="faq__inner container">
+    <div>
+      <p class="section-label">Frequently asked questions</p>
+      <h2>How BarkLens works</h2>
+    </div>
+    <div class="faq__list">
+      {faqs.map((item, index) => (
+        <article>
+          <h3>
+            <button type="button" aria-expanded="false" aria-controls={`faq-answer-${index}`} data-faq-button>
+              <span>{item.question}</span><b aria-hidden="true">+</b>
+            </button>
+          </h3>
+          <div id={`faq-answer-${index}`} data-faq-answer hidden><p>{item.answer}</p></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="closing section--image">
+  <img src="/images/home/closer-look.webp" alt="An owner walking with a dog along a grassy ridge" width="2200" height="1300" loading="lazy" />
+  <div class="image-shade"></div>
+  <div class="closing__content">
+    <h2>The internet knows dogs. <em>BarkLens knows yours.</em></h2>
+    <p>Try it free. Bring your dog’s records into one place.</p>
+    <ButtonLink href={routes.waitlist} variant="light">Join Waitlist</ButtonLink>
+    <small>Seven-day free trial.</small>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    document.querySelectorAll('[data-capture]').forEach((root) => {
+      const tabs = [...root.querySelectorAll('[data-capture-tab]')];
+      const panels = [...root.querySelectorAll('[data-capture-panel]')];
+      let active = 0;
+      let automatic = true;
+      const select = (index) => {
+        active = index;
+        tabs.forEach((tab, i) => tab.setAttribute('aria-selected', String(i === index)));
+        panels.forEach((panel, i) => { panel.hidden = i !== index; });
+      };
+      tabs.forEach((tab, index) => tab.addEventListener('click', () => {
+        automatic = false;
+        select(index);
+      }));
+      window.setInterval(() => {
+        if (automatic) select((active + 1) % tabs.length);
+      }, 4200);
+    });
+
+    document.querySelectorAll('[data-faq-button]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        const answer = document.getElementById(button.getAttribute('aria-controls'));
+        button.setAttribute('aria-expanded', String(!expanded));
+        if (answer) answer.hidden = expanded;
+      });
+    });
+  })();
+</script>
+
+<style>
+  .section { padding: var(--space-24) 0; }
+  .section-label, .number-label { color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  .section-label--light { color: var(--color-mint-400); }
+  h2 { font-size: var(--text-xl); }
+  h2 em { color: var(--color-green-600); font-weight: 400; }
+  .section--image { position: relative; isolation: isolate; overflow: hidden; color: var(--color-copy-inverse); }
+  .section--image > img, .image-shade { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .image-shade { z-index: -1; background: linear-gradient(90deg, rgb(10 25 20 / 88%), rgb(10 25 20 / 54%) 45%, rgb(10 25 20 / 16%)); }
+  .image-shade--soft { background: rgb(10 25 20 / 53%); }
+
+  .how__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); margin-top: var(--space-16); }
+  .how__step img { width: 100%; aspect-ratio: 4 / 5; border-radius: var(--radius-lg); object-fit: cover; }
+  .how__step .number-label { margin-top: var(--space-6); }
+  .how__step h2 { margin-top: var(--space-3); font-size: var(--text-lg); }
+  .how__step > p:last-child { margin-top: var(--space-3); color: var(--color-copy-muted); }
+
+  .closer { min-height: 48rem; display: grid; align-items: center; }
+  .closer__content, .trends__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(28rem, .9fr); align-items: center; gap: var(--space-16); }
+  .closer__intro h2, .trends h2 { max-width: 18ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .closer__intro h2 em, .trends h2 em { display: block; color: var(--color-mint-400); font-weight: 400; }
+  .closer__intro > p:last-child, .trends__grid > div > p { margin-top: var(--space-6); font-size: var(--text-lg); }
+  .chart-card { padding: var(--space-8); border: 1px solid rgb(255 255 255 / 20%); border-radius: var(--radius-xl); background: rgb(20 32 28 / 90%); box-shadow: var(--shadow-card); }
+  .chart-card dl { display: grid; margin-top: var(--space-4); }
+  .chart-card dl div { display: flex; justify-content: space-between; gap: var(--space-5); padding: var(--space-4) 0; border-bottom: 1px solid rgb(255 255 255 / 16%); }
+  .chart-card dd { color: #a9bdb6; }
+  .chart-card__prompt { margin-top: var(--space-6); color: var(--color-mint-400); font-family: var(--font-display); font-size: var(--text-lg); }
+  .chart-card > p:last-of-type { margin-top: var(--space-3); }
+  .chart-card small { display: block; margin-top: var(--space-5); color: #a9bdb6; }
+
+  .capture > .container > h2 { max-width: 20ch; margin-top: var(--space-4); font-size: var(--text-2xl); }
+  .capture__grid { display: grid; grid-template-columns: minmax(20rem, .8fr) minmax(28rem, 1.2fr); gap: var(--space-16); align-items: center; margin-top: var(--space-16); }
+  .capture__tabs { display: grid; }
+  .capture__tabs button { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0 var(--space-4); padding: var(--space-5) 0; border-bottom: 1px solid var(--color-border); background: transparent; text-align: left; }
+  .capture__tabs button > span { grid-row: 1 / 3; color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; }
+  .capture__tabs button strong { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 400; }
+  .capture__tabs button small { max-height: 0; overflow: hidden; color: var(--color-copy-muted); opacity: 0; transition: all var(--transition); }
+  .capture__tabs button[aria-selected='true'] small { max-height: 5rem; margin-top: var(--space-2); opacity: 1; }
+  .capture__display { min-height: 42rem; }
+  .capture__display article { position: relative; min-height: 42rem; overflow: hidden; border-radius: 2rem; background: var(--color-forest-900); color: var(--color-copy-inverse); box-shadow: var(--shadow-card); }
+  .capture__display article[hidden] { display: none; }
+  .capture__display img, .capture__scrim { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .capture__scrim { background: linear-gradient(180deg, rgb(15 31 26 / 35%), transparent 35%, rgb(15 31 26 / 92%)); }
+  .capture__heading { position: absolute; top: var(--space-8); left: var(--space-8); right: var(--space-8); display: flex; justify-content: space-between; gap: var(--space-4); }
+  .capture__heading p { color: var(--color-mint-400); font-size: var(--text-xs); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .capture__heading span { font-size: var(--text-sm); }
+  .capture__result { position: absolute; left: var(--space-6); right: var(--space-6); bottom: var(--space-6); padding: var(--space-6); border: 1px solid rgb(255 255 255 / 15%); border-radius: var(--radius-lg); background: rgb(15 31 26 / 90%); }
+  .capture__result > p:not(.number-label) { padding: var(--space-3) 0; border-bottom: 1px solid rgb(255 255 255 / 14%); }
+
+  .trends { min-height: 50rem; display: grid; align-items: center; }
+  .trends blockquote { margin-top: var(--space-8); font-family: var(--font-display); font-size: var(--text-lg); }
+  .trend-card { padding: var(--space-8); border: 1px solid #6b7773; border-radius: var(--radius-xl); background: #242928; box-shadow: var(--shadow-card); }
+  .trend-card svg { width: 100%; margin-top: var(--space-4); font-family: var(--font-body); }
+  .trend-card svg > rect:not(:first-child) { fill: #c8bfb1; }
+  .trend-card svg > rect:nth-of-type(4) { fill: #d7ccba; }
+  .trend-card text { fill: #8c958f; font-size: 12px; font-weight: 600; }
+  .trend-card text.value, .trend-card text.date { text-anchor: middle; fill: #f2f5f3; font-size: 14px; font-weight: 700; }
+  .trend-card text.date { fill: #8c958f; font-size: 13px; }
+  .trend-card text.date--latest { fill: #f2f5f3; }
+  .trend-card__caption { color: #8c958f; font-size: var(--text-sm); font-weight: 600; text-align: center; }
+  .trend-card__ask { display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-5); padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5); border: 1px solid #454e4b; border-radius: var(--radius-pill); color: #8c958f; background: #2a302f; }
+  .trend-card__ask b { display: grid; width: 2.625rem; height: 2.625rem; place-items: center; border-radius: 50%; color: var(--color-forest-900); background: #36c48e; }
+
+  .why > .container > h2 { margin-top: var(--space-4); font-size: var(--text-2xl); }
+  .why__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-top: var(--space-12); }
+  .why__grid a { display: flex; min-height: 17.5rem; flex-direction: column; justify-content: space-between; padding: var(--space-10); border-radius: var(--radius-lg); background: var(--color-forest-900); color: var(--color-copy-inverse); transition: background var(--transition); }
+  .why__grid a:hover { background: var(--color-forest-800); }
+  .why__grid > a > span { color: var(--color-mint-400); font-size: var(--text-xs); font-weight: 700; }
+  .why__grid h3 { font-size: var(--text-xl); }
+  .why__grid p { margin-top: var(--space-3); color: #d8cfc0; }
+
+  .story { min-height: 48rem; display: grid; align-items: center; }
+  .story > img { object-position: center 58%; }
+  .story__content { display: flex; flex-direction: column; align-items: flex-start; }
+  .story h2 { max-width: 12ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .story h2 em { display: block; color: var(--color-mint-400); }
+  .story__content > p:not(.section-label) { max-width: 42ch; margin-top: var(--space-5); }
+  .story a { margin-top: var(--space-6); color: var(--color-mint-400); font-weight: 700; }
+  .story small { margin-top: var(--space-6); color: #a9bdb6; text-transform: uppercase; letter-spacing: .12em; }
+
+  .conditions__intro { display: grid; grid-template-columns: 1fr .8fr; gap: var(--space-16); align-items: end; margin-top: var(--space-5); }
+  .conditions__intro h2 { font-size: var(--text-2xl); }
+  .conditions__intro a { display: inline-block; margin-top: var(--space-5); color: var(--color-green-600); font-weight: 700; }
+  .conditions__grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: var(--space-16); border-top: 1px solid var(--color-border); border-left: 1px solid var(--color-border); }
+  .conditions__grid a { display: flex; min-height: 17rem; flex-direction: column; padding: var(--space-6); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+  .conditions__grid h3 { font-size: var(--text-lg); }
+  .conditions__grid p { margin-top: var(--space-3); color: var(--color-copy-muted); }
+  .conditions__grid span { margin-top: auto; padding-top: var(--space-5); color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .conditions__grid b { margin-top: var(--space-2); font-size: var(--text-sm); }
+
+  .testimonial { display: grid; grid-template-columns: 1fr 1fr; min-height: 43rem; background: var(--color-cream-200); }
+  .testimonial__copy { display: flex; flex-direction: column; justify-content: center; padding: var(--space-24) max(var(--space-10), calc((100vw - var(--content-wide)) / 2)); }
+  .testimonial blockquote { max-width: 22ch; margin-top: var(--space-8); font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.25; }
+  .testimonial__copy > p:last-child { margin-top: var(--space-6); color: var(--color-copy-muted); }
+  .testimonial img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+  .pricing { background: var(--color-forest-900); color: var(--color-copy-inverse); }
+  .pricing__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--space-20); align-items: center; }
+  .pricing .section-label { color: var(--color-mint-400); }
+  .pricing h2 { margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .pricing h2 em { display: block; color: var(--color-mint-400); }
+  .pricing__grid > div > p:not(.section-label) { margin-top: var(--space-6); color: #d8cfc0; }
+  .pricing :global(.button-link) { margin-top: var(--space-8); background: var(--color-mint-500); }
+  .pricing small { display: block; margin-top: var(--space-3); color: #a9bdb6; }
+  .pricing dl { display: grid; }
+  .pricing dl div { display: grid; grid-template-columns: .7fr 1.3fr; gap: var(--space-6); padding: var(--space-5) 0; border-bottom: 1px solid rgb(255 255 255 / 15%); }
+  .pricing dt { font-family: var(--font-display); font-size: var(--text-lg); }
+  .pricing dd { color: #d8cfc0; }
+
+  .faq__inner { display: grid; grid-template-columns: .7fr 1.3fr; gap: var(--space-16); }
+  .faq h2 { margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .faq__list article { border-bottom: 1px solid var(--color-border); }
+  .faq__list button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: var(--space-5); padding: var(--space-5) 0; background: transparent; text-align: left; }
+  .faq__list button span { font-family: var(--font-display); font-size: var(--text-lg); }
+  .faq__list button b { font-family: var(--font-body); font-size: var(--text-lg); font-weight: 400; transition: transform var(--transition); }
+  .faq__list button[aria-expanded='true'] b { transform: rotate(45deg); }
+  .faq__list [data-faq-answer] { padding: 0 0 var(--space-5); color: var(--color-copy-muted); }
+
+  .closing { position: relative; isolation: isolate; min-height: 45rem; color: var(--color-copy-inverse); }
+  .closing > img, .closing .image-shade { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .closing .image-shade { z-index: -1; background: rgb(10 25 20 / 62%); }
+  .closing__content { display: flex; min-height: 45rem; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-16); text-align: center; }
+  .closing h2 { max-width: 16ch; font-size: var(--text-2xl); }
+  .closing h2 em { color: var(--color-mint-400); }
+  .closing p { margin-top: var(--space-5); }
+  .closing :global(.button-link) { margin-top: var(--space-6); }
+  .closing small { margin-top: var(--space-3); color: #d8cfc0; }
+
+  @media (max-width: 63.99rem) {
+    .how__grid, .conditions__grid { grid-template-columns: repeat(2, 1fr); }
+    .closer__content, .trends__grid, .capture__grid, .pricing__grid, .faq__inner { grid-template-columns: 1fr; }
+    .conditions__intro { grid-template-columns: 1fr; }
+    .testimonial { grid-template-columns: 1fr; }
+    .testimonial img { max-height: 40rem; }
+  }
+
+  @media (max-width: 47.99rem) {
+    .section { padding: var(--space-16) 0; }
+    .how__grid, .why__grid, .conditions__grid { grid-template-columns: 1fr; }
+    .capture__display, .capture__display article { min-height: 36rem; }
+    .closer__content, .trends__grid { gap: var(--space-10); }
+    .closer__intro h2, .trends h2, .capture > .container > h2, .story h2, .conditions__intro h2, .pricing h2, .faq h2 { font-size: var(--text-xl); }
+    .testimonial__copy { padding: var(--space-16) var(--space-5); }
+    .pricing dl div { grid-template-columns: 1fr; gap: var(--space-2); }
+    .closing__content { padding-inline: var(--space-5); }
+  }
+</style>

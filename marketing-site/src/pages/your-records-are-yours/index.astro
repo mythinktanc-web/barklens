@@ -1,0 +1,70 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ButtonLink from '@components/ButtonLink.astro';
+import { routes } from '@config/site';
+---
+
+<BaseLayout
+  title="Your dog’s records are yours | BarkLens"
+  description="Export your dog’s records at any time. BarkLens does not expire charts or remove owner-added records to sell an upgrade."
+  canonicalPath="/your-records-are-yours/"
+>
+  <article class="records-page">
+    <header class="container">
+      <p class="eyebrow">Your records</p>
+      <h1>Your records are yours.</h1>
+      <p>Nothing you add is taken away. Export everything, anytime. A chart never expires.</p>
+    </header>
+    <div class="records-page__grid container">
+      <div>
+        <section>
+          <h2>Why this needs to be a promise</h2>
+          <p>Owners have watched apps shut down and take years of information with them. Clinic portals can hold history without making it easy for an owner to organize, annotate, or carry it elsewhere.</p>
+          <p>So BarkLens is specific rather than reassuring.</p>
+        </section>
+        <section>
+          <h2>What that means concretely</h2>
+          <ul>
+            <li>Export the records at any time in a format you can open and bring to a veterinarian.</li>
+            <li>Canceling does not remove the chart. Records and export remain available.</li>
+            <li>Charts do not expire after a year, a subscription lapse, or a dog’s death.</li>
+            <li>Owner-added records are not removed to sell an upgrade.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>What you add</h2>
+          <p>BarkLens reads only the records you choose to add.</p>
+          <p>The laboratory report, visit summary, and values stay tied to the original record.</p>
+          <p><strong>Nothing is added silently.</strong> You review each record before it becomes part of your dog’s chart.</p>
+        </section>
+        <section>
+          <h2>Your data is not the product</h2>
+          <p>Your dog’s health records are not sold, including in aggregate. Membership is the business model.</p>
+        </section>
+      </div>
+      <aside>
+        <p class="eyebrow">The promise</p>
+        <blockquote>Keep the record. Keep the history. Take it with you.</blockquote>
+        <ButtonLink href={routes.waitlist} variant="mint">Join Waitlist</ButtonLink>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .records-page > header { padding-block: var(--space-24) var(--space-16); }
+  .records-page h1 { max-width: 14ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .records-page header > p:last-child { max-width: 42ch; margin-top: var(--space-6); font-family: var(--font-display); font-size: var(--text-lg); }
+  .records-page__grid { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: var(--space-20); padding-bottom: var(--space-20); }
+  .records-page__grid > div { max-width: var(--content-narrow); }
+  .records-page section + section { margin-top: var(--space-12); padding-top: var(--space-12); border-top: 1px solid var(--color-border); }
+  .records-page h2 { font-size: var(--text-xl); }
+  .records-page section p { margin-top: var(--space-5); color: var(--color-copy-muted); }
+  .records-page ul { display: grid; gap: var(--space-4); margin-top: var(--space-6); padding-left: var(--space-6); }
+  .records-page li::marker { color: var(--color-green-600); }
+  .records-page aside { position: sticky; top: calc(var(--header-height) + var(--space-6)); padding: var(--space-8); border-radius: var(--radius-xl); background: var(--color-forest-900); color: var(--color-copy-inverse); }
+  .records-page aside .eyebrow { color: var(--color-mint-400); }
+  .records-page blockquote { margin-top: var(--space-5); font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.35; }
+  .records-page aside :global(.button-link) { width: 100%; margin-top: var(--space-6); }
+  @media (max-width: 63.99rem) { .records-page__grid { grid-template-columns: 1fr; } .records-page aside { position: static; } }
+</style>

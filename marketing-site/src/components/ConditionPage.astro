@@ -1,0 +1,150 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ButtonLink from './ButtonLink.astro';
+import LegalBoundary from './LegalBoundary.astro';
+import { routes } from '@config/site';
+import type { ConditionPageData } from '../data/conditions';
+
+interface Props {
+  page: ConditionPageData;
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={`${page.title} | BarkLens`} description={page.description} canonicalPath={`/conditions/${page.slug}/`}>
+  <article class="condition-page">
+    <header class="condition-hero">
+      <img src={page.image} alt={page.imageAlt} width="2200" height="1400" fetchpriority="high" />
+      <div class="condition-hero__shade"></div>
+      <div class="condition-hero__content container">
+        <a href={routes.conditions}>← In plain English</a>
+        <h1>{page.title}</h1>
+      </div>
+    </header>
+
+    <div class="condition-intro container">
+      <div>
+        {page.intro.map((paragraph) => <p>{paragraph}</p>)}
+        <LegalBoundary />
+      </div>
+      <aside>
+        <p>Bring to the conversation</p>
+        <ul>
+          {page.instrumentItems.slice(0, 4).map((item) => <li>{item}</li>)}
+        </ul>
+      </aside>
+    </div>
+
+    <div class="condition-content container">
+      <div class="condition-content__main">
+        {page.sections.map((section) => (
+          <section>
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.source && (
+              <a class="source-link" href={section.source.url} target="_blank" rel="noopener noreferrer">
+                Source · {section.source.label}
+              </a>
+            )}
+          </section>
+        ))}
+
+        {page.urgent && <p class="urgent-note">{page.urgent}</p>}
+
+        <section class="instrument">
+          <p class="eyebrow">A practical plan</p>
+          <h2>{page.instrumentTitle}</h2>
+          <p>{page.instrumentIntro}</p>
+          <ol>
+            {page.instrumentItems.map((item) => <li>{item}</li>)}
+          </ol>
+        </section>
+
+        <section class="questions">
+          <p class="eyebrow">Questions worth asking</p>
+          <h2>Bring the next question, not just the latest number.</h2>
+          <ol>
+            {page.questions.map((question) => <li>{question}</li>)}
+          </ol>
+        </section>
+
+        <section class="sources">
+          <p class="eyebrow">Published veterinary sources</p>
+          <h2>Every source reviewed by a licensed veterinarian.</h2>
+          <ul>
+            {page.sources.map((source) => (
+              <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <aside class="condition-content__side">
+        <p class="eyebrow">Keep the source with the result</p>
+        <blockquote>
+          Your dog’s full history, read against veterinary literature, so you can see what changed,
+          when, and what to ask.
+        </blockquote>
+        <ButtonLink href={routes.waitlist} variant="mint">Join Waitlist</ButtonLink>
+      </aside>
+    </div>
+
+    <section class="condition-cta">
+      <div class="container">
+        <p class="eyebrow">Your dog’s history, in your hands.</p>
+        <h2>Add the report. Keep the question with it.</h2>
+        <ButtonLink href={routes.waitlist} variant="light">Join Waitlist</ButtonLink>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .condition-hero { position: relative; isolation: isolate; min-height: 32rem; display: grid; align-items: end; overflow: hidden; color: var(--color-copy-inverse); }
+  .condition-hero > img, .condition-hero__shade { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .condition-hero__shade { z-index: -1; background: linear-gradient(180deg, rgb(15 31 26 / 10%), rgb(15 31 26 / 80%)); }
+  .condition-hero__content { padding-bottom: var(--space-12); }
+  .condition-hero__content > a { color: var(--color-mint-400); font-size: var(--text-xs); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .condition-hero h1 { max-width: 18ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .condition-intro { display: grid; grid-template-columns: 1.3fr .7fr; gap: var(--space-20); padding-block: var(--space-16); border-bottom: 1px solid var(--color-border); }
+  .condition-intro > div > p { font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.45; }
+  .condition-intro > div > p + p { margin-top: var(--space-5); }
+  .condition-intro :global(.legal-boundary) { margin-top: var(--space-5); font-family: var(--font-body); }
+  .condition-intro aside { padding: var(--space-6); border-radius: var(--radius-lg); background: var(--color-cream-200); }
+  .condition-intro aside > p { font-size: var(--text-xs); font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+  .condition-intro ul { display: grid; gap: var(--space-3); margin-top: var(--space-5); padding-left: var(--space-5); color: var(--color-copy-muted); }
+  .condition-content { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: var(--space-20); padding-block: var(--space-20); align-items: start; }
+  .condition-content__main { max-width: var(--content-narrow); }
+  .condition-content__main > section + section { margin-top: var(--space-16); padding-top: var(--space-16); border-top: 1px solid var(--color-border); }
+  .condition-content h2 { font-size: var(--text-xl); }
+  .condition-content section > p { margin-top: var(--space-5); color: var(--color-copy-muted); }
+  .source-link { display: inline-block; margin-top: var(--space-5); color: var(--color-green-600); font-size: var(--text-sm); font-weight: 700; text-decoration: underline; text-underline-offset: .25rem; }
+  .urgent-note { margin-top: var(--space-12); padding: var(--space-5); border-radius: var(--radius-md); background: var(--color-cream-200); font-weight: 650; }
+  .instrument { padding: var(--space-8); border-radius: var(--radius-xl); background: var(--color-forest-900); color: var(--color-copy-inverse); }
+  .instrument .eyebrow { color: var(--color-mint-400); }
+  .instrument h2, .questions h2, .sources h2 { margin-top: var(--space-4); }
+  .instrument ol, .questions ol { display: grid; gap: var(--space-4); margin-top: var(--space-6); padding-left: var(--space-6); }
+  .instrument li::marker, .questions li::marker { color: var(--color-mint-500); font-weight: 700; }
+  .questions ol { font-family: var(--font-display); font-size: var(--text-lg); }
+  .sources h2 { max-width: 22ch; }
+  .sources ul { display: grid; gap: var(--space-3); margin-top: var(--space-6); list-style: none; }
+  .sources a { color: var(--color-green-600); text-decoration: underline; text-underline-offset: .25rem; }
+  .condition-content__side { position: sticky; top: calc(var(--header-height) + var(--space-6)); padding: var(--space-8); border-radius: var(--radius-xl); background: var(--color-cream-200); }
+  .condition-content__side blockquote { margin-top: var(--space-5); font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.4; }
+  .condition-content__side :global(.button-link) { width: 100%; margin-top: var(--space-6); }
+  .condition-cta { padding: var(--space-20) 0; background: var(--color-forest-900); color: var(--color-copy-inverse); text-align: center; }
+  .condition-cta .eyebrow { color: var(--color-mint-400); margin-inline: auto; }
+  .condition-cta h2 { max-width: 18ch; margin: var(--space-5) auto 0; font-size: var(--text-2xl); }
+  .condition-cta :global(.button-link) { margin-top: var(--space-8); }
+  @media (max-width: 63.99rem) {
+    .condition-intro, .condition-content { grid-template-columns: 1fr; gap: var(--space-10); }
+    .condition-content__side { position: static; }
+  }
+  @media (max-width: 47.99rem) {
+    .condition-hero { min-height: 26rem; }
+    .condition-hero h1, .condition-cta h2 { font-size: var(--text-xl); }
+    .condition-intro, .condition-content { padding-block: var(--space-12); }
+    .instrument { padding: var(--space-6); }
+  }
+</style>

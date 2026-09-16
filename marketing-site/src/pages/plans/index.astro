@@ -1,0 +1,97 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { routes } from '@config/site';
+
+const planFaqs = [
+  ['What happens when the trial ends?', 'We email you before it does and again before a charge. If you cancel, you keep your records and export.'],
+  ['What if I cancel later?', 'You keep the chart and export. Paid features stop. History does not.'],
+  ['Do I need a card to start the trial?', 'When billing starts through an app store, the payment method on that store account is used. Final wording will match the live checkout.'],
+  ['Can I add someone who helps care for my dog?', 'Yes. A co-owner seat is included, and helper access for a sitter, walker, or family member is free.'],
+  ['Is there a plan for more than four dogs?', 'Not yet. Fosters and rescues can contact hello@barklens.com.']
+];
+---
+
+<BaseLayout
+  title="BarkLens Plans | Plus and Family"
+  description="Compare BarkLens Plus for one dog and BarkLens Family for up to four dogs."
+  canonicalPath="/plans/"
+>
+  <section class="plans-hero">
+    <img src="/images/support/plans.webp" alt="" width="831" height="1891" />
+    <div class="plans-hero__shade"></div>
+    <div class="plans-hero__grid container" data-plans>
+      <div>
+        <p class="eyebrow">Plans</p>
+        <h1>More good years <em>start now.</em></h1>
+        <p>Start with seven days. We email you before the trial expires.</p>
+        <div class="billing-toggle" role="group" aria-label="Billing period">
+          <button type="button" aria-pressed="true" data-billing="monthly">Monthly</button>
+          <button type="button" aria-pressed="false" data-billing="annual">Annual · 2 mo free</button>
+        </div>
+        <div class="plan-list">
+          <article data-plan="plus">
+            <div><h2>Plus</h2><p>One dog, one chart.</p></div>
+            <p class="plan-price"><strong data-monthly>$14.95</strong><strong data-annual hidden>$149</strong><small data-monthly>/mo</small><small data-annual hidden>/yr</small></p>
+            <a href={routes.waitlist}>Join</a>
+          </article>
+          <article data-plan="family">
+            <div><h2>Family</h2><p>Up to four dogs, each with their own chart.</p></div>
+            <p class="plan-price"><strong data-monthly>$24.95</strong><strong data-annual hidden>$249</strong><small data-monthly>/mo</small><small data-annual hidden>/yr</small></p>
+            <a href={routes.waitlist}>Join</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan-faq container">
+    <div><p class="eyebrow">Frequently asked questions</p><h2>Before you join.</h2></div>
+    <div>{planFaqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</div>
+  </section>
+  <p class="plans-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
+</BaseLayout>
+
+<script is:inline>
+  document.querySelectorAll('[data-plans]').forEach((root) => {
+    const buttons = [...root.querySelectorAll('[data-billing]')];
+    const monthly = [...root.querySelectorAll('[data-monthly]')];
+    const annual = [...root.querySelectorAll('[data-annual]')];
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const showAnnual = button.dataset.billing === 'annual';
+      buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      monthly.forEach((item) => { item.hidden = showAnnual; });
+      annual.forEach((item) => { item.hidden = !showAnnual; });
+    }));
+  });
+</script>
+
+<style>
+  .plans-hero { position: relative; isolation: isolate; min-height: calc(100dvh - var(--header-height)); display: grid; align-items: center; overflow: hidden; color: var(--color-copy-inverse); }
+  .plans-hero > img, .plans-hero__shade { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+  .plans-hero__shade { z-index: -1; background: linear-gradient(90deg, rgb(15 31 26 / 92%), rgb(15 31 26 / 66%) 58%, rgb(15 31 26 / 20%)); }
+  .plans-hero__grid { padding-block: var(--space-16); }
+  .plans-hero__grid > div { max-width: 42rem; }
+  .plans-hero .eyebrow { color: var(--color-mint-400); }
+  .plans-hero h1 { max-width: 10ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .plans-hero h1 em { color: var(--color-mint-500); }
+  .plans-hero__grid > div > p:not(.eyebrow) { max-width: 40ch; margin-top: var(--space-5); color: #d8cfc0; }
+  .billing-toggle { display: inline-grid; grid-template-columns: 1fr 1fr; margin-top: var(--space-8); padding: var(--space-1); border: 1px solid rgb(255 255 255 / 30%); border-radius: var(--radius-pill); background: rgb(255 255 255 / 8%); }
+  .billing-toggle button { padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); color: #d8cfc0; background: transparent; }
+  .billing-toggle button[aria-pressed='true'] { color: var(--color-forest-900); background: var(--color-mint-500); }
+  .plan-list { display: grid; gap: var(--space-3); margin-top: var(--space-5); }
+  .plan-list article { display: grid; grid-template-columns: 1fr auto auto; gap: var(--space-6); align-items: center; padding: var(--space-5) var(--space-6); border: 1px solid rgb(255 255 255 / 24%); border-radius: var(--radius-lg); background: rgb(15 31 26 / 74%); }
+  .plan-list h2 { font-size: var(--text-lg); }
+  .plan-list article > div p { color: #a9bdb6; font-size: var(--text-sm); }
+  .plan-price { display: flex; align-items: baseline; }
+  .plan-price strong { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; }
+  .plan-price small { color: #a9bdb6; }
+  .plan-list a { padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); color: var(--color-forest-900); background: var(--color-mint-500); font-weight: 700; }
+  .plan-faq { display: grid; grid-template-columns: .7fr 1.3fr; gap: var(--space-16); padding-block: var(--space-20); }
+  .plan-faq h2 { margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .plan-faq details { border-bottom: 1px solid var(--color-border); }
+  .plan-faq summary { padding: var(--space-5) 0; cursor: pointer; font-family: var(--font-display); font-size: var(--text-lg); }
+  .plan-faq details p { padding-bottom: var(--space-5); color: var(--color-copy-muted); }
+  .plans-boundary { margin: 0 auto var(--space-16); color: var(--color-copy-muted); font-size: var(--text-sm); font-style: italic; text-align: center; }
+  @media (max-width: 63.99rem) { .plan-faq { grid-template-columns: 1fr; } }
+  @media (max-width: 47.99rem) { .plan-list article { grid-template-columns: 1fr auto; } .plan-price { grid-column: 1; } .plan-list a { grid-column: 2; grid-row: 1 / 3; } }
+</style>

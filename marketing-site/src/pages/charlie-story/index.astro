@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="For Charlie | The story behind BarkLens"
+  description="Ben Singer built BarkLens in honor of Charlie and the sixteen and a half years they spent together."
+  canonicalPath="/charlie-story/"
+>
+  <article class="story-page">
+    <header>
+      <img src="/images/support/charlie-2.webp" alt="Ben and Charlie together outdoors" width="2200" height="970" fetchpriority="high" />
+      <div></div>
+      <section class="container">
+        <p class="eyebrow">A letter from the founder</p>
+        <h1>He wasn’t just a pet. <em>He was my constant.</em></h1>
+        <p>Ben and Charlie · 2009–2025</p>
+      </section>
+    </header>
+
+    <div class="story-page__body container">
+      <div>
+        <p class="eyebrow">Our story</p>
+        <h2>For Charlie</h2>
+        <p>When I met Charlie, I didn’t realize how much he would shape my life. He wasn’t just a pet. He was my constant, my teacher in patience and responsibility, and the one who quietly raised the bar for how deeply you can show up for another being.</p>
+        <h3>Sixteen and a half years</h3>
+        <p>Charlie was a rescue with a complicated medical history from the start. Over sixteen and a half years, we navigated chronic conditions, sudden flare-ups, and long stretches of uncertainty.</p>
+        <p>What made the difference wasn’t just extraordinary veterinarians. It was learning how to show up as a thoughtful advocate in Charlie’s care. I kept records, paid close attention to every detail, and worked alongside his veterinary team so he could keep living a full, joyful life.</p>
+        <p>Grief is tough. I built BarkLens as a project dedicated to Charlie. I wanted to build the thing I wish I had while he was alive. BarkLens is the thing I wished for in every waiting room of those sixteen and a half years.</p>
+        <h3>Why BarkLens exists</h3>
+        <p>Until recently, this couldn’t be built: something to hold a dog’s entire medical history, carry it into every answer, and pair it with published veterinary sources rather than a random blog.</p>
+        <p>I started this to honor Charlie. I’m finishing it for all of you reading this now. This is the tool I wish I had for Charlie, and it is now something I am proud to build for you and your dog.</p>
+        <p class="story-page__signature">Ben<br /><small>Charlie’s Dad · Founder, BarkLens</small></p>
+      </div>
+      <aside>
+        <img src="/images/support/charlie-1.webp" alt="Ben holding Charlie in a studio portrait" width="912" height="1378" loading="lazy" />
+        <blockquote>“BarkLens is the thing I wished for in every waiting room of those sixteen and a half years.”</blockquote>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .story-page header { position: relative; isolation: isolate; min-height: 38rem; display: grid; align-items: end; overflow: hidden; color: var(--color-copy-inverse); }
+  .story-page header > img, .story-page header > div { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+  .story-page header > div { z-index: -1; background: linear-gradient(180deg, rgb(15 31 26 / 10%), rgb(15 31 26 / 82%)); }
+  .story-page header section { padding-bottom: var(--space-12); }
+  .story-page header .eyebrow { color: var(--color-mint-400); }
+  .story-page h1 { max-width: 14ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .story-page h1 em { display: block; color: var(--color-mint-400); }
+  .story-page header section > p:last-child { margin-top: var(--space-5); color: #d8cfc0; }
+  .story-page__body { display: grid; grid-template-columns: minmax(0, 1fr) 25rem; gap: var(--space-20); padding-block: var(--space-20); align-items: start; }
+  .story-page__body > div { max-width: var(--content-narrow); }
+  .story-page h2 { margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .story-page h3 { margin-top: var(--space-12); font-size: var(--text-xl); }
+  .story-page__body > div > p:not(.eyebrow) { margin-top: var(--space-5); color: var(--color-copy-muted); }
+  .story-page__signature { color: var(--color-copy) !important; font-family: var(--font-display); font-size: var(--text-xl); }
+  .story-page__signature small { color: var(--color-copy-muted); font-family: var(--font-body); font-size: var(--text-sm); }
+  .story-page aside { position: sticky; top: calc(var(--header-height) + var(--space-6)); }
+  .story-page aside img { width: 100%; border-radius: var(--radius-xl); }
+  .story-page blockquote { margin-top: var(--space-6); font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.4; }
+  @media (max-width: 63.99rem) { .story-page__body { grid-template-columns: 1fr; } .story-page aside { position: static; max-width: 28rem; } }
+</style>
