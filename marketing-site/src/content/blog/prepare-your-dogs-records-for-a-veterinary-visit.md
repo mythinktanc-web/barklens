@@ -1,5 +1,6 @@
 ---
 title: "A calmer way to prepare your dog’s records for a veterinary visit"
+seoTitle: "Prepare Your Dog’s Records for a Veterinary Visit"
 description: "Bring the records, medication details, observations, and questions that help your veterinarian see the full history."
 publishDate: 2026-09-16
 author: "Ben Singer"

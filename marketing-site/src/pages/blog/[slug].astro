@@ -11,6 +11,26 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const canonicalUrl = new URL(`/blog/${post.id}/`, 'https://barklens.com').href;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: post.data.description,
+  image: new URL(post.data.coverImage, 'https://barklens.com').href,
+  datePublished: post.data.publishDate.toISOString(),
+  dateModified: (post.data.updatedDate || post.data.publishDate).toISOString(),
+  mainEntityOfPage: canonicalUrl,
+  author: {
+    '@type': 'Person',
+    name: post.data.author
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'BarkLens',
+    url: 'https://barklens.com'
+  }
+};
 const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
   month: 'long',
   day: 'numeric',
@@ -19,9 +39,12 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
 ---
 
 <BaseLayout
-  title={`${post.data.title} | BarkLens`}
+  title={post.data.seoTitle || post.data.title}
   description={post.data.description}
   canonicalPath={`/blog/${post.id}/`}
+  image={post.data.coverImage}
+  type="article"
+  structuredData={articleSchema}
 >
   <article class="article-page">
     <header class="article-hero">

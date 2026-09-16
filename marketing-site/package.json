@@ -16,10 +16,12 @@
     "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "7.3.2"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "axe-core": "^4.13.0",
     "typescript": "6.0.3"
   }
 }

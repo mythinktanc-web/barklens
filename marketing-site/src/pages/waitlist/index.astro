@@ -5,8 +5,8 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
 ---
 
 <BaseLayout
-  title="Join the BarkLens waitlist | Founding member offer"
-  description="Join the BarkLens founding-member waitlist and receive first-wave access plus three invitations for friends."
+  title="Join the BarkLens Waitlist"
+  description="Join the first wave of invites. Your dog’s records in one timeline, with answers from top-tier veterinary sources."
   canonicalPath="/waitlist/"
 >
   <section class="waitlist-page" data-waitlist data-api-url={waitlistApiUrl}>
@@ -14,10 +14,11 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
       <div class="waitlist-offer">
         <p class="eyebrow">Founding member offer</p>
         <h1>First year at <em>half price.</em></h1>
+        <p>Join the first wave of invites. Your dog’s records in one timeline, with answers from top-tier veterinary sources.</p>
         <p>Join while the waitlist is open and lock in 50% off for your first year. When the list closes, so does the offer.</p>
         <dl>
-          <div><dt>First in the door</dt><dd>Access is granted in the order you joined.</dd><span>Included</span></div>
-          <div><dt>Bring three people with you</dt><dd>Three invitations for friends to skip the list and enter when you do.</dd><span>Included</span></div>
+          <div><dt>First in the door</dt><dd>Access is granted in the order you joined.</dd><dd class="waitlist-offer__status">Included</dd></div>
+          <div><dt>Bring three people with you</dt><dd>Three invitations for friends to skip the list and enter when you do.</dd><dd class="waitlist-offer__status">Included</dd></div>
         </dl>
       </div>
 
@@ -212,7 +213,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
   .waitlist-offer dl div { position: relative; padding: var(--space-5) 8rem var(--space-5) 0; border-top: 1px solid var(--color-border); }
   .waitlist-offer dt { font-family: var(--font-display); font-size: var(--text-lg); }
   .waitlist-offer dd { color: var(--color-copy-muted); }
-  .waitlist-offer dl span { position: absolute; top: var(--space-6); right: 0; color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .waitlist-offer .waitlist-offer__status { position: absolute; top: var(--space-6); right: 0; margin: 0; color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
   .waitlist-form { display: grid; gap: var(--space-5); padding: var(--space-10); border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: #fff; box-shadow: var(--shadow-card); }
   .waitlist-form__trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
   .waitlist-form > label, .waitlist-form legend { display: grid; gap: var(--space-2); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
@@ -273,7 +274,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
     .waitlist-offer dl div { padding: var(--space-4) 5.75rem var(--space-4) 0; }
     .waitlist-offer dt { font-size: 1.2rem; }
     .waitlist-offer dd { margin-top: var(--space-1); font-size: .8125rem; }
-    .waitlist-offer dl span { top: var(--space-5); font-size: .625rem; }
+    .waitlist-offer .waitlist-offer__status { top: var(--space-5); font-size: .625rem; }
     .waitlist-form { gap: var(--space-5); padding: var(--space-6) var(--space-5) var(--space-5); border-radius: 1.25rem; }
     .waitlist-form input:not([type='radio']) { height: 3.125rem; font-size: 1rem; }
     .waitlist-form fieldset > div { grid-template-columns: 1fr 1fr; }

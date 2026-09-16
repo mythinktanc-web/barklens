@@ -9,15 +9,35 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   noindex?: boolean;
+  image?: string;
+  type?: 'website' | 'article';
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title,
   description = site.description,
   canonicalPath = Astro.url.pathname,
-  noindex = true
+  noindex = import.meta.env.PUBLIC_SITE_NOINDEX !== 'false',
+  image = '/images/desktop-hero.webp',
+  type = 'website',
+  structuredData
 } = Astro.props;
 const canonical = new URL(canonicalPath, site.canonicalOrigin);
+const socialImage = new URL(image, site.canonicalOrigin);
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  legalName: site.legalName,
+  url: site.canonicalOrigin,
+  email: site.contactEmail,
+  logo: new URL('/favicon.svg', site.canonicalOrigin).href,
+  sameAs: site.socialProfiles
+};
+const schemas = structuredData
+  ? [organizationSchema, ...(Array.isArray(structuredData) ? structuredData : [structuredData])]
+  : [organizationSchema];
 ---
 
 <!doctype html>
@@ -28,14 +48,21 @@ const canonical = new URL(canonicalPath, site.canonicalOrigin);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+    <meta name="theme-color" content="#0f1f1a" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="BarkLens" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <title>{title}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schemas)} />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>

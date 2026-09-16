@@ -3,6 +3,13 @@ export const site = {
   legalName: 'Think Tanc LLC',
   canonicalOrigin: 'https://barklens.com',
   contactEmail: 'hello@barklens.com',
+  socialProfiles: [
+    'https://www.instagram.com/gobarklens/',
+    'https://www.tiktok.com/@barklens',
+    'https://www.pinterest.com/gobarklens/',
+    'https://www.facebook.com/profile.php?id=61586751886579',
+    'https://www.youtube.com/@gobarklens'
+  ],
   description:
     "BarkLens organizes your dog's health records and answers questions from that history and published veterinary sources."
 } as const;

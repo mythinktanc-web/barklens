@@ -6,33 +6,27 @@ import { routes } from '@config/site';
 ---
 
 <BaseLayout
-  title="BarkLens | Your dog’s health history, in one place"
-  description="BarkLens holds your dog’s health history, connects what you notice at home to what is on the report, and traces every answer to published veterinary sources."
+  title="BarkLens — Your Dog's Health Records, Explained"
+  description="Every dog is different. Ask anything about yours — BarkLens answers from their history and top-tier veterinary sources."
 >
   <section class="hero">
-    <img
-      class="hero__desktop-image"
-      src="/images/desktop-hero.webp"
-      alt="A woman carrying her grey-muzzled dachshund down a forest road"
-      width="1774"
-      height="887"
-      fetchpriority="high"
-    />
-    <img
-      class="hero__mobile-image"
-      src="/images/mobile/hero.webp"
-      alt="An owner carrying her grey-muzzled dachshund down a quiet road"
-      width="1023"
-      height="1537"
-      fetchpriority="high"
-    />
+    <picture class="hero__picture">
+      <source media="(max-width: 47.99rem)" srcset="/images/mobile/hero.webp" />
+      <img
+        src="/images/desktop-hero.webp"
+        alt="An owner carrying her grey-muzzled dachshund down a quiet road"
+        width="1774"
+        height="887"
+        fetchpriority="high"
+      />
+    </picture>
     <div class="hero__shade"></div>
     <div class="hero__content container">
       <p class="eyebrow">Your dog can’t talk.</p>
       <h1><span>Let their records</span><em>do the talking.</em></h1>
       <p class="hero__lede">
-        For years, you remembered everything. Now the chart does. Ask anything and get answers from
-        your dog’s history and veterinary science.
+        Every dog is different. Ask anything about yours — BarkLens answers from their history and
+        top-tier veterinary sources.
       </p>
       <p class="hero__proof">Not just AI. Their history.<br />Real veterinary science. One answer.</p>
       <div class="hero__actions">
@@ -55,7 +49,7 @@ import { routes } from '@config/site';
     color: var(--color-copy-inverse);
   }
 
-  .hero > img,
+  .hero > picture,
   .hero__shade {
     position: absolute;
     inset: 0;
@@ -64,13 +58,11 @@ import { routes } from '@config/site';
     height: 100%;
   }
 
-  .hero > img {
+  .hero__picture img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-  }
-
-  .hero__mobile-image {
-    display: none;
   }
 
   .hero__shade {
@@ -133,7 +125,7 @@ import { routes } from '@config/site';
   }
 
   @media (max-width: 63.99rem) {
-    .hero > img {
+    .hero__picture img {
       object-position: 60% center;
     }
   }
@@ -143,16 +135,7 @@ import { routes } from '@config/site';
       min-height: calc(100svh - 3.25rem);
     }
 
-    .hero > img {
-      object-position: 82% center;
-    }
-
-    .hero > .hero__desktop-image {
-      display: none;
-    }
-
-    .hero > .hero__mobile-image {
-      display: block;
+    .hero__picture img {
       object-position: 60% 0%;
     }
 

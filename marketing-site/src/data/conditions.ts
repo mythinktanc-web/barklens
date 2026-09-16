@@ -12,6 +12,8 @@ export interface ConditionSection {
 export interface ConditionPageData {
   slug: string;
   title: string;
+  seoTitle: string;
+  subject: string;
   description: string;
   image: string;
   imageAlt: string;
@@ -29,7 +31,9 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'kidney-disease',
     title: 'Kidney values in dogs',
-    description: 'Understand how BUN, creatinine, SDMA, urine concentration, protein, and blood pressure fit into a dog’s kidney history.',
+    seoTitle: 'Kidney Disease in Dogs — What the Numbers Mean',
+    subject: 'Kidney disease in dogs',
+    description: 'A high creatinine isn’t a diagnosis — staging needs two draws. What to track at home, and what to ask your vet.',
     image: '/images/conditions/kidney-disease.webp',
     imageAlt: 'A dog standing beside its owner on a foggy coastal overlook',
     intro: [
@@ -74,7 +78,9 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'heart-disease',
     title: 'Heart disease in dogs',
-    description: 'Organize heart imaging, laboratory results, medications, breathing observations, and questions for a veterinary visit.',
+    seoTitle: 'Heart Disease in Dogs — What the Numbers Mean',
+    subject: 'Heart disease in dogs',
+    description: 'A murmur is a sound, not a sentence. How to count your dog’s sleeping breathing rate, the number cardiologists use.',
     image: '/images/conditions/heart-disease.webp',
     imageAlt: 'A senior dog resting beside its owner outdoors',
     intro: [
@@ -117,7 +123,9 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'diabetes',
     title: 'Diabetes in dogs',
-    description: 'Keep glucose, fructosamine, urine results, meals, insulin records, and owner observations in one diabetes history.',
+    seoTitle: 'Diabetes in Dogs — What the Numbers Mean',
+    subject: 'Diabetes in dogs',
+    description: 'Water, weight, appetite, and every dose — the log your vet reads first. What to record, and what to ask.',
     image: '/images/conditions/diabetes.webp',
     imageAlt: 'A dog resting on a blanket while its owner keeps notes nearby',
     intro: [
@@ -163,7 +171,9 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'liver-disease',
     title: 'Liver enzymes in dogs',
-    description: 'See ALT, AST, ALP, GGT, bilirubin, medications, and repeat laboratory draws in one liver history.',
+    seoTitle: 'Liver Disease in Dogs — What the Numbers Mean',
+    subject: 'Liver disease in dogs',
+    description: 'A high ALT or ALP is a starting point, not a finding. Why the recheck matters, and what to bring to it.',
     image: '/images/conditions/liver-disease.webp',
     imageAlt: 'A dog standing beside its owner on a wooded path',
     intro: [
@@ -208,7 +218,9 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'thyroid',
     title: 'Thyroid values in dogs',
-    description: 'Keep T4, free T4, TSH, medications, timing, weight, coat changes, and related laboratory findings together.',
+    seoTitle: 'Thyroid Disease in Dogs — What the Numbers Mean',
+    subject: 'Thyroid disease in dogs',
+    description: 'A post-pill T4 only means something if you know the dose time. What to log before the recheck, and what to ask.',
     image: '/images/conditions/thyroid.webp',
     imageAlt: 'A senior dog looking toward its owner in warm window light',
     intro: [
@@ -253,7 +265,9 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'pancreatitis',
     title: 'Pancreatitis in dogs',
-    description: 'Organize pancreatic lipase, other laboratory results, meals, treats, medications, imaging, and observations in one history.',
+    seoTitle: 'Pancreatitis in Dogs — What the Numbers Mean',
+    subject: 'Pancreatitis in dogs',
+    description: 'There’s no agreed definition of a high-fat diet. What to photograph, what to record, and what to ask your vet.',
     image: '/images/conditions/pancreatitis.webp',
     imageAlt: 'A dog resting beside its owner on a sofa',
     intro: [
@@ -297,7 +311,9 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'arthritis',
     title: 'Arthritis in dogs',
-    description: 'Keep movement observations, videos, medications, laboratory results, weight, and veterinary questions in one arthritis history.',
+    seoTitle: 'Arthritis in Dogs — What the Numbers Mean',
+    subject: 'Arthritis in dogs',
+    description: 'Stiff mornings are data. The mobility score vets use, plus the bloodwork nobody remembers to schedule.',
     image: '/images/conditions/arthritis.webp',
     imageAlt: 'A senior dog walking carefully beside its owner',
     intro: [
@@ -340,7 +356,9 @@ export const conditionPages: ConditionPageData[] = [
   {
     slug: 'cushings-disease',
     title: 'Cushing’s disease in dogs',
-    description: 'Organize ALP, glucose, urine results, steroid exposure, observations, and purpose-ordered Cushing’s testing in one history.',
+    seoTitle: 'Cushing’s Disease in Dogs — What the Numbers Mean',
+    subject: 'Cushing’s disease in dogs',
+    description: 'A high ALP alone isn’t Cushing’s — and steroid drops can invalidate the test. What to track, and when to test.',
     image: '/images/conditions/cushings-disease.webp',
     imageAlt: 'A senior dog standing beside its owner in a quiet field',
     intro: [
