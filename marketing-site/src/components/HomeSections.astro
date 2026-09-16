@@ -25,6 +25,12 @@ const mobileCaptureImages = [
   '/images/mobile/capture-stool.webp'
 ];
 
+const mobileWhyItems = [
+  { number: '01', title: 'The BarkLens Standard', label: 'Reviewed sources', href: routes.sources },
+  { number: '02', title: 'Easy to Share Records', label: 'Vet export', href: routes.records },
+  { number: '03', title: 'Your Team', label: 'Care team', href: routes.careTeam }
+];
+
 ---
 
 <section class="how section" id="how-it-works">
@@ -222,11 +228,19 @@ const mobileCaptureImages = [
   <div class="container">
     <p class="section-label">Why BarkLens</p>
     <h2>What sets us <em>apart</em></h2>
-    <div class="why__grid">
+    <div class="why__grid why__grid--desktop">
       {whyItems.map((item) => (
         <a href={item.href}>
           <span>{item.number}</span>
           <div><h3>{item.title}</h3><p>{item.body}</p></div>
+        </a>
+      ))}
+    </div>
+    <div class="why__mobile-list">
+      {mobileWhyItems.map((item) => (
+        <a href={item.href}>
+          <span>{item.number}</span>
+          <span><strong>{item.title}</strong><small>{item.label}</small></span>
         </a>
       ))}
     </div>
@@ -555,6 +569,7 @@ const mobileCaptureImages = [
   .why__grid > a > span { color: var(--color-mint-400); font-size: var(--text-xs); font-weight: 700; }
   .why__grid h3 { font-size: var(--text-xl); }
   .why__grid p { margin-top: var(--space-3); color: #d8cfc0; }
+  .why__mobile-list { display: none; }
 
   .story { min-height: 48rem; display: grid; align-items: center; }
   .story > img { object-position: center 58%; }
@@ -695,18 +710,19 @@ const mobileCaptureImages = [
     .closer__intro > p:last-child, .trends__grid > div > p { font-size: 1rem; }
     .chart-card { border-radius: var(--radius-lg); }
 
-    .why { position: relative; isolation: isolate; overflow: hidden; background: var(--color-forest-950); color: var(--color-copy-inverse); }
-    .why::before { position: absolute; inset: 0; z-index: -2; content: ''; background: url('/images/home/testimonial.webp') center 42% / cover; opacity: .23; }
-    .why::after { position: absolute; inset: 0; z-index: -1; content: ''; background: linear-gradient(180deg, rgb(11 11 12 / 50%), rgb(11 11 12 / 90%)); }
-    .why .section-label { color: var(--color-mint-500); text-align: center; }
-    .why > .container > h2 { color: var(--color-copy-inverse); text-align: center; }
-    .why > .container > h2 em { color: var(--color-mint-400); }
-    .why__grid { gap: 0; margin-top: var(--space-8); border-top: 1px solid rgb(255 255 255 / 18%); }
-    .why__grid a { position: relative; min-height: 0; padding: var(--space-5) 3.75rem var(--space-5) 0; border-bottom: 1px solid rgb(255 255 255 / 18%); border-radius: 0; background: transparent; }
-    .why__grid a::after { position: absolute; top: 50%; right: 0; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid rgb(255 255 255 / 35%); border-radius: 50%; content: '›'; transform: translateY(-50%); }
-    .why__grid > a > span { margin-bottom: var(--space-2); }
-    .why__grid h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; }
-    .why__grid p { display: none; }
+    .why { padding: 3rem 0 2.75rem; background: var(--color-cream-200); color: var(--color-forest-900); }
+    .why::before, .why::after { display: none; }
+    .why .section-label { color: var(--color-green-600); text-align: left; }
+    .why > .container > h2 { margin-top: .875rem; color: var(--color-forest-900); text-align: left; }
+    .why > .container > h2 em { color: inherit; font-style: normal; }
+    .why__grid--desktop { display: none; }
+    .why__mobile-list { display: flex; flex-direction: column; margin-top: 2rem; }
+    .why__mobile-list a { display: grid; grid-template-columns: 2.5rem 1fr; gap: .75rem; padding: 1.375rem 0; border-top: 1px solid rgb(20 32 28 / 18%); color: var(--color-forest-900); }
+    .why__mobile-list a:last-child { border-bottom: 1px solid rgb(20 32 28 / 18%); }
+    .why__mobile-list > a > span:first-child { padding-top: .375rem; color: var(--color-green-600); font-size: var(--type-caption-size); font-weight: 700; letter-spacing: .1em; line-height: 1.2; }
+    .why__mobile-list > a > span:last-child { display: flex; flex-direction: column; gap: .5rem; }
+    .why__mobile-list strong { font-family: var(--font-display); font-size: var(--type-pull-size); font-weight: 400; line-height: 1.15; }
+    .why__mobile-list small { color: #5a6660; font-size: .9375rem; line-height: 1.5; }
 
     .trends { padding: 3rem 0; color: var(--color-copy); background: var(--color-cream-100); }
     .trends__desktop-image, .trends__mobile-image, .trends > .image-shade { display: none; }
