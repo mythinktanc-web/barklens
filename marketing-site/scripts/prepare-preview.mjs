@@ -29,11 +29,13 @@ for (const file of walk(destination).filter((file) => file.endsWith('.html'))) {
   const makeRelative = (target) => {
     if (!target.startsWith('/')) return target;
     const [pathname, suffix = ''] = target.slice(1).split(/(?=[?#])/);
-    const absoluteTarget = path.join(destination, pathname);
+    const filePathname = !pathname || pathname.endsWith('/')
+      ? `${pathname}index.html`
+      : pathname;
+    const absoluteTarget = path.join(destination, filePathname);
     let relative = path.relative(currentDirectory, absoluteTarget).replaceAll(path.sep, '/');
     if (!relative || relative === '.') relative = './';
     if (!relative.startsWith('.')) relative = `./${relative}`;
-    if (pathname.endsWith('/') && !relative.endsWith('/')) relative += '/';
     return `${relative}${suffix}`;
   };
 

@@ -3,65 +3,43 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import ButtonLink from '@components/ButtonLink.astro';
 import { routes } from '@config/site';
 
-const tasks = [
-  ['Breakfast', 'Half cup · omega-3 chew alongside', 'You · 7:42am'],
-  ['Rimadyl', 'Morning dose, with food', 'You · 8:05am'],
-  ['Light walk', 'Around the block, easy pace', 'Mark · 9:20am'],
-  ['Lunch', 'Quarter cup', 'Tap when done'],
-  ['Light walk', 'Second of the day', 'Tap when done'],
-  ['Dinner', 'Half cup', 'Tap when done']
-];
-
-const mobileTasks = [
+const careTasks = [
   ['Prednisone 5 mg', 'Morning · with food', 'Ben', '7:42 AM'],
   ['Breakfast', '1 cup Hill’s k/d', 'Ben', '7:45 AM'],
   ['Midday walk', '20 min · easy pace', 'Rosa', '12:10 PM'],
   ['Glucosamine chew', 'Evening · 2 chews', '', ''],
   ['Dinner', '1 cup Hill’s k/d', '', '']
-];
+] as const;
 ---
 
 <BaseLayout
   title="Care Team — Share Your Dog's Chart"
-  description="Add your partner, sitter, or dog walker at no cost. They see today’s medications and your emergency contacts."
+  description="Add your partner, sitter, walker, or family at no cost. See today’s medications, completed care, and emergency contacts."
   canonicalPath="/care-team/"
   compactFooter
   hideFooterOnMobile
 >
   <section class="care-page">
-    <div class="care-page__grid container">
-      <div class="care-copy">
-        <p class="eyebrow"><span class="desktop-only">Care team</span><span class="mobile-only">04 · Care team</span></p>
-        <h1>
-          <span class="desktop-only">Everyone who helps, <em>on the same page.</em></span>
-          <span class="mobile-only">You’re not the only one <em>who takes care of them</em></span>
-        </h1>
-        <p class="desktop-only">Invite a partner, the kids, a sitter. Every dose they give is signed and timed.</p>
-        <p class="mobile-only">Add your partner, a sitter, a walker, or family at no cost. They see today’s medications, what’s been given, and your emergency contacts.</p>
-        <blockquote class="desktop-only">The “did you already give it?” text, retired.</blockquote>
-        <p class="desktop-only">A co-owner seat is included in every plan. Helper seats — a sitter, a walker, a family member — are free forever.</p>
-        <ButtonLink href={routes.plans} variant="mint">See plans</ButtonLink>
+    <div class="care-page__heading container">
+      <p class="eyebrow">04 · Care team</p>
+      <h1>You’re not the only one <em>who takes care of them</em></h1>
+    </div>
+
+    <div class="care-page__content container">
+      <div class="care-page__copy">
+        <p>Add your partner, a sitter, a walker, or family at no cost. They see today’s medications, what’s been given, and your emergency contacts.</p>
+        <p>Every dose logs who gave it and when. Nobody has to guess.</p>
+        <ButtonLink href={routes.waitlist}>Start your dog’s chart</ButtonLink>
+        <p class="care-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
       </div>
-      <div class="care-board care-board--desktop" data-care-board>
-        <header><p>A day in the app</p><span data-care-count>3 of 6</span></header>
-        <div>
-          {tasks.map(([title, sub, by], index) => (
-            <button type="button" data-care-task data-complete={index < 3 ? 'true' : 'false'}>
-              <i aria-hidden="true">{index < 3 ? '✓' : ''}</i>
-              <span><strong>{title}</strong><small>{sub}</small></span>
-              <em>{by}</em>
-            </button>
-          ))}
-        </div>
-        <p>Tap to confirm it. Your name and the time go on the record.</p>
-      </div>
-      <div class="care-board care-board--mobile" data-care-board>
+
+      <aside class="care-board" data-care-board aria-label="Charlie’s care team schedule">
         <header>
           <span><strong>Charlie · Today</strong><small>Tue, Jun 14</small></span>
           <b data-care-count>3 of 5 done</b>
         </header>
-        <div>
-          {mobileTasks.map(([title, sub, person, time], index) => (
+        <div class="care-board__tasks">
+          {careTasks.map(([title, sub, person, time], index) => (
             <button type="button" data-care-task data-complete={index < 3 ? 'true' : 'false'}>
               <i aria-hidden="true">{index < 3 ? '✓' : ''}</i>
               <span><strong>{title}</strong><small>{sub}</small></span>
@@ -73,12 +51,7 @@ const mobileTasks = [
           <span class="care-avatars" aria-hidden="true"><i>B</i><i>J</i></span>
           <span>Ben, Jordan</span>
         </div>
-      </div>
-      <div class="care-mobile-closing mobile-only">
-        <p>Every dose logs who gave it and when. Nobody has to guess.</p>
-        <ButtonLink href={routes.waitlist} variant="mint">Start your dog’s chart</ButtonLink>
-        <p class="care-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
-      </div>
+      </aside>
     </div>
   </section>
 </BaseLayout>
@@ -89,16 +62,12 @@ const mobileTasks = [
     const count = board.querySelector('[data-care-count]');
     const update = () => {
       const done = tasks.filter((task) => task.dataset.complete === 'true').length;
-      if (count) count.textContent = board.classList.contains('care-board--mobile')
-        ? `${done} of ${tasks.length} done`
-        : `${done} of ${tasks.length}`;
+      if (count) count.textContent = `${done} of ${tasks.length} done`;
     };
     tasks.forEach((task) => task.addEventListener('click', () => {
       const done = task.dataset.complete === 'true';
       task.dataset.complete = String(!done);
-      const status = task.querySelector('em');
       const check = task.querySelector('i');
-      if (status && !board.classList.contains('care-board--mobile')) status.textContent = done ? 'Tap when done' : 'You · just now';
       if (check) check.textContent = done ? '' : '✓';
       update();
     }));
@@ -106,62 +75,326 @@ const mobileTasks = [
 </script>
 
 <style>
-  .care-page { min-height: 40rem; padding: 5.25rem 0 6rem; color: var(--color-copy-inverse); background: var(--color-forest-950); }
-  .care-page__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 8rem; align-items: center; width: min(calc(100% - 2 * var(--space-10)), 68.75rem); }
-  .care-page h1 { max-width: 10.5ch; margin-top: .75rem; font-size: 4rem; line-height: 1.02; }
-  .care-page h1 em { color: var(--color-mint-500); }
-  .care-page .eyebrow { color: var(--color-mint-400); }
-  .care-page__grid > div:first-child > p:not(.eyebrow) { max-width: 40ch; margin-top: 1.5rem; color: #d8cfc0; font-size: .9375rem; line-height: 1.65; }
-  .care-page blockquote { max-width: 17ch; margin-top: 2.25rem; color: var(--color-cream-200); font-family: var(--font-display); font-size: 1.75rem; line-height: 1.18; font-style: italic; }
-  .care-page :global(.button-link) { margin-top: 2rem; padding-inline: 1.5rem; }
-  .mobile-only, .care-board--mobile { display: none; }
-  .care-board { overflow: hidden; border: 1px solid rgb(255 255 255 / 20%); border-radius: 1.25rem; background: var(--color-forest-800); box-shadow: 0 2rem 5rem rgb(0 0 0 / 24%); }
-  .care-board header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid rgb(255 255 255 / 12%); background: #20342d; color: #fff; }
-  .care-board header p { color: var(--color-mint-400); font-size: var(--text-xs); font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
-  .care-board--desktop header span { padding: .2rem .65rem; border-radius: var(--radius-pill); color: var(--color-forest-950); background: var(--color-mint-500); font-size: var(--text-xs); font-weight: 700; }
-  .care-board > div { display: grid; }
-  .care-board button { display: grid; min-height: 4.2rem; grid-template-columns: 1.25rem 1fr auto; align-items: center; gap: .8rem; padding: .85rem 1.25rem; border-bottom: 1px solid rgb(255 255 255 / 12%); color: var(--color-copy-inverse); background: transparent; text-align: left; }
-  .care-board button:hover { background: rgb(255 255 255 / 4%); }
-  .care-board button > i { display: grid; width: 1.25rem; height: 1.25rem; place-items: center; border: 1px solid #728079; border-radius: .3rem; color: var(--color-forest-950); font-size: .75rem; font-style: normal; font-weight: 800; }
-  .care-board button[data-complete='true'] > i { border-color: var(--color-mint-500); background: var(--color-mint-500); }
-  .care-board button span { display: grid; }
-  .care-board button small, .care-board button em { color: #a9bdb6; font-size: var(--text-xs); font-style: normal; }
-  .care-board button[data-complete='true'] em { color: var(--color-mint-500); }
-  .care-board > p { padding: .8rem 1.25rem; color: #a9bdb6; font-size: .75rem; }
-  @media (max-width: 63.99rem) {
-    .care-page__grid { grid-template-columns: 1fr; gap: var(--space-12); }
-    .care-page h1 { font-size: 3.5rem; }
+  .care-page {
+    min-height: calc(100dvh - var(--header-height));
+    padding: 6rem 0;
+    color: var(--color-forest-900);
+    background: #fff;
   }
+
+  .care-page__heading,
+  .care-page__content {
+    width: min(calc(100% - 2 * var(--space-10)), 68.75rem);
+  }
+
+  .care-page__heading {
+    padding-bottom: 1.5rem;
+  }
+
+  .care-page__heading h1 {
+    max-width: 16ch;
+    margin-top: 1.125rem;
+    font-size: 4rem;
+    line-height: 1.04;
+  }
+
+  .care-page__heading h1 em {
+    color: var(--color-green-600);
+  }
+
+  .care-page__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 26.25rem;
+    gap: 6rem;
+    align-items: start;
+    padding-top: 1.5rem;
+  }
+
+  .care-page__copy {
+    max-width: 38.75rem;
+  }
+
+  .care-page__copy > p:not(.care-boundary) {
+    margin-top: 1.25rem;
+    font-size: 1.1875rem;
+    line-height: 1.7;
+  }
+
+  .care-page__copy > p:first-child {
+    margin-top: 0;
+  }
+
+  .care-page__copy :global(.button-link) {
+    margin-top: 2.5rem;
+    padding: 1rem 1.75rem;
+  }
+
+  .care-boundary {
+    margin-top: 2.5rem;
+    color: #5a6660;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .care-board {
+    position: sticky;
+    top: calc(var(--header-height) + 1.75rem);
+    overflow: hidden;
+    border: 1px solid rgb(237 227 212 / 14%);
+    border-radius: 1.375rem;
+    color: var(--color-cream-300);
+    background: #182522;
+    box-shadow: 0 1.75rem 3.75rem rgb(0 0 0 / 55%), 0 .375rem 1rem rgb(0 0 0 / 35%);
+  }
+
+  .care-board header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: 1rem 1.125rem .875rem;
+    border-bottom: 1px solid rgb(237 227 212 / 12%);
+    background: rgb(237 227 212 / 5%);
+  }
+
+  .care-board header > span {
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+  }
+
+  .care-board header strong {
+    color: var(--color-mint-500);
+    font-family: var(--font-body);
+    font-size: .8125rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .care-board header small {
+    color: #a89f92;
+    font-size: .75rem;
+  }
+
+  .care-board header b {
+    padding: .25rem .625rem;
+    border-radius: var(--radius-pill);
+    color: #0b1512;
+    background: var(--color-mint-500);
+    font-size: .8125rem;
+    white-space: nowrap;
+  }
+
+  .care-board__tasks {
+    padding: .125rem 1.125rem .375rem;
+  }
+
+  .care-board button {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1.375rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .875rem;
+    padding: .8125rem 0;
+    border-bottom: 1px solid rgb(237 227 212 / 10%);
+    color: var(--color-cream-300);
+    background: transparent;
+    text-align: left;
+  }
+
+  .care-board button:hover {
+    background: rgb(237 227 212 / 3%);
+  }
+
+  .care-board button > i {
+    display: grid;
+    width: 1.375rem;
+    height: 1.375rem;
+    place-items: center;
+    border: 1.5px solid rgb(237 227 212 / 34%);
+    border-radius: .4375rem;
+    color: #0b1512;
+    font-size: .75rem;
+    font-style: normal;
+    font-weight: 800;
+  }
+
+  .care-board button[data-complete='true'] > i {
+    border-color: var(--color-mint-500);
+    background: var(--color-mint-500);
+  }
+
+  .care-board button > span {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: .1875rem;
+  }
+
+  .care-board button > span strong {
+    font-size: .9375rem;
+    font-weight: 600;
+  }
+
+  .care-board button[data-complete='true'] > span strong {
+    color: rgb(237 227 212 / 60%);
+    text-decoration: line-through;
+    text-decoration-color: rgb(237 227 212 / 35%);
+  }
+
+  .care-board button > span small {
+    color: #a89f92;
+    font-size: .75rem;
+    line-height: 1.3;
+  }
+
+  .care-board button em {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: .125rem;
+    font-style: normal;
+  }
+
+  .care-board button em strong {
+    color: var(--color-mint-500);
+    font-size: .75rem;
+  }
+
+  .care-board button em small {
+    color: #a89f92;
+    font-size: .6875rem;
+    white-space: nowrap;
+  }
+
+  .care-board__people {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .75rem 1.125rem 1rem;
+    color: #a89f92;
+    font-size: .8125rem;
+  }
+
+  .care-avatars {
+    display: flex;
+  }
+
+  .care-avatars i {
+    display: grid;
+    width: 1.625rem;
+    height: 1.625rem;
+    place-items: center;
+    border: 2px solid #182522;
+    border-radius: 50%;
+    color: #0b1512;
+    background: var(--color-mint-500);
+    font-size: .6875rem;
+    font-style: normal;
+    font-weight: 800;
+  }
+
+  .care-avatars i + i {
+    margin-left: -.5rem;
+    color: var(--color-cream-300);
+    background: rgb(237 227 212 / 20%);
+  }
+
+  @media (max-width: 63.99rem) {
+    .care-page__content {
+      grid-template-columns: minmax(0, 1fr) 23rem;
+      gap: var(--space-10);
+    }
+  }
+
   @media (max-width: 47.99rem) {
-    .desktop-only, .care-board--desktop, .care-copy :global(.button-link) { display: none; }
-    .mobile-only, .care-board--mobile { display: block; }
-    .care-page { min-height: 100dvh; padding: 2.5rem 0 4.5rem; background: var(--color-forest-900); }
-    .care-page__grid { display: block; width: min(calc(100% - 2 * var(--space-6)), 68.75rem); }
-    .care-page .eyebrow { color: var(--color-mint-500); }
-    .care-page h1 { max-width: none; margin-top: .875rem; font-size: var(--type-section-size); line-height: var(--type-section-line); }
-    .care-page h1 em { display: inline; color: var(--color-mint-500); font-style: italic; }
-    .care-page__grid .care-copy > p.mobile-only { max-width: 34ch; margin-top: 1.125rem; color: rgb(237 227 212 / 95%); font-size: var(--type-body-size); line-height: var(--type-body-line); }
-    .care-board--mobile { margin-top: 1.875rem; border-color: rgb(237 227 212 / 14%); border-radius: 1.375rem; background: #182522; box-shadow: 0 1.75rem 3.75rem rgb(0 0 0 / 55%), 0 .375rem 1rem rgb(0 0 0 / 35%); }
-    .care-board--mobile header { padding: 1rem 1.125rem .875rem; background: rgb(237 227 212 / 5%); }
-    .care-board--mobile header > span { display: flex; flex-direction: column; gap: .125rem; padding: 0; border-radius: 0; background: transparent; }
-    .care-board--mobile header strong { color: var(--color-mint-500); font-family: var(--font-body) !important; font-size: .8125rem !important; font-weight: 700 !important; letter-spacing: .18em; text-transform: uppercase; }
-    .care-board--mobile header small { color: #a89f92; font-size: .75rem; }
-    .care-board--mobile header b { padding: .25rem .625rem; border-radius: var(--radius-pill); color: #0b1512; background: var(--color-mint-500); font-size: .8125rem; white-space: nowrap; }
-    .care-board--mobile > div { padding: .125rem 1.125rem .375rem; }
-    .care-board--mobile button { min-height: auto; grid-template-columns: 1.375rem minmax(0, 1fr) auto; gap: .875rem; padding: .8125rem 0; }
-    .care-board--mobile button > i { width: 1.375rem; height: 1.375rem; border-color: rgb(237 227 212 / 34%); border-radius: .4375rem; }
-    .care-board--mobile button[data-complete='true'] > span strong { color: rgb(237 227 212 / 60%); text-decoration: line-through; text-decoration-color: rgb(237 227 212 / 35%); }
-    .care-board--mobile button span strong { font-family: var(--font-body) !important; font-size: .9375rem !important; font-weight: 600 !important; }
-    .care-board--mobile button span small { margin-top: .1875rem; color: #a89f92; font-size: .75rem !important; line-height: 1.3 !important; }
-    .care-board--mobile button em { display: flex; flex-direction: column; align-items: end; gap: .125rem; }
-    .care-board--mobile button em strong { color: var(--color-mint-500); font-size: .75rem; font-style: normal; }
-    .care-board--mobile button em small { color: #a89f92; font-size: .6875rem; white-space: nowrap; }
-    .care-board__people { display: flex; align-items: center; gap: .5rem; padding: .75rem 1.125rem 1rem; color: #a89f92; font-size: .8125rem; }
-    .care-avatars { display: flex; }
-    .care-avatars i { display: grid; width: 1.625rem; height: 1.625rem; place-items: center; border: 2px solid #182522; border-radius: 50%; color: #0b1512; background: var(--color-mint-500); font-size: .6875rem; font-style: normal; font-weight: 800; }
-    .care-avatars i + i { margin-left: -.5rem; color: var(--color-cream-300); background: rgb(237 227 212 / 20%); }
-    .care-mobile-closing > p:first-child { max-width: 34ch; margin-top: 1.125rem; color: rgb(237 227 212 / 95%); }
-    .care-mobile-closing :global(.button-link) { display: flex; width: max-content; margin: 2.25rem auto 0; }
-    .care-mobile-closing .care-boundary { margin: 1.75rem 0 0; color: #a89f92; font-family: var(--font-display) !important; font-size: 1.125rem !important; font-style: italic; line-height: 1.4 !important; text-align: center; }
+    .care-page {
+      min-height: 100dvh;
+      padding: 2.5rem 0 4.5rem;
+      color: var(--color-cream-300);
+      background: var(--color-forest-900);
+    }
+
+    .care-page__heading,
+    .care-page__content {
+      width: min(calc(100% - 2 * var(--space-6)), 68.75rem);
+    }
+
+    .care-page__heading {
+      padding-bottom: 0;
+    }
+
+    .care-page__heading .eyebrow {
+      color: var(--color-mint-500);
+    }
+
+    .care-page__heading h1 {
+      max-width: none;
+      margin-top: .875rem;
+      color: var(--color-cream-200);
+      font-size: var(--type-section-size);
+      line-height: var(--type-section-line);
+    }
+
+    .care-page__heading h1 em {
+      color: var(--color-mint-500);
+    }
+
+    .care-board header strong {
+      font-family: var(--font-body) !important;
+      font-size: .8125rem !important;
+      line-height: 1.2 !important;
+    }
+
+    .care-page__content {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-top: 1.125rem;
+    }
+
+    .care-page__copy {
+      display: contents;
+    }
+
+    .care-page__copy > p:not(.care-boundary) {
+      max-width: 34ch;
+      margin-top: 0;
+      color: rgb(237 227 212 / 95%);
+      font-size: var(--type-body-size);
+      line-height: var(--type-body-line);
+    }
+
+    .care-page__copy > p:nth-child(2) {
+      order: 3;
+      margin-top: 1.125rem;
+    }
+
+    .care-board {
+      position: static;
+      order: 2;
+      width: 100%;
+      margin-top: 1.875rem;
+    }
+
+    .care-page__copy :global(.button-link) {
+      order: 4;
+      width: max-content;
+      margin: 2.25rem auto 0;
+      color: #0b0b0c;
+      background: var(--color-mint-500);
+    }
+
+    .care-boundary {
+      order: 5;
+      margin: 1.75rem 0 0;
+      color: #a89f92;
+      font-size: 1.125rem !important;
+      line-height: 1.4 !important;
+      text-align: center;
+    }
   }
 </style>
