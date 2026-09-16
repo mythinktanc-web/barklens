@@ -20,7 +20,11 @@ production claim corrections are intentionally outside this phase.
 - `Plans` links route to `/pricing/`.
 - No Buy or Purchase button was added to the homepage.
 - Waitlist source SHA-256:
-  `b949b442383a58153c25b72a4008e31fedf4d477fb0ca0da9387f8fa7a8b75d9`
+  `f93fab13a3219f091cb45b29124a163a34417ae12f0a7799e3917d402775ccfa`
+- The waitlist includes the post-signup Share panel, generated BarkCode,
+  copy confirmation, native-share fallback, and dismiss behavior.
+- Mailgun delivery and subscriber persistence are intentionally deferred;
+  the current waitlist remains a complete design-review demo.
 - Plans source SHA-256:
   `4016de9a9f8f7b842d0d14e489ab9fd8c179e0ac8839f41092981d3010e5ea77`
 
