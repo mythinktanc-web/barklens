@@ -563,7 +563,7 @@ const mobileWhyItems = [
   .trend-card__ask b { display: grid; width: 1.75rem; height: 1.75rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-forest-950); background: var(--color-mint-500); }
 
   .why > .container > h2 { margin-top: var(--space-4); font-size: var(--text-2xl); }
-  .why__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-top: var(--space-12); }
+  .why__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); margin-top: var(--space-12); }
   .why__grid a { display: flex; min-height: 17.5rem; flex-direction: column; justify-content: space-between; padding: var(--space-10); border-radius: var(--radius-lg); background: var(--color-forest-900); color: var(--color-copy-inverse); transition: background var(--transition); }
   .why__grid a:hover { background: var(--color-forest-800); }
   .why__grid > a > span { color: var(--color-mint-400); font-size: var(--text-xs); font-weight: 700; }

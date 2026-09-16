@@ -105,25 +105,19 @@ export const captureItems = [
 export const whyItems = [
   {
     number: '01',
-    title: 'Vet imports',
-    body: 'Upload reports and photos into one organized history.',
-    href: routes.vetImports
-  },
-  {
-    number: '02',
-    title: 'Reviewed sources',
+    title: 'The BarkLens Standard',
     body: 'Every source reviewed by a licensed veterinarian.',
     href: routes.sources
   },
   {
-    number: '03',
-    title: 'Vet export',
+    number: '02',
+    title: 'Easy to Share Records',
     body: 'New veterinarian, specialist, or ER. The history comes with you.',
     href: routes.records
   },
   {
-    number: '04',
-    title: 'Care team',
+    number: '03',
+    title: 'Your Care Team',
     body: 'Add family or a sitter at no cost.',
     href: routes.careTeam
   }
