@@ -24,6 +24,22 @@ const mobileCaptureImages = [
   '/images/mobile/capture-home-cooked.webp',
   '/images/mobile/capture-stool.webp'
 ];
+
+const testimonials = [
+  {
+    quote: '“BarkLens put Tucker’s previous results in one place, so I could see what changed and bring better questions to our veterinarian.”',
+    attribution: 'Laura · Tucker, 9',
+    image: '/images/home/testimonial.webp',
+    alt: 'An owner smiling at their dog on a pebbled beach'
+  },
+  {
+    // Placeholder testimonial. Jonathan must approve this quote before launch.
+    quote: '“I used to search through old emails and paperwork before every appointment. BarkLens keeps Evie’s records together, so I can find what I need and bring better questions.”',
+    attribution: 'Jonathan · Evie, 6',
+    image: '/images/testimonials/evie.webp',
+    alt: 'Evie, a small gray dog wearing a pink plaid harness after a haircut'
+  }
+];
 ---
 
 <section class="how section" id="how-it-works">
@@ -279,21 +295,29 @@ const mobileCaptureImages = [
   </div>
 </section>
 
-<section class="testimonial">
-  <div class="testimonial__copy">
-    <p class="section-label">From owners</p>
-    <blockquote>
-      “BarkLens put Tucker’s previous results in one place, so I could see what changed and bring
-      better questions to our veterinarian.”
-    </blockquote>
-    <p>Laura · Tucker, 9</p>
-  </div>
-  <picture class="testimonial__image">
-    <img src="/images/home/testimonial.webp" alt="An owner smiling at their dog on a pebbled beach" width="1198" height="1800" loading="lazy" />
-  </picture>
+<section class="testimonial" data-testimonial-rotator aria-label="Testimonials from dog owners">
+  {testimonials.map((item, index) => (
+    <article
+      class="testimonial__slide"
+      data-testimonial-slide={index}
+      data-active={index === 0 ? 'true' : 'false'}
+      aria-hidden={index === 0 ? 'false' : 'true'}
+    >
+      <div class="testimonial__copy">
+        <p class="section-label">From owners</p>
+        <blockquote>{item.quote}</blockquote>
+        <p>{item.attribution}</p>
+      </div>
+      <picture class="testimonial__image">
+        <img src={item.image} alt={item.alt} width="1198" height="1800" loading={index === 0 ? 'lazy' : 'eager'} />
+      </picture>
+    </article>
+  ))}
 </section>
 
-<section class="pricing section" id="pricing">
+<section class="pricing section section--image" id="pricing">
+  <img src="/images/home/more-good-years.webp" alt="An owner embracing their dog outdoors" width="1653" height="1592" loading="lazy" />
+  <div class="image-shade"></div>
   <div class="pricing__grid container">
     <p class="section-label">More good years start now.</p>
     <h2>Everything your dog’s chart needs, <em>one membership.</em></h2>
@@ -322,8 +346,8 @@ const mobileCaptureImages = [
 </section>
 
 <section class="closing section--image">
-  <img class="closing__desktop-image" src="/images/home/closer-look.webp" alt="An owner walking with a dog along a grassy ridge" width="2200" height="1300" loading="lazy" />
-  <img class="closing__mobile-image" src="/images/mobile/charlie-closing.webp" alt="Charlie sitting on the sand and looking toward the water" width="3024" height="4032" loading="lazy" />
+  <img class="closing__desktop-image" src="/images/home/internet-knows-dogs.webp" alt="An owner standing beside their dog on a rocky shoreline" width="2200" height="1237" loading="lazy" />
+  <img class="closing__mobile-image" src="/images/home/internet-knows-dogs.webp" alt="An owner standing beside their dog on a rocky shoreline" width="2200" height="1237" loading="lazy" />
   <div class="image-shade"></div>
   <div class="closing__content">
     <h2>The internet knows dogs. <em>BarkLens knows yours.</em></h2>
@@ -381,6 +405,22 @@ const mobileCaptureImages = [
         button.setAttribute('aria-expanded', String(!expanded));
         if (answer) answer.hidden = expanded;
       });
+    });
+
+    document.querySelectorAll('[data-testimonial-rotator]').forEach((root) => {
+      const slides = [...root.querySelectorAll('[data-testimonial-slide]')];
+      let active = 0;
+      window.setInterval(() => {
+        const outgoing = slides[active];
+        outgoing.dataset.active = 'false';
+        outgoing.setAttribute('aria-hidden', 'true');
+        active = (active + 1) % slides.length;
+        window.setTimeout(() => {
+          const incoming = slides[active];
+          incoming.dataset.active = 'true';
+          incoming.setAttribute('aria-hidden', 'false');
+        }, 420);
+      }, 6000);
     });
   })();
 </script>
@@ -553,7 +593,9 @@ const mobileCaptureImages = [
   .conditions__grid span { margin-top: auto; padding-top: var(--space-5); color: var(--color-green-600); font-size: var(--text-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
   .conditions__grid b { position: absolute; right: var(--space-5); bottom: var(--space-5); font-size: var(--text-sm); }
 
-  .testimonial { display: grid; grid-template-columns: 1fr 1fr; min-height: 43rem; background: var(--color-cream-200); }
+  .testimonial { position: relative; min-height: 43rem; overflow: hidden; background: var(--color-cream-200); }
+  .testimonial__slide { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility 0s linear .4s; }
+  .testimonial__slide[data-active='true'] { z-index: 1; opacity: 1; visibility: visible; transition-delay: 0s; }
   .testimonial__copy { display: flex; flex-direction: column; justify-content: center; padding: var(--space-24) max(var(--space-10), calc((100vw - var(--content-wide)) / 2)); }
   .testimonial blockquote { max-width: 22ch; margin-top: var(--space-8); font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.25; }
   .testimonial__copy > p:last-child { margin-top: var(--space-6); color: var(--color-copy-muted); }
@@ -561,13 +603,19 @@ const mobileCaptureImages = [
   .testimonial__image { display: block; min-height: 0; }
 
   .pricing { background: var(--color-cream-200); color: var(--color-copy); text-align: center; }
-  .pricing__grid { display: block; }
-  .pricing .section-label { color: var(--color-copy-muted); }
+  .pricing.section--image { min-height: 31rem; display: grid; align-items: center; color: var(--color-copy-inverse); background: var(--color-forest-950); }
+  .pricing.section--image > img { object-position: center 46%; }
+  .pricing.section--image .image-shade { background: rgb(7 17 14 / 62%); }
+  .pricing__grid { display: flex; flex-direction: column; align-items: center; }
+  .pricing .section-label { display: block; width: 100%; color: var(--color-mint-400); text-align: center; }
   .pricing h2 { max-width: 18ch; margin: var(--space-6) auto 0; font-size: var(--text-2xl); }
-  .pricing h2 em { color: var(--color-green-600); }
+  .pricing h2 em { color: var(--color-mint-400); }
 
-  .faq__inner { display: grid; grid-template-columns: .7fr 1.3fr; gap: var(--space-16); }
+  .faq__inner { display: block; }
+  .faq__inner > div:first-child { text-align: center; }
+  .faq .section-label { display: block; width: 100%; max-width: none; text-align: center; }
   .faq h2 { margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .faq__list { max-width: 56rem; margin: var(--space-12) auto 0; }
   .faq__list article { border-bottom: 1px solid var(--color-border); }
   .faq__list button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: var(--space-5); padding: var(--space-5) 0; background: transparent; text-align: left; }
   .faq__list button span { font-family: var(--font-display); font-size: var(--text-lg); }
@@ -592,7 +640,7 @@ const mobileCaptureImages = [
     .conditions > .container { grid-template-columns: 1fr; }
     .conditions > .container > .section-label, .conditions__intro, .conditions__grid { grid-column: 1; }
     .conditions__grid { grid-row: auto; margin-top: var(--space-8); }
-    .testimonial { grid-template-columns: 1fr; }
+    .testimonial__slide { grid-template-columns: 1fr; }
     .testimonial img { max-height: 40rem; }
   }
 
@@ -718,13 +766,15 @@ const mobileCaptureImages = [
     .conditions__grid b { position: absolute; top: 50%; right: 0; font-size: 0; transform: translateY(-50%); }
     .conditions__grid b::after { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid var(--color-border); border-radius: 50%; content: '›'; color: var(--color-green-600); font-size: 1.25rem; }
 
-    .testimonial { min-height: 0; }
+    .testimonial { min-height: 56rem; }
+    .testimonial__slide { grid-template-rows: 24rem 1fr; }
     .testimonial__copy { order: 2; padding: var(--space-12) var(--space-5); }
     .testimonial blockquote { font-size: 1.8rem; }
     .testimonial__image { order: 1; max-height: 28rem; aspect-ratio: 1 / 1; overflow: hidden; }
     .testimonial img { max-height: 28rem; aspect-ratio: 1 / 1; object-position: 52% 60%; }
 
-    .pricing { padding-block: var(--space-20); }
+    .pricing { min-height: 28rem; padding-block: var(--space-20); }
+    .pricing.section--image > img { object-position: 50% 48%; }
     .pricing h2 { font-size: 2.45rem; }
 
     .faq__inner { gap: var(--space-8); }
