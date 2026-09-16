@@ -155,7 +155,8 @@ p {
   }
 
   body {
-    font-size: 1rem;
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-line);
   }
 
   html {
@@ -173,6 +174,269 @@ p {
   button,
   a {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  p {
+    font-family: var(--font-body) !important;
+    font-size: var(--type-body-size) !important;
+    line-height: var(--type-body-line) !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  blockquote {
+    font-family: var(--font-display) !important;
+    font-weight: 400 !important;
+  }
+
+  .eyebrow,
+  .section-label {
+    font-size: var(--type-eyebrow-size) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: .18em !important;
+  }
+
+  .number-label,
+  .capture__card-label,
+  .capture__heading p,
+  .trend-card__label {
+    font-size: var(--type-small-label-size) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: .18em !important;
+  }
+
+  .capture__result--chat .capture__card-label {
+    font-size: var(--type-meta-size) !important;
+    font-weight: 800 !important;
+    letter-spacing: .2em !important;
+  }
+
+  .capture__copy > h2,
+  .closer__intro h2,
+  .how__step h2,
+  .why > .container > h2,
+  .pricing h2,
+  .closing h2,
+  .condition-cta h2,
+  .article-cta h2,
+  .sources-cta h2,
+  .how-page__steps h2 {
+    font-size: var(--type-section-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-section-line) !important;
+  }
+
+  .trends__mobile-title,
+  .story h2,
+  .conditions__intro h2,
+  .faq h2,
+  .condition-content h2,
+  .article-body h2,
+  .story-page h2,
+  .story-page h3,
+  .plan-faq h2,
+  .policy-page__draft h2,
+  .source-system h2,
+  .source-list h2,
+  .domain-library__heading h2,
+  .blog-library__heading h2 {
+    font-size: var(--type-subhead-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-subhead-line) !important;
+  }
+
+  .care-page h1,
+  .story-page h1,
+  .plain-page h1,
+  .condition-hero h1,
+  .plans-hero h1,
+  .blog-hero h1,
+  .article-hero h1,
+  .sources-hero h1,
+  .records-page h1,
+  .policy-page h1,
+  .terms-page h1,
+  .unsubscribe-card h1,
+  .waitlist-offer h1 {
+    font-size: var(--type-section-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-section-line) !important;
+  }
+
+  .care-page blockquote,
+  .story-page blockquote,
+  .records-page blockquote,
+  .terms-page blockquote,
+  .condition-intro > div > p {
+    font-size: var(--type-pull-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-pull-line) !important;
+  }
+
+  .conditions__grid h3,
+  .why__grid h3,
+  .plain-page__cards h2,
+  .plan-list h2,
+  .blog-grid h2,
+  .policy-page__promises h2,
+  .source-system__cards h3,
+  .source-list li strong,
+  .domain-library__accordions button span,
+  .care-board header strong,
+  .terms-page li h2,
+  .waitlist-offer dt {
+    font-family: var(--font-display) !important;
+    font-size: var(--type-card-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-card-line) !important;
+  }
+
+  .button-link,
+  .site-header a,
+  .capture__tabs button,
+  .waitlist-form__submit,
+  .second-breed-toggle,
+  .waitlist-form fieldset span,
+  .waitlist-success button,
+  .waitlist-success a,
+  .share-dialog__tools > button:last-child,
+  .multi-dialog button,
+  .blog-filters button,
+  .billing-toggle button,
+  .faq__list button span,
+  .plan-faq summary {
+    font-family: var(--font-body) !important;
+    font-size: var(--type-button-size) !important;
+    font-weight: 600 !important;
+  }
+
+  .waitlist-form > label,
+  .waitlist-form legend,
+  .condition-intro aside > p {
+    font-family: var(--font-body) !important;
+    font-size: var(--type-small-label-size) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: .18em !important;
+  }
+
+  .plan-price strong {
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+  }
+
+  .capture__sent p,
+  .capture__reply-copy p {
+    font-size: var(--type-chat-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-chat-line) !important;
+  }
+
+  .capture__sent small,
+  .capture__reply small,
+  .chart-card dd,
+  .reviewer {
+    font-size: var(--type-meta-size) !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .capture__heading span,
+  .capture__ask,
+  .chart-card__prompt,
+  .trend-card__caption,
+  .trend-card__ask,
+  .hero__boundary,
+  .ai-output-label,
+  .legal-boundary,
+  .site-footer__brand p,
+  .waitlist-form > p,
+  .how-page__ownership,
+  .plans-boundary,
+  .sources-boundary {
+    font-size: var(--type-caption-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-caption-line) !important;
+  }
+
+  .site-footer nav > p,
+  .care-board header p {
+    font-size: var(--type-small-label-size) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: .18em !important;
+  }
+
+  .site-footer nav a {
+    font-size: var(--type-button-size) !important;
+    font-weight: 600 !important;
+  }
+
+  .hero__proof {
+    font-size: var(--type-body-size) !important;
+    font-weight: 600 !important;
+    line-height: var(--type-body-line) !important;
+  }
+
+  p strong,
+  li strong,
+  .care-board button strong {
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+  }
+
+  .source-list li strong {
+    font-family: var(--font-display) !important;
+    font-weight: 400 !important;
+  }
+
+  .questions ol {
+    font-family: var(--font-body) !important;
+    font-size: var(--type-body-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-body-line) !important;
+  }
+
+  .capture__lab-bar b,
+  .capture__lab-bar span,
+  .capture__lab-legend,
+  .trend-card text,
+  .trend-card text.value,
+  .trend-card text.date {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+
+  .capture__lab-caption {
+    font-size: var(--type-caption-size) !important;
+    font-weight: 700 !important;
+    line-height: var(--type-caption-line) !important;
+  }
+
+  .why__grid > a > span,
+  .conditions__grid span,
+  .plain-page__cards span,
+  .plain-page__cards b,
+  .source-system__cards > article > span,
+  .waitlist-offer__status {
+    font-size: var(--type-micro-size) !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    letter-spacing: .1em !important;
+  }
+
+  .how__step > p:last-child,
+  .closer__mobile-copy,
+  .trends__mobile-copy,
+  .story__content > p:not(.section-label),
+  .conditions__grid p,
+  .plain-page__cards p {
+    font-size: var(--type-body-size) !important;
+    font-weight: 400 !important;
+    line-height: var(--type-body-line) !important;
   }
 }
 
