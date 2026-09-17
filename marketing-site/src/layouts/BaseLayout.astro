@@ -41,7 +41,7 @@ const organizationSchema = {
   legalName: site.legalName,
   url: site.canonicalOrigin,
   email: site.contactEmail,
-  logo: new URL('/favicon.svg', site.canonicalOrigin).href,
+  logo: new URL('/favicon-192.png', site.canonicalOrigin).href,
   sameAs: site.socialProfiles
 };
 const schemas = structuredData
@@ -56,7 +56,10 @@ const schemas = structuredData
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+    <link rel="icon" href="/favicon-32.png?v=2" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon-192.png?v=2" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
     <meta name="theme-color" content="#0f1f1a" />
     <meta property="og:site_name" content={site.name} />
