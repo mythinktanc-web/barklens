@@ -28,11 +28,11 @@ export const captureItems = [
   {
     number: '01',
     label: 'Lab report',
-    blurb: 'Every value lands with the reference range printed beside it.',
+    blurb: 'Every value, with its range — and how it’s changing over time.',
     image: '/images/home/capture-lab-report.webp',
     alt: 'A printed veterinary laboratory report',
     eyebrow: 'The lab report',
-    caption: 'Every value, with its range',
+    caption: 'Every value, with its range — and how it’s changing over time.',
     rows: ['ALP 156 U/L · range 20–150', 'BUN 32 mg/dL · range 7–27']
   },
   {
