@@ -77,4 +77,22 @@ const { href = '/', inverse = false, withMark = false } = Astro.props;
       width: 100%;
     }
   }
+
+  @media (max-width: 47.99rem) {
+    .wordmark--with-mark {
+      width: 8.375rem;
+      gap: .375rem;
+    }
+
+    .wordmark__mark {
+      display: block;
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-basis: 1.25rem;
+    }
+
+    .wordmark--with-mark svg {
+      width: 6.75rem;
+    }
+  }
 </style>
