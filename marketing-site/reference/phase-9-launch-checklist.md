@@ -27,6 +27,6 @@
 - Confirm `www` redirect
 - Configure consent controls before enabling analytics for visitors where prior consent is required
 - Verify the production Google Analytics configuration before setting `PUBLIC_ANALYTICS_ENABLED=true`
-- Set `PUBLIC_SITE_NOINDEX=false`
+- Confirm the Vercel production build automatically emits `index, follow`
 - Verify the live sitemap and submit it to search engines
 - Run the final live-domain desktop/mobile acceptance test

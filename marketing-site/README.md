@@ -80,8 +80,9 @@ Phase 11 work.
 - Production Mailgun calls use `MAILGUN_API_KEY` with the US-region
   `MAILGUN_API_BASE`.
 - `.env.example` lists required settings without containing secrets.
-- Search indexing is blocked by default. Set `PUBLIC_SITE_NOINDEX=false` only
-  after legal approval and final live-domain QA.
+- Search indexing is blocked for local and Vercel preview builds. Vercel
+  production builds enable indexing automatically. For a production build
+  outside Vercel, set `PUBLIC_SITE_NOINDEX=false`.
 - Analytics is disabled by default. It requires both
   `PUBLIC_ANALYTICS_ENABLED=true` and a valid `PUBLIC_GA_MEASUREMENT_ID`, plus
   the approved privacy and cookie position.

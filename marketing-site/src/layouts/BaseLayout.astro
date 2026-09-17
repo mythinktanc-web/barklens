@@ -16,11 +16,14 @@ interface Props {
   hideFooterOnMobile?: boolean;
 }
 
+const productionIndexingEnabled =
+  import.meta.env.PUBLIC_SITE_NOINDEX === 'false' ||
+  process.env.VERCEL_ENV === 'production';
 const {
   title,
   description = site.description,
   canonicalPath = Astro.url.pathname,
-  noindex = import.meta.env.PUBLIC_SITE_NOINDEX !== 'false',
+  noindex = !productionIndexingEnabled,
   image = '/images/desktop-hero.webp',
   type = 'website',
   structuredData,
