@@ -31,6 +31,8 @@ const homepageSearchTitle = "BarkLens — Your Dog's Health Records, Explained";
 const homepageSocialTitle = 'The internet knows dogs. BarkLens knows yours.';
 const connectTheirDotsCopy =
   'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens brings those details to your attention and gives you a place to ask what they mean.';
+const connectTheirDotsMobileCopy =
+  'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens surfaces them and gives you a place to ask what they mean.';
 const snapPictureCopyTail = 'using your dog’s full history and veterinary research.';
 const whyDetailPages = new Set([
   'care-team/index.html',
@@ -88,8 +90,11 @@ for (const file of htmlFiles) {
     if (howItWorksAnchorCount < 2) {
       failures.push(`${relative}: header and footer must link to the homepage How It Works section`);
     }
-    if ((html.split(connectTheirDotsCopy).length - 1) !== 2) {
-      failures.push(`${relative}: Connect Their Dots copy must match on desktop and mobile`);
+    if ((html.split(connectTheirDotsCopy).length - 1) !== 1) {
+      failures.push(`${relative}: desktop Connect Their Dots copy changed or leaked into mobile`);
+    }
+    if ((html.split(connectTheirDotsMobileCopy).length - 1) !== 1) {
+      failures.push(`${relative}: mobile Connect Their Dots copy changed or duplicated`);
     }
     if ((html.split(snapPictureCopyTail).length - 1) !== 1) {
       failures.push(`${relative}: desktop Snap a Picture copy changed or leaked into mobile`);

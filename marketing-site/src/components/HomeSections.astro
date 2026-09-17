@@ -60,6 +60,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
       <p class="section-label section-label--light">Connect Their Dots</p>
       <h2 class="closer__desktop-title">Brings together the pieces of your dog’s chart <em>you might not think to connect.</em></h2>
       <h2 class="closer__mobile-title">Brings the easy-to-miss pieces together.</h2>
+      <p class="closer__mobile-intro">Your dog’s records may hold details you wouldn’t know to ask about. BarkLens surfaces them and gives you a place to ask what they mean.</p>
       <p class="closer__desktop-copy">Your dog’s records may hold details you wouldn’t know to ask about. BarkLens brings those details to your attention and gives you a place to ask what they mean.</p>
     </div>
     <article class="chart-card">
@@ -71,9 +72,6 @@ const mobileWhyItems = whyItems.map((item, index) => ({
       </dl>
       <div class="chart-card__prompt"><span>Ask about these…</span><b aria-hidden="true">↑</b></div>
     </article>
-    <div class="closer__mobile-copy">
-      <p>Your dog’s records may hold details you wouldn’t know to ask about. BarkLens brings those details to your attention and gives you a place to ask what they mean.</p>
-    </div>
   </div>
 </section>
 
@@ -471,7 +469,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   .closer__intro h2 em, .trends h2 em { display: block; color: var(--color-mint-400); font-weight: 400; }
   .closer__intro > p:not(.section-label), .trends__grid > div > p:not(.section-label) { margin-top: var(--space-6); font-size: var(--text-lg); }
   .closer__mobile-title { display: none; }
-  .closer__mobile-copy { display: none; }
+  .closer__mobile-intro { display: none; }
   .chart-card { display: flex; height: 23.5rem; flex-direction: column; overflow: hidden; padding: 0; border: 1px solid rgb(255 255 255 / 28%); border-radius: var(--radius-xl); background: #29272d; box-shadow: var(--shadow-card); }
   .chart-card > .number-label { padding: .875rem 1rem; border-bottom: 1px solid rgb(255 255 255 / 14%); color: var(--color-cream-100); }
   .chart-card dl { display: flex; flex: 1; flex-direction: column; padding: 0 1rem; }
@@ -840,10 +838,10 @@ const mobileWhyItems = whyItems.map((item, index) => ({
     .closer__desktop-title { display: none; }
     .closer__mobile-title { display: block; }
     .closer__intro h2 { order: 2; max-width: 15ch; margin: var(--space-4) auto 0; font-size: 2rem; line-height: 1.08; text-align: center; }
+    .closer__mobile-intro { order: 3; display: block; max-width: 33ch; margin: var(--space-5) auto 0; color: var(--color-cream-200); font-size: .9375rem; line-height: 1.6; text-align: center; }
     .closer__desktop-copy { display: none; }
-    .closer .chart-card { order: 3; width: 100%; margin-top: var(--space-8); border-color: rgb(255 255 255 / 28%); background: #29272d; }
+    .closer .chart-card { order: 4; width: 100%; margin-top: var(--space-8); border-color: rgb(255 255 255 / 28%); background: #29272d; }
     .closer .chart-card > .number-label { color: var(--color-cream-100); }
-    .closer__mobile-copy { order: 4; display: grid; gap: var(--space-5); margin-top: var(--space-8); font-size: .875rem; line-height: 1.65; }
     .closer__content { gap: 0; }
     .closer__intro > p:last-child, .trends__grid > div > p { font-size: 1rem; }
     .chart-card { border-radius: var(--radius-lg); }
