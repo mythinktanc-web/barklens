@@ -1,0 +1,182 @@
+---
+const siteUrl = '/';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0f1f1a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>BarkLens responsive review</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+      }
+
+      body {
+        overflow: hidden;
+        background: #d8d5cd;
+        color: #f8f3e9;
+        font-family: Inter, Arial, sans-serif;
+      }
+
+      .review-toolbar {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        min-height: 4rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.65rem clamp(0.75rem, 3vw, 2rem);
+        background: #0f1f1a;
+        box-shadow: 0 1px 0 rgb(255 255 255 / 12%);
+      }
+
+      .review-brand {
+        letter-spacing: 0.17em;
+        font-size: 0.75rem;
+        font-weight: 800;
+      }
+
+      .review-controls {
+        display: flex;
+        padding: 0.25rem;
+        border: 1px solid rgb(255 255 255 / 20%);
+        border-radius: 999px;
+        background: rgb(255 255 255 / 7%);
+      }
+
+      .review-controls button {
+        min-height: 2.25rem;
+        padding: 0 1rem;
+        border: 0;
+        border-radius: 999px;
+        color: #f8f3e9;
+        background: transparent;
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .review-controls button[aria-pressed='true'] {
+        background: #72e0c0;
+        color: #0b1713;
+      }
+
+      .open-site {
+        color: #f8f3e9;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .review-canvas {
+        display: flex;
+        width: 100%;
+        height: calc(100vh - 4rem);
+        align-items: flex-start;
+        justify-content: center;
+        overflow: auto;
+        padding: 1.25rem;
+      }
+
+      .review-frame {
+        display: block;
+        width: 390px;
+        min-width: 390px;
+        height: calc(100vh - 6.5rem);
+        border: 0;
+        border-radius: 1rem;
+        background: #fff;
+        box-shadow: 0 1.25rem 4rem rgb(15 31 26 / 28%);
+      }
+
+      body[data-view='desktop'] .review-canvas {
+        justify-content: flex-start;
+      }
+
+      body[data-view='desktop'] .review-frame {
+        width: 1440px;
+        min-width: 1440px;
+        border-radius: 0.5rem;
+      }
+
+      @media (max-width: 40rem) {
+        .review-toolbar {
+          min-height: 7rem;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding-block: 0.65rem;
+        }
+
+        .review-brand {
+          width: 100%;
+          text-align: center;
+        }
+
+        .review-canvas {
+          height: calc(100vh - 7rem);
+          padding: 0.65rem;
+        }
+
+        .review-frame {
+          width: min(390px, calc(100vw - 1.3rem));
+          min-width: min(390px, calc(100vw - 1.3rem));
+          height: calc(100vh - 8.3rem);
+          border-radius: 0.75rem;
+        }
+
+        body[data-view='desktop'] .review-frame {
+          min-width: 1440px;
+        }
+      }
+    </style>
+  </head>
+  <body data-view="mobile">
+    <header class="review-toolbar">
+      <div class="review-brand">BARKLENS REVIEW</div>
+      <div class="review-controls" aria-label="Preview size">
+        <button type="button" data-view-button="mobile" aria-pressed="true">Mobile</button>
+        <button type="button" data-view-button="desktop" aria-pressed="false">Desktop</button>
+      </div>
+      <a class="open-site" href="/" target="_blank" rel="noopener">Open live site ↗</a>
+    </header>
+
+    <main class="review-canvas">
+      <iframe
+        class="review-frame"
+        src={siteUrl}
+        title="BarkLens website preview"
+      ></iframe>
+    </main>
+
+    <script is:inline>
+      const buttons = document.querySelectorAll('[data-view-button]');
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const view = button.getAttribute('data-view-button');
+          if (!view) return;
+          document.body.dataset.view = view;
+          buttons.forEach((item) => {
+            item.setAttribute(
+              'aria-pressed',
+              String(item.getAttribute('data-view-button') === view)
+            );
+          });
+          document.querySelector('.review-canvas')?.scrollTo({ left: 0, top: 0 });
+        });
+      });
+    </script>
+  </body>
+</html>
