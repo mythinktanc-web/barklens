@@ -15,7 +15,9 @@ const prohibited = [
   'unlimited ai chat',
   'ongoing health monitoring',
   'ai dog health tracker',
-  'gmail'
+  'gmail',
+  'start your dog’s chart',
+  "start your dog's chart"
 ];
 const legalDraftArtifacts = [
   'counsel confirm',
