@@ -25,8 +25,6 @@ const planFaqs = [
       <div>
         <p class="eyebrow">Plans</p>
         <h1>More good years <em>start now.</em></h1>
-        <p>Plus covers one dog. Family covers your household, up to four. Export everything anytime — including after you cancel.</p>
-        <p>Start with seven days. We email you before the trial expires.</p>
         <div class="billing-toggle" role="group" aria-label="Billing period">
           <button type="button" aria-pressed="true" data-billing="monthly">Monthly</button>
           <button type="button" aria-pressed="false" data-billing="annual">Annual · 2 mo free</button>
@@ -82,8 +80,9 @@ const planFaqs = [
   .billing-toggle button[aria-pressed='true'] { color: var(--color-forest-900); background: var(--color-mint-500); }
   .plan-list { display: grid; gap: var(--space-3); margin-top: var(--space-5); }
   .plan-list article { display: grid; grid-template-columns: 1fr auto; gap: var(--space-6); align-items: center; padding: var(--space-5) var(--space-6); border: 1px solid rgb(255 255 255 / 24%); border-radius: var(--radius-lg); background: rgb(15 31 26 / 74%); }
+  .plan-list article > div { display: grid; gap: .5rem; }
   .plan-list h2 { font-size: var(--text-lg); }
-  .plan-list article > div p { color: #a9bdb6; font-size: var(--text-sm); }
+  .plan-list article > div p { color: #a9bdb6; font-size: var(--text-sm); line-height: 1.45; }
   .plan-price { display: flex; align-items: baseline; }
   .plan-price strong { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; }
   .plan-price small { color: #a9bdb6; }
