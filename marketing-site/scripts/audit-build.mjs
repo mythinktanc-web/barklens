@@ -28,6 +28,8 @@ const legalDraftArtifacts = [
 ];
 const homepageSearchTitle = "BarkLens — Your Dog's Health Records, Explained";
 const homepageSocialTitle = 'The internet knows dogs. BarkLens knows yours.';
+const connectTheirDotsCopy =
+  'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens brings those details to your attention and gives you a place to ask what they mean.';
 
 function decodeHtmlEntities(value = '') {
   return value
@@ -77,6 +79,9 @@ for (const file of htmlFiles) {
     }
     if (!html.includes('href="/#how-it-works"')) {
       failures.push(`${relative}: primary navigation must link to the homepage How It Works section`);
+    }
+    if ((html.split(connectTheirDotsCopy).length - 1) !== 2) {
+      failures.push(`${relative}: Connect Their Dots copy must match on desktop and mobile`);
     }
   }
 
