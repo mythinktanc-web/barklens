@@ -40,15 +40,12 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
     </header>
 
     <div class="legal-page__layout container">
-      <aside>
-        <p class="eyebrow">Company</p>
-        <strong>{site.legalName} d/b/a BarkLens</strong>
-        <address>7804 Fairview Rd C-162<br />Charlotte, NC 28226</address>
-        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
-        <p>United States only · Age 18+</p>
-      </aside>
       <div class="legal-page__content">
         <Content />
+        <address class="legal-page__fine-print">
+          {site.legalName} d/b/a BarkLens · 7804 Fairview Rd C-162, Charlotte, NC 28226 ·
+          <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a> · United States only · Age 18+
+        </address>
       </div>
     </div>
   </article>
@@ -93,54 +90,29 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
   }
 
   .legal-page__layout {
-    display: grid;
-    grid-template-columns: 18rem minmax(0, 1fr);
-    gap: var(--space-20);
-    align-items: start;
     padding-bottom: var(--space-24);
-  }
-
-  .legal-page__layout > aside {
-    position: sticky;
-    top: calc(var(--header-height) + var(--space-6));
-    padding: var(--space-6);
-    border-radius: var(--radius-xl);
-    color: var(--color-copy-inverse);
-    background: var(--color-forest-900);
-  }
-
-  .legal-page__layout > aside .eyebrow {
-    color: var(--color-mint-400);
-  }
-
-  .legal-page__layout > aside strong,
-  .legal-page__layout > aside address,
-  .legal-page__layout > aside a,
-  .legal-page__layout > aside > p:last-child {
-    display: block;
-    margin-top: var(--space-4);
-  }
-
-  .legal-page__layout > aside address {
-    color: #d8cfc0;
-    font-style: normal;
-    line-height: 1.6;
-  }
-
-  .legal-page__layout > aside a {
-    color: var(--color-mint-400);
-    text-decoration: underline;
-    text-underline-offset: .2rem;
-  }
-
-  .legal-page__layout > aside > p:last-child {
-    color: #a9bdb6;
-    font-size: var(--text-xs);
   }
 
   .legal-page__content {
     min-width: 0;
     max-width: 50rem;
+    margin-inline: auto;
+  }
+
+  .legal-page__fine-print {
+    margin-top: var(--space-20);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-copy-muted);
+    font-size: var(--text-xs);
+    font-style: normal;
+    line-height: 1.7;
+  }
+
+  .legal-page__fine-print a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: .2rem;
   }
 
   .legal-page__content :global(h2) {
@@ -223,17 +195,6 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
     margin-top: var(--space-16);
     border: 0;
     border-top: 1px solid var(--color-border);
-  }
-
-  @media (max-width: 63.99rem) {
-    .legal-page__layout {
-      grid-template-columns: 1fr;
-      gap: var(--space-10);
-    }
-
-    .legal-page__layout > aside {
-      position: static;
-    }
   }
 
   @media (max-width: 47.99rem) {
