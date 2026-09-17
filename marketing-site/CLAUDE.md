@@ -24,15 +24,42 @@ Never commit, push, merge, or open a deployment from `main`.
 For every new batch of design work:
 
 1. Connect Claude Design to `mythinktanc-web/barklens`.
-2. Pull or refresh the latest `main` branch before making changes.
-3. Work only inside `marketing-site` unless Ben explicitly approves another
+2. Clone or import the complete repository from GitHub into the Claude Design
+   workspace. Do not begin from an existing Claude artifact, standalone HTML
+   export, copied page, or remembered version of the site.
+3. If the repository is already present, fetch the remote instead of creating a
+   duplicate local copy.
+4. Check out `main` and pull the latest remote changes using the Claude Design
+   GitHub interface or the command-line equivalent:
+
+   ```bash
+   git fetch origin
+   git switch main
+   git pull --ff-only origin main
+   ```
+
+5. Confirm that the Git remote is `mythinktanc-web/barklens`, the working tree
+   is clean, and record the exact baseline commit before editing:
+
+   ```bash
+   git remote -v
+   git status --short --branch
+   git rev-parse HEAD
+   ```
+
+6. If `main` cannot be updated cleanly, stop and tell Ben. Do not discard,
+   overwrite, merge around, or silently ignore local changes.
+7. Work only inside `marketing-site` unless Ben explicitly approves another
    location.
-4. Create a new branch from the latest `main` using:
+8. Create a new branch from that verified `main` commit using:
    `claude-design/YYYY-MM-DD-short-description`.
-5. Make only the changes Ben requested.
-6. Commit the changed files to that branch.
-7. Do not merge the branch and do not deploy it.
-8. Return the exact branch name, commit hash, changed-file list, and handoff
+9. Confirm that the new branch's starting commit is the baseline commit recorded
+   above.
+10. Make only the changes Ben requested.
+11. Commit the changed files to that branch.
+12. Do not merge the branch and do not deploy it.
+13. Return the exact baseline commit, branch name, new commit hash, changed-file
+   list, and handoff
    block defined below.
 
 If Claude Design cannot create or push a separate branch, stop and tell Ben.
@@ -251,6 +278,9 @@ mythinktanc-web/barklens
 BASE BRANCH:
 main
 
+BASELINE COMMIT:
+[full main commit hash recorded immediately after the pull]
+
 DESIGN BRANCH:
 [exact branch name]
 
@@ -334,4 +364,3 @@ A full-page design export is only appropriate when Ben has approved:
 
 Even then, keep the work on a separate GitHub branch and include the handoff
 block. Do not replace the production site or merge the branch.
-
