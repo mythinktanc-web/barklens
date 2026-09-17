@@ -99,7 +99,7 @@ const articleSchema = {
           <p>BarkLens turns these into chart-based questions by attaching the relevant results, dates, labels, and owner observations.</p>
         </section>
 
-        <section>
+        <section class="condition-sharing">
           <p class="eyebrow">Easy to share records</p>
           <h2>Bring the history with you</h2>
           {page.sharing.map((paragraph) => <p>{paragraph}</p>)}
@@ -373,6 +373,11 @@ const articleSchema = {
   }
 
   @media (max-width: 47.99rem) {
+    .condition-sharing,
+    .sources {
+      display: none;
+    }
+
     .condition-hero {
       min-height: 38rem;
     }

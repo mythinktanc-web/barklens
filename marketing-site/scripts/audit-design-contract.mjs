@@ -93,6 +93,19 @@ for (const declaration of [
   }
 }
 
+const conditionPage = fs.readFileSync(
+  path.join(root, 'src/components/ConditionPage.astro'),
+  'utf8'
+);
+for (const declaration of [
+  '<section class="condition-sharing">',
+  '.condition-sharing,\n    .sources {\n      display: none;'
+]) {
+  if (!conditionPage.includes(declaration)) {
+    fail(`ConditionPage.astro: mobile condition-page ending lock is missing ${declaration}`);
+  }
+}
+
 if (failures.length) {
   console.error(failures.join('\n'));
   process.exit(1);
