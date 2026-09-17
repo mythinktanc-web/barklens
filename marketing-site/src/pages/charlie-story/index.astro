@@ -9,7 +9,10 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 >
   <article class="story-page">
     <header>
-      <img src="/images/support/charlie-2.webp" alt="Ben and Charlie together outdoors" width="2200" height="970" fetchpriority="high" />
+      <picture>
+        <source media="(max-width: 47.99rem)" srcset="/images/mobile/charlie-story.webp" />
+        <img src="/images/support/charlie-2.webp" alt="Ben holding Charlie outdoors" width="2200" height="970" fetchpriority="high" />
+      </picture>
       <div></div>
       <section class="container">
         <p class="eyebrow">A letter from the founder</p>
@@ -40,7 +43,8 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 
 <style>
   .story-page header { position: relative; isolation: isolate; min-height: 38rem; display: grid; align-items: end; overflow: hidden; color: var(--color-copy-inverse); }
-  .story-page header > img, .story-page header > div { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+  .story-page header > picture, .story-page header > div { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; }
+  .story-page header > picture img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
   .story-page header > div { z-index: -1; background: linear-gradient(180deg, rgb(15 31 26 / 10%), rgb(15 31 26 / 82%)); }
   .story-page header section { padding-bottom: var(--space-12); }
   .story-page header .eyebrow { color: var(--color-mint-400); }
@@ -58,4 +62,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   .story-page aside img { width: 100%; height: auto; aspect-ratio: 912 / 1378; border-radius: var(--radius-xl); }
   .story-page blockquote { margin-top: var(--space-6); font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.4; }
   @media (max-width: 63.99rem) { .story-page__body { grid-template-columns: 1fr; align-items: start; } .story-page aside { position: static; width: 100%; max-width: 28rem; justify-self: center; } }
+  @media (max-width: 47.99rem) {
+    .story-page header > picture img { object-position: 50% 34%; }
+  }
 </style>
