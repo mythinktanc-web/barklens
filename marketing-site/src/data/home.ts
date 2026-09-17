@@ -106,19 +106,16 @@ export const whyItems = [
   {
     number: '01',
     title: 'The BarkLens Standard',
-    body: 'Every source reviewed by a licensed veterinarian.',
     href: routes.sources
   },
   {
     number: '02',
     title: 'Easy to Share Records',
-    body: 'New veterinarian, specialist, or ER. The history comes with you.',
     href: routes.records
   },
   {
     number: '03',
     title: 'Your Care Team',
-    body: 'Add family or a sitter at no cost.',
     href: routes.careTeam
   }
 ] as const;
