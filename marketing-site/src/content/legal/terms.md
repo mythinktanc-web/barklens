@@ -11,7 +11,7 @@ documentType: terms
 
 These Terms of Use (the "**Terms**") are a binding contract between you and **ThinkTanc LLC**, a Delaware limited liability company doing business as **BarkLens** ("**BarkLens**," "**we**," "**us**," or "**our**"). They govern your use of the BarkLens mobile application, the barklens.com website, and every related feature, tool, and service we make available (together, the "**Service**"). "You" means the individual who accesses or uses the Service and, where applicable, the account owner who invites another person to a Care Team.
 
-> ### 🚨 EMERGENCY USE — READ FIRST
+> ### EMERGENCY USE — READ FIRST
 >
 > **BarkLens is not for emergencies. BarkLens does not monitor your dog, does not watch for problems, and will not tell you when something is wrong.**
 >

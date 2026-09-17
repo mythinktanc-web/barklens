@@ -95,8 +95,10 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
 
   .legal-page__content {
     min-width: 0;
-    max-width: 50rem;
-    margin-inline: auto;
+    max-width: 64rem;
+    margin-inline: 0;
+    font-size: .8125rem;
+    line-height: 1.65;
   }
 
   .legal-page__fine-print {
@@ -116,10 +118,13 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
   }
 
   .legal-page__content :global(h2) {
-    margin-top: var(--space-20);
-    padding-top: var(--space-8);
-    border-top: 1px solid var(--color-border);
-    font-size: var(--text-xl);
+    margin-top: var(--space-10);
+    padding-top: 0;
+    border-top: 0;
+    font-family: var(--font-body);
+    font-size: .8125rem;
+    font-weight: 700;
+    line-height: 1.65;
   }
 
   .legal-page__content :global(h2:first-child) {
@@ -129,11 +134,11 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
   }
 
   .legal-page__content :global(h3) {
-    margin-top: var(--space-10);
+    margin-top: var(--space-6);
     font-family: var(--font-body);
-    font-size: var(--text-lg);
+    font-size: .8125rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.65;
   }
 
   .legal-page__content :global(p),
@@ -141,22 +146,23 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
   .legal-page__content :global(ol),
   .legal-page__content :global(blockquote),
   .legal-page__content :global(table) {
-    margin-top: var(--space-5);
+    margin-top: var(--space-3);
     color: var(--color-copy-muted);
+    font-size: .8125rem !important;
+    line-height: 1.65 !important;
   }
 
   .legal-page__content :global(ul),
   .legal-page__content :global(ol) {
-    display: grid;
-    gap: var(--space-3);
-    padding-left: var(--space-6);
+    display: block;
+    padding-left: var(--space-5);
   }
 
   .legal-page__content :global(blockquote) {
-    padding: var(--space-6);
-    border-left: .25rem solid var(--color-mint-500);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    background: var(--color-cream-200);
+    padding: 0;
+    border-left: 0;
+    border-radius: 0;
+    background: transparent;
   }
 
   .legal-page__content :global(blockquote p:first-child) {
@@ -169,12 +175,21 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
     text-underline-offset: .2rem;
   }
 
+  .legal-page__content :global(strong),
+  .legal-page__content :global(b) {
+    font-weight: inherit !important;
+  }
+
+  .legal-page__content :global(em) {
+    font-style: normal;
+  }
+
   .legal-page__content :global(table) {
     display: block;
     width: 100%;
     overflow-x: auto;
     border-collapse: collapse;
-    font-size: var(--text-sm);
+    font-size: .75rem;
   }
 
   .legal-page__content :global(th),
@@ -207,13 +222,17 @@ const effectiveDate = new Intl.DateTimeFormat('en-US', {
     }
 
     .legal-page__content :global(h2) {
-      font-size: var(--type-subhead-size) !important;
-      line-height: var(--type-subhead-line) !important;
+      font-family: var(--font-body) !important;
+      font-size: .8125rem !important;
+      font-weight: 700 !important;
+      line-height: 1.65 !important;
     }
 
     .legal-page__content :global(h3) {
-      font-size: var(--type-card-size) !important;
-      line-height: 1.25 !important;
+      font-family: var(--font-body) !important;
+      font-size: .8125rem !important;
+      font-weight: 700 !important;
+      line-height: 1.65 !important;
     }
   }
 </style>

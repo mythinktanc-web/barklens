@@ -117,6 +117,16 @@ for (const file of htmlFiles) {
     }
   }
 
+  if (relative === 'terms/index.html' && /[🚨⚠️✅❌]/u.test(html)) {
+    failures.push(`${relative}: legal terms must not contain emoji`);
+  }
+
+  if (relative === 'plans/index.html') {
+    if (!html.includes('/images/support/plans-desktop.webp') || !html.includes('/images/support/plans.webp')) {
+      failures.push(`${relative}: desktop and mobile plan backgrounds must remain separate`);
+    }
+  }
+
   for (const match of html.matchAll(/<a\b[^>]*href="\/waitlist\/"[^>]*>([\s\S]*?)<\/a>/g)) {
     const label = decodeHtmlEntities(match[1].replace(/<[^>]+>/g, '').trim());
     if (label !== 'Join') {
