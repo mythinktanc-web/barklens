@@ -503,7 +503,8 @@ export const conditionPages: ConditionPageData[] = [
     subject: 'Arthritis in dogs',
     description: 'Stiff mornings are data. The mobility score vets use, plus the bloodwork nobody remembers to schedule.',
     image: '/images/conditions/arthritis.webp',
-    imageAlt: 'A senior dog walking carefully beside its owner',
+    mobileImage: '/images/conditions/mobile/arthritis.webp',
+    imageAlt: 'A black-and-white dog outdoors',
     heroDescription:
       'The difficulty rising, the hesitation before a stair, the shorter walk, the medication change, the weight record, and the kidney or liver panel may happen weeks apart. BarkLens connects those moments and explains what published veterinary sources say veterinarians commonly consider.',
     opening: [
