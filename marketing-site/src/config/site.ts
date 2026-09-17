@@ -38,7 +38,7 @@ export const routes = {
 } as const;
 
 export const primaryNavigation = [
-  { label: 'How it works', href: routes.howItWorks },
+  { label: 'How it works', href: '/#how-it-works' },
   { label: 'Why BarkLens', href: '/#why-barklens' },
   { label: 'Care Team', href: routes.careTeam },
   { label: 'Plans', href: routes.plans },

@@ -73,6 +73,18 @@ for (const file of htmlFiles) {
     if (twitterTitle !== homepageSocialTitle) {
       failures.push(`${relative}: homepage Twitter title changed`);
     }
+    if (!html.includes('href="/#how-it-works"')) {
+      failures.push(`${relative}: primary navigation must link to the homepage How It Works section`);
+    }
+  }
+
+  if (relative === 'care-team/index.html') {
+    if (!html.includes('03 · Care team')) {
+      failures.push(`${relative}: Care Team must remain item 03`);
+    }
+    if (html.includes('04 · Care team')) {
+      failures.push(`${relative}: stale Care Team item number 04`);
+    }
   }
 
   const lower = html.toLowerCase();

@@ -10,63 +10,323 @@ import { routes } from '@config/site';
   canonicalPath="/your-records-are-yours/"
 >
   <article class="records-page">
-    <header class="container">
+    <header class="records-page__hero container">
       <p class="eyebrow">Share the history</p>
       <h1>The next person to see your dog shouldn’t start from zero.</h1>
-      <p>Every BarkLens account has a share link and a QR code. Send it before you drive over. Show it at the desk. Whoever is standing there can see the history.</p>
+      <p>
+        Your dog’s history shouldn’t depend on what you can remember at the front desk. Share the
+        records you’ve added to BarkLens with a link or QR code, so a new vet or caregiver has the
+        background without you piecing it together from emails, paperwork, and memory.
+      </p>
     </header>
-    <div class="records-page__grid container">
-      <div>
-        <section>
-          <h2>How you hand it off</h2>
-          <p>Show the QR on your phone.</p>
-          <p>Or send the URL.</p>
-          <p>You choose who can open it.</p>
-        </section>
-        <section class="records-page__moments">
-          <h2>When it matters</h2>
-          <article>
-            <h3>The ER at night</h3>
-            <p>There is no folder in the car. Open the QR at intake. They can see current medications, recent labs, and the rest of the history while you explain what happened tonight.</p>
-          </article>
-          <article>
-            <h3>A specialist on Thursday</h3>
-            <p>Send the link before you leave the house. They can read the last two years instead of starting from the clipboard in the lobby.</p>
-          </article>
-          <article>
-            <h3>Someone else is at the appointment</h3>
-            <p>A partner. A sitter. Family. Boarding. They already have the link. They don’t have to text you for the medication name.</p>
-          </article>
-          <article>
-            <h3>A new clinic. A move. A second opinion.</h3>
-            <p>The history does not live in the last portal. It goes with you.</p>
-          </article>
-        </section>
-      </div>
-      <aside>
+
+    <section class="records-share container">
+      <div class="records-share__copy">
         <p class="eyebrow">The share</p>
-        <blockquote>Show the QR.<br />Send the link.<br />They’re already oriented.</blockquote>
-        <ButtonLink href={routes.waitlist} variant="mint">Join Waitlist</ButtonLink>
+        <h2>A pass for the ER, the groomer, the boarder — anyone who needs your dog’s history.</h2>
+        <p>
+          Whether you’re seeing a specialist or leaving your dog with someone you trust, make their
+          history part of the handoff. Send the link ahead of time or show the QR code when you
+          arrive, so you’re not the only person who knows where to find it.
+        </p>
+        <ButtonLink href={routes.waitlist}>Join Waitlist</ButtonLink>
+      </div>
+
+      <aside class="share-card" aria-label="Example BarkLens records share card">
+        <p>Charlie - Records Share</p>
+        <div class="share-card__main">
+          <img src="/images/records/share-qr.png" alt="Example QR code for Charlie’s shared records" width="190" height="190" />
+          <span>Scan for current meds, labs, and history.</span>
+        </div>
+        <div class="share-card__link">
+          <span>barklens.com/r/charlie</span>
+          <b>Copy link</b>
+        </div>
       </aside>
-    </div>
+    </section>
+
+    <section class="records-moments container">
+      <h2>When it matters</h2>
+      <div>
+        <article>
+          <h3>An unexpected vet visit</h3>
+          <p>
+            You have enough to think about without searching for paperwork. Share the history
+            you’ve saved while you explain what brought you in.
+          </p>
+        </article>
+        <article>
+          <h3>A specialist appointment</h3>
+          <p>
+            Give the new vet background before the conversation begins. Send your dog’s records
+            ahead so you can focus on your questions, not rebuilding the timeline.
+          </p>
+        </article>
+        <article>
+          <h3>Someone else is taking your dog</h3>
+          <p>
+            Help a partner, family member, or sitter arrive prepared. Share the history beforehand
+            so they have a reference when the vet asks.
+          </p>
+        </article>
+        <article>
+          <h3>A new clinic or a move</h3>
+          <p>
+            Changing vets shouldn’t mean rebuilding your own files. Bring the records you’ve
+            collected in BarkLens and share them with the new clinic.
+          </p>
+        </article>
+      </div>
+    </section>
   </article>
 </BaseLayout>
 
 <style>
-  .records-page > header { padding-block: var(--space-24) var(--space-16); }
-  .records-page h1 { max-width: 14ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
-  .records-page header > p:last-child { max-width: 42ch; margin-top: var(--space-6); font-family: var(--font-display); font-size: var(--text-lg); }
-  .records-page__grid { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: var(--space-20); padding-bottom: var(--space-20); }
-  .records-page__grid > div { max-width: var(--content-narrow); }
-  .records-page section + section { margin-top: var(--space-12); padding-top: var(--space-12); border-top: 1px solid var(--color-border); }
-  .records-page h2 { font-size: var(--text-xl); }
-  .records-page h3 { margin-top: var(--space-8); font-size: var(--text-lg); }
-  .records-page section p { margin-top: var(--space-5); color: var(--color-copy-muted); }
-  .records-page__moments article + article { margin-top: var(--space-10); padding-top: var(--space-10); border-top: 1px solid var(--color-border); }
-  .records-page__moments article p { margin-top: var(--space-4); }
-  .records-page aside { position: sticky; top: calc(var(--header-height) + var(--space-6)); padding: var(--space-8); border-radius: var(--radius-xl); background: var(--color-forest-900); color: var(--color-copy-inverse); }
-  .records-page aside .eyebrow { color: var(--color-mint-400); }
-  .records-page blockquote { margin-top: var(--space-5); font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.35; }
-  .records-page aside :global(.button-link) { width: 100%; margin-top: var(--space-6); }
-  @media (max-width: 63.99rem) { .records-page__grid { grid-template-columns: 1fr; } .records-page aside { position: static; } }
+  .records-page {
+    color: var(--color-forest-900);
+    background: #fff;
+  }
+
+  .records-page > .container {
+    width: min(calc(100% - 2 * var(--space-10)), 68.75rem);
+  }
+
+  .records-page__hero {
+    padding-block: 5.5rem 4.5rem;
+  }
+
+  .records-page__hero h1 {
+    max-width: 18ch;
+    margin-top: 1.5rem;
+    font-size: clamp(3.5rem, 5.25vw, 4.75rem);
+    line-height: 1.03;
+    text-wrap: balance;
+  }
+
+  .records-page__hero > p:last-child {
+    max-width: 62ch;
+    margin-top: 1.75rem;
+    color: #273a33;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .records-share {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(24rem, 1fr);
+    align-items: center;
+    gap: 7rem;
+    padding-block: 1.25rem 5rem;
+  }
+
+  .records-share__copy h2 {
+    max-width: 18ch;
+    margin-top: 1.5rem;
+    font-size: clamp(2.3rem, 3.3vw, 3.25rem);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .records-share__copy > p:not(.eyebrow) {
+    max-width: 46ch;
+    margin-top: 1.5rem;
+    color: #273a33;
+    line-height: 1.65;
+  }
+
+  .records-share__copy :global(.button-link) {
+    margin-top: 2.5rem;
+  }
+
+  .share-card {
+    position: relative;
+    padding: 2.25rem 2.25rem 1.75rem;
+    border: 1px solid #d8ddd9;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 1.25rem 3rem rgb(15 31 26 / 10%);
+  }
+
+  .share-card::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: .5rem;
+    border-radius: 1rem 0 0 1rem;
+    background: var(--color-mint-500);
+    content: '';
+  }
+
+  .share-card > p {
+    color: var(--color-green-600);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .19em;
+    text-transform: uppercase;
+  }
+
+  .share-card__main {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .share-card__main img {
+    width: 9rem;
+    height: 9rem;
+    image-rendering: pixelated;
+  }
+
+  .share-card__main span {
+    max-width: 13ch;
+    color: #273a33;
+    line-height: 1.5;
+  }
+
+  .share-card__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: .4rem .4rem .4rem 1rem;
+    border: 1px solid #d8ddd9;
+    border-radius: var(--radius-pill);
+    color: #52615b;
+    font-size: .75rem;
+  }
+
+  .share-card__link b {
+    padding: .5rem .875rem;
+    border-radius: var(--radius-pill);
+    color: #fff;
+    background: var(--color-forest-900);
+    font-size: .6875rem;
+    white-space: nowrap;
+  }
+
+  .records-moments {
+    padding-block: 2.5rem 6rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .records-moments > h2 {
+    font-size: 2rem;
+  }
+
+  .records-moments > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .records-moments article {
+    min-height: 10rem;
+    padding: 2rem 2.25rem;
+    border-radius: .875rem;
+    background: var(--color-cream-200);
+  }
+
+  .records-moments h3 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .records-moments article p {
+    margin-top: .875rem;
+    color: #273a33;
+    font-size: .9375rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 63.99rem) {
+    .records-share {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+
+    .share-card {
+      width: min(100%, 32rem);
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .records-page > .container {
+      width: min(calc(100% - 2 * var(--space-5)), 68.75rem);
+    }
+
+    .records-page__hero {
+      padding-block: 4rem 3.5rem;
+    }
+
+    .records-page__hero h1 {
+      margin-top: 1.125rem;
+      font-size: clamp(2.8rem, 13vw, 3.65rem);
+      line-height: 1.02;
+    }
+
+    .records-page__hero > p:last-child {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .records-share {
+      gap: 3rem;
+      padding-block: 1rem 4rem;
+    }
+
+    .records-share__copy h2 {
+      max-width: 15ch;
+      margin-top: 1.125rem;
+      font-size: 2.45rem;
+    }
+
+    .records-share__copy > p:not(.eyebrow) {
+      font-size: .975rem;
+    }
+
+    .share-card {
+      padding: 1.75rem 1.25rem 1.25rem 1.75rem;
+    }
+
+    .share-card__main {
+      grid-template-columns: 7.5rem 1fr;
+      gap: 1rem;
+    }
+
+    .share-card__main img {
+      width: 7.5rem;
+      height: 7.5rem;
+    }
+
+    .share-card__link {
+      min-width: 0;
+      padding-left: .75rem;
+    }
+
+    .share-card__link span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .records-moments {
+      padding-block: 2.5rem 4rem;
+    }
+
+    .records-moments > div {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .records-moments article {
+      min-height: 0;
+      padding: 1.5rem;
+    }
+  }
 </style>
