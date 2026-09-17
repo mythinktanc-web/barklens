@@ -561,6 +561,7 @@ const mobileWhyItems = [
   .trend-card__ask { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: .875rem; padding: .375rem .375rem .375rem .875rem; border: 1px solid rgb(255 255 255 / 25%); border-radius: var(--radius-pill); color: #9eaaa5; background: transparent; font-size: .8125rem; }
   .trend-card__ask b { display: grid; width: 1.75rem; height: 1.75rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-forest-950); background: var(--color-mint-500); }
 
+  .why { min-height: 48rem; display: grid; align-items: center; }
   .why > .container > h2 { margin-top: var(--space-4); font-size: var(--text-2xl); }
   .why__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); margin-top: var(--space-12); }
   .why__grid a { display: flex; min-height: 17.5rem; flex-direction: column; justify-content: space-between; padding: var(--space-10); border-radius: var(--radius-lg); background: var(--color-forest-900); color: var(--color-copy-inverse); transition: background var(--transition); }
@@ -709,7 +710,7 @@ const mobileWhyItems = [
     .closer__intro > p:last-child, .trends__grid > div > p { font-size: 1rem; }
     .chart-card { border-radius: var(--radius-lg); }
 
-    .why { padding: 3rem 0 2.75rem; background: var(--color-cream-200); color: var(--color-forest-900); }
+    .why { min-height: 0; display: block; padding: 3rem 0 2.75rem; background: var(--color-cream-200); color: var(--color-forest-900); }
     .why::before, .why::after { display: none; }
     .why .section-label { color: var(--color-green-600); text-align: left; }
     .why > .container > h2 { margin-top: .875rem; color: var(--color-forest-900); text-align: left; }
