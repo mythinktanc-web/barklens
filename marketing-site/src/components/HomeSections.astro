@@ -254,13 +254,13 @@ const mobileWhyItems = [
     <p class="section-label section-label--light">Our story</p>
     <h2>Built for one dog. <em>Made for yours.</em></h2>
     <p>
-      When I met Charlie, I didn’t realize how much he would shape my life. He wasn’t just a pet.
-      He was my constant, my teacher in patience and responsibility, and the one who quietly
-      raised the bar for how deeply you can show up for another being.
+      Charlie was a rescue with a complicated medical history from the start. Over 16.5 years we
+      lived with chronic conditions, flare-ups, and the wish for more help before and after his vet
+      appointments.
     </p>
     <p>
-      Charlie was a rescue with a complicated medical history from the start. Over sixteen and a
-      half years, we navigated chronic conditions, sudden flare-ups, and long stretches of uncertainty.
+      BarkLens is the thing I wished for in every waiting room. I’m building it so you have it for
+      yours.
     </p>
     <a href={routes.charlieStory}>Read the full story →</a>
     <small>Ben Singer, Founder · Charlie, 2009–2025</small>
@@ -574,7 +574,7 @@ const mobileWhyItems = [
   .story > img { object-position: center 58%; }
   .story__mobile-image { display: none; }
   .story__content { display: flex; flex-direction: column; align-items: flex-start; }
-  .story h2 { max-width: 12ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
+  .story h2 { max-width: 12ch; margin-top: var(--space-5); font-size: var(--text-2xl); font-weight: 700; }
   .story h2 em { display: block; color: var(--color-mint-400); }
   .story__content > p:not(.section-label) { max-width: 42ch; margin-top: var(--space-5); }
   .story a { margin-top: var(--space-6); color: var(--color-mint-400); font-weight: 700; }
@@ -744,6 +744,7 @@ const mobileWhyItems = [
     .story__mobile-image { display: block; object-position: 62% 20% !important; }
     .story__content { min-height: 42rem; justify-content: flex-end; padding-block: var(--space-10); }
     .story__content > p:not(.section-label) { font-size: .95rem; }
+    .story h2 { font-weight: 700 !important; }
 
     .conditions__intro { gap: var(--space-5); }
     .conditions__grid { margin-top: var(--space-8); border: 0; }
