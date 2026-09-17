@@ -84,8 +84,9 @@ for (const file of htmlFiles) {
     if (twitterTitle !== homepageSocialTitle) {
       failures.push(`${relative}: homepage Twitter title changed`);
     }
-    if (!html.includes('href="/#how-it-works"')) {
-      failures.push(`${relative}: primary navigation must link to the homepage How It Works section`);
+    const howItWorksAnchorCount = html.split('href="/#how-it-works"').length - 1;
+    if (howItWorksAnchorCount < 2) {
+      failures.push(`${relative}: header and footer must link to the homepage How It Works section`);
     }
     if ((html.split(connectTheirDotsCopy).length - 1) !== 2) {
       failures.push(`${relative}: Connect Their Dots copy must match on desktop and mobile`);

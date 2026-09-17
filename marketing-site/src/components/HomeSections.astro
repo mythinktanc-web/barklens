@@ -673,6 +673,15 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   .closing small { margin-top: var(--space-3); color: var(--color-copy-muted); }
 
   @media (min-width: 64rem) {
+    .why > .container > h2 {
+      max-width: 8ch;
+      line-height: 1.05;
+    }
+
+    .why > .container > h2 em {
+      display: block;
+    }
+
     .how .section-label,
     .closer .section-label {
       font-size: 1rem !important;
