@@ -24,6 +24,15 @@ const legalDraftArtifacts = [
   'not for publication',
   '[effective:'
 ];
+const homepageSearchTitle = "BarkLens — Your Dog's Health Records, Explained";
+const homepageSocialTitle = 'The internet knows dogs. BarkLens knows yours.';
+
+function decodeHtmlEntities(value = '') {
+  return value
+    .replaceAll('&#39;', "'")
+    .replaceAll('&quot;', '"')
+    .replaceAll('&amp;', '&');
+}
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -50,6 +59,20 @@ for (const file of htmlFiles) {
       failures.push(`${relative}: duplicate meta description also used by ${descriptions.get(description)}`);
     }
     descriptions.set(description, relative);
+  }
+
+  const openGraphTitle = html.match(/<meta property="og:title" content="([^"]+)"/)?.[1]?.trim();
+  const twitterTitle = html.match(/<meta name="twitter:title" content="([^"]+)"/)?.[1]?.trim();
+  if (relative === 'index.html') {
+    if (decodeHtmlEntities(title) !== homepageSearchTitle) {
+      failures.push(`${relative}: homepage search title changed`);
+    }
+    if (openGraphTitle !== homepageSocialTitle) {
+      failures.push(`${relative}: homepage Open Graph title changed`);
+    }
+    if (twitterTitle !== homepageSocialTitle) {
+      failures.push(`${relative}: homepage Twitter title changed`);
+    }
   }
 
   const lower = html.toLowerCase();

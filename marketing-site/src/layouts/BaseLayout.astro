@@ -6,6 +6,7 @@ import '@styles/global.css';
 
 interface Props {
   title: string;
+  socialTitle?: string;
   description?: string;
   canonicalPath?: string;
   noindex?: boolean;
@@ -21,6 +22,7 @@ const productionIndexingEnabled =
   process.env.VERCEL_ENV === 'production';
 const {
   title,
+  socialTitle = title,
   description = site.description,
   canonicalPath = Astro.url.pathname,
   noindex = !productionIndexingEnabled,
@@ -64,13 +66,13 @@ const schemas = structuredData
     <meta name="theme-color" content="#0f1f1a" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:type" content={type} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={socialTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:alt" content="BarkLens" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={socialTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <title>{title}</title>

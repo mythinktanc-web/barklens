@@ -15,7 +15,8 @@ when describing BarkLens.
   copy near the top of its page.
 - Do not use “tracker,” “monitoring,” “AI-powered,” “health companion,” or
   “scans” in titles, descriptions, or visible positioning.
-- Open Graph and Twitter titles and descriptions mirror the approved fields.
+- Open Graph and Twitter titles and descriptions mirror the approved fields,
+  except for the homepage sharing-title override below.
 - Condition canonicals use `/conditions/<slug>/`.
 - Use one H1 per page and semantic H2s in document order.
 - Condition pages use Article structured data with `about` naming the
@@ -27,6 +28,8 @@ when describing BarkLens.
 ## Homepage
 
 **Title:** BarkLens — Your Dog's Health Records, Explained
+
+**Social sharing title:** The internet knows dogs. BarkLens knows yours.
 
 **Description:** Every dog is different. Ask anything about yours — BarkLens
 answers from their history and top-tier veterinary sources.
