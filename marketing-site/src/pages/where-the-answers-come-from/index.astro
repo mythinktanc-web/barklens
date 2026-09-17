@@ -55,6 +55,28 @@ const comparisonRows = [
       </div>
     </section>
 
+    <section class="sources-evidence sources-wrap">
+      <div class="sources-inner">
+        <h2>Why we’re this strict</h2>
+        <div class="sources-evidence__desktop-copy">
+          <p>
+            In a study of 636 citations from AI-generated papers, 55% of the works cited by
+            GPT-3.5 were fabricated
+            (<a href="https://www.nature.com/articles/s41598-023-41032-5" target="_blank" rel="noopener">Scientific Reports</a>).
+            In another, eight AI search tools were asked to name the source of a direct quote
+            across 1,600 queries and got it wrong more than 60% of the time
+            (<a href="https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php" target="_blank" rel="noopener">Columbia Journalism Review</a>).
+          </p>
+        </div>
+        <div class="sources-evidence__mobile-copy">
+          <p>
+            In one study, 55% of the works cited by GPT-3.5 were fabricated
+            (<a href="https://www.nature.com/articles/s41598-023-41032-5" target="_blank" rel="noopener">Scientific Reports</a>).
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="sources-comparison sources-wrap" aria-label="BarkLens and general AI comparison">
       <div class="sources-inner">
         <div class="comparison-desktop">
@@ -99,17 +121,20 @@ const comparisonRows = [
     <section class="sources-explainers sources-wrap">
       <div class="sources-inner sources-explainers__grid">
         <article>
+          <span class="source-card__number">01</span>
           <h2>What counts as a source</h2>
           <p>Textbooks. Peer-reviewed journals. University veterinary references. The guidelines vets follow. FDA-approved drug labels.</p>
           <p>Nothing from a search engine, a blog, or a forum.</p>
         </article>
         <article>
+          <span class="source-card__number">02</span>
           <h2>Who checks them</h2>
           <p>A licensed veterinarian reviews every source before it’s used.</p>
-          <p class="desktop-only">They’re not reviewing your dog’s results. Those belong to your own vet, who has examined your dog. What gets reviewed here is the material behind the answers.</p>
+          <p class="desktop-only">They’re not reviewing your dog’s results. Those belong to your own vet, who has examined your dog.</p>
           <p class="mobile-only">Not your dog’s results. Those belong to your own vet.</p>
         </article>
         <article>
+          <span class="source-card__number">03</span>
           <h2>What you can see</h2>
           <p>Every claim shows the passage it came from, word for word, and where it was published.</p>
           <p>If a source is unclear or contradicts itself, the claim doesn’t get used.</p>
@@ -117,25 +142,8 @@ const comparisonRows = [
       </div>
     </section>
 
-    <section class="sources-evidence sources-wrap">
+    <section class="sources-cta sources-wrap">
       <div class="sources-inner">
-        <h2>Why we’re this strict</h2>
-        <div class="sources-evidence__desktop-copy">
-          <p>
-            In a study of 636 citations from AI-generated papers, 55% of the works cited by
-            GPT-3.5 were fabricated
-            (<a href="https://www.nature.com/articles/s41598-023-41032-5" target="_blank" rel="noopener">Scientific Reports</a>).
-            In another, eight AI search tools were asked to name the source of a direct quote
-            across 1,600 queries and got it wrong more than 60% of the time
-            (<a href="https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php" target="_blank" rel="noopener">Columbia Journalism Review</a>).
-          </p>
-        </div>
-        <div class="sources-evidence__mobile-copy">
-          <p>
-            In one study, 55% of the works cited by GPT-3.5 were fabricated
-            (<a href="https://www.nature.com/articles/s41598-023-41032-5" target="_blank" rel="noopener">Scientific Reports</a>).
-          </p>
-        </div>
         <ButtonLink href={routes.waitlist}>Sign Up</ButtonLink>
         <p class="sources-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
       </div>
@@ -154,7 +162,7 @@ const comparisonRows = [
   }
 
   .sources-inner {
-    width: min(100%, 68.75rem);
+    width: min(100%, 77.5rem);
     margin-inline: auto;
   }
 
@@ -164,7 +172,7 @@ const comparisonRows = [
   }
 
   .sources-hero h1 {
-    max-width: 16ch;
+    max-width: 8ch;
     margin-top: 1.125rem;
     font-size: 4rem;
     line-height: 1.04;
@@ -271,30 +279,40 @@ const comparisonRows = [
   }
 
   .sources-explainers {
-    padding-block: 4rem;
+    padding-block: 2rem 4rem;
   }
 
   .sources-explainers__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 3rem;
+    gap: 1.25rem;
   }
 
   .sources-explainers article {
     min-width: 0;
+    min-height: 15rem;
+    padding: 2rem;
+    border-radius: .875rem;
+    background: var(--color-cream-200);
+  }
+
+  .source-card__number {
+    color: var(--color-green-600);
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    line-height: 1;
   }
 
   .sources-explainers h2 {
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-forest-900);
-    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.2;
   }
 
   .sources-explainers p {
     margin-top: .75rem;
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: .875rem;
+    line-height: 1.55;
   }
 
   .sources-standards {
@@ -330,7 +348,8 @@ const comparisonRows = [
   }
 
   .sources-evidence {
-    padding-bottom: 6rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2.75rem;
   }
 
   .sources-evidence__desktop-copy {
@@ -354,18 +373,23 @@ const comparisonRows = [
     text-underline-offset: .2rem;
   }
 
-  .sources-evidence :global(.button-link) {
-    margin-top: 2.5rem;
+  .sources-cta {
+    padding-block: 4.5rem 6rem;
+    text-align: center;
+  }
+
+  .sources-cta :global(.button-link) {
     padding: 1rem 1.75rem;
   }
 
   .sources-boundary {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     color: #5a6660;
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: .9375rem;
     font-style: italic;
     line-height: 1.4;
+    text-align: center !important;
   }
 
   @media (max-width: 63.99rem) and (min-width: 48rem) {
@@ -381,9 +405,17 @@ const comparisonRows = [
 
   @media (max-width: 47.99rem) {
     .sources-page {
+      display: flex;
+      flex-direction: column;
       background: var(--color-forest-900);
       color: var(--color-cream-300);
     }
+
+    .sources-hero { order: 1; }
+    .sources-comparison { order: 2; }
+    .sources-explainers { order: 3; }
+    .sources-evidence { order: 4; }
+    .sources-cta { order: 5; }
 
     .sources-wrap {
       padding-inline: var(--space-6);
@@ -530,9 +562,20 @@ const comparisonRows = [
       gap: 2rem;
     }
 
+    .sources-explainers article {
+      min-height: 0;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .source-card__number {
+      display: none;
+    }
+
     .sources-explainers h2 {
       padding-top: 1rem;
-      border-color: rgb(237 227 212 / 30%);
+      border-top: 1px solid rgb(237 227 212 / 30%);
       color: var(--color-cream-200);
       font-size: 1.5rem !important;
       line-height: 1.2 !important;
@@ -573,7 +616,7 @@ const comparisonRows = [
 
     .sources-evidence {
       padding-top: 2.75rem;
-      padding-bottom: 4.5rem;
+      padding-bottom: 0;
     }
 
     .sources-evidence__mobile-copy {
@@ -588,8 +631,13 @@ const comparisonRows = [
       color: var(--color-mint-500);
     }
 
-    .sources-evidence :global(.button-link) {
-      margin-top: 2.25rem;
+    .sources-cta {
+      padding-top: 2.25rem;
+      padding-bottom: 4.5rem;
+      text-align: left;
+    }
+
+    .sources-cta :global(.button-link) {
       color: #0b0b0c;
       background: var(--color-mint-500);
     }
@@ -599,6 +647,7 @@ const comparisonRows = [
       color: #a89f92;
       font-size: 1.25rem !important;
       line-height: 1.4 !important;
+      text-align: left !important;
     }
   }
 </style>
