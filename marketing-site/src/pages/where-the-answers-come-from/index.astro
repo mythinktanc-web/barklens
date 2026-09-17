@@ -144,7 +144,7 @@ const comparisonRows = [
 
     <section class="sources-cta sources-wrap">
       <div class="sources-inner">
-        <ButtonLink href={routes.waitlist}>Sign Up</ButtonLink>
+        <ButtonLink href={routes.waitlist}>Join</ButtonLink>
         <p class="sources-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
       </div>
     </section>
@@ -412,9 +412,9 @@ const comparisonRows = [
     }
 
     .sources-hero { order: 1; }
-    .sources-comparison { order: 2; }
-    .sources-explainers { order: 3; }
-    .sources-evidence { order: 4; }
+    .sources-evidence { order: 2; }
+    .sources-comparison { order: 3; }
+    .sources-explainers { order: 4; }
     .sources-cta { order: 5; }
 
     .sources-wrap {
@@ -446,17 +446,23 @@ const comparisonRows = [
     .sources-hero__desktop-copy,
     .comparison-desktop,
     .source-names--desktop,
-    .desktop-only,
-    .sources-evidence__desktop-copy {
+    .desktop-only {
       display: none;
     }
 
     .sources-hero__mobile-copy,
     .comparison-mobile,
     .source-names--mobile,
-    .mobile-only,
-    .sources-evidence__mobile-copy {
+    .mobile-only {
       display: block;
+    }
+
+    .sources-evidence__desktop-copy {
+      display: block;
+    }
+
+    .sources-evidence__mobile-copy {
+      display: none;
     }
 
     .sources-hero__mobile-copy {
@@ -476,9 +482,7 @@ const comparisonRows = [
     }
 
     .comparison-mobile__header {
-      position: sticky;
-      z-index: 2;
-      top: var(--header-height);
+      position: static;
       display: grid;
       grid-template-columns: 55fr 45fr;
       gap: 1rem;
@@ -513,11 +517,11 @@ const comparisonRows = [
     }
 
     .comparison-mobile__label {
-      color: #a89f92;
-      font-size: var(--type-micro-size);
-      font-weight: 700;
-      letter-spacing: .14em;
-      line-height: 1.2;
+      color: #c5d0cb;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      line-height: 1.35;
       text-transform: uppercase;
     }
 
@@ -529,8 +533,8 @@ const comparisonRows = [
 
     .comparison-mobile__row > div span {
       color: var(--color-cream-300);
-      font-size: .9375rem;
-      line-height: 1.45;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     .comparison-mobile__row > div span:last-child {
@@ -540,9 +544,7 @@ const comparisonRows = [
     }
 
     .comparison-mobile__row > p {
-      color: var(--color-mint-500);
-      font-size: .875rem !important;
-      line-height: 1.4 !important;
+      display: none;
     }
 
     .source-names {
@@ -615,16 +617,19 @@ const comparisonRows = [
     }
 
     .sources-evidence {
-      padding-top: 2.75rem;
+      padding-top: 2.5rem;
       padding-bottom: 0;
     }
 
-    .sources-evidence__mobile-copy {
-      margin-top: .875rem;
+    .sources-evidence__desktop-copy {
+      max-width: none;
+      margin-top: 1rem;
     }
 
-    .sources-evidence__mobile-copy p {
+    .sources-evidence__desktop-copy p {
       color: rgb(237 227 212 / 95%);
+      font-size: 1rem;
+      line-height: 1.65;
     }
 
     .sources-evidence a {
@@ -634,7 +639,7 @@ const comparisonRows = [
     .sources-cta {
       padding-top: 2.25rem;
       padding-bottom: 4.5rem;
-      text-align: left;
+      text-align: center;
     }
 
     .sources-cta :global(.button-link) {
@@ -647,7 +652,7 @@ const comparisonRows = [
       color: #a89f92;
       font-size: 1.25rem !important;
       line-height: 1.4 !important;
-      text-align: left !important;
+      text-align: center !important;
     }
   }
 </style>

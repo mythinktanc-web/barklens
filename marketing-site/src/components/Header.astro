@@ -4,11 +4,10 @@ import Wordmark from './Wordmark.astro';
 import { primaryNavigation, routes } from '@config/site';
 
 const isWaitlistFlow = Astro.url.pathname.startsWith('/waitlist') || Astro.url.pathname.startsWith('/unsubscribe');
-const isWhyDetailPage =
-  Astro.url.pathname.startsWith('/where-the-answers-come-from') ||
-  Astro.url.pathname.startsWith('/care-team');
+const isSourcesPage = Astro.url.pathname.startsWith('/where-the-answers-come-from');
+const isWhyDetailPage = Astro.url.pathname.startsWith('/care-team');
 const mobileActionHref = isWhyDetailPage ? '/#why-barklens' : isWaitlistFlow ? routes.home : routes.waitlist;
-const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow ? '← Back' : 'Save my spot';
+const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow ? '← Back' : 'Join';
 ---
 
 <header class="site-header" data-site-header>
@@ -21,10 +20,12 @@ const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow 
 
     <div class="site-header__actions">
       <a class="site-header__questions" href="/#questions">Questions</a>
-      <ButtonLink href={routes.waitlist}>Join Waitlist</ButtonLink>
-      <a class="site-header__mobile-spot" href={mobileActionHref}>
-        {mobileActionLabel}
-      </a>
+      <ButtonLink href={routes.waitlist}>Join</ButtonLink>
+      {!isSourcesPage && (
+        <a class="site-header__mobile-spot" href={mobileActionHref}>
+          {mobileActionLabel}
+        </a>
+      )}
       <button
         class="site-header__menu-button"
         type="button"
@@ -49,7 +50,7 @@ const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow 
     <a href="/#questions"><span>{String(primaryNavigation.length + 1).padStart(2, '0')}</span>Questions</a>
   </nav>
   <div class="mobile-navigation__footer">
-    <ButtonLink href={routes.waitlist} variant="mint">Join Waitlist</ButtonLink>
+    <ButtonLink href={routes.waitlist} variant="mint">Join</ButtonLink>
     <div class="mobile-navigation__socials" aria-label="BarkLens social media">
       <a href="https://www.instagram.com/gobarklens/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@barklens" target="_blank" rel="noopener">TikTok</a>

@@ -89,6 +89,13 @@ for (const file of htmlFiles) {
     }
   }
 
+  for (const match of html.matchAll(/<a\b[^>]*href="\/waitlist\/"[^>]*>([\s\S]*?)<\/a>/g)) {
+    const label = decodeHtmlEntities(match[1].replace(/<[^>]+>/g, '').trim());
+    if (label !== 'Join') {
+      failures.push(`${relative}: waitlist CTA must be labeled "Join", found "${label}"`);
+    }
+  }
+
   const lower = html.toLowerCase();
   for (const phrase of prohibited) {
     if (lower.includes(phrase)) failures.push(`${relative}: prohibited phrase "${phrase}"`);
