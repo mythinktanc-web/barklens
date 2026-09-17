@@ -63,6 +63,24 @@ test('duplicate signup returns the same referral link without another email', as
   }
 });
 
+test('a delivered welcome email still returns success if delivery bookkeeping fails', async () => {
+  const testFixture = await fixture();
+  const originalUpdate = testFixture.client.updateMember.bind(testFixture.client);
+  testFixture.client.updateMember = async (address, updates) => {
+    if (updates.vars?.welcome_sent_at) throw new Error('bookkeeping unavailable');
+    return originalUpdate(address, updates);
+  };
+  try {
+    const result = await testFixture.service.signup(signup, 'https://barklens.com');
+    const stored = JSON.parse(await readFile(testFixture.file, 'utf8'));
+    assert.equal(result.ok, true);
+    assert.equal(result.emailSent, true);
+    assert.equal(stored.sent.length, 1);
+  } finally {
+    await testFixture.cleanup();
+  }
+});
+
 test('unsubscribe keeps the member record and changes subscribed status', async () => {
   const testFixture = await fixture();
   try {

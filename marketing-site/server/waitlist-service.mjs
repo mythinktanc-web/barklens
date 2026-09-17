@@ -115,9 +115,22 @@ export class WaitlistService {
         email: welcomeEmail(urls.unsubscribeUrl)
       });
       const sentAt = new Date().toISOString();
-      member = await this.client.updateMember(signup.email, {
-        vars: { ...member.vars, welcome_sent_at: sentAt }
-      });
+      try {
+        member = await this.client.updateMember(signup.email, {
+          vars: { ...member.vars, welcome_sent_at: sentAt }
+        });
+      } catch (error) {
+        console.error(JSON.stringify({
+          level: 'error',
+          operation: 'record-welcome-delivery',
+          address: signup.email,
+          message: error?.message || 'Unable to record welcome delivery'
+        }));
+        member = {
+          ...member,
+          vars: { ...member.vars, welcome_sent_at: sentAt }
+        };
+      }
       emailSent = true;
     }
 
