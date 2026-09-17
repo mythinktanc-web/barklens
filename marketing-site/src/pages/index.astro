@@ -23,7 +23,10 @@ import { routes } from '@config/site';
     <div class="hero__shade"></div>
     <div class="hero__content container">
       <p class="eyebrow">The internet knows dogs.</p>
-      <h1><em>BarkLens knows yours.</em></h1>
+      <h1>
+        <span class="hero__desktop-prefix">The internet knows dogs.</span>{' '}
+        <em>BarkLens knows yours.</em>
+      </h1>
       <p class="hero__lede">
         Every dog is different. Ask anything about yours — BarkLens answers from their history and
         top-tier veterinary sources.
@@ -126,7 +129,44 @@ import { routes } from '@config/site';
     font-size: var(--text-xs);
   }
 
+  @media (min-width: 64rem) {
+    .hero__content {
+      width: min(calc(100% - 2 * var(--space-10)), 56rem);
+      transform: translateY(-1.25rem);
+    }
+
+    .hero .eyebrow {
+      display: none;
+    }
+
+    .hero h1 {
+      max-width: 12.5ch;
+      margin-top: 0;
+      font-size: clamp(3.25rem, 4vw, 3.75rem);
+      line-height: 1.04;
+    }
+
+    .hero h1 em {
+      color: var(--color-mint-400);
+    }
+
+    .hero__lede {
+      max-width: 36ch;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+
+    .hero__proof {
+      font-size: .9375rem;
+      line-height: 1.6;
+    }
+  }
+
   @media (max-width: 63.99rem) {
+    .hero__desktop-prefix {
+      display: none !important;
+    }
+
     .hero__picture img {
       object-position: 60% center;
     }
