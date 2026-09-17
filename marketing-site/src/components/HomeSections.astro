@@ -25,11 +25,11 @@ const mobileCaptureImages = [
   '/images/mobile/capture-stool.webp'
 ];
 
-const mobileWhyItems = [
-  { number: '01', title: 'The BarkLens Standard', label: 'Reviewed sources', href: routes.sources },
-  { number: '02', title: 'Easy to Share Records', label: 'Vet export', href: routes.records },
-  { number: '03', title: 'Your Team', label: 'Care team', href: routes.careTeam }
-];
+const mobileWhyLabels = ['Reviewed sources', 'Vet export', 'Care team'] as const;
+const mobileWhyItems = whyItems.map((item, index) => ({
+  ...item,
+  label: mobileWhyLabels[index]
+}));
 
 ---
 
@@ -316,14 +316,11 @@ const mobileWhyItems = [
   </div>
 </section>
 
-<section class="closing section--image">
-  <img class="closing__desktop-image" src="/images/home/internet-knows-dogs.webp" alt="An owner standing beside their dog on a rocky shoreline" width="2200" height="1237" loading="lazy" />
-  <img class="closing__mobile-image" src="/images/home/internet-knows-dogs.webp" alt="An owner standing beside their dog on a rocky shoreline" width="2200" height="1237" loading="lazy" />
-  <div class="image-shade"></div>
+<section class="closing">
   <div class="closing__content">
     <h2>The internet knows dogs. <em>BarkLens knows yours.</em></h2>
     <p>Try it free. Bring your dog’s records into one place.</p>
-    <ButtonLink href={routes.waitlist} variant="light">Join</ButtonLink>
+    <ButtonLink href={routes.waitlist}>Join</ButtonLink>
     <small>Seven-day free trial.</small>
   </div>
 </section>
@@ -649,28 +646,31 @@ const mobileWhyItems = [
   .pricing h2 { max-width: 18ch; margin: var(--space-6) auto 0; font-size: var(--text-2xl); }
   .pricing h2 em { color: var(--color-mint-400); }
 
+  .faq {
+    color: var(--color-copy-inverse);
+    background:
+      linear-gradient(rgb(8 27 21 / 66%), rgb(8 27 21 / 74%)),
+      url('/images/home/internet-knows-dogs.webp') center 46% / cover no-repeat;
+  }
   .faq__inner { display: block; }
   .faq__inner > div:first-child { text-align: center; }
-  .faq .section-label { display: block; width: 100%; max-width: none; text-align: center; }
+  .faq .section-label { display: block; width: 100%; max-width: none; color: var(--color-mint-400); text-align: center; }
   .faq h2 { margin-top: var(--space-5); font-size: var(--text-2xl); }
   .faq__list { max-width: 56rem; margin: var(--space-12) auto 0; }
-  .faq__list article { border-bottom: 1px solid var(--color-border); }
-  .faq__list button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: var(--space-5); padding: var(--space-5) 0; background: transparent; text-align: left; }
+  .faq__list article { border-bottom: 1px solid rgb(255 255 255 / 38%); }
+  .faq__list button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: var(--space-5); padding: var(--space-5) 0; color: inherit; background: transparent; text-align: left; }
   .faq__list button span { font-family: var(--font-display); font-size: var(--text-lg); }
   .faq__list button b { font-family: var(--font-body); font-size: var(--text-lg); font-weight: 400; transition: transform var(--transition); }
   .faq__list button[aria-expanded='true'] b { transform: rotate(45deg); }
-  .faq__list [data-faq-answer] { padding: 0 0 var(--space-5); color: var(--color-copy-muted); }
+  .faq__list [data-faq-answer] { padding: 0 0 var(--space-5); color: rgb(255 255 255 / 84%); }
 
-  .closing { position: relative; isolation: isolate; min-height: 45rem; color: var(--color-copy-inverse); }
-  .closing > img, .closing .image-shade { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
-  .closing__mobile-image { display: none; }
-  .closing .image-shade { z-index: -1; background: rgb(10 25 20 / 62%); }
-  .closing__content { display: flex; min-height: 45rem; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-16); text-align: center; }
-  .closing h2 { max-width: 16ch; font-size: var(--text-2xl); }
-  .closing h2 em { color: var(--color-mint-400); }
-  .closing p { margin-top: var(--space-5); }
+  .closing { min-height: 20rem; color: var(--color-forest-900); background: var(--color-cream-200); }
+  .closing__content { display: flex; min-height: 20rem; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-10) var(--space-8); text-align: center; }
+  .closing h2 { max-width: 24ch; font-size: 3rem; }
+  .closing h2 em { color: var(--color-green-600); }
+  .closing p { margin-top: var(--space-5); color: var(--color-copy-muted); }
   .closing :global(.button-link) { margin-top: var(--space-6); }
-  .closing small { margin-top: var(--space-3); color: #d8cfc0; }
+  .closing small { margin-top: var(--space-3); color: var(--color-copy-muted); }
 
   @media (min-width: 64rem) {
     .how .section-label,
@@ -894,8 +894,8 @@ const mobileWhyItems = [
       isolation: isolate;
       color: var(--color-copy-inverse);
       background:
-        linear-gradient(rgb(8 27 21 / 56%), rgb(8 27 21 / 68%)),
-        url('/images/mobile/faq-background.webp') 51% center / cover no-repeat;
+        linear-gradient(rgb(8 27 21 / 62%), rgb(8 27 21 / 76%)),
+        url('/images/home/internet-knows-dogs.webp') 50% 44% / cover no-repeat;
     }
     .faq__inner { position: relative; z-index: 1; gap: var(--space-8); }
     .faq .section-label { color: var(--color-mint-400); }
@@ -904,10 +904,8 @@ const mobileWhyItems = [
     .faq__list button span { font-size: 1.2rem; }
     .faq__list [data-faq-answer] { color: rgb(255 255 255 / 82%); }
 
-    .closing, .closing__content { min-height: 36rem; }
-    .closing__desktop-image { display: none; }
-    .closing__mobile-image { display: block; object-position: 50% 38%; }
+    .closing, .closing__content { min-height: 18rem; }
     .closing__content { padding-inline: var(--space-5); }
-    .closing h2 { font-size: 2.5rem; }
+    .closing h2 { max-width: 18ch; font-size: 2rem; }
   }
 </style>
