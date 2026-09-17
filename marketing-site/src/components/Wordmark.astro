@@ -2,12 +2,27 @@
 interface Props {
   href?: string;
   inverse?: boolean;
+  withMark?: boolean;
 }
 
-const { href = '/', inverse = false } = Astro.props;
+const { href = '/', inverse = false, withMark = false } = Astro.props;
 ---
 
-<a class:list={['wordmark', { 'wordmark--inverse': inverse }]} href={href} aria-label="BarkLens home">
+<a
+  class:list={['wordmark', { 'wordmark--inverse': inverse, 'wordmark--with-mark': withMark }]}
+  href={href}
+  aria-label="BarkLens home"
+>
+  {withMark && (
+    <img
+      class="wordmark__mark"
+      src="/images/brand/circle-logo.png"
+      alt=""
+      width="666"
+      height="637"
+      aria-hidden="true"
+    />
+  )}
   <svg viewBox="0 0 132 22" role="img" aria-hidden="true">
     <text x="0" y="16" font-family="Inter, sans-serif" font-size="15" letter-spacing="2.2">
       <tspan font-weight="800">BARK</tspan><tspan font-weight="400">LENS</tspan>
@@ -26,8 +41,40 @@ const { href = '/', inverse = false } = Astro.props;
     color: var(--color-copy-inverse);
   }
 
+  .wordmark--with-mark {
+    width: 10.25rem;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .wordmark__mark {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex: 0 0 1.5rem;
+    object-fit: contain;
+  }
+
   .wordmark svg {
     width: 100%;
     fill: currentColor;
+  }
+
+  .wordmark--with-mark svg {
+    width: 8.25rem;
+  }
+
+  @media (max-width: 63.99rem) {
+    .wordmark--with-mark {
+      width: 8.25rem;
+      gap: 0;
+    }
+
+    .wordmark__mark {
+      display: none;
+    }
+
+    .wordmark--with-mark svg {
+      width: 100%;
+    }
   }
 </style>

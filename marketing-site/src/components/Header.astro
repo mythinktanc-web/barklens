@@ -13,7 +13,7 @@ const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow 
 
 <header class="site-header" data-site-header>
   <div class="site-header__inner container">
-    <Wordmark />
+    <Wordmark withMark />
 
     <nav class="site-header__desktop-nav" aria-label="Primary navigation">
       {primaryNavigation.map((item) => <a href={item.href}>{item.label}</a>)}
