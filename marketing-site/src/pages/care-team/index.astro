@@ -4,9 +4,9 @@ import ButtonLink from '@components/ButtonLink.astro';
 import { routes } from '@config/site';
 
 const careTasks = [
-  ['Prednisone 5 mg', 'Morning · with food', 'Ben', '7:42 AM'],
-  ['Breakfast', '1 cup Hill’s k/d', 'Ben', '7:45 AM'],
-  ['Midday walk', '20 min · easy pace', 'Rosa', '12:10 PM'],
+  ['Prednisone 5 mg', 'Morning · with food', 'Sarah', '7:42 AM'],
+  ['Breakfast', '1 cup Hill’s k/d', 'Mark', '7:45 AM'],
+  ['Midday walk', '20 min · easy pace', 'Sarah', '12:10 PM'],
   ['Glucosamine chew', 'Evening · 2 chews', '', ''],
   ['Dinner', '1 cup Hill’s k/d', '', '']
 ] as const;
@@ -20,17 +20,18 @@ const careTasks = [
   hideFooterOnMobile
 >
   <section class="care-page">
-    <div class="care-page__heading container">
-      <p class="eyebrow">04 · Care team</p>
-      <h1>You’re not the only one <em>who takes care of them</em></h1>
-    </div>
-
     <div class="care-page__content container">
-      <div class="care-page__copy">
-        <p>Add your partner, a sitter, a walker, or family at no cost. They see today’s medications, what’s been given, and your emergency contacts.</p>
-        <p>Every dose logs who gave it and when. Nobody has to guess.</p>
-        <ButtonLink href={routes.waitlist}>Start your dog’s chart</ButtonLink>
-        <p class="care-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
+      <div class="care-page__left">
+        <div class="care-page__heading">
+          <p class="eyebrow">04 · Care team</p>
+          <h1>You’re not the only one <em>who takes care of them</em></h1>
+        </div>
+        <div class="care-page__copy">
+          <p>Add your partner, a sitter, a walker, or family at no cost. They see today’s medications, what’s been given, and your emergency contacts.</p>
+          <p>Every dose logs who gave it and when. Nobody has to guess.</p>
+          <ButtonLink href={routes.waitlist}>Start your dog’s chart</ButtonLink>
+          <p class="care-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
+        </div>
       </div>
 
       <aside class="care-board" data-care-board aria-label="Charlie’s care team schedule">
@@ -48,8 +49,8 @@ const careTasks = [
           ))}
         </div>
         <div class="care-board__people">
-          <span class="care-avatars" aria-hidden="true"><i>B</i><i>J</i></span>
-          <span>Ben, Jordan</span>
+          <span class="care-avatars" aria-hidden="true"><i>S</i><i>M</i></span>
+          <span>Sarah, Mark</span>
         </div>
       </aside>
     </div>
@@ -82,7 +83,6 @@ const careTasks = [
     background: #fff;
   }
 
-  .care-page__heading,
   .care-page__content {
     width: min(calc(100% - 2 * var(--space-10)), 68.75rem);
   }
@@ -106,8 +106,7 @@ const careTasks = [
     display: grid;
     grid-template-columns: minmax(0, 1fr) 26.25rem;
     gap: 6rem;
-    align-items: start;
-    padding-top: 1.5rem;
+    align-items: center;
   }
 
   .care-page__copy {
@@ -318,9 +317,12 @@ const careTasks = [
       background: var(--color-forest-900);
     }
 
-    .care-page__heading,
     .care-page__content {
       width: min(calc(100% - 2 * var(--space-6)), 68.75rem);
+    }
+
+    .care-page__left {
+      display: contents;
     }
 
     .care-page__heading {
