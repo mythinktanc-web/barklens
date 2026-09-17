@@ -437,7 +437,8 @@ export const conditionPages: ConditionPageData[] = [
     subject: 'Heart disease in dogs',
     description: 'A murmur is a sound, not a sentence. How to count your dog’s sleeping breathing rate, the number cardiologists use.',
     image: '/images/conditions/heart-disease.webp',
-    imageAlt: 'A senior dog resting beside its owner outdoors',
+    mobileImage: '/images/conditions/mobile/heart-disease.webp',
+    imageAlt: 'A dog together with their owner',
     heroDescription:
       'The murmur date, stage, imaging, rhythm testing, medications, kidney values, electrolytes, blood pressure, weight, breathing records, and what you notice at home may all tell different parts of the history. BarkLens connects them and explains what published veterinary sources say veterinarians commonly consider.',
     opening: [
