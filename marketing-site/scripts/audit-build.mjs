@@ -31,6 +31,11 @@ const homepageSocialTitle = 'The internet knows dogs. BarkLens knows yours.';
 const connectTheirDotsCopy =
   'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens brings those details to your attention and gives you a place to ask what they mean.';
 const snapPictureCopyTail = 'using your dog’s full history and veterinary research.';
+const whyDetailPages = new Set([
+  'care-team/index.html',
+  'where-the-answers-come-from/index.html',
+  'your-records-are-yours/index.html'
+]);
 
 function decodeHtmlEntities(value = '') {
   return value
@@ -95,6 +100,18 @@ for (const file of htmlFiles) {
     }
     if (html.includes('04 · Care team')) {
       failures.push(`${relative}: stale Care Team item number 04`);
+    }
+  }
+
+  if (whyDetailPages.has(relative)) {
+    if (!html.includes('class="back-to-why"') || !html.includes('href="/#why-barklens"')) {
+      failures.push(`${relative}: missing Back to Why BarkLens control`);
+    }
+  }
+
+  if (relative === 'your-records-are-yours/index.html') {
+    if (!html.includes('barklens.com/8731') || !html.includes('/images/records/share-qr.png')) {
+      failures.push(`${relative}: records share example URL and QR must remain aligned`);
     }
   }
 

@@ -4,8 +4,10 @@ import Wordmark from './Wordmark.astro';
 import { primaryNavigation, routes } from '@config/site';
 
 const isWaitlistFlow = Astro.url.pathname.startsWith('/waitlist') || Astro.url.pathname.startsWith('/unsubscribe');
-const isSourcesPage = Astro.url.pathname.startsWith('/where-the-answers-come-from');
-const isWhyDetailPage = Astro.url.pathname.startsWith('/care-team');
+const isWhyDetailPage =
+  Astro.url.pathname.startsWith('/where-the-answers-come-from') ||
+  Astro.url.pathname.startsWith('/your-records-are-yours') ||
+  Astro.url.pathname.startsWith('/care-team');
 const mobileActionHref = isWhyDetailPage ? '/#why-barklens' : isWaitlistFlow ? routes.home : routes.waitlist;
 const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow ? '← Back' : 'Join';
 ---
@@ -21,7 +23,7 @@ const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow 
     <div class="site-header__actions">
       <a class="site-header__questions" href="/#questions">Questions</a>
       <ButtonLink href={routes.waitlist}>Join</ButtonLink>
-      {!isSourcesPage && (
+      {!isWhyDetailPage && (
         <a class="site-header__mobile-spot" href={mobileActionHref}>
           {mobileActionLabel}
         </a>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ButtonLink from '@components/ButtonLink.astro';
+import BackToWhy from '@components/BackToWhy.astro';
 import { routes } from '@config/site';
 ---
 
@@ -10,17 +11,21 @@ import { routes } from '@config/site';
   canonicalPath="/your-records-are-yours/"
 >
   <article class="records-page">
-    <header class="records-page__hero container">
-      <p class="eyebrow">Share the history</p>
-      <h1>The next person to see your dog shouldn’t start from zero.</h1>
-      <p>
-        Your dog’s history shouldn’t depend on what you can remember at the front desk. Share the
-        records you’ve added to BarkLens with a link or QR code, so a new vet or caregiver has the
-        background without you piecing it together from emails, paperwork, and memory.
-      </p>
-    </header>
+    <section class="records-lead container">
+      <header class="records-page__hero">
+        <BackToWhy />
+        <p class="eyebrow">Share the history</p>
+        <h1 class="records-title">
+          <span class="records-title__desktop">A pass for the ER, the groomer, the boarder — anyone who needs your dog’s history.</span>
+          <span class="records-title__mobile">The next person to see your dog shouldn’t start from zero.</span>
+        </h1>
+        <p>
+          Your dog’s history shouldn’t depend on what you can remember at the front desk. Share the
+          records you’ve added to BarkLens with a link or QR code, so a new vet or caregiver has the
+          background without you piecing it together from emails, paperwork, and memory.
+        </p>
+      </header>
 
-    <section class="records-share container">
       <div class="records-share__copy">
         <p class="eyebrow">The share</p>
         <h2>A pass for the ER, the groomer, the boarder — anyone who needs your dog’s history.</h2>
@@ -29,7 +34,6 @@ import { routes } from '@config/site';
           history part of the handoff. Send the link ahead of time or show the QR code when you
           arrive, so you’re not the only person who knows where to find it.
         </p>
-        <ButtonLink href={routes.waitlist}>Join</ButtonLink>
       </div>
 
       <aside class="share-card" aria-label="Example BarkLens records share card">
@@ -39,7 +43,7 @@ import { routes } from '@config/site';
           <span>Scan for current meds, labs, and history.</span>
         </div>
         <div class="share-card__link">
-          <span>barklens.com/r/charlie</span>
+          <span>barklens.com/8731</span>
           <b>Copy link</b>
         </div>
       </aside>
@@ -47,7 +51,7 @@ import { routes } from '@config/site';
 
     <section class="records-moments container">
       <h2>When it matters</h2>
-      <div>
+      <div class="records-moments__grid">
         <article>
           <h3>An unexpected vet visit</h3>
           <p>
@@ -77,6 +81,9 @@ import { routes } from '@config/site';
           </p>
         </article>
       </div>
+      <div class="records-moments__cta">
+        <ButtonLink href={routes.waitlist}>Join</ButtonLink>
+      </div>
     </section>
   </article>
 </BaseLayout>
@@ -91,14 +98,26 @@ import { routes } from '@config/site';
     width: min(calc(100% - 2 * var(--space-10)), 68.75rem);
   }
 
+  .records-lead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 26rem;
+    align-items: center;
+    gap: 3rem 5rem;
+    padding-block: 5.5rem 3rem;
+  }
+
   .records-page__hero {
-    padding-block: 5.5rem 4.5rem;
+    min-width: 0;
+  }
+
+  .records-title__mobile {
+    display: none;
   }
 
   .records-page__hero h1 {
-    max-width: 18ch;
+    max-width: 16ch;
     margin-top: 1.5rem;
-    font-size: clamp(3.5rem, 5.25vw, 4.75rem);
+    font-size: clamp(3.25rem, 4.5vw, 4.25rem);
     line-height: 1.03;
     text-wrap: balance;
   }
@@ -111,35 +130,27 @@ import { routes } from '@config/site';
     line-height: 1.65;
   }
 
-  .records-share {
-    display: grid;
-    grid-template-columns: minmax(0, .85fr) minmax(24rem, 1fr);
-    align-items: center;
-    gap: 7rem;
-    padding-block: 1.25rem 5rem;
+  .records-share__copy {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
 
-  .records-share__copy h2 {
-    max-width: 18ch;
-    margin-top: 1.5rem;
-    font-size: clamp(2.3rem, 3.3vw, 3.25rem);
-    line-height: 1.08;
-    text-wrap: balance;
+  .records-share__copy > .eyebrow,
+  .records-share__copy > h2 {
+    display: none;
   }
 
   .records-share__copy > p:not(.eyebrow) {
-    max-width: 46ch;
-    margin-top: 1.5rem;
+    max-width: none;
+    margin-top: 0;
     color: #273a33;
     line-height: 1.65;
   }
 
-  .records-share__copy :global(.button-link) {
-    margin-top: 2.5rem;
-  }
-
   .share-card {
     position: relative;
+    grid-column: 2;
+    grid-row: 1;
     padding: 2.25rem 2.25rem 1.75rem;
     border: 1px solid #d8ddd9;
     border-radius: 1rem;
@@ -217,7 +228,7 @@ import { routes } from '@config/site';
     font-size: 2rem;
   }
 
-  .records-moments > div {
+  .records-moments__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
@@ -243,13 +254,20 @@ import { routes } from '@config/site';
     line-height: 1.6;
   }
 
+  .records-moments__cta {
+    margin-top: 4rem;
+    text-align: center;
+  }
+
   @media (max-width: 63.99rem) {
-    .records-share {
+    .records-lead {
       grid-template-columns: 1fr;
       gap: 3.5rem;
     }
 
     .share-card {
+      grid-column: 1;
+      grid-row: auto;
       width: min(100%, 32rem);
     }
   }
@@ -259,8 +277,23 @@ import { routes } from '@config/site';
       width: min(calc(100% - 2 * var(--space-5)), 68.75rem);
     }
 
+    .records-lead {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-block: 0 4rem;
+    }
+
     .records-page__hero {
       padding-block: 4rem 3.5rem;
+    }
+
+    .records-title__desktop {
+      display: none;
+    }
+
+    .records-title__mobile {
+      display: block;
     }
 
     .records-page__hero h1 {
@@ -274,9 +307,14 @@ import { routes } from '@config/site';
       font-size: 1rem;
     }
 
-    .records-share {
-      gap: 3rem;
-      padding-block: 1rem 4rem;
+    .records-share__copy {
+      display: block;
+      padding-block: 1rem 3rem;
+    }
+
+    .records-share__copy > .eyebrow,
+    .records-share__copy > h2 {
+      display: block;
     }
 
     .records-share__copy h2 {
@@ -318,7 +356,7 @@ import { routes } from '@config/site';
       padding-block: 2.5rem 4rem;
     }
 
-    .records-moments > div {
+    .records-moments__grid {
       grid-template-columns: 1fr;
       gap: 1rem;
       margin-top: 1.5rem;
@@ -327,6 +365,10 @@ import { routes } from '@config/site';
     .records-moments article {
       min-height: 0;
       padding: 1.5rem;
+    }
+
+    .records-moments__cta {
+      margin-top: 2.5rem;
     }
   }
 </style>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ButtonLink from '@components/ButtonLink.astro';
+import BackToWhy from '@components/BackToWhy.astro';
 import { routes } from '@config/site';
 
 const comparisonRows = [
@@ -41,6 +42,7 @@ const comparisonRows = [
   <div class="sources-page">
     <section class="sources-hero sources-wrap">
       <div class="sources-inner">
+        <BackToWhy />
         <p class="eyebrow">Not all answers are built the same.</p>
         <h1>The BarkLens <em>Standard.</em></h1>
         <p class="sources-hero__desktop-copy">
@@ -427,6 +429,10 @@ const comparisonRows = [
     }
 
     .sources-hero .eyebrow {
+      color: var(--color-mint-500);
+    }
+
+    .sources-hero :global(.back-to-why) {
       color: var(--color-mint-500);
     }
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ButtonLink from '@components/ButtonLink.astro';
+import BackToWhy from '@components/BackToWhy.astro';
 import { routes } from '@config/site';
 
 const careTasks = [
@@ -23,6 +24,7 @@ const careTasks = [
     <div class="care-page__content container">
       <div class="care-page__left">
         <div class="care-page__heading">
+          <BackToWhy />
           <p class="eyebrow">03 · Care team</p>
           <h1>You’re not the only one <em>who takes care of them</em></h1>
         </div>
