@@ -126,49 +126,49 @@ export const whyItems = [
 export const conditions = [
   {
     title: 'Kidney disease',
-    clue: 'Thirst, appetite, and the next draw.',
+    clue: 'Creatinine, SDMA, water intake, appetite',
     tag: 'Labs',
     href: routes.kidney
   },
   {
     title: 'Liver disease',
-    clue: 'The labs beside the medication that’s staying on the list.',
+    clue: 'ALT, ALP, recheck timing, medications',
     tag: 'Labs · meds',
     href: routes.liver
   },
   {
     title: 'Pancreatitis',
-    clue: 'Food, treats, and what to watch after a flare.',
+    clue: 'Fat content, food changes, recovery after a flare',
     tag: 'Food · labs',
     href: routes.pancreatitis
   },
   {
     title: 'Cushing’s disease',
-    clue: 'Thirst, panting, appetite — the pattern between visits.',
+    clue: 'Water intake, panting, cortisol testing',
     tag: 'Daily notes',
     href: routes.cushings
   },
   {
     title: 'Diabetes',
-    clue: 'The daily log next to the labs.',
+    clue: 'Glucose curves, meals, insulin timing',
     tag: 'Labs · food',
     href: routes.diabetes
   },
   {
     title: 'Thyroid',
-    clue: 'Coat, weight, energy, and the bloodwork beside them.',
+    clue: 'T4, post-pill timing, weight, coat',
     tag: 'Labs · notes',
     href: routes.thyroid
   },
   {
     title: 'Heart disease',
-    clue: 'Breathing at rest. The medications kept straight.',
+    clue: 'Resting respiratory rate, medications, weight',
     tag: 'Notes · meds',
     href: routes.heart
   },
   {
     title: 'Arthritis',
-    clue: 'Stiff mornings, and the labs that go with the pain meds.',
+    clue: 'Mobility, pain medications, kidney and liver labs',
     tag: 'Notes · meds',
     href: routes.arthritis
   }
