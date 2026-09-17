@@ -7,6 +7,7 @@ const siteUrl = '/';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Private responsive review page for the BarkLens website." />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="theme-color" content="#0f1f1a" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -43,6 +44,7 @@ const siteUrl = '/';
       }
 
       .review-brand {
+        margin: 0;
         letter-spacing: 0.17em;
         font-size: 0.75rem;
         font-weight: 800;
@@ -145,7 +147,7 @@ const siteUrl = '/';
   </head>
   <body data-view="mobile">
     <header class="review-toolbar">
-      <div class="review-brand">BARKLENS REVIEW</div>
+      <h1 class="review-brand">BARKLENS REVIEW</h1>
       <div class="review-controls" aria-label="Preview size">
         <button type="button" data-view-button="mobile" aria-pressed="true">Mobile</button>
         <button type="button" data-view-button="desktop" aria-pressed="false">Desktop</button>
