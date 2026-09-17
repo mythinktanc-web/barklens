@@ -1,0 +1,34 @@
+name: Site quality
+
+on:
+  pull_request:
+    branches:
+      - main
+      - desktop-homepage-preview
+  push:
+    branches:
+      - main
+      - desktop-homepage-preview
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: marketing-site
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: marketing-site/package-lock.json
+
+      - name: Install exact dependencies
+        run: npm ci
+
+      - name: Run the complete launch gate
+        run: npm run test:launch

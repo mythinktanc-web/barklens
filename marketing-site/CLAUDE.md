@@ -104,6 +104,14 @@ site. Preserve the existing:
 - Waitlist integration
 - Vercel configuration
 
+The approved typography contract is machine-enforced. Do not modify
+`scripts/design-contract.json`, the three files under `public/fonts/`,
+`src/styles/tokens.css`, or the heading-family rules in `src/styles/global.css`
+unless Ben explicitly approves a typography-system change. DM Serif Display
+weight 400 is the only headline face. Never apply 500, 600, 700, 800, `bold`,
+or a synthetic weight to an `h1`, `h2`, or `h3`. Inter carries body copy,
+eyebrows, labels, navigation, buttons, and interface text.
+
 ## Design Work Claude May Perform
 
 Unless Ben gives broader permission, Claude Design may change:
@@ -235,8 +243,7 @@ Use Node.js 22.12 or newer from the `marketing-site` directory.
 
 ```bash
 npm install
-npm run check
-npm run build
+npm run test:launch
 ```
 
 For any change that touches the waitlist or server code, stop and return the
@@ -259,6 +266,15 @@ Verify that:
 - Buttons and interactive elements remain usable.
 - `npm run check` passes.
 - `npm run build` passes.
+- `npm run audit:design` passes.
+- `npm run test:launch` passes. This is the required handoff gate, not an
+  optional check.
+
+Vercel runs `npm run test:launch` before every deployment. A design change that
+fails type checking, waitlist tests, route/link/metadata checks, claim-language
+checks, indexing-mode checks, or the typography contract must not be handed off
+as complete. Do not bypass, weaken, delete, or replace these checks to make a
+change pass.
 
 ## How to Give Changes to Perplexity Computer
 

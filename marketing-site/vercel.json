@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
+  "buildCommand": "npm run test:launch",
   "functions": {
     "api/*.mjs": {
       "maxDuration": 30

@@ -4,6 +4,10 @@ import path from 'node:path';
 const root = path.resolve('dist');
 const failures = [];
 const descriptions = new Map();
+const productionIndexing = (
+  process.env.VERCEL_ENV === 'production' ||
+  process.env.PUBLIC_SITE_NOINDEX === 'false'
+);
 const prohibited = [
   'ai-powered',
   'health companion',
@@ -71,8 +75,15 @@ for (const file of htmlFiles) {
 }
 
 const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
-if (!robots.includes('Disallow: /')) {
-  failures.push('robots.txt: prelaunch build must disallow crawling');
+if (productionIndexing) {
+  if (robots.includes('Disallow: /') || !robots.includes('Allow: /')) {
+    failures.push('robots.txt: production build must allow crawling');
+  }
+  if (!robots.includes('Sitemap: https://barklens.com/sitemap-index.xml')) {
+    failures.push('robots.txt: production build must name the sitemap');
+  }
+} else if (!robots.includes('Disallow: /')) {
+  failures.push('robots.txt: preview build must disallow crawling');
 }
 if (!fs.existsSync(path.join(root, 'sitemap-index.xml'))) {
   failures.push('missing sitemap-index.xml');
@@ -88,5 +99,5 @@ console.log(JSON.stringify({
   uniqueDescriptions: descriptions.size,
   brokenInternalTargets: 0,
   prohibitedPhrases: 0,
-  prelaunchNoindex: true
+  indexingMode: productionIndexing ? 'production-allowed' : 'preview-blocked'
 }, null, 2));

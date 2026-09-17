@@ -14,8 +14,8 @@ progress.
 
 ```text
 npm install
-npm run check
-npm run build
+npm run test:launch
+npm run audit:design
 npm run preview:bundle
 npm run dev
 ```
@@ -75,7 +75,12 @@ Phase 11 work.
 ## Production launch preparation
 
 - `npm run test:launch` runs type checks, waitlist and serverless API tests,
-  the production build, and the complete metadata/link/claim audit.
+  the production build, the complete metadata/link/claim audit, and the
+  machine-enforced typography contract.
+- The approved font files, headline family and weight, and mobile type scale
+  are pinned in `scripts/design-contract.json`.
+- Vercel runs the complete launch gate before deployment. GitHub runs the same
+  gate on pushes and pull requests to `main` and `desktop-homepage-preview`.
 - Vercel configuration lives in `vercel.json`.
 - Production Mailgun calls use `MAILGUN_API_KEY` with the US-region
   `MAILGUN_API_BASE`.

@@ -13,7 +13,8 @@
     "legal:build": "node scripts/build-approved-legal.mjs",
     "build": "astro build",
     "audit:build": "node scripts/audit-build.mjs",
-    "test:launch": "npm run check && npm run test:waitlist && npm run build && npm run audit:build",
+    "audit:design": "node scripts/audit-design-contract.mjs",
+    "test:launch": "npm run check && npm run test:waitlist && npm run build && npm run audit:build && npm run audit:design",
     "preview:bundle": "node scripts/prepare-preview.mjs",
     "preview": "astro preview",
     "check": "astro check"
