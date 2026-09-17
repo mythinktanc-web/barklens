@@ -125,9 +125,9 @@ const articleSchema = {
 
     </div>
 
-    <section class="condition-cta">
+    <section class:list={['condition-cta', !page.cta && 'condition-cta--button-only']}>
       <div class="container">
-        <h2>{page.cta}</h2>
+        {page.cta && <h2>{page.cta}</h2>}
         <ButtonLink href={routes.waitlist} variant="light">Join</ButtonLink>
       </div>
     </section>
@@ -370,6 +370,10 @@ const articleSchema = {
 
   .condition-cta :global(.button-link) {
     margin-top: var(--space-8);
+  }
+
+  .condition-cta--button-only :global(.button-link) {
+    margin-top: 0;
   }
 
   @media (max-width: 47.99rem) {

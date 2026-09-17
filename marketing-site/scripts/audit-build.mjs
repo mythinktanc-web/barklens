@@ -17,7 +17,8 @@ const prohibited = [
   'ai dog health tracker',
   'gmail',
   'start your dog’s chart',
-  "start your dog's chart"
+  "start your dog's chart",
+  'your dog’s kidney history, read as one story'
 ];
 const legalDraftArtifacts = [
   'counsel confirm',

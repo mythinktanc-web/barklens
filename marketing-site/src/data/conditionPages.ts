@@ -26,7 +26,7 @@ export interface ConditionPageData {
   questions: string[];
   sharing: string[];
   sources: ConditionSource[];
-  cta: string;
+  cta?: string;
   urgent?: string;
 }
 
@@ -96,7 +96,6 @@ export const conditionPages: ConditionPageData[] = [
       { label: 'IRIS staging guidelines', url: 'https://www.iris-kidney.com/s/IRIS_staging_guidelines-2026.pdf' },
       { label: 'ACVIM consensus statement', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6271319/' }
     ],
-    cta: 'Your dog’s kidney history, read as one story.'
   },
   {
     slug: 'liver-disease',
