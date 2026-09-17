@@ -58,7 +58,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   .story-page__signature { color: var(--color-copy) !important; font-family: var(--font-display); font-size: var(--text-xl); }
   .story-page__signature small { color: var(--color-copy-muted); font-family: var(--font-body); font-size: var(--text-sm); }
   .story-page aside { position: sticky; top: calc(var(--header-height) + var(--space-6)); }
-  .story-page aside img { width: 100%; border-radius: var(--radius-xl); }
+  .story-page aside img { width: 100%; height: auto; aspect-ratio: 912 / 1378; border-radius: var(--radius-xl); }
   .story-page blockquote { margin-top: var(--space-6); font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.4; }
   @media (max-width: 63.99rem) { .story-page__body { grid-template-columns: 1fr; } .story-page aside { position: static; max-width: 28rem; } }
 </style>
