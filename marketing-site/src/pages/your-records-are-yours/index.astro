@@ -5,46 +5,47 @@ import { routes } from '@config/site';
 ---
 
 <BaseLayout
-  title="Your Records Are Yours — BarkLens"
-  description="Export everything anytime, including after you cancel. No chart expires. Nothing you add sits behind a paywall."
+  title="Share Your Dog’s Health History — BarkLens"
+  description="Share one link or QR code so a veterinarian, specialist, sitter, or family member can see your dog’s history."
   canonicalPath="/your-records-are-yours/"
 >
   <article class="records-page">
     <header class="container">
-      <p class="eyebrow">Your records</p>
-      <h1>Your records are yours.</h1>
-      <p>Export everything anytime, including after you cancel. No chart expires. Nothing you add sits behind a paywall.</p>
+      <p class="eyebrow">Share the history</p>
+      <h1>The next person to see your dog shouldn’t start from zero.</h1>
+      <p>Every BarkLens account has a share link and a QR code. Send it before you drive over. Show it at the desk. Whoever is standing there can see the history.</p>
     </header>
     <div class="records-page__grid container">
       <div>
         <section>
-          <h2>Why this needs to be a promise</h2>
-          <p>Owners have watched apps shut down and take years of information with them. Clinic portals can hold history without making it easy for an owner to organize, annotate, or carry it elsewhere.</p>
-          <p>So BarkLens is specific rather than reassuring.</p>
+          <h2>How you hand it off</h2>
+          <p>Show the QR on your phone.</p>
+          <p>Or send the URL.</p>
+          <p>You choose who can open it.</p>
         </section>
-        <section>
-          <h2>What that means concretely</h2>
-          <ul>
-            <li>Export the records at any time in a format you can open and bring to a veterinarian.</li>
-            <li>Canceling does not remove the chart. Records and export remain available.</li>
-            <li>Charts do not expire after a year, a subscription lapse, or a dog’s death.</li>
-            <li>Owner-added records are not removed to sell an upgrade.</li>
-          </ul>
-        </section>
-        <section>
-          <h2>What you add</h2>
-          <p>BarkLens reads only the records you choose to add.</p>
-          <p>The laboratory report, visit summary, and values stay tied to the original record.</p>
-          <p><strong>Nothing is added silently.</strong> You review each record before it becomes part of your dog’s chart.</p>
-        </section>
-        <section>
-          <h2>Your data is not the product</h2>
-          <p>Your dog’s health records are not sold, including in aggregate. Membership is the business model.</p>
+        <section class="records-page__moments">
+          <h2>When it matters</h2>
+          <article>
+            <h3>The ER at night</h3>
+            <p>There is no folder in the car. Open the QR at intake. They can see current medications, recent labs, and the rest of the history while you explain what happened tonight.</p>
+          </article>
+          <article>
+            <h3>A specialist on Thursday</h3>
+            <p>Send the link before you leave the house. They can read the last two years instead of starting from the clipboard in the lobby.</p>
+          </article>
+          <article>
+            <h3>Someone else is at the appointment</h3>
+            <p>A partner. A sitter. Family. Boarding. They already have the link. They don’t have to text you for the medication name.</p>
+          </article>
+          <article>
+            <h3>A new clinic. A move. A second opinion.</h3>
+            <p>The history does not live in the last portal. It goes with you.</p>
+          </article>
         </section>
       </div>
       <aside>
-        <p class="eyebrow">The promise</p>
-        <blockquote>Keep the record. Keep the history. Take it with you.</blockquote>
+        <p class="eyebrow">The share</p>
+        <blockquote>Show the QR.<br />Send the link.<br />They’re already oriented.</blockquote>
         <ButtonLink href={routes.waitlist} variant="mint">Join Waitlist</ButtonLink>
       </aside>
     </div>
@@ -59,9 +60,10 @@ import { routes } from '@config/site';
   .records-page__grid > div { max-width: var(--content-narrow); }
   .records-page section + section { margin-top: var(--space-12); padding-top: var(--space-12); border-top: 1px solid var(--color-border); }
   .records-page h2 { font-size: var(--text-xl); }
+  .records-page h3 { margin-top: var(--space-8); font-size: var(--text-lg); }
   .records-page section p { margin-top: var(--space-5); color: var(--color-copy-muted); }
-  .records-page ul { display: grid; gap: var(--space-4); margin-top: var(--space-6); padding-left: var(--space-6); }
-  .records-page li::marker { color: var(--color-green-600); }
+  .records-page__moments article + article { margin-top: var(--space-10); padding-top: var(--space-10); border-top: 1px solid var(--color-border); }
+  .records-page__moments article p { margin-top: var(--space-4); }
   .records-page aside { position: sticky; top: calc(var(--header-height) + var(--space-6)); padding: var(--space-8); border-radius: var(--radius-xl); background: var(--color-forest-900); color: var(--color-copy-inverse); }
   .records-page aside .eyebrow { color: var(--color-mint-400); }
   .records-page blockquote { margin-top: var(--space-5); font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.35; }
