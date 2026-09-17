@@ -24,14 +24,12 @@ import BaseLayout from '@layouts/BaseLayout.astro';
         <p class="eyebrow">Our story</p>
         <h2>For Charlie</h2>
         <p>When I met Charlie, I didn’t realize how much he would shape my life. He wasn’t just a pet. He was my constant, my teacher in patience and responsibility, and the one who quietly raised the bar for how deeply you can show up for another being.</p>
-        <h3>Sixteen and a half years</h3>
         <p>Charlie was a rescue with a complicated medical history from the start. Over sixteen and a half years, we navigated chronic conditions, sudden flare-ups, and long stretches of uncertainty.</p>
         <p>I learned how to show up as a true advocate in his care. I paid close attention. I learned what was easy to miss. I worked alongside his veterinary team so he could keep living a full, joyful life.</p>
         <p>It was hard staying on top of everything. I wished I had more help before and after his vet appointments. Something that could help me be a better advocate on Charlie’s behalf — so I could remember everything, know exactly what had changed, understand why it mattered, and feel more informed when the vet was creating his care plan. BarkLens is the thing I wished for in every waiting room of those sixteen and a half years.</p>
-        <h3>Why BarkLens exists</h3>
         <p>Until recently, this couldn’t be built: a partner that knows your dog’s history, helps you notice what is easy to overlook, and explains it from published veterinary sources.</p>
         <p>I wish I had had this for Charlie. I’m building it so you have it for yours.</p>
-        <p class="story-page__signature">Ben<br /><small>Charlie’s dad · Founder, BarkLens</small></p>
+        <p class="story-page__signature">Ben Singer<br /><span>Charlie’s Dad - BarkLens Founder</span></p>
       </div>
       <aside>
         <img src="/images/support/charlie-1.webp" alt="Ben holding Charlie in a studio portrait" width="912" height="1378" loading="lazy" />
@@ -54,8 +52,8 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   .story-page h2 { margin-top: var(--space-5); font-size: var(--text-2xl); }
   .story-page h3 { margin-top: var(--space-12); font-size: var(--text-xl); }
   .story-page__body > div > p:not(.eyebrow) { margin-top: var(--space-5); color: var(--color-copy-muted); }
-  .story-page__signature { color: var(--color-copy) !important; font-family: var(--font-display); font-size: var(--text-xl); }
-  .story-page__signature small { color: var(--color-copy-muted); font-family: var(--font-body); font-size: var(--text-sm); }
+  .story-page__signature { color: var(--color-copy) !important; font-family: var(--font-body); font-size: var(--text-base); font-weight: 400; line-height: 1.6; }
+  .story-page__signature span { color: var(--color-copy-muted); }
   .story-page aside { position: sticky; top: calc(var(--header-height) + var(--space-6)); }
   .story-page aside img { width: 100%; height: auto; aspect-ratio: 912 / 1378; border-radius: var(--radius-xl); }
   .story-page blockquote { margin-top: var(--space-6); font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.4; }
