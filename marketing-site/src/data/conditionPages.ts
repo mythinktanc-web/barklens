@@ -236,7 +236,8 @@ export const conditionPages: ConditionPageData[] = [
     subject: 'Cushing’s disease in dogs',
     description: 'A high ALP alone isn’t Cushing’s — and steroid drops can invalidate the test. What to track, and when to test.',
     image: '/images/conditions/cushings-disease.webp',
-    imageAlt: 'A senior dog standing beside its owner in a quiet field',
+    mobileImage: '/images/conditions/mobile/cushings-disease.webp',
+    imageAlt: 'A dog walking beside its owner outdoors',
     heroDescription:
       'The diagnosis does not replace the timeline that led to it or the record that follows. BarkLens reads laboratory results, dedicated testing, medications, water intake, urination, appetite, panting, skin, coat, weight, and other conditions together, then explains what published veterinary sources say veterinarians commonly consider.',
     opening: [
