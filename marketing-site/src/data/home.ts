@@ -126,49 +126,49 @@ export const whyItems = [
 export const conditions = [
   {
     title: 'Kidney disease',
-    clue: 'BUN and creatinine drifting across draws; more water in, more water out.',
+    clue: 'Thirst, appetite, and the next draw.',
     tag: 'Labs',
     href: routes.kidney
   },
   {
     title: 'Liver disease',
-    clue: 'ALT or ALP changing while a long-term medication sits on the list.',
+    clue: 'The labs beside the medication that’s staying on the list.',
     tag: 'Labs · meds',
     href: routes.liver
   },
   {
     title: 'Pancreatitis',
-    clue: 'Lipase, food labels, and the treats that were easy to forget.',
+    clue: 'Food, treats, and what to watch after a flare.',
     tag: 'Food · labs',
     href: routes.pancreatitis
   },
   {
     title: 'Cushing’s disease',
-    clue: 'Thirst, panting, and appetite logged over months, not days.',
+    clue: 'Thirst, panting, appetite — the pattern between visits.',
     tag: 'Daily notes',
     href: routes.cushings
   },
   {
     title: 'Diabetes',
-    clue: 'Glucose and fructosamine beside the owner’s daily log.',
+    clue: 'The daily log next to the labs.',
     tag: 'Labs · food',
     href: routes.diabetes
   },
   {
     title: 'Thyroid',
-    clue: 'T4 beside coat and weight changes the owner recorded.',
+    clue: 'Coat, weight, energy, and the bloodwork beside them.',
     tag: 'Labs · notes',
     href: routes.thyroid
   },
   {
     title: 'Heart disease',
-    clue: 'Sleeping breaths counted and several medications kept straight.',
+    clue: 'Breathing at rest. The medications kept straight.',
     tag: 'Notes · meds',
     href: routes.heart
   },
   {
     title: 'Arthritis',
-    clue: 'Stiff mornings recorded beside NSAID laboratory work.',
+    clue: 'Stiff mornings, and the labs that go with the pain meds.',
     tag: 'Notes · meds',
     href: routes.arthritis
   }

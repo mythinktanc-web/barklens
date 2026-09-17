@@ -269,13 +269,14 @@ const mobileWhyItems = [
 
 <section class="conditions section" id="conditions">
   <div class="container">
-    <p class="section-label">In plain English</p>
+    <p class="section-label">After diagnosis</p>
     <div class="conditions__intro">
-      <h2>Chronic conditions leave a trail in the chart first.</h2>
+      <h2>A diagnosis is not the whole story.</h2>
       <div>
         <p>
-          A laboratory value changing. A new medication. Something you noticed and wrote down.
-          BarkLens keeps each in the same timeline.
+          You don’t have to become a veterinarian overnight. BarkLens helps you understand the
+          condition, the labs, the medication, and what to watch between visits — so you can manage
+          care from knowledge, not from panic.
         </p>
         <a href={routes.conditions}>Read the conditions guide →</a>
       </div>
@@ -438,7 +439,7 @@ const mobileWhyItems = [
   .closer__content, .trends__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(28rem, .9fr); align-items: center; gap: var(--space-16); }
   .closer__intro h2, .trends h2 { max-width: 18ch; margin-top: var(--space-5); font-size: var(--text-2xl); }
   .closer__intro h2 em, .trends h2 em { display: block; color: var(--color-mint-400); font-weight: 400; }
-  .closer__intro > p:not(.section-label), .trends__grid > div > p { margin-top: var(--space-6); font-size: var(--text-lg); }
+  .closer__intro > p:not(.section-label), .trends__grid > div > p:not(.section-label) { margin-top: var(--space-6); font-size: var(--text-lg); }
   .closer__desktop-answer { max-width: 38ch; }
   .closer__mobile-title { display: none; }
   .closer__mobile-copy { display: none; }
