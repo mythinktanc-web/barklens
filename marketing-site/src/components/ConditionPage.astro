@@ -41,7 +41,7 @@ const articleSchema = {
   type="article"
   structuredData={articleSchema}
 >
-  <article class="condition-page">
+  <article class="condition-page" data-condition={page.slug}>
     <header class="condition-hero">
       <img src={page.image} alt={page.imageAlt} width="2200" height="1400" fetchpriority="high" />
       <div class="condition-hero__shade"></div>
@@ -381,6 +381,15 @@ const articleSchema = {
     .condition-hero__content > p {
       font-size: 1rem;
     }
+
+    .condition-page[data-condition='kidney-disease'] .condition-hero > img { object-position: 76% center; }
+    .condition-page[data-condition='liver-disease'] .condition-hero > img { object-position: 35% center; }
+    .condition-page[data-condition='pancreatitis'] .condition-hero > img { object-position: 64% center; transform: scale(1.25) translateY(-10%); }
+    .condition-page[data-condition='cushings-disease'] .condition-hero > img { object-position: 52% center; }
+    .condition-page[data-condition='diabetes'] .condition-hero > img { object-position: 70% center; }
+    .condition-page[data-condition='thyroid'] .condition-hero > img { object-position: 62% center; transform: scale(1.25) translateY(-10%); }
+    .condition-page[data-condition='heart-disease'] .condition-hero > img { object-position: 25% center; transform: scale(1.25) translateY(-12%); }
+    .condition-page[data-condition='arthritis'] .condition-hero > img { object-position: 47% center; transform: scale(1.35) translateY(-10%); }
 
     .condition-layout {
       padding-block: var(--space-12);
