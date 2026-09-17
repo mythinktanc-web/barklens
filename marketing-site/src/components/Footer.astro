@@ -20,7 +20,7 @@ const { compact = false, hideOnMobile = false } = Astro.props;
         </p>
       )}
       <p>
-        BarkLens doesn’t diagnose. Your vet does.<br />
+        <span class="site-footer__boundary">BarkLens doesn’t diagnose. Your vet does.</span><br />
         <a href={routes.terms}>Not veterinary advice — see Terms.</a>
       </p>
     </div>
@@ -85,6 +85,10 @@ const { compact = false, hideOnMobile = false } = Astro.props;
     color: inherit;
     text-decoration: underline;
     text-underline-offset: .2rem;
+  }
+
+  .site-footer__boundary {
+    white-space: nowrap;
   }
 
   .site-footer nav {
