@@ -619,6 +619,67 @@ const mobileWhyItems = [
   .closing :global(.button-link) { margin-top: var(--space-6); }
   .closing small { margin-top: var(--space-3); color: #d8cfc0; }
 
+  @media (min-width: 64rem) {
+    .how {
+      padding-block: 7rem;
+      background: #fff;
+    }
+
+    .how > .container {
+      width: min(calc(100% - 8rem), 78rem);
+    }
+
+    .how__grid {
+      gap: 0;
+      margin-top: 3.5rem;
+    }
+
+    .how__step {
+      min-width: 0;
+      padding-inline: 2.5rem;
+    }
+
+    .how__step:first-child {
+      padding-left: 0;
+    }
+
+    .how__step:last-child {
+      padding-right: 0;
+    }
+
+    .how__step + .how__step {
+      border-left: 1px solid var(--color-border);
+    }
+
+    .how__step picture {
+      height: 23.5rem;
+      aspect-ratio: auto;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .how__step img {
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+
+    .how__step .number-label {
+      margin-top: var(--space-5);
+    }
+
+    .how__step h2 {
+      margin-top: var(--space-3);
+      font-size: 1.45rem;
+      line-height: 1.2;
+    }
+
+    .how__step > p:last-child {
+      margin-top: var(--space-3);
+      font-size: .975rem;
+      line-height: 1.55;
+    }
+  }
+
   @media (max-width: 63.99rem) {
     .how__grid, .conditions__grid { grid-template-columns: repeat(2, 1fr); }
     .closer__content, .trends__grid, .capture__grid, .faq__inner { grid-template-columns: 1fr; }
