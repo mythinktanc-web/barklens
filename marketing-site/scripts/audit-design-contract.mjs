@@ -78,6 +78,21 @@ for (const file of sourceFiles) {
   }
 }
 
+const homeSections = fs.readFileSync(
+  path.join(root, 'src/components/HomeSections.astro'),
+  'utf8'
+);
+for (const declaration of [
+  '.how .section-label,\n    .closer .section-label',
+  'font-size: 1rem !important',
+  'letter-spacing: .18em',
+  'line-height: 1.2'
+]) {
+  if (!homeSections.includes(declaration)) {
+    fail(`HomeSections.astro: How It Works and Connect Their Dots title lock is missing ${declaration}`);
+  }
+}
+
 if (failures.length) {
   console.error(failures.join('\n'));
   process.exit(1);
