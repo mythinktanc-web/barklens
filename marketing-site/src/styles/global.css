@@ -88,6 +88,7 @@ h2,
 h3 {
   font-family: var(--font-display);
   font-weight: 400;
+  font-synthesis: none;
   line-height: 1.08;
   text-wrap: balance;
 }
