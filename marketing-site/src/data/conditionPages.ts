@@ -26,7 +26,6 @@ export interface ConditionPageData {
   questions: string[];
   sharing: string[];
   sources: ConditionSource[];
-  cta?: string;
   urgent?: string;
 }
 
@@ -161,7 +160,6 @@ export const conditionPages: ConditionPageData[] = [
       { label: 'Cornell eClinPath, creatine kinase', url: 'https://eclinpath.com/chemistry/muscle/creatine-kinase/' },
       { label: 'Cornell eClinPath, bilirubin', url: 'https://eclinpath.com/chemistry/liver/cholestasis/bilirubin/' }
     ],
-    cta: 'Put every liver result beside what happened around it.'
   },
   {
     slug: 'pancreatitis',
@@ -226,7 +224,6 @@ export const conditionPages: ConditionPageData[] = [
       { label: 'Merck Veterinary Manual, pancreatitis', url: 'https://www.merckvetmanual.com/digestive-system/the-exocrine-pancreas/pancreatitis-in-dogs-and-cats' },
       { label: 'Merck Veterinary Manual, diabetes mellitus', url: 'https://www.merckvetmanual.com/endocrine-system/the-pancreas/diabetes-mellitus-in-dogs-and-cats' }
     ],
-    cta: 'Keep the whole episode, not only the final report.'
   },
   {
     slug: 'cushings-disease',
@@ -292,7 +289,6 @@ export const conditionPages: ConditionPageData[] = [
       { label: 'Cornell eClinPath, glucose', url: 'https://eclinpath.com/chemistry/energy-metabolism/glucose/' },
       { label: 'Merck Veterinary Manual, Cushing disease', url: 'https://www.merckvetmanual.com/endocrine-system/the-pituitary-gland/cushing-disease-pituitary-dependent-hyperadrenocorticism-in-animals' }
     ],
-    cta: 'Keep the testing, treatment history, and daily record connected.'
   },
   {
     slug: 'diabetes',
@@ -360,7 +356,6 @@ export const conditionPages: ConditionPageData[] = [
       { label: 'Cornell eClinPath, fructosamine', url: 'https://eclinpath.com/chemistry/energy-metabolism/fructosamine/' },
       { label: 'Cornell eClinPath, urinalysis', url: 'https://eclinpath.com/urinalysis/chemical-constituents/' }
     ],
-    cta: 'One shared history for every meal, result, and confirmed medication event.',
     urgent: 'If you believe your dog may be experiencing a medical emergency, do not wait for BarkLens. Contact a veterinarian or emergency clinic now.'
   },
   {
@@ -427,7 +422,6 @@ export const conditionPages: ConditionPageData[] = [
       { label: 'Cornell Animal Health Diagnostic Center, thyroid testing', url: 'https://www.vet.cornell.edu/animal-health-diagnostic-center/testing/testing-protocols-interpretations/thyroid-testing-interpretation' },
       { label: 'Cornell eClinPath, cholesterol', url: 'https://eclinpath.com/chemistry/energy-metabolism/cholesterol/' }
     ],
-    cta: 'Keep every thyroid result beside the timing that gives it context.'
   },
   {
     slug: 'heart-disease',
@@ -493,7 +487,6 @@ export const conditionPages: ConditionPageData[] = [
       { label: 'Merck Veterinary Manual, heart failure in dogs', url: 'https://www.merckvetmanual.com/dog-owners/heart-and-blood-vessel-disorders-of-dogs/heart-failure-in-dogs' },
       { label: 'Salix label, DailyMed', url: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9ad8eb8a-7c65-4746-9c03-1d6136b5892c' }
     ],
-    cta: 'Bring the imaging, medications, laboratory work, and home record together.',
     urgent: 'If you believe your dog is having a breathing or other medical emergency, contact a veterinarian or emergency clinic now.'
   },
   {
@@ -562,7 +555,6 @@ export const conditionPages: ConditionPageData[] = [
       { label: 'COAST consensus recommendations', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10436090/' },
       { label: 'Merck, when to see a veterinarian', url: 'https://www.merckvetmanual.com/multimedia/table/when-to-see-a-veterinarian' }
     ],
-    cta: 'Turn the moments you notice into a history you can show.'
   }
 ];
 

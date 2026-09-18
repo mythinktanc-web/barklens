@@ -156,6 +156,15 @@ for (const file of htmlFiles) {
     }
   }
 
+  if (/^conditions\/[^/]+\/index\.html$/.test(relative)) {
+    const conditionCta = html.match(
+      /<section class="condition-cta[^"]*"[^>]*>([\s\S]*?)<\/section>/
+    )?.[1];
+    if (!conditionCta || /<h2\b/.test(conditionCta)) {
+      failures.push(`${relative}: condition CTA must contain only the approved Join action`);
+    }
+  }
+
   for (const match of html.matchAll(/<a\b[^>]*href="\/waitlist\/"[^>]*>([\s\S]*?)<\/a>/g)) {
     const label = decodeHtmlEntities(match[1].replace(/<[^>]+>/g, '').trim());
     if (label !== 'Join') {

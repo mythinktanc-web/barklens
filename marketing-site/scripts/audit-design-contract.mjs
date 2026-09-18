@@ -111,7 +111,10 @@ for (const declaration of [
   '.how .section-label,\n    .closer .section-label',
   'font-size: 1rem !important',
   'letter-spacing: .18em',
-  'line-height: 1.2'
+  'line-height: 1.2',
+  '.conditions__intro {\n      grid-column: 1;\n      grid-row: 1;\n      margin-top: 3.5rem;',
+  '.conditions__intro h2 {\n      max-width: 17ch;\n      font-size: 2rem !important;',
+  '.conditions__intro h2 em {\n      display: block;\n      color: var(--color-green-600);'
 ]) {
   if (!homeSections.includes(declaration)) {
     fail(`HomeSections.astro: How It Works and Connect Their Dots title lock is missing ${declaration}`);

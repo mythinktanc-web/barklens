@@ -274,7 +274,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   <div class="container">
     <p class="section-label">After a Diagnosis</p>
     <div class="conditions__intro">
-      <h2>A diagnosis is not the whole story.</h2>
+      <h2>A diagnosis is not <em>the whole story.</em></h2>
       <div>
         <p>
           You don’t have to become a veterinarian overnight. BarkLens helps you understand the
@@ -720,6 +720,46 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   .closing small { margin-top: var(--space-3); color: var(--color-copy-muted); }
 
   @media (min-width: 64rem) {
+    .conditions > .container > .section-label {
+      grid-column: 1;
+      grid-row: 1;
+      text-align: left;
+    }
+
+    .conditions__intro {
+      grid-column: 1;
+      grid-row: 1;
+      margin-top: 3.5rem;
+    }
+
+    .conditions__intro h2 {
+      max-width: 17ch;
+      font-size: 2rem !important;
+      line-height: 1.1 !important;
+      text-align: left;
+    }
+
+    .conditions__intro h2 em {
+      display: block;
+      color: var(--color-green-600);
+    }
+
+    .conditions__intro > div > p {
+      max-width: 35ch;
+      margin-top: var(--space-5);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .conditions__intro a {
+      margin-top: var(--space-4);
+      font-size: .875rem;
+    }
+
+    .conditions__grid {
+      grid-row: 1;
+    }
+
     .why > .container > h2 {
       max-width: 13ch;
       line-height: 1.05;

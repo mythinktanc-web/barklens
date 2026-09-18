@@ -125,9 +125,8 @@ const articleSchema = {
 
     </div>
 
-    <section class:list={['condition-cta', !page.cta && 'condition-cta--button-only']}>
+    <section class="condition-cta condition-cta--button-only">
       <div class="container">
-        {page.cta && <h2>{page.cta}</h2>}
         <ButtonLink href={routes.waitlist} variant="light">Join</ButtonLink>
       </div>
     </section>
