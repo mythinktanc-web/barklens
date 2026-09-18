@@ -205,7 +205,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
     <article class="trend-card">
       <p class="number-label trend-card__label">Labs</p>
       <svg viewBox="0 0 520 192" role="img" aria-label="BUN results increased from 19 to 23 to 27 milligrams per deciliter across three draws, all within the reported range of 7 to 27">
-        <rect x="56" y="26" width="452" height="120" rx="6" fill="#2f3533" />
+        <rect class="trend-card__range" x="56" y="26" width="452" height="120" rx="6" fill="#2f3533" />
         <line x1="56" y1="26" x2="508" y2="26" stroke="#7d8581" stroke-width="1" stroke-dasharray="4 5" />
         <line x1="56" y1="146" x2="508" y2="146" stroke="#454e4b" />
         <text x="36" y="31" text-anchor="end">27</text><text x="36" y="150" text-anchor="end">7</text>
@@ -846,6 +846,17 @@ const mobileWhyItems = whyItems.map((item, index) => ({
       margin-top: var(--space-3);
       font-size: .975rem;
       line-height: 1.55;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .closer .chart-card,
+    .trends .trend-card {
+      background: rgb(41 39 45 / 78%);
+    }
+
+    .trend-card__range {
+      fill-opacity: .45;
     }
   }
 

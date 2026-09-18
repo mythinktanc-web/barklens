@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import BackToWhy from '@components/BackToWhy.astro';
+import ButtonLink from '@components/ButtonLink.astro';
+import { routes } from '@config/site';
 
 const careTasks = [
   ['Prednisone 5 mg', 'Morning · with food', 'Sarah', '7:42 AM'],
@@ -95,6 +97,9 @@ const careTasks = [
           </section>
         </div>
 
+        <div class="care-join">
+          <ButtonLink href={routes.waitlist}>Join</ButtonLink>
+        </div>
       </div>
     </section>
   </article>
@@ -162,6 +167,12 @@ const careTasks = [
   .care-details {
     padding: 6rem 0;
     background: var(--color-cream-200);
+  }
+
+  .care-join {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-16);
   }
 
   .care-details h2 {
