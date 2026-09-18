@@ -38,7 +38,7 @@ import { routes } from '@config/site';
         history, your observations, and top-tier veterinary sources.
       </p>
       <div class="hero__actions">
-        <ButtonLink href={routes.waitlist} variant="light">Join the waitlist</ButtonLink>
+        <ButtonLink href={routes.waitlist} variant="light">Join</ButtonLink>
       </div>
       <div class="hero__difference">
         <span>How we differ from general AI</span>
@@ -182,7 +182,11 @@ import { routes } from '@config/site';
 
   @media (max-width: 63.99rem) {
     .hero__desktop-prefix {
-      display: none !important;
+      display: block !important;
+    }
+
+    .hero .eyebrow {
+      display: none;
     }
 
     .hero__lede--desktop {
@@ -229,9 +233,9 @@ import { routes } from '@config/site';
 
     .hero h1 {
       position: absolute;
-      top: 3.5rem;
+      top: var(--space-5);
       left: 0;
-      max-width: 100%;
+      max-width: 12.5ch;
       margin: 0;
       font-size: clamp(1.85rem, 7.8vw, 2.05rem);
     }
@@ -249,7 +253,7 @@ import { routes } from '@config/site';
 
     .hero__actions {
       width: 100%;
-      justify-content: center;
+      justify-content: flex-start;
       margin-top: var(--space-5);
     }
 

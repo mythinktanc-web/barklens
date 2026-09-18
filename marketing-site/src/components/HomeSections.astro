@@ -141,7 +141,11 @@ const mobileWhyItems = whyItems.map((item, index) => ({
                         ['95', 'Feb ’26', '42'],
                         ['118', 'Jun ’26', '52']
                       ].map(([value, date, height], barIndex) => (
-                        <div class:list={['capture__lab-bar', { 'capture__lab-bar--latest': barIndex === 3 }]}>
+                        <div class:list={[
+                          'capture__lab-bar',
+                          `capture__lab-bar--${barIndex + 1}`,
+                          { 'capture__lab-bar--latest': barIndex === 3 }
+                        ]}>
                           <b>{value}</b>
                           <i style={`--bar-height:${height}px`}></i>
                           <span>{date}</span>
@@ -332,8 +336,10 @@ const mobileWhyItems = whyItems.map((item, index) => ({
       let automatic = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let aimTimer;
       let doneTimer;
+      let labTimer;
       let cycleTimer;
       let entered = false;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const phoneLayout = window.matchMedia('(max-width: 47.99rem)');
       const preloadPanels = () => panels.forEach((panel) => {
         const source = panel.querySelector('source');
@@ -354,15 +360,26 @@ const mobileWhyItems = whyItems.map((item, index) => ({
       const select = (index, animate = false) => {
         window.clearTimeout(aimTimer);
         window.clearTimeout(doneTimer);
+        window.clearTimeout(labTimer);
         active = index;
         tabs.forEach((tab, i) => tab.setAttribute('aria-selected', String(i === index)));
         panels.forEach((panel, i) => { panel.hidden = i !== index; });
         if (animate) {
+          root.dataset.captureLab = index === 0 && !reducedMotion ? 'ready' : 'complete';
           root.dataset.capturePhase = 'aim';
           aimTimer = window.setTimeout(() => { root.dataset.capturePhase = 'flash'; }, 780);
-          doneTimer = window.setTimeout(() => { root.dataset.capturePhase = 'done'; }, 1010);
+          doneTimer = window.setTimeout(() => {
+            root.dataset.capturePhase = 'done';
+            if (index === 0 && !reducedMotion) {
+              root.dataset.captureLab = 'running';
+              labTimer = window.setTimeout(() => {
+                root.dataset.captureLab = 'complete';
+              }, 2850);
+            }
+          }, 1010);
         } else {
           root.dataset.capturePhase = 'done';
+          root.dataset.captureLab = 'complete';
         }
       };
       const stopCycle = () => {
@@ -526,7 +543,39 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   .capture__lab-range { position: absolute; top: 2rem; right: .125rem; bottom: 1.625rem; left: .125rem; border-top: 1px solid rgb(87 206 172 / 50%); border-bottom: 1px solid rgb(87 206 172 / 50%); background: rgb(87 206 172 / 14%); }
   .capture__lab-bar { position: relative; z-index: 1; display: flex; flex: 1; flex-direction: column; align-items: center; gap: .3125rem; }
   .capture__lab-bar b { color: var(--color-cream-100); font-size: .75rem; font-weight: 600; }
-  .capture__lab-bar i { width: 1.625rem; height: var(--bar-height); border-radius: 3px; background: #8a877f; }
+  .capture__lab-bar b {
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .capture__lab-bar i {
+    width: 1.625rem;
+    height: var(--bar-height);
+    border-radius: 3px;
+    background: #8a877f;
+    transform-origin: center bottom;
+  }
+  .capture[data-capture-lab='ready'] .capture__lab-bar i {
+    transform: scaleY(0);
+  }
+  .capture[data-capture-lab='ready'] .capture__lab-bar b {
+    opacity: 0;
+    transform: translateY(.35rem);
+  }
+  .capture[data-capture-lab='running'] .capture__lab-bar--1 i { animation: capture-bar-rise .55s cubic-bezier(.16, 1, .3, 1) 0s both; }
+  .capture[data-capture-lab='running'] .capture__lab-bar--2 i { animation: capture-bar-rise .55s cubic-bezier(.16, 1, .3, 1) .58s both; }
+  .capture[data-capture-lab='running'] .capture__lab-bar--3 i { animation: capture-bar-rise .55s cubic-bezier(.16, 1, .3, 1) 1.16s both; }
+  .capture[data-capture-lab='running'] .capture__lab-bar--4 i { animation: capture-bar-rise .55s cubic-bezier(.16, 1, .3, 1) 1.74s both; }
+  .capture[data-capture-lab='running'] .capture__lab-bar--1 b { animation: capture-value-in .2s ease .4s both; }
+  .capture[data-capture-lab='running'] .capture__lab-bar--2 b { animation: capture-value-in .2s ease .98s both; }
+  .capture[data-capture-lab='running'] .capture__lab-bar--3 b { animation: capture-value-in .2s ease 1.56s both; }
+  .capture[data-capture-lab='running'] .capture__lab-bar--4 b { animation: capture-value-in .2s ease 2.14s both; }
+  @keyframes capture-bar-rise {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  @keyframes capture-value-in {
+    from { opacity: 0; transform: translateY(.35rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   .capture__lab-bar span { position: absolute; top: calc(100% + .3125rem); color: #c9c0b2; font-size: .6875rem; font-weight: 600; white-space: nowrap; }
   .capture__lab-bar--latest b, .capture__lab-bar--latest span { color: var(--color-cream-100); font-weight: 700; }
   .capture__lab-bar--latest i { background: var(--color-cream-100); }

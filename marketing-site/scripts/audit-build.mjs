@@ -158,9 +158,7 @@ for (const file of htmlFiles) {
 
   for (const match of html.matchAll(/<a\b[^>]*href="\/waitlist\/"[^>]*>([\s\S]*?)<\/a>/g)) {
     const label = decodeHtmlEntities(match[1].replace(/<[^>]+>/g, '').trim());
-    const isResponsiveHomepageHeroCta =
-      relative === 'index.html' && label === 'Join the waitlist';
-    if (label !== 'Join' && !isResponsiveHomepageHeroCta) {
+    if (label !== 'Join') {
       failures.push(`${relative}: waitlist CTA must be labeled "Join", found "${label}"`);
     }
   }
