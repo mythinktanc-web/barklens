@@ -355,6 +355,7 @@ p {
   .trend-card__caption,
   .trend-card__ask,
   .hero__boundary,
+  .care-boundary,
   .ai-output-label,
   .legal-boundary,
   .site-footer__brand p,
@@ -362,9 +363,9 @@ p {
   .how-page__ownership,
   .plans-boundary,
   .sources-boundary {
-    font-size: var(--type-caption-size) !important;
+    font-size: var(--text-xs) !important;
     font-weight: 400 !important;
-    line-height: var(--type-caption-line) !important;
+    line-height: 1.5 !important;
   }
 
   .site-footer nav > p,

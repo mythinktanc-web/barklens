@@ -56,6 +56,20 @@ for (const declaration of [
   if (!globalCss.includes(declaration)) fail(`global.css: missing approved declaration ${declaration}`);
 }
 
+for (const declaration of [
+  '.hero__boundary,',
+  '.care-boundary,',
+  '.legal-boundary,',
+  '.plans-boundary,',
+  '.sources-boundary {',
+  `font-size: ${contract.boundaryStyle.fontSize} !important`,
+  `line-height: ${contract.boundaryStyle.lineHeight} !important`
+]) {
+  if (!globalCss.includes(declaration)) {
+    fail(`global.css: boundary style lock is missing ${declaration}`);
+  }
+}
+
 const sourceFiles = walk(path.join(root, 'src')).filter(
   (file) => file.endsWith('.astro') || file.endsWith('.css')
 );
@@ -66,6 +80,17 @@ for (const file of sourceFiles) {
   for (const match of source.matchAll(/([^{}]+)\{([^{}]*)\}/gs)) {
     const selector = match[1].trim();
     const body = match[2];
+    const boundarySelector = selector.replace(/:not\([^)]*boundary[^)]*\)/gi, '');
+    if (/boundary/i.test(boundarySelector)) {
+      const boundarySize = body.match(/font-size\s*:\s*([^;]+)/i)?.[1]?.trim();
+      if (
+        boundarySize &&
+        boundarySize !== contract.boundaryStyle.fontSize &&
+        boundarySize !== `${contract.boundaryStyle.fontSize} !important`
+      ) {
+        fail(`${relative}: ${selector} uses disallowed boundary size ${boundarySize}`);
+      }
+    }
     if (!/(^|[,\s>+~.])h[123](?=$|[,\s>+~:#.[\]])/i.test(selector)) continue;
     const weight = body.match(/font-weight\s*:\s*([^;]+)/i)?.[1]?.trim();
     if (weight && weight !== contract.displayWeight && weight !== `${contract.displayWeight} !important`) {

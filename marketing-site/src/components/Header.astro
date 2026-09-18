@@ -9,7 +9,7 @@ const isWhyDetailPage =
   Astro.url.pathname.startsWith('/your-records-are-yours') ||
   Astro.url.pathname.startsWith('/care-team');
 const mobileActionHref = isWhyDetailPage ? '/#why-barklens' : isWaitlistFlow ? routes.home : routes.waitlist;
-const mobileActionLabel = isWhyDetailPage ? '← Back to site' : isWaitlistFlow ? '← Back' : 'Join';
+const mobileActionLabel = isWhyDetailPage ? '‹ Back to site' : isWaitlistFlow ? '‹ Back' : 'Join';
 ---
 
 <header class="site-header" data-site-header>

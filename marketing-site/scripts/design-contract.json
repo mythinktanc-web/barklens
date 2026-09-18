@@ -1,5 +1,10 @@
 {
-  "version": "2026-09-17",
+  "version": "2026-09-18",
+  "boundaryStyle": {
+    "fontSize": "var(--text-xs)",
+    "lineHeight": "1.5",
+    "placement": "near the bottom of the page or its final call-to-action region"
+  },
   "displayFamily": "DM Serif Display",
   "bodyFamily": "Inter",
   "displayWeight": "400",
