@@ -37,7 +37,7 @@ export const conditionPages: ConditionPageData[] = [
     subject: 'Kidney disease in dogs',
     description: 'A high creatinine isn’t a diagnosis — staging needs two draws. What to track at home, and what to ask your vet.',
     image: '/images/conditions/kidney-disease.webp',
-    imageAlt: 'A dog standing beside its owner on a foggy coastal overlook',
+    imageAlt: 'An owner holding a fluffy dog in a warmly lit room',
     heroDescription:
       'A kidney diagnosis can leave you staring at creatinine, BUN, SDMA, urine results, phosphorus, blood pressure, medications, food, and water intake as if they are separate stories. BarkLens reads them as one history and explains what published veterinary sources say veterinarians commonly consider together.',
     opening: [

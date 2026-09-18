@@ -720,6 +720,10 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   .closing small { margin-top: var(--space-3); color: var(--color-copy-muted); }
 
   @media (min-width: 64rem) {
+    .conditions > .container {
+      column-gap: 3rem;
+    }
+
     .conditions > .container > .section-label {
       grid-column: 1;
       grid-row: 1;
@@ -729,7 +733,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
     .conditions__intro {
       grid-column: 1;
       grid-row: 1;
-      margin-top: 3.5rem;
+      margin-top: 3rem;
     }
 
     .conditions__intro h2 {

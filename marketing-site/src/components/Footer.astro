@@ -13,13 +13,13 @@ const { compact = false, hideOnMobile = false } = Astro.props;
 <footer class:list={['site-footer', { 'site-footer--compact': compact, 'site-footer--mobile-hidden': hideOnMobile }]}>
   <div class="site-footer__grid container">
     <div class="site-footer__brand">
-      <Wordmark inverse />
+      <Wordmark inverse withMark />
       {compact && (
         <p class="site-footer__statement">
           The internet knows dogs. <em>BarkLens knows yours.</em>
         </p>
       )}
-      <p>
+      <p class="site-footer__legal">
         <span class="site-footer__boundary">BarkLens doesn’t diagnose. Your vet does.</span><br />
         <a href={routes.terms}>Not veterinary advice — see Terms.</a>
       </p>
@@ -91,6 +91,17 @@ const { compact = false, hideOnMobile = false } = Astro.props;
     font-weight: 400;
     line-height: 1.5;
     white-space: nowrap;
+  }
+
+  .site-footer__legal {
+    font-size: .75rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .site-footer__brand .site-footer__legal a {
+    color: inherit;
+    font-size: inherit;
+    text-decoration: none;
   }
 
   .site-footer nav {
@@ -167,6 +178,19 @@ const { compact = false, hideOnMobile = false } = Astro.props;
   }
 
   @media (max-width: 63.99rem) {
+    .site-footer :global(.wordmark--with-mark) {
+      width: 8.25rem;
+      gap: 0;
+    }
+
+    .site-footer :global(.wordmark__mark) {
+      display: none;
+    }
+
+    .site-footer :global(.wordmark--with-mark svg) {
+      width: 100%;
+    }
+
     .site-footer__grid {
       grid-template-columns: repeat(3, 1fr);
     }
