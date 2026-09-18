@@ -32,7 +32,10 @@ import { routes } from '@config/site';
         Every dog is different. Ask anything about yours — BarkLens answers from their history and
         top-tier veterinary sources.
       </p>
-      <p class="hero__proof">Not just AI. Their history.<br />Real veterinary science. One answer.</p>
+      <p class="hero__proof">
+        <span>Their history.<br />Published veterinary science.<br />Always ready for a question.</span>
+        <a href={routes.sources}>See the BarkLens standard →</a>
+      </p>
       <div class="hero__actions">
         <ButtonLink href={routes.waitlist} variant="light">Join</ButtonLink>
         <ButtonLink href={routes.howItWorks} variant="text">See how it works →</ButtonLink>
@@ -115,6 +118,18 @@ import { routes } from '@config/site';
     font-size: var(--text-sm);
     font-weight: 700;
     line-height: 1.5;
+  }
+
+  .hero__proof span,
+  .hero__proof a {
+    display: block;
+  }
+
+  .hero__proof a {
+    margin-top: var(--space-3);
+    color: var(--color-mint-400);
+    text-decoration: underline;
+    text-underline-offset: .2rem;
   }
 
   .hero__actions {

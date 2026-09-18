@@ -99,6 +99,17 @@ for (const file of htmlFiles) {
     if ((html.split(snapPictureCopyTail).length - 1) !== 1) {
       failures.push(`${relative}: desktop Snap a Picture copy changed or leaked into mobile`);
     }
+    if (
+      !html.includes('Their history.') ||
+      !html.includes('Published veterinary science.') ||
+      !html.includes('Always ready for a question.') ||
+      !html.includes('href="/where-the-answers-come-from/"')
+    ) {
+      failures.push(`${relative}: homepage hero proof or BarkLens Standard link changed`);
+    }
+    if (html.includes('Not just AI.') || html.includes('Real veterinary science. One answer.')) {
+      failures.push(`${relative}: stale homepage hero proof copy`);
+    }
   }
 
   if (relative === 'care-team/index.html') {
