@@ -126,11 +126,31 @@ for (const file of htmlFiles) {
   }
 
   if (relative === 'care-team/index.html') {
-    if (!html.includes('03 · Care Circle')) {
-      failures.push(`${relative}: Care Circle must remain item 03`);
+    for (const text of [
+      'Care Circle',
+      'You’re not the only one',
+      'who takes care of them',
+      'In most households, one person knows the medications.',
+      'Invite the people who help',
+      'Each person gets their own login.',
+      'One co-parent, included.',
+      'Guests, free and unlimited.',
+      'Everyone can log what they do',
+      'The “did you already give it?” text, retired.',
+      'You stay in control',
+      'Every dog gets their own',
+      'On BarkLens Family, your whole household is covered, up to four dogs.',
+      'See plans ›'
+    ]) {
+      if (!html.includes(text)) {
+        failures.push(`${relative}: approved Care Circle copy is missing "${text}"`);
+      }
     }
-    if (html.includes('04 · Care Circle')) {
-      failures.push(`${relative}: stale Care Circle item number 04`);
+    if (
+      html.includes('Add your partner, a sitter, a walker, or family at no cost.') ||
+      html.includes('Every dose logs who gave it and when. Nobody has to guess.')
+    ) {
+      failures.push(`${relative}: stale Care Circle page copy returned`);
     }
   }
 

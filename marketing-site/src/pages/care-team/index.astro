@@ -15,48 +15,100 @@ const careTasks = [
 
 <BaseLayout
   title="Care Circle — Share Your Dog's Chart"
-  description="Add your partner, sitter, walker, or family at no cost. See today’s medications, completed care, and emergency contacts."
+  description="Invite the people who help with your dog. Give each person their own login and control how much of the chart they can see."
   canonicalPath="/care-team/"
-  compactFooter
-  hideFooterOnMobile
 >
-  <section class="care-page">
-    <div class="care-page__content container">
-      <div class="care-page__left">
-        <div class="care-page__heading">
+  <article class="care-page">
+    <section class="care-hero">
+      <div class="care-hero__grid container">
+        <div class="care-hero__copy">
           <BackToWhy />
-          <p class="eyebrow">03 · Care Circle</p>
+          <p class="eyebrow">Care Circle</p>
           <h1>You’re not the only one <em>who takes care of them</em></h1>
+          <p>
+            In most households, one person knows the medications. That person is usually you, and
+            it’s usually fine — until you’re on a plane and the sitter texts a question you can’t
+            answer fast enough.
+          </p>
         </div>
-        <div class="care-page__copy">
-          <p>Add your partner, a sitter, a walker, or family at no cost. They see today’s medications, what’s been given, and your emergency contacts.</p>
-          <p>Every dose logs who gave it and when. Nobody has to guess.</p>
-          <ButtonLink href={routes.waitlist}>Join</ButtonLink>
-          <p class="care-boundary">BarkLens doesn’t diagnose. Your vet does.</p>
-        </div>
-      </div>
 
-      <aside class="care-board" data-care-board aria-label="Charlie’s Care Circle schedule">
-        <header>
-          <span><strong>Charlie · Today</strong><small>Tue, Jun 14</small></span>
-          <b data-care-count>3 of 5 done</b>
-        </header>
-        <div class="care-board__tasks">
-          {careTasks.map(([title, sub, person, time], index) => (
-            <button type="button" data-care-task data-complete={index < 3 ? 'true' : 'false'}>
-              <i aria-hidden="true">{index < 3 ? '✓' : ''}</i>
-              <span><strong>{title}</strong><small>{sub}</small></span>
-              <em>{person && <><strong>{person}</strong><small>{time}</small></>}</em>
-            </button>
-          ))}
+        <aside class="care-board" data-care-board aria-label="Charlie’s Care Circle schedule">
+          <header>
+            <span><strong>Charlie · Today</strong><small>Tue, Jun 14</small></span>
+            <b data-care-count>3 of 5 done</b>
+          </header>
+          <div class="care-board__tasks">
+            {careTasks.map(([title, sub, person, time], index) => (
+              <button type="button" data-care-task data-complete={index < 3 ? 'true' : 'false'}>
+                <i aria-hidden="true">{index < 3 ? '✓' : ''}</i>
+                <span><strong>{title}</strong><small>{sub}</small></span>
+                <em>{person && <><strong>{person}</strong><small>{time}</small></>}</em>
+              </button>
+            ))}
+          </div>
+          <div class="care-board__people">
+            <span class="care-avatars" aria-hidden="true"><i>S</i><i>M</i></span>
+            <span>Sarah, Mark</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="care-details">
+      <div class="care-details__inner container">
+        <section class="care-invite">
+          <p class="eyebrow">Invite the people who help</p>
+          <h2>Each person gets their own login.</h2>
+          <p>Each one downloads BarkLens and gets their own login — you decide how much they see.</p>
+          <div class="care-roles">
+            <article>
+              <span>01</span>
+              <h3>One co-parent, included.</h3>
+              <p>
+                Your partner, or whoever shares the decisions. They see everything you see — the
+                full chart, every lab, the whole history — and they can add records and log care.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Guests, free and unlimited.</h3>
+              <p>
+                A sitter, a walker, your parents, the kids. They see what they need for today:
+                current medications, what’s already been given, feeding, and your emergency
+                contacts. Not the medical history.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <div class="care-two-up">
+          <section>
+            <p class="eyebrow">Everyone can log what they do</p>
+            <h2>The “did you already give it?” text, retired.</h2>
+            <p>Tap to mark a dose given. Your name and the time go on it.</p>
+          </section>
+          <section>
+            <p class="eyebrow">You stay in control</p>
+            <h2>You decide who’s in.</h2>
+            <p>You decide who’s in, and you can remove anyone at any time.</p>
+          </section>
         </div>
-        <div class="care-board__people">
-          <span class="care-avatars" aria-hidden="true"><i>S</i><i>M</i></span>
-          <span>Sarah, Mark</span>
-        </div>
-      </aside>
-    </div>
-  </section>
+
+        <section class="care-family">
+          <p class="eyebrow">Every dog gets their own</p>
+          <h2>One household. A separate history for every dog.</h2>
+          <p>
+            On BarkLens Family, your whole household is covered, up to four dogs. Each dog keeps
+            their own chart, because a value only means something next to that dog’s own history.
+          </p>
+          <div class="care-family__actions">
+            <ButtonLink href={routes.waitlist}>Join</ButtonLink>
+            <a href={routes.plans}>See plans ›</a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </article>
 </BaseLayout>
 
 <script is:inline>
@@ -79,64 +131,145 @@ const careTasks = [
 
 <style>
   .care-page {
-    min-height: calc(100dvh - var(--header-height));
-    padding: .75rem 0 6rem;
     color: var(--color-forest-900);
     background: #fff;
   }
 
-  .care-page__content {
+  .care-hero {
+    padding: .75rem 0 5rem;
+  }
+
+  .care-hero__grid,
+  .care-details__inner {
     width: min(calc(100% - 2 * var(--space-10)), 68.75rem);
   }
 
-  .care-page__heading {
-    padding-bottom: 1.5rem;
-  }
-
-  .care-page__heading h1 {
-    max-width: 16ch;
-    margin-top: 1.125rem;
-    font-size: 4rem;
-    line-height: 1.04;
-  }
-
-  .care-page__heading h1 em {
-    color: var(--color-green-600);
-  }
-
-  .care-page__content {
+  .care-hero__grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 26.25rem;
     gap: 6rem;
     align-items: center;
   }
 
-  .care-page__copy {
-    max-width: 38.75rem;
+  .care-hero__copy h1 {
+    max-width: 16ch;
+    margin-top: 1.125rem;
+    font-size: 4rem;
+    line-height: 1.04;
   }
 
-  .care-page__copy > p:not(.care-boundary) {
-    margin-top: 1.25rem;
+  .care-hero__copy h1 em {
+    color: var(--color-green-600);
+  }
+
+  .care-hero__copy > p:last-child {
+    max-width: 39rem;
+    margin-top: 1.75rem;
+    color: #273a33;
     font-size: 1.1875rem;
     line-height: 1.7;
   }
 
-  .care-page__copy > p:first-child {
-    margin-top: 0;
+  .care-details {
+    padding: 6rem 0;
+    background: var(--color-cream-200);
   }
 
-  .care-page__copy :global(.button-link) {
+  .care-details h2 {
+    max-width: 20ch;
+    margin-top: 1rem;
+    font-size: 2.75rem;
+    line-height: 1.08;
+  }
+
+  .care-invite > p:last-of-type,
+  .care-two-up section > p:last-child,
+  .care-family > p {
+    max-width: 54ch;
+    margin-top: 1.25rem;
+    color: #52615b;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .care-roles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-top: 2.5rem;
-    padding: 1rem 1.75rem;
   }
 
-  .care-boundary {
-    margin-top: 4.5rem;
-    color: #5a6660;
-    font-family: var(--font-body);
-    font-size: var(--text-xs);
-    font-style: normal;
-    line-height: 1.5;
+  .care-roles article {
+    min-height: 19rem;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .care-roles article > span {
+    color: var(--color-green-600);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+  }
+
+  .care-roles h3 {
+    max-width: 18ch;
+    margin-top: 3.5rem;
+    font-size: 1.8rem;
+    line-height: 1.12;
+  }
+
+  .care-roles p {
+    margin-top: 1rem;
+    color: #52615b;
+    line-height: 1.65;
+  }
+
+  .care-two-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 6rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .care-two-up h2 {
+    font-size: 2.25rem;
+  }
+
+  .care-family {
+    margin-top: 6rem;
+    padding: 4rem;
+    border-radius: 1.25rem;
+    color: var(--color-cream-200);
+    background: var(--color-forest-900);
+  }
+
+  .care-family .eyebrow {
+    color: var(--color-mint-500);
+  }
+
+  .care-family h2 {
+    color: inherit;
+  }
+
+  .care-family > p {
+    color: #c9c0b3;
+  }
+
+  .care-family__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .care-family__actions > a:not(.button-link) {
+    color: var(--color-mint-400);
+    font-weight: 700;
   }
 
   .care-board {
@@ -305,37 +438,41 @@ const careTasks = [
   }
 
   @media (max-width: 63.99rem) {
-    .care-page__content {
-      grid-template-columns: minmax(0, 1fr) 23rem;
-      gap: var(--space-10);
+    .care-hero__grid {
+      grid-template-columns: minmax(0, 1fr) 19rem;
+      gap: var(--space-8);
+    }
+
+    .care-hero__copy h1 {
+      max-width: none;
+      font-size: 2.5rem;
+    }
+
+    .care-hero__copy > p:last-child {
+      font-size: 1rem;
     }
   }
 
   @media (max-width: 47.99rem) {
-    .care-page {
-      min-height: 100dvh;
-      padding: .5rem 0 4.5rem;
+    .care-hero {
+      padding: .5rem 0 3.5rem;
       color: var(--color-cream-300);
       background: var(--color-forest-900);
     }
 
-    .care-page__content {
+    .care-hero__grid {
+      display: flex;
       width: min(calc(100% - 2 * var(--space-6)), 68.75rem);
+      flex-direction: column;
+      gap: 0;
+      padding-top: .5rem;
     }
 
-    .care-page__left {
-      display: contents;
-    }
-
-    .care-page__heading {
-      padding-bottom: 0;
-    }
-
-    .care-page__heading .eyebrow {
+    .care-hero__copy .eyebrow {
       color: var(--color-mint-500);
     }
 
-    .care-page__heading h1 {
+    .care-hero__copy h1 {
       max-width: none;
       margin-top: .875rem;
       color: var(--color-cream-200);
@@ -343,8 +480,16 @@ const careTasks = [
       line-height: var(--type-section-line);
     }
 
-    .care-page__heading h1 em {
+    .care-hero__copy h1 em {
       color: var(--color-mint-500);
+    }
+
+    .care-hero__copy > p:last-child {
+      max-width: 34ch;
+      margin-top: 1.25rem;
+      color: rgb(237 227 212 / 95%);
+      font-size: var(--type-body-size);
+      line-height: var(--type-body-line);
     }
 
     .care-board header strong {
@@ -353,50 +498,68 @@ const careTasks = [
       line-height: 1.2 !important;
     }
 
-    .care-page__content {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      padding-top: .5rem;
-    }
-
-    .care-page__copy {
-      display: contents;
-    }
-
-    .care-page__copy > p:not(.care-boundary) {
-      max-width: 34ch;
-      margin-top: 0;
-      color: rgb(237 227 212 / 95%);
-      font-size: var(--type-body-size);
-      line-height: var(--type-body-line);
-    }
-
-    .care-page__copy > p:nth-child(2) {
-      order: 3;
-      margin-top: 1.125rem;
-    }
-
     .care-board {
       position: static;
-      order: 2;
       width: 100%;
       margin-top: 1.875rem;
     }
 
-    .care-page__copy :global(.button-link) {
-      order: 4;
-      width: max-content;
-      margin: 2.25rem auto 0;
-      color: #0b0b0c;
-      background: var(--color-mint-500);
+    .care-details {
+      padding: 3.5rem 0;
     }
 
-    .care-boundary {
-      order: 5;
-      margin: 3rem 0 0;
-      color: #a89f92;
-      text-align: center;
+    .care-details__inner {
+      width: min(calc(100% - 2 * var(--space-5)), 68.75rem);
+    }
+
+    .care-details h2 {
+      max-width: none;
+      font-size: var(--type-subhead-size);
+      line-height: var(--type-subhead-line);
+    }
+
+    .care-invite > p:last-of-type,
+    .care-two-up section > p:last-child,
+    .care-family > p {
+      font-size: var(--type-body-size);
+      line-height: var(--type-body-line);
+    }
+
+    .care-roles,
+    .care-two-up {
+      grid-template-columns: 1fr;
+    }
+
+    .care-roles article {
+      min-height: 0;
+      padding: 1.5rem;
+    }
+
+    .care-roles h3 {
+      margin-top: 2rem;
+      font-size: var(--type-card-size);
+      line-height: var(--type-card-line);
+    }
+
+    .care-two-up {
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+    }
+
+    .care-two-up h2 {
+      font-size: var(--type-subhead-size);
+    }
+
+    .care-family {
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+    }
+
+    .care-family__actions {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
     }
   }
 </style>
