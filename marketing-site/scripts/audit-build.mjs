@@ -156,6 +156,25 @@ for (const file of htmlFiles) {
     }
   }
 
+  const primaryHeaderNav = html.match(
+    /<nav class="site-header__desktop-nav"[^>]*>([\s\S]*?)<\/nav>/
+  )?.[1];
+  const mobileHeaderNav = html.match(
+    /<div class="mobile-navigation"[\s\S]*?<nav[^>]*>([\s\S]*?)<\/nav>/
+  )?.[1];
+  if (
+    primaryHeaderNav?.includes('href="/care-team/"') ||
+    mobileHeaderNav?.includes('href="/care-team/"')
+  ) {
+    failures.push(`${relative}: Care Team must not appear in top navigation`);
+  }
+  if (
+    relative !== 'review/index.html' &&
+    (!primaryHeaderNav || !mobileHeaderNav)
+  ) {
+    failures.push(`${relative}: standard top navigation is missing`);
+  }
+
   if (/^conditions\/[^/]+\/index\.html$/.test(relative)) {
     const conditionCta = html.match(
       /<section class="condition-cta[^"]*"[^>]*>([\s\S]*?)<\/section>/
