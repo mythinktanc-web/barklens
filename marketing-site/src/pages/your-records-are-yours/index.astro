@@ -269,19 +269,26 @@ import { routes } from '@config/site';
       display: flex;
       flex-direction: column;
       gap: 0;
-      padding-block: 0 var(--space-8);
+      padding-block: var(--space-3) var(--space-8);
     }
 
     .records-page__hero {
-      width: 100%;
-      padding-block: var(--space-3) 0;
+      display: contents;
     }
 
     .records-page__hero :global(.back-to-why) {
+      order: 0;
+      align-self: flex-start;
       margin-bottom: var(--space-3);
     }
 
+    .records-page__hero > .eyebrow {
+      order: 1;
+      width: 100%;
+    }
+
     .records-page__hero h1 {
+      order: 2;
       width: 100%;
       max-width: none;
       margin-top: var(--space-4);
@@ -291,11 +298,14 @@ import { routes } from '@config/site';
     }
 
     .records-page__hero > p:last-child {
-      margin-top: 1.5rem;
+      order: 4;
+      width: 100%;
+      margin-top: var(--space-6);
       font-size: 1rem;
     }
 
     .records-share__copy {
+      order: 5;
       display: block;
       width: 100%;
       padding-block: var(--space-6);
@@ -306,6 +316,8 @@ import { routes } from '@config/site';
     }
 
     .share-card {
+      order: 3;
+      margin-top: var(--space-6);
       padding: 1.75rem 1.25rem 1.25rem 1.75rem;
     }
 
