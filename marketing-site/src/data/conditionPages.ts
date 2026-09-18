@@ -298,7 +298,7 @@ export const conditionPages: ConditionPageData[] = [
     description: 'Water, weight, appetite, and every dose — the log your vet reads first. What to record, and what to ask.',
     image: '/images/conditions/diabetes.webp',
     mobileImage: '/images/conditions/mobile/diabetes.webp',
-    imageAlt: 'A dog together with its owner',
+    imageAlt: 'A woman holding a small dog in front of a leafy wall',
     heroDescription:
       'Meals, prescribed insulin events, glucose results, fructosamine, urine results, water intake, weight, appetite, energy, and the people providing care all belong to the same record. BarkLens connects that human-confirmed history and explains what published veterinary sources say veterinarians commonly consider.',
     opening: [
