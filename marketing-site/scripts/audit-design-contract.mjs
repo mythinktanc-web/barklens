@@ -133,6 +133,19 @@ for (const declaration of [
   }
 }
 
+const sourcesPage = fs.readFileSync(
+  path.join(root, 'src/pages/where-the-answers-come-from/index.astro'),
+  'utf8'
+);
+for (const declaration of [
+  '.sources-boundary {\n    width: 100%;\n    max-width: none;',
+  'text-align: center !important;'
+]) {
+  if (!sourcesPage.includes(declaration)) {
+    fail(`The BarkLens Standard page: centered boundary lock is missing ${declaration}`);
+  }
+}
+
 const conditionPage = fs.readFileSync(
   path.join(root, 'src/components/ConditionPage.astro'),
   'utf8'
