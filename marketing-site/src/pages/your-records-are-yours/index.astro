@@ -16,8 +16,7 @@ import { routes } from '@config/site';
         <BackToWhy />
         <p class="eyebrow">Share the history</p>
         <h1 class="records-title">
-          <span class="records-title__desktop">A pass for the ER, the groomer, the boarder — anyone who needs your dog’s history.</span>
-          <span class="records-title__mobile">The next person to see your dog shouldn’t start from zero.</span>
+          A pass for the ER, the groomer, the boarder — anyone who needs your dog’s history.
         </h1>
         <p>
           Your dog’s history shouldn’t depend on what you can remember at the front desk. Share the
@@ -27,8 +26,6 @@ import { routes } from '@config/site';
       </header>
 
       <div class="records-share__copy">
-        <p class="eyebrow">The share</p>
-        <h2>A pass for the ER, the groomer, the boarder — anyone who needs your dog’s history.</h2>
         <p>
           Whether you’re seeing a specialist or leaving your dog with someone you trust, make their
           history part of the handoff. Send the link ahead of time or show the QR code when you
@@ -110,10 +107,6 @@ import { routes } from '@config/site';
     min-width: 0;
   }
 
-  .records-title__mobile {
-    display: none;
-  }
-
   .records-page__hero h1 {
     max-width: 16ch;
     margin-top: 1.5rem;
@@ -133,11 +126,6 @@ import { routes } from '@config/site';
   .records-share__copy {
     grid-column: 1 / -1;
     grid-row: 2;
-  }
-
-  .records-share__copy > .eyebrow,
-  .records-share__copy > h2 {
-    display: none;
   }
 
   .records-share__copy > p:not(.eyebrow) {
@@ -288,14 +276,6 @@ import { routes } from '@config/site';
       padding-block: .75rem 3.5rem;
     }
 
-    .records-title__desktop {
-      display: none;
-    }
-
-    .records-title__mobile {
-      display: block;
-    }
-
     .records-page__hero h1 {
       margin-top: 1.125rem;
       font-size: clamp(2.8rem, 13vw, 3.65rem);
@@ -310,17 +290,6 @@ import { routes } from '@config/site';
     .records-share__copy {
       display: block;
       padding-block: 1rem 3rem;
-    }
-
-    .records-share__copy > .eyebrow,
-    .records-share__copy > h2 {
-      display: block;
-    }
-
-    .records-share__copy h2 {
-      max-width: 15ch;
-      margin-top: 1.125rem;
-      font-size: 2.45rem;
     }
 
     .records-share__copy > p:not(.eyebrow) {
