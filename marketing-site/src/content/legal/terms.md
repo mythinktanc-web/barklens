@@ -1,6 +1,6 @@
 ---
 title: "BarkLens Terms of Use"
-description: "Terms governing BarkLens accounts, records, source-backed answers, subscriptions, email, and Care Team sharing."
+description: "Terms governing BarkLens accounts, records, source-backed answers, subscriptions, email, and Care Circle sharing."
 effectiveDate: 2026-09-16
 documentType: terms
 ---
@@ -9,7 +9,7 @@ documentType: terms
 
 **Effective: September 16, 2026**
 
-These Terms of Use (the "**Terms**") are a binding contract between you and **ThinkTanc LLC**, a Delaware limited liability company doing business as **BarkLens** ("**BarkLens**," "**we**," "**us**," or "**our**"). They govern your use of the BarkLens mobile application, the barklens.com website, and every related feature, tool, and service we make available (together, the "**Service**"). "You" means the individual who accesses or uses the Service and, where applicable, the account owner who invites another person to a Care Team.
+These Terms of Use (the "**Terms**") are a binding contract between you and **ThinkTanc LLC**, a Delaware limited liability company doing business as **BarkLens** ("**BarkLens**," "**we**," "**us**," or "**our**"). They govern your use of the BarkLens mobile application, the barklens.com website, and every related feature, tool, and service we make available (together, the "**Service**"). "You" means the individual who accesses or uses the Service and, where applicable, the account owner who invites another person to a Care Circle.
 
 > ### EMERGENCY USE — READ FIRST
 >
@@ -23,7 +23,7 @@ These Terms of Use (the "**Terms**") are a binding contract between you and **Th
 
 ### 1.1 Acceptance of these Terms
 
-By downloading, installing, creating an account on, subscribing to, or otherwise using the Service, you agree to these Terms and to the Privacy Policy at §2, the Subscription and Billing Terms at §3, the Email and Waitlist Terms at §4, the Data Retention and Deletion Schedule at §6, the Vendor and AI Processing Disclosure at §7, and the Care Team Sharing Terms at §8, each of which is incorporated into these Terms by reference and forms part of your agreement with us. If you do not agree to all of them, do not use the Service.
+By downloading, installing, creating an account on, subscribing to, or otherwise using the Service, you agree to these Terms and to the Privacy Policy at §2, the Subscription and Billing Terms at §3, the Email and Waitlist Terms at §4, the Data Retention and Deletion Schedule at §6, the Vendor and AI Processing Disclosure at §7, and the Care Circle Sharing Terms at §8, each of which is incorporated into these Terms by reference and forms part of your agreement with us. If you do not agree to all of them, do not use the Service.
 
 If you are accepting these Terms on behalf of an organization — for example, a rescue, a breeder, a boarding facility, or a veterinary practice — you represent that you have authority to bind that organization, and "you" means both you and that organization.  BarkLens is presently offered as a consumer service; it is not offered as a clinic, veterinary-practice, employer, or enterprise system. You also agree to any additional terms we present for a specific feature or promotion at the time you use it, and **only a written amendment signed by an authorized officer of ThinkTanc LLC may modify these Terms.**
 
@@ -101,7 +101,7 @@ Read as operative contract terms, those six limits mean the following.
 
 **1.6.2 No alerts or notifications.** Any reminder, badge, indicator, "changed and open" item, trend indication, or push notification the Service may provide is a **convenience feature offered without warranty**. We do not guarantee that any notification will be generated, delivered, delivered on time, delivered to the right device, or seen by you. Notifications depend on your device, operating-system settings, network conditions, battery and background-activity settings, app-store platform behavior, and third-party services outside our control. **Never rely on a BarkLens notification for anything that matters to your dog's health.** Conversely, the absence of a notification means nothing at all. **You must not structure care, medication administration, recordkeeping, or emergency planning around the receipt of a BarkLens notification.** Any notification is a supplemental convenience only.
 
-**1.6.3 No completeness.** We do not warrant that your dog's chart is complete, that it contains every record, value, medication, allergy, vaccination, visit, or instruction relevant to your dog, or that it accurately reflects your dog's medical history. The chart contains only what you and your Care Team put into it, as read by automated systems. Gaps are expected, common, and often invisible. Where the Service displays a coverage statement — for example, that a chart was built from four records with an eleven-month gap — that statement describes the documents on file, not your dog's actual history.
+**1.6.3 No completeness.** We do not warrant that your dog's chart is complete, that it contains every record, value, medication, allergy, vaccination, visit, or instruction relevant to your dog, or that it accurately reflects your dog's medical history. The chart contains only what you and your Care Circle put into it, as read by automated systems. Gaps are expected, common, and often invisible. Where the Service displays a coverage statement — for example, that a chart was built from four records with an eleven-month gap — that statement describes the documents on file, not your dog's actual history.
 
 **1.6.4 No timeliness.** We do not warrant that information in the Service is current. Source literature is versioned, drug labeling changes, guidelines are revised, and our library is updated on our own schedule. Your own records reflect the date they were created, not today. Values change; the chart does not know that until you upload something new.
 
@@ -142,23 +142,23 @@ Read as operative contract terms, those six limits mean the following.
 
 **1.8.5 Third-party content and links.** The Service quotes and links to material owned by third parties. Those quotations are provided for reference and attribution. We do not control third-party sites, we do not endorse them, and their content is governed by their own terms. Links may break, and cited pages may change or be withdrawn. A source's review status reflects the source as it stood when it was admitted; it may not reflect later changes to that source, and it does not speak to every jurisdiction or circumstance.
 
-### 1.9 Care Team access, and what you accept when you invite someone
+### 1.9 Care Circle access, and what you accept when you invite someone
 
-The Service allows you to invite other people — a spouse or partner, an adult child, a dog walker, a sitter, a co-owner, a rescue coordinator, or your veterinary practice — to see and, if you choose, to contribute to a dog's record. The full terms are in **§8 (Care Team Sharing Terms)**, which is incorporated here. In summary, and as operative terms:
+The Service allows you to invite other people — a spouse or partner, an adult child, a dog walker, a sitter, a co-owner, a rescue coordinator, or your veterinary practice — to see and, if you choose, to contribute to a dog's record. The full terms are in **§8 (Care Circle Sharing Terms)**, which is incorporated here. In summary, and as operative terms:
 
-Care Team access is a coordination convenience. It does not make BarkLens the custodian of a formal veterinary chart, and it does not make any Care Team member a veterinarian, an agent, a fiduciary, an emergency contact, or a legally authorized decision-maker for your dog.
+Care Circle access is a coordination convenience. It does not make BarkLens the custodian of a formal veterinary chart, and it does not make any Care Circle member a veterinarian, an agent, a fiduciary, an emergency contact, or a legally authorized decision-maker for your dog.
 
 **1.9.1 You control the invitation and the scope.** Access exists only because you granted it, only to the people you named, and only to the parts of the record you selected.
 
 **1.9.2 You are responsible for whom you invite.** You represent that you have a legitimate basis for sharing your dog's record with each person you invite, and you accept responsibility for their access, their conduct within the shared record, and anything they add. We do not screen, verify, credential, or supervise invited people.
 
-**1.9.3 Contributions by others are not verified.** Anything a Care Team member adds — a value, an observation, a confirmation, a document — enters the record as their entry. We do not check it, and it may be wrong.
+**1.9.3 Contributions by others are not verified.** Anything a Care Circle member adds — a value, an observation, a confirmation, a document — enters the record as their entry. We do not check it, and it may be wrong.
 
 **1.9.4 Revocation is prospective only.** You may remove a member at any time, and access to the record ends. **But information a person has already seen cannot be un-seen.** We can end access; we cannot retrieve what someone remembers, wrote down, screenshotted, exported, forwarded, or printed. Share accordingly.
 
 ### 1.10 Acceptable use
 
-You agree that you will not, and will not attempt to, and will not permit anyone using your account or your Care Team access to:
+You agree that you will not, and will not attempt to, and will not permit anyone using your account or your Care Circle access to:
 
 **1.10.1 Upload other people's information.** Upload, submit, or enter any human medical record, protected health information, human laboratory result, human prescription, insurance identifier, government identifier, financial-account number, or other personal information about any person other than yourself, except information about yourself that appears incidentally on your dog's own veterinary paperwork (for example, your own name and address on a clinic invoice). **Do not upload a person's medical records to BarkLens.** The Service is for dogs, it is not a HIPAA-covered environment, and it is not designed, configured, or contracted to hold human health data.
 
@@ -172,7 +172,7 @@ You agree that you will not, and will not attempt to, and will not permit anyone
 
 **1.10.6 Interfere or intrude.** Probe, scan, or test the vulnerability of any system; breach or circumvent any authentication or security measure; access any account, data, or record that is not yours or shared with you; introduce malware; or impose an unreasonable load on our infrastructure or that of our vendors.
 
-**1.10.7 Share or resell access.** Share account credentials, sell, resell, sublicense, rent, lease, or provide the Service to third parties; create accounts by automated means; create multiple accounts to evade page limits, free-tier limits, or trial limits; or use the Service to provide a service to others for a fee. Care Team invitations under §8 are the only authorized way to give another person access.
+**1.10.7 Share or resell access.** Share account credentials, sell, resell, sublicense, rent, lease, or provide the Service to third parties; create accounts by automated means; create multiple accounts to evade page limits, free-tier limits, or trial limits; or use the Service to provide a service to others for a fee. Care Circle invitations under §8 are the only authorized way to give another person access.
 
 **1.10.8 Misrepresent our outputs.** Present any BarkLens output as veterinary advice, as reviewed or approved by a veterinarian, as a diagnosis, or as clearance; remove or obscure source attributions, disclaimers, or provenance indicators; or republish library passages stripped of their citations.
 
@@ -204,7 +204,7 @@ We may investigate suspected violations, and we may suspend or terminate access 
 
 **1.12.3 Your content stays yours.** **You retain all ownership of the records, documents, photographs, values, notes, questions, and other material you submit to the Service ("Your Content").** We claim no ownership of Your Content. **You may export Your Content at any time, including after you cancel a paid plan and after you close your account, as described in §3.9 and §6.** An export may not reproduce third-party library content beyond what the applicable publisher license permits.
 
-**1.12.4 The narrow license you grant us.** You grant us a limited, worldwide, royalty-free, non-exclusive license to host, store, back up, transmit, reproduce, reformat, and process Your Content, and to create derived technical artifacts from it (for example, extracted text from a photograph and structured data fields derived from that text), **solely for the following purposes**: (a) providing, maintaining, and securing the Service for you; (b) producing answers, chart projections, exports, and other output for you and for the Care Team members you have authorized; (c) making backups and ensuring disaster recovery; (d) complying with law and enforcing these Terms; and (e) diagnosing and fixing errors reported by you or detected in your account. The license permits us to make Your Content available to the subprocessors listed in §7 that act for us under contractual restrictions, and you represent that you hold the rights necessary to grant it. It does not transfer ownership of Your Content to us, it does not authorize any sale of Your Content, and it does not authorize third-party model training. This license exists only to run the product for you. It ends when Your Content is deleted, except for copies retained in backups until they age out under §6 and copies we must keep by law.
+**1.12.4 The narrow license you grant us.** You grant us a limited, worldwide, royalty-free, non-exclusive license to host, store, back up, transmit, reproduce, reformat, and process Your Content, and to create derived technical artifacts from it (for example, extracted text from a photograph and structured data fields derived from that text), **solely for the following purposes**: (a) providing, maintaining, and securing the Service for you; (b) producing answers, chart projections, exports, and other output for you and for the Care Circle members you have authorized; (c) making backups and ensuring disaster recovery; (d) complying with law and enforcing these Terms; and (e) diagnosing and fixing errors reported by you or detected in your account. The license permits us to make Your Content available to the subprocessors listed in §7 that act for us under contractual restrictions, and you represent that you hold the rights necessary to grant it. It does not transfer ownership of Your Content to us, it does not authorize any sale of Your Content, and it does not authorize third-party model training. This license exists only to run the product for you. It ends when Your Content is deleted, except for copies retained in backups until they age out under §6 and copies we must keep by law.
 
 **1.12.5 What the license does not permit.** For the avoidance of doubt, the license in §1.12.4 does **not** permit us to sell Your Content, to share Your Content with advertisers or data brokers, to publish Your Content, or to provide Your Content to any third party for that party's own purposes. **We do not sell or share personal information as those terms are used in state privacy laws (see §2.10).** With respect to artificial-intelligence model providers, see §2.7 and §7: user content is transmitted to model providers only to produce output for you, and it is our position and contractual requirement that user content is **not** used to train third-party models.
 
@@ -248,7 +248,7 @@ You acknowledge and agree that **you, together with the licensed veterinarian wh
 
 ### 1.17 Indemnification
 
-You agree to defend, indemnify, and hold harmless BarkLens and its members, managers, officers, employees, contractors, advisors, reviewers, licensors, and vendors from and against all claims, demands, actions, proceedings, losses, liabilities, damages, penalties, fines, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to: (a) Your Content, including any claim that it infringes a third party's rights or that it contains another person's personal or health information uploaded in violation of §1.10.1; (b) your use of the Service, including any decision you or anyone else made about an animal with the Service in front of them; (c) your breach of these Terms or of any law; (d) your invitation of, sharing with, or conduct toward any Care Team member, and any Care Team member's use of access you granted; (e) any representation you make to a third party about the Service, including presenting Service output as veterinary advice or as vet-reviewed; and (f) your use of the Service on behalf of any organization without authority. You are not required to indemnify us to the extent a claim arises from our own fraud, willful misconduct, or other conduct for which indemnification may not lawfully be required.
+You agree to defend, indemnify, and hold harmless BarkLens and its members, managers, officers, employees, contractors, advisors, reviewers, licensors, and vendors from and against all claims, demands, actions, proceedings, losses, liabilities, damages, penalties, fines, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to: (a) Your Content, including any claim that it infringes a third party's rights or that it contains another person's personal or health information uploaded in violation of §1.10.1; (b) your use of the Service, including any decision you or anyone else made about an animal with the Service in front of them; (c) your breach of these Terms or of any law; (d) your invitation of, sharing with, or conduct toward any Care Circle member, and any Care Circle member's use of access you granted; (e) any representation you make to a third party about the Service, including presenting Service output as veterinary advice or as vet-reviewed; and (f) your use of the Service on behalf of any organization without authority. You are not required to indemnify us to the extent a claim arises from our own fraud, willful misconduct, or other conduct for which indemnification may not lawfully be required.
 
 We may assume the exclusive defense and control of any matter subject to indemnification, at your expense, and you agree to cooperate. You will not settle any matter that imposes an obligation on us without our prior written consent.
 
@@ -337,7 +337,7 @@ You may use BarkLens without paying. **A free account may extract up to 125 page
 | **BarkLens Plus** | 1 dog | **$14.95 / month** | **$149 / year** |
 | **BarkLens Family** | up to 4 dogs | **$24.95 / month** | **$249 / year** |
 
-Prices are in U.S. dollars and exclude any tax the app store collects. Paid plans unlock the premium features described in §3.8, including Ask, Care Team invitations, and connect-the-dots analysis across a dog's records.
+Prices are in U.S. dollars and exclude any tax the app store collects. Paid plans unlock the premium features described in §3.8, including Ask, Care Circle invitations, and connect-the-dots analysis across a dog's records.
 
 If you have more than four dogs, contact us at info@barklens.com.
 
@@ -379,7 +379,7 @@ When a paid plan ends — whether you cancel, the trial does not convert, paymen
 **What turns off:**
 
 - **Ask** — asking new questions of the veterinary library.
-- **Care Team invitations** — you cannot issue new invitations, and existing Care Team access is suspended.
+- **Care Circle invitations** — you cannot issue new invitations, and existing Care Circle access is suspended.
 
 - **Connect-the-dots analysis** — cross-record analysis, trend surfaces, and derived comparisons.
 - **Any other premium feature** identified as such in the app and in the store listing at the time of purchase.
@@ -415,7 +415,7 @@ These terms govern the BarkLens waitlist, our email communications, the founding
 
 ### 4.1 Two kinds of email, and the difference matters
 
-**4.1.1 Transactional and relationship email.** If you have an account, we send messages necessary to the relationship: account confirmation and sign-in, security notices, trial-conversion and renewal notices, receipts and billing problems, Care Team invitations and revocation confirmations, export confirmations, service interruptions, and changes to these Terms or the Privacy Policy. **These are not marketing messages, and the primary purpose of each is transactional or relationship-based, as CAN-SPAM uses those terms. You cannot unsubscribe from them while you hold an account**, because they carry information you need. You can end them by closing your account.
+**4.1.1 Transactional and relationship email.** If you have an account, we send messages necessary to the relationship: account confirmation and sign-in, security notices, trial-conversion and renewal notices, receipts and billing problems, Care Circle invitations and revocation confirmations, export confirmations, service interruptions, and changes to these Terms or the Privacy Policy. **These are not marketing messages, and the primary purpose of each is transactional or relationship-based, as CAN-SPAM uses those terms. You cannot unsubscribe from them while you hold an account**, because they carry information you need. You can end them by closing your account.
 
 **4.1.2 Marketing email.** Product news, launch announcements, founding-member offers, educational content, feature announcements, and promotions. **We send these only if you asked for them**, and you may unsubscribe at any time with one click. We do not send marketing email to anyone who has unsubscribed, and we do not resubscribe you because you later created an account, bought a subscription, or contacted support. If a form collects your address only to carry out a transaction — a password reset or a record export, for example — **we do not treat that action alone as consent to unrelated marketing.**
 
@@ -427,7 +427,7 @@ When you join the BarkLens waitlist on barklens.com, you give us your email addr
 
 **Consent records.** For each sign-up we retain the email address, the date and time, the page or source, the IP address at sign-up, and the exact consent text displayed, so we can demonstrate consent later.
 
-**No purchased lists, no harvesting.** We do not buy, rent, exchange, or harvest email addresses, and we do not use dictionary attacks or address generation. Every address in our system came from the person who owns it, or from an account owner who invited that person to a Care Team (§8).
+**No purchased lists, no harvesting.** We do not buy, rent, exchange, or harvest email addresses, and we do not use dictionary attacks or address generation. Every address in our system came from the person who owns it, or from an account owner who invited that person to a Care Circle (§8).
 
 ### 4.3 Sender identification and honest headers
 
@@ -473,11 +473,11 @@ If we make a founding-member offer to waitlist subscribers, these terms apply, s
 
 **4.7.1 Referral rewards.**  A reward is earned only when the qualifying event actually occurs, is void if the underlying subscription is refunded, canceled during a trial, or reversed, has no cash value unless the offer says otherwise, and may not be sold or transferred. **A referrer who promotes BarkLens publicly must clearly and conspicuously disclose any material reward.** A reward is not payment for health information, and it does not entitle the referrer to access the referred person's account or records. We may deny a reward for self-referral, duplicate accounts, returns, chargebacks, manipulation, or fraud.
 
-**4.7.2 Anti-spam rules for referrals and Care Team invitations.** When you invite someone — as a referral or to a Care Team under §8 — **you must have a personal relationship with that person and a reasonable basis to believe they want to hear from you.** You may not: post referral links to unrelated forums, comment sections, coupon sites, or social feeds in a way that constitutes spam; send bulk or automated invitations; use purchased lists or harvested addresses; misrepresent yourself as BarkLens or imply that we endorse your message; use paid search or advertising on our name or trademarks to distribute referral links; or invite anyone who has asked you or us to stop. **We send one invitation email per invitation and, where applicable, at most one reminder; we do not send unsolicited follow-up campaigns to invited addresses who never accept**, and an invited person may decline and be suppressed from further invitation email.
+**4.7.2 Anti-spam rules for referrals and Care Circle invitations.** When you invite someone — as a referral or to a Care Circle under §8 — **you must have a personal relationship with that person and a reasonable basis to believe they want to hear from you.** You may not: post referral links to unrelated forums, comment sections, coupon sites, or social feeds in a way that constitutes spam; send bulk or automated invitations; use purchased lists or harvested addresses; misrepresent yourself as BarkLens or imply that we endorse your message; use paid search or advertising on our name or trademarks to distribute referral links; or invite anyone who has asked you or us to stop. **We send one invitation email per invitation and, where applicable, at most one reminder; we do not send unsolicited follow-up campaigns to invited addresses who never accept**, and an invited person may decline and be suppressed from further invitation email.
 
 **4.7.3 Enforcement.** We may void rewards, disable referral links, and suspend accounts for violations of §4.7.2, and we may report abuse to the relevant platform.
 
-**4.7.4 Care Team invitation messages, and SMS.** When an account owner directs us to invite someone to a Care Team, the owner represents that the owner has a lawful basis to give us the recipient's contact information and reasonably believes the invitation is welcome. We use that contact information only to send the invitation, a limited reminder, security notices, and acceptance status; **an invitation does not enroll the recipient in marketing email.** The recipient may decline, ask for no further invitations, and report abuse to info@barklens.com. Invitation messages may not harass a recipient and must not disclose sensitive facts about a dog or an owner in preview text.
+**4.7.4 Care Circle invitation messages, and SMS.** When an account owner directs us to invite someone to a Care Circle, the owner represents that the owner has a lawful basis to give us the recipient's contact information and reasonably believes the invitation is welcome. We use that contact information only to send the invitation, a limited reminder, security notices, and acceptance status; **an invitation does not enroll the recipient in marketing email.** The recipient may decline, ask for no further invitations, and report abuse to info@barklens.com. Invitation messages may not harass a recipient and must not disclose sensitive facts about a dog or an owner in preview text.
 
 ### 4.8 Deliverability and third-party mail systems
 
@@ -487,26 +487,26 @@ Email depends on systems we do not control. **We do not guarantee that any email
 
 ---
 
-## 8. Care Team Sharing Terms
+## 8. Care Circle Sharing Terms
 
 **Effective: September 16, 2026**
 *These terms are part of the Terms of Use (§1.9) and the Privacy Policy (§2.5.2).*
 
-### 8.1 What Care Team is
+### 8.1 What Care Circle is
 
-Care Team lets an account owner give specific people access to a specific dog's record. It exists because dogs are cared for by more than one person — a spouse or partner, an adult child, a co-owner, a sitter or walker, a rescue coordinator, or a veterinary practice preparing for a visit. **Care Team is not a social feature and it is not public. Nothing in a BarkLens account is visible to anyone the owner has not invited.**
+Care Circle lets an account owner give specific people access to a specific dog's record. It exists because dogs are cared for by more than one person — a spouse or partner, an adult child, a co-owner, a sitter or walker, a rescue coordinator, or a veterinary practice preparing for a visit. **Care Circle is not a social feature and it is not public. Nothing in a BarkLens account is visible to anyone the owner has not invited.**
 
-Only an account owner may invite a Care Team member, and the owner selects the access the member receives from the permissions the product presents. **Access is personal to the invited recipient and may not be shared, reassigned, or exercised through another person's credentials.** BarkLens does not verify a family relationship, ownership of a dog, veterinary employment, or legal authority from the fact of an invitation, and BarkLens may freeze sharing that is disputed, insecure, or unlawful.
+Only an account owner may invite a Care Circle member, and the owner selects the access the member receives from the permissions the product presents. **Access is personal to the invited recipient and may not be shared, reassigned, or exercised through another person's credentials.** BarkLens does not verify a family relationship, ownership of a dog, veterinary employment, or legal authority from the fact of an invitation, and BarkLens may freeze sharing that is disputed, insecure, or unlawful.
 
 ### 8.2 What an invited person can see and do
 
 **8.2.1 Access is owner-selected and scoped.** When you invite someone, you choose what they can see from the options the app provides, which may include: the dog's records and uploaded documents; specific chart sections such as instructions in force, allergies and adverse reactions, or the changed-and-open items; and the question-and-answer history for that dog.  The interface should state the effective permission level on screen before a member gains access. Shared records may incidentally reveal information about the owner, the clinic, or a third party; **redact unrelated information before sharing, and note that BarkLens conceals content only where an express redaction feature does so.**
 
-**8.2.2 What they can add.** If you grant contribution rights, an invited person may be able to upload documents, record observations, and confirm suggested values (for example, confirming a stool score) for that dog. **Anything they add is attributed to them in the record**, so the chart shows who asserted what and when. **We do not verify anything a Care Team member adds.** A contribution can be wrong, and a wrong contribution can propagate into what the chart shows and what an answer is built on. Each addition or confirmation identifies the contributing member and the time, and a member's entry is that person's report — **it is not a veterinarian's instruction and it is not a BarkLens clinical finding.** A member may not overwrite provenance, alter an original document, impersonate the owner or a veterinarian, or use the chart to originate a medication dose, interval, or schedule. Where feasible the product records a correction as an appended entry, so that an original statement and the entry that superseded it both remain traceable.
+**8.2.2 What they can add.** If you grant contribution rights, an invited person may be able to upload documents, record observations, and confirm suggested values (for example, confirming a stool score) for that dog. **Anything they add is attributed to them in the record**, so the chart shows who asserted what and when. **We do not verify anything a Care Circle member adds.** A contribution can be wrong, and a wrong contribution can propagate into what the chart shows and what an answer is built on. Each addition or confirmation identifies the contributing member and the time, and a member's entry is that person's report — **it is not a veterinarian's instruction and it is not a BarkLens clinical finding.** A member may not overwrite provenance, alter an original document, impersonate the owner or a veterinarian, or use the chart to originate a medication dose, interval, or schedule. Where feasible the product records a correction as an appended entry, so that an original statement and the entry that superseded it both remain traceable.
 
 **8.2.3 What they cannot do.** Unless you grant it, an invited person cannot change your account settings, manage your subscription, invite other people, remove other members, delete the dog, or see other dogs in a Family plan that you did not share.
 
-**8.2.4 Premium dependency.** Care Team invitations are a premium feature. See §3.8 for what happens to Care Team access when a paid plan ends.
+**8.2.4 Premium dependency.** Care Circle invitations are a premium feature. See §3.8 for what happens to Care Circle access when a paid plan ends.
 
 ### 8.3 The account owner is responsible
 
@@ -514,21 +514,21 @@ Only an account owner may invite a Care Team member, and the owner selects the a
 
 **8.3.2 Your representations.** By inviting someone, you represent that you have the authority to share the dog's record; that you have a legitimate reason to share it with that person; that the email address you entered belongs to the person you intend to invite; and that you are not sharing another person's personal information in violation of §1.10.1 — remember that clinic paperwork often carries **your** name, address, and phone number, and sharing a record shares those too.
 
-**8.3.3 Indemnity.** §1.17(d) applies: you are responsible for claims arising from your invitations, from a Care Team member's use of the access you granted, and from anything a Care Team member adds to the record.
+**8.3.3 Indemnity.** §1.17(d) applies: you are responsible for claims arising from your invitations, from a Care Circle member's use of the access you granted, and from anything a Care Circle member adds to the record.
 
 **8.3.4 If you are the invited person.** Access you receive is granted by the owner and is limited to what the owner selected. You must use it only to help care for that dog, you must not copy, export, publish, or repurpose the record for any other reason, and you are bound by the Terms of Use — including the six limits in §1.5, the emergency warning, and the acceptable-use rules in §1.10 — when you use it. **You are not the account owner and you cannot control retention or deletion**; if you want your own contributions removed, ask the owner or write to info@barklens.com. You may use shared information only as the owner authorized, and you must protect it: **no public posting, no sale, no profiling, no employment or insurance use, no use to train a model, and no disclosure to anyone the owner did not authorize.** Accepting access does not create a duty on BarkLens or on you to monitor the dog. If you become aware of a possible emergency, contact a veterinarian or an emergency animal hospital immediately, and do not assume that BarkLens will alert anyone.
 
 ### 8.4 Removing access
 
-**You may remove any Care Team member at any time, for any reason, without notice to them.** Removal takes effect immediately: the member's access to the dog's record ends, pending invitations can be canceled, and the revocation is recorded with a timestamp in the account's access log. You may also change a member's permissions at any time without removing them, and you may re-invite someone you removed. A member may also remove themselves.
+**You may remove any Care Circle member at any time, for any reason, without notice to them.** Removal takes effect immediately: the member's access to the dog's record ends, pending invitations can be canceled, and the revocation is recorded with a timestamp in the account's access log. You may also change a member's permissions at any time without removing them, and you may re-invite someone you removed. A member may also remove themselves.
 
-We may suspend or remove Care Team access ourselves, without notice, where we reasonably believe access is being used in violation of §1.10 or presents a security risk.
+We may suspend or remove Care Circle access ourselves, without notice, where we reasonably believe access is being used in violation of §1.10 or presents a security risk.
 
 ### 8.5 What removal cannot undo
 
 This is the most important paragraph in this section, and it is stated plainly because the alternative is a false sense of control.
 
-**Removing a Care Team member ends their future access. It does not un-see what they have already seen.** A person who had access may have read the record, remembered it, taken notes, taken screenshots, photographed the screen, exported files, printed pages, or forwarded material to someone else. **We can revoke access. We cannot revoke memory, and we cannot retrieve, delete, or track copies that left the Service.** BarkLens has no ability to reach into another person's device, notes, email, or files, and no ability to know that a copy exists.
+**Removing a Care Circle member ends their future access. It does not un-see what they have already seen.** A person who had access may have read the record, remembered it, taken notes, taken screenshots, photographed the screen, exported files, printed pages, or forwarded material to someone else. **We can revoke access. We cannot revoke memory, and we cannot retrieve, delete, or track copies that left the Service.** BarkLens has no ability to reach into another person's device, notes, email, or files, and no ability to know that a copy exists.
 
 The practical consequences you accept when you invite someone:
 
@@ -540,6 +540,6 @@ The practical consequences you accept when you invite someone:
 
 ### 8.6 Changes, cancellation, and account closure
 
-An account owner may change or withdraw a member's access at any time while the account is active. **Cancellation of a paid plan ends the ability to issue new Care Team invitations at the end of the paid entitlement and may change the access of existing members as described in §3.8.** Closure of the account terminates in-product Care Team access when the closure takes effect, subject to the grace period in §6.1 and to our security controls. A member who needs an authorized copy of something should export it before access ends, and closure of the owner's account does not reach a copy a member has already taken outside the Service.
+An account owner may change or withdraw a member's access at any time while the account is active. **Cancellation of a paid plan ends the ability to issue new Care Circle invitations at the end of the paid entitlement and may change the access of existing members as described in §3.8.** Closure of the account terminates in-product Care Circle access when the closure takes effect, subject to the grace period in §6.1 and to our security controls. A member who needs an authorized copy of something should export it before access ends, and closure of the owner's account does not reach a copy a member has already taken outside the Service.
 
 ---

@@ -115,7 +115,7 @@ export const whyItems = [
   },
   {
     number: '03',
-    title: 'Your Care Team',
+    title: 'Your Care Circle',
     href: routes.careTeam
   }
 ] as const;
@@ -177,7 +177,7 @@ export const planFeatures = [
   ['Trend history', 'Each draw shown beside the ones before it'],
   ['Snap a picture', 'Labs, medications, food, and stool filed as records'],
   ['Vet export', 'One organized history for an appointment'],
-  ['Care team', 'Co-owner included, helper seats free']
+  ['Care Circle', 'Co-owner included, helper seats free']
 ] as const;
 
 export const faqs = [

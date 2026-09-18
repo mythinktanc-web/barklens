@@ -133,6 +133,8 @@ function clean(input) {
     .replace(/[ \t]+\n/g, '\n')
     .replace(/,\s*\./g, '.')
     .replace(/\(\s*\)/g, '')
+    .replace(/Care Team/g, 'Care Circle')
+    .replace(/[🚨⚠️✅❌]\s*/gu, '')
     .trim();
   return text;
 }
@@ -166,7 +168,7 @@ privacyBody = privacyBody
 
 const termsFrontmatter = `---
 title: "BarkLens Terms of Use"
-description: "Terms governing BarkLens accounts, records, source-backed answers, subscriptions, email, and Care Team sharing."
+description: "Terms governing BarkLens accounts, records, source-backed answers, subscriptions, email, and Care Circle sharing."
 effectiveDate: 2026-09-16
 documentType: terms
 ---
@@ -174,7 +176,7 @@ documentType: terms
 `;
 const privacyFrontmatter = `---
 title: "BarkLens Privacy Policy"
-description: "How BarkLens collects, uses, shares, retains, exports, and deletes account, record, waitlist, and Care Team information."
+description: "How BarkLens collects, uses, shares, retains, exports, and deletes account, record, waitlist, and Care Circle information."
 effectiveDate: 2026-09-16
 documentType: privacy
 ---

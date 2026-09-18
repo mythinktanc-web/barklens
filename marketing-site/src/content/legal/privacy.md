@@ -1,6 +1,6 @@
 ---
 title: "BarkLens Privacy Policy"
-description: "How BarkLens collects, uses, shares, retains, exports, and deletes account, record, waitlist, and Care Team information."
+description: "How BarkLens collects, uses, shares, retains, exports, and deletes account, record, waitlist, and Care Circle information."
 effectiveDate: 2026-09-16
 documentType: privacy
 ---
@@ -11,9 +11,9 @@ documentType: privacy
 
 ### 2.1 Who we are and how to reach us
 
-BarkLens is operated by **ThinkTanc LLC**, a Delaware limited liability company doing business as BarkLens. For purposes of state privacy laws that use the term, ThinkTanc LLC is the **business** and **controller** of the personal information described in this Policy, except with respect to information a Care Team member sees in an account owner's record, where the account owner determines what is shared (see §8.3).
+BarkLens is operated by **ThinkTanc LLC**, a Delaware limited liability company doing business as BarkLens. For purposes of state privacy laws that use the term, ThinkTanc LLC is the **business** and **controller** of the personal information described in this Policy, except with respect to information a Care Circle member sees in an account owner's record, where the account owner determines what is shared (see §8.3).
 
-This Policy explains what we collect, why, who we share it with, how long we keep it, and what you can do about it. It applies to the BarkLens mobile application, the barklens.com website, our waitlist and email communications, and any related service we operate. It does not apply to your veterinarian, to any third-party website we link to, or to the app stores through which you buy a subscription. It also does not govern clinics, retailers, publishers, or independent Care Team members, each of whom acts under its own notices. BarkLens concerns canine health, is not a human healthcare provider, and is not intended to receive human health information; **do not infer that BarkLens is subject to or compliant with a law that does not apply to it.**
+This Policy explains what we collect, why, who we share it with, how long we keep it, and what you can do about it. It applies to the BarkLens mobile application, the barklens.com website, our waitlist and email communications, and any related service we operate. It does not apply to your veterinarian, to any third-party website we link to, or to the app stores through which you buy a subscription. It also does not govern clinics, retailers, publishers, or independent Care Circle members, each of whom acts under its own notices. BarkLens concerns canine health, is not a human healthcare provider, and is not intended to receive human health information; **do not infer that BarkLens is subject to or compliant with a law that does not apply to it.**
 
 **Contact us about privacy:** **info@barklens.com**
 **Legal notices:** **info@barklens.com**
@@ -37,7 +37,7 @@ Most of what BarkLens holds is information about **a dog**, not about a person. 
 
 **2.3.5 Observations and confirmations.** Values you enter or confirm yourself, including stool scores you accept or adjust, notes, dates, and corrections. These are recorded as **your** observations, attributed to you.
 
-**2.3.6 Care Team information.** The email addresses of people you invite, the permissions you set for each, and a log of invitations, acceptances, and revocations. If you are an invited member, we hold your account information and a record of the access granted to you.
+**2.3.6 Care Circle information.** The email addresses of people you invite, the permissions you set for each, and a log of invitations, acceptances, and revocations. If you are an invited member, we hold your account information and a record of the access granted to you.
 
 **2.3.7 Waitlist information.** If you joined the waitlist, your email address, the date and source of sign-up, any information you volunteered (for example, your dog's age or the reason you signed up), your consent record, and your engagement with our emails. See §4.
 
@@ -49,17 +49,17 @@ Most of what BarkLens holds is information about **a dog**, not about a person. 
 
 **2.3.11 What we do not collect.** We do not access your email inbox — **there is no email or inbox integration in the Service** (see §1.3.5). We do not collect precise geolocation, we do not access your contacts, and we do not access your photo library except for the images you choose to submit. We do not buy personal information from data brokers. We do not use your information for third-party advertising, and we do not run ad-network trackers in the app.
 
-**2.3.12 Information we receive from other people and services.** We may receive information from an account owner who invites you to a Care Team, from a Care Team member who adds information within the access the owner granted, from an app store, from an authentication provider, and from a service provider that helps us operate and secure the Service. Do not submit information about another person unless you are authorized to do so.
+**2.3.12 Information we receive from other people and services.** We may receive information from an account owner who invites you to a Care Circle, from a Care Circle member who adds information within the access the owner granted, from an app store, from an authentication provider, and from a service provider that helps us operate and secure the Service. Do not submit information about another person unless you are authorized to do so.
 
 ### 2.4 How we use information
 
 We use information for these purposes and no others:
 
-**2.4.1 To run the Service for you.** To create and secure your account; to store and organize your dog's records; to read documents you submit and extract values from them; to build and display your dog's chart with provenance back to each source; to answer your questions using our source library; to produce exports; to deliver Care Team access you have granted; and to keep your history available across your devices.
+**2.4.1 To run the Service for you.** To create and secure your account; to store and organize your dog's records; to read documents you submit and extract values from them; to build and display your dog's chart with provenance back to each source; to answer your questions using our source library; to produce exports; to deliver Care Circle access you have granted; and to keep your history available across your devices.
 
 **2.4.2 Model inference on your own account's data.** To answer a question or produce an interpretation, we send the **relevant** portion of your account's content — for example, the extracted text of a report you asked about, along with retrieved library passages — to a third-party artificial-intelligence provider, which returns output to us and to you. **This processing is performed to serve you, on your own data. It is not used to build a profile of you, it is not shared with advertisers, and it is our contractual requirement that it is not used to train the provider's models.** See §2.7 and §7.
 
-**2.4.3 Transactional communications.** To send account, security, billing, trial, renewal, Care Team, and service-change messages. These are not marketing and you cannot unsubscribe from them while you have an account, although you may close your account at any time.
+**2.4.3 Transactional communications.** To send account, security, billing, trial, renewal, Care Circle, and service-change messages. These are not marketing and you cannot unsubscribe from them while you have an account, although you may close your account at any time.
 
 **2.4.4 Marketing communications.** To send you product news, launch announcements, founding-member offers, and educational content **if you opted in**. Every marketing email includes one-click unsubscribe. See §4.
 
@@ -79,7 +79,7 @@ We share personal information only in the following circumstances. **We do not s
 
 **2.5.1 Service providers and subprocessors.** With vendors that process information on our behalf, under contract, only for the purposes we specify, and subject to confidentiality and security obligations. The categories are: email delivery; web hosting; authentication, storage, and database; artificial-intelligence inference; usage analytics; and app-store billing. **Each vendor, what it does, and where it processes are listed in §7 (Vendor and AI Processing Disclosure).**
 
-**2.5.2 Care Team members you invite.** With the people you invite, limited to the parts of the record you selected, until you revoke access. See §8. **You control this sharing; we do not initiate it.**
+**2.5.2 Care Circle members you invite.** With the people you invite, limited to the parts of the record you selected, until you revoke access. See §8. **You control this sharing; we do not initiate it.**
 
 **2.5.3 Legal and safety disclosures.** With courts, regulators, or law enforcement where required by valid legal process or where we reasonably believe disclosure is necessary to comply with law, enforce our Terms, or protect the rights, property, or safety of any person or animal. Where permitted by law, we will attempt to notify you before disclosing your content in response to legal process, unless we are prohibited from doing so or notice would be futile or create a risk of harm.
 
@@ -159,7 +159,7 @@ Regardless of where you live in the United States, we offer every user the follo
 
 **2.11.1 Measures we take.** We use administrative, technical, and physical safeguards designed to protect your information, including: **encryption in transit** using TLS for all connections between your device, our services, and our vendors; **encryption at rest** for stored files, extracted text, and database contents as provided by our storage and database platform; **authentication** through a managed identity provider, with support for the sign-in methods offered in the app; **access controls** limiting staff access to production data to the smallest number of people whose role requires it, on a least-privilege basis, with access logged; **network and platform controls** provided by our hosting and cloud vendors; **vendor diligence** before engaging a processor that will handle account content; **logging and monitoring** of access to production systems; **backups** with restoration testing; and **secure development practices** including code review and dependency monitoring.
 
-**2.11.2 What security cannot do.** **No service is perfectly secure.** We cannot guarantee that unauthorized parties will never defeat our safeguards or those of our vendors. You play a part too: use a strong, unique credential, keep your device locked and updated, do not share your account, and invite to your Care Team only people you trust (see §8).
+**2.11.2 What security cannot do.** **No service is perfectly secure.** We cannot guarantee that unauthorized parties will never defeat our safeguards or those of our vendors. You play a part too: use a strong, unique credential, keep your device locked and updated, do not share your account, and invite to your Care Circle only people you trust (see §8).
 
 **2.11.3 Incident response.** We maintain an incident-response process covering detection, triage, containment, forensic assessment, notification, and remediation. **If a security incident affects your personal information, we will notify you and any regulator entitled to notice without unreasonable delay, and we target notification within seventy-two (72) hours of confirming a reportable incident** — recognizing that some state statutes require faster notice in specific circumstances and some allow longer, and that law-enforcement requests may lawfully delay notice. Our notice will describe what happened, what information was involved, what we are doing, and what you can do.
 
@@ -249,8 +249,8 @@ Analytics events must describe interface behavior and nothing else. **No analyti
 | **Immediate deletion on request** | Any item, or the entire account | **Processed without undue delay and within 45 days**, ordinarily within days | User request in-app or to info@barklens.com. Overrides the grace and export windows if you ask us to delete now. |
 | **Account and authentication records** | Email address, authentication identifiers, consent and acceptance timestamps, Terms-version acceptance | **Life of the account + twenty-four (24) months** after closure, for dispute defense and to prove which Terms version you accepted | Automatic. Minimized to the fields needed. |
 | **Subscription and transaction records** | Store-reported entitlement history, plan, dates, amounts as reported to us | **7 years**  | Automatic. Retained even after account deletion, in minimized form, because we are required to keep transaction records. |
-| **Care Team invitation and access logs** | Who was invited, what permissions were granted, acceptance, revocation, and timestamps | **Life of the account + twenty-four (24) months** | Retained while the account exists because it is the evidence of who had access to a record and when. |
-| **Unaccepted Care Team invitations** | Invitation token, the recipient's contact information, reminder and status events | **Until accepted, declined, suppressed, or expired; unaccepted invitations expire after thirty (30) days** | Delete or minimize the invitation token and the recipient's contact information after expiration, retaining only the limited suppression and abuse-prevention evidence needed to honor a "no further invitations" request. |
+| **Care Circle invitation and access logs** | Who was invited, what permissions were granted, acceptance, revocation, and timestamps | **Life of the account + twenty-four (24) months** | Retained while the account exists because it is the evidence of who had access to a record and when. |
+| **Unaccepted Care Circle invitations** | Invitation token, the recipient's contact information, reminder and status events | **Until accepted, declined, suppressed, or expired; unaccepted invitations expire after thirty (30) days** | Delete or minimize the invitation token and the recipient's contact information after expiration, retaining only the limited suppression and abuse-prevention evidence needed to honor a "no further invitations" request. |
 | **Waitlist information** | Email address, sign-up date and source, consent text and IP, engagement | **Until conversion to an account**, or **24 months of inactivity**, whichever comes first | Automatic purge at 24 months without engagement; immediate on unsubscribe-plus-deletion request, except the suppression record below. |
 | **Unsubscribe and suppression records** | Email address in hashed or plain form, unsubscribe date, source | **Indefinite** | Kept indefinitely for the sole purpose of continuing to honor your unsubscribe. Removed only if you specifically ask us to remove your address from the suppression list. |
 | **Email delivery logs** | Send, delivery, bounce, complaint, and open/click events at the vendor | **thirty (30) days** | Vendor-side aging plus our configuration. |
@@ -268,7 +268,7 @@ Analytics events must describe interface behavior and nothing else. **No analyti
 2. **Export before you delete.** Deletion is irreversible after the windows above close. **We cannot recover purged records** — not from backups, not on appeal, not for a fee.
 3. **Deleting a record deletes what was derived from it**, including its extracted text and structured values and the chart rows built from them.
 4. **Backups are not a shadow archive.** They exist for disaster recovery, they are encrypted, they are not searchable for ordinary purposes, and they age out. We do not mine backups.
-5. **Care Team copies are outside this schedule.** If a Care Team member exported or screenshotted something before you revoked access, that copy is theirs and is not reachable by our deletion process. See §8.5.
+5. **Care Circle copies are outside this schedule.** If a Care Circle member exported or screenshotted something before you revoked access, that copy is theirs and is not reachable by our deletion process. See §8.5.
 6. **We do not retain data to make leaving harder.** Records stay free, export stays free, and no retention period in this table exists to create a switching cost.
 7. **The shorter commitment controls; the longer one needs a reason.** Where a legal, contractual, or user-facing commitment is shorter than a period in the table above, the shorter period governs. Retention longer than the table allows requires a documented basis — a legal obligation, an open dispute, a fraud or security investigation, a transaction record, a user instruction, or a litigation hold — recorded at the time the decision is made.
 8. **Deletion is tested end to end, not assumed.** We maintain a system-level data and deletion map, and we test deletion across authentication, primary storage, database indexes, search indexes, model-provider logs, analytics, email systems, support tooling, and generated exports. A record that survives in a secondary index has not been deleted.

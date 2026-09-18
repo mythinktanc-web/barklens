@@ -146,7 +146,7 @@ export const conditionNarratives: Record<string, ConditionNarrative> = {
       {
         label: 'Confirm',
         title: 'Record what actually happened and when.',
-        body: 'Meals, veterinarian-prescribed medication events, water intake, appetite, weight, energy, and other observations are added by the owner or invited care team.'
+        body: 'Meals, veterinarian-prescribed medication events, water intake, appetite, weight, energy, and other observations are added by the owner or invited Care Circle.'
       },
       {
         label: 'Connect',
@@ -162,7 +162,7 @@ export const conditionNarratives: Record<string, ConditionNarrative> = {
     researchTitle: 'A snapshot, a longer-period marker, and the owner record provide different context.',
     researchIntro:
       'Published veterinary sources distinguish blood and urine glucose from fructosamine and place the owner’s daily record at the beginning of the veterinary conversation.',
-    questionTitle: 'Ask from the same timeline your care team is using.',
+    questionTitle: 'Ask from the same timeline your Care Circle is using.',
     questionIntro:
       'BarkLens brings the meals, confirmed medication events, water, weight, observations, and laboratory results into the question without assessing control or changing a dose.',
     handoffTitle: 'Make the confirmed daily history available wherever your dog is cared for.'

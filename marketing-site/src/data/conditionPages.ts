@@ -282,7 +282,7 @@ export const conditionPages: ConditionPageData[] = [
     ],
     sharing: [
       'Give a specialist or new clinic access to the original testing history, current medication list, repeated laboratory results, and dated observations.',
-      'A partner or sitter can use the same care-team record to confirm what they observed or whether a prescribed medication event occurred.'
+      'A partner or sitter can use the same Care Circle record to confirm what they observed or whether a prescribed medication event occurred.'
     ],
     sources: [
       { label: '2023 AAHA endocrinopathies guidelines', url: 'https://www.aaha.org/resources/2023-aaha-selected-endocrinopathies-of-dogs-and-cats-guidelines/' },
@@ -330,7 +330,7 @@ export const conditionPages: ConditionPageData[] = [
       'Photograph the medication label and preserve the veterinarian-provided instructions exactly as printed or entered.',
       'Record each medication event only after a person confirms it occurred.',
       'Record meal time, what was eaten, water intake, appetite, weight, energy, and other observations.',
-      'Let Sarah, Mark, or another invited care-team member contribute to the same human-confirmed daily record.',
+      'Let Sarah, Mark, or another invited Care Circle member contribute to the same human-confirmed daily record.',
       'Compare laboratory results with the meals, medication events, and observations recorded around them.',
       'Ask a question based on your dog’s complete diabetes history and trace the answer to published sources.'
     ],
@@ -542,7 +542,7 @@ export const conditionPages: ConditionPageData[] = [
       'How have rising, stairs, walking pace, activity, sleep, and weight changed across time?',
       'Which medication and supplement labels should be part of the record?',
       'What kidney or liver laboratory work belongs with the veterinarian’s medication plan?',
-      'What should every care-team member record in the same way?',
+      'What should every Care Circle member record in the same way?',
       'What change should prompt me to contact the clinic earlier?'
     ],
     sharing: [

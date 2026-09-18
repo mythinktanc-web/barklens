@@ -25,7 +25,7 @@ const mobileCaptureImages = [
   '/images/mobile/capture-stool.webp'
 ];
 
-const mobileWhyLabels = ['Reviewed sources', 'Vet export', 'Care team'] as const;
+const mobileWhyLabels = ['Reviewed sources', 'Vet export', 'Care Circle'] as const;
 const mobileWhyItems = whyItems.map((item, index) => ({
   ...item,
   label: mobileWhyLabels[index]
@@ -265,7 +265,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
       BarkLens is the thing I wished for in every waiting room. I’m building it so you have it for
       yours.
     </p>
-    <a href={routes.charlieStory}>Read the full story →</a>
+    <a href={routes.charlieStory}>Read the full story ›</a>
     <small>Ben Singer, Founder · Charlie, 2009–2025</small>
   </div>
 </section>
@@ -281,7 +281,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
           condition, the labs, the medication, and what to watch between visits — so you can manage
           care from knowledge, not from panic.
         </p>
-        <a href={routes.conditions}>Read the conditions guide →</a>
+        <a href={routes.conditions}>Read the conditions guide ›</a>
       </div>
     </div>
     <div class="conditions__grid">
@@ -290,7 +290,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
           <h3>{condition.title}</h3>
           <p>{condition.clue}</p>
           <span>{condition.tag}</span>
-          <b>Read →</b>
+          <b>Read ›</b>
         </a>
       ))}
     </div>

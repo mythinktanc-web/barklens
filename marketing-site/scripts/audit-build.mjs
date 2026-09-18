@@ -106,7 +106,7 @@ for (const file of htmlFiles) {
     if (
       !html.includes(desktopHeroLede) ||
       !html.includes('How we differ from general AI') ||
-      !html.includes('The BarkLens Standard →') ||
+      !html.includes('The BarkLens Standard ›') ||
       !html.includes('href="/where-the-answers-come-from/"')
     ) {
       failures.push(`${relative}: homepage hero proof or BarkLens Standard link changed`);
@@ -126,11 +126,11 @@ for (const file of htmlFiles) {
   }
 
   if (relative === 'care-team/index.html') {
-    if (!html.includes('03 · Care team')) {
-      failures.push(`${relative}: Care Team must remain item 03`);
+    if (!html.includes('03 · Care Circle')) {
+      failures.push(`${relative}: Care Circle must remain item 03`);
     }
-    if (html.includes('04 · Care team')) {
-      failures.push(`${relative}: stale Care Team item number 04`);
+    if (html.includes('04 · Care Circle')) {
+      failures.push(`${relative}: stale Care Circle item number 04`);
     }
   }
 
@@ -195,7 +195,7 @@ for (const file of htmlFiles) {
     primaryHeaderNav?.includes('href="/care-team/"') ||
     mobileHeaderNav?.includes('href="/care-team/"')
   ) {
-    failures.push(`${relative}: Care Team must not appear in top navigation`);
+    failures.push(`${relative}: Care Circle must not appear in top navigation`);
   }
   if (
     relative !== 'review/index.html' &&
@@ -234,6 +234,18 @@ for (const file of htmlFiles) {
   }
 
   const lower = html.toLowerCase();
+  const visibleText = decodeHtmlEntities(
+    html
+      .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+  ).replace(/\s+/g, ' ');
+  if (/\bcare team\b/i.test(visibleText)) {
+    failures.push(`${relative}: stale visible Care Team wording`);
+  }
+  if (visibleText.includes('→')) {
+    failures.push(`${relative}: visible right arrow must use a chevron`);
+  }
   for (const phrase of prohibited) {
     if (lower.includes(phrase)) failures.push(`${relative}: prohibited phrase "${phrase}"`);
   }
