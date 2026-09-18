@@ -100,9 +100,12 @@ for (const file of htmlFiles) {
       failures.push(`${relative}: desktop Snap a Picture copy changed or leaked into mobile`);
     }
     if (
-      !html.includes('Their history.') ||
-      !html.includes('Published veterinary science.') ||
+      !html.includes('BarkLens is an app that holds your dog’s health history') ||
+      !html.includes('It connects their related records') ||
       !html.includes('Always ready for a question.') ||
+      !html.includes('Every answer backed by a source.') ||
+      !html.includes('How we differ from general AI') ||
+      !html.includes('The BarkLens Standard →') ||
       !html.includes('href="/where-the-answers-come-from/"')
     ) {
       failures.push(`${relative}: homepage hero proof or BarkLens Standard link changed`);
@@ -145,7 +148,9 @@ for (const file of htmlFiles) {
 
   for (const match of html.matchAll(/<a\b[^>]*href="\/waitlist\/"[^>]*>([\s\S]*?)<\/a>/g)) {
     const label = decodeHtmlEntities(match[1].replace(/<[^>]+>/g, '').trim());
-    if (label !== 'Join') {
+    const isResponsiveHomepageHeroCta =
+      relative === 'index.html' && label === 'Join the waitlist';
+    if (label !== 'Join' && !isResponsiveHomepageHeroCta) {
       failures.push(`${relative}: waitlist CTA must be labeled "Join", found "${label}"`);
     }
   }

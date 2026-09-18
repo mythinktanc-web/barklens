@@ -26,19 +26,22 @@ import { routes } from '@config/site';
       <p class="eyebrow">The internet knows dogs.</p>
       <h1>
         <span class="hero__desktop-prefix">The internet knows dogs.</span>{' '}
-        <em>BarkLens knows yours.</em>
+        <em>BarkLens knows yours.<span class="hero__asterisk">*</span></em>
       </h1>
       <p class="hero__lede">
-        Every dog is different. Ask anything about yours — BarkLens answers from their history and
-        top-tier veterinary sources.
+        Every dog is different. BarkLens is an app that holds your dog’s health history — labs,
+        medications, food, visit summaries, your observations. It connects their related records
+        and answers questions from published veterinary sources.
       </p>
       <p class="hero__proof">
-        <span>Their history.<br />Published veterinary science.<br />Always ready for a question.</span>
-        <a href={routes.sources}>See the BarkLens standard →</a>
+        <span>Always ready for a question. Every answer backed by a source.</span>
       </p>
       <div class="hero__actions">
-        <ButtonLink href={routes.waitlist} variant="light">Join</ButtonLink>
-        <ButtonLink href={routes.howItWorks} variant="text">See how it works →</ButtonLink>
+        <ButtonLink href={routes.waitlist} variant="light">Join the waitlist</ButtonLink>
+      </div>
+      <div class="hero__difference">
+        <span>How we differ from general AI</span>
+        <a href={routes.sources}>The BarkLens Standard →</a>
       </div>
       <p class="hero__boundary">BarkLens doesn’t diagnose. Your vet does.</p>
     </div>
@@ -107,6 +110,13 @@ import { routes } from '@config/site';
     font-weight: 400;
   }
 
+  .hero h1 .hero__asterisk {
+    display: inline;
+    margin-left: .08em;
+    font-size: .55em;
+    vertical-align: super;
+  }
+
   .hero__lede {
     max-width: 34ch;
     margin-top: var(--space-6);
@@ -128,6 +138,24 @@ import { routes } from '@config/site';
   .hero__proof a {
     margin-top: var(--space-3);
     color: var(--color-mint-400);
+    text-decoration: underline;
+    text-underline-offset: .2rem;
+  }
+
+  .hero__difference {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+    font-size: var(--text-sm);
+  }
+
+  .hero__difference span {
+    color: rgb(245 240 232 / 78%);
+  }
+
+  .hero__difference a {
+    color: var(--color-mint-400);
+    font-weight: 700;
     text-decoration: underline;
     text-underline-offset: .2rem;
   }
