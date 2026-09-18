@@ -146,6 +146,35 @@ for (const file of htmlFiles) {
     }
   }
 
+  if (relative === 'where-the-answers-come-from/index.html') {
+    for (const text of [
+      'Whose information?',
+      'Your dog’s own dated records',
+      'Whatever it was trained on',
+      'Your dog isn’t the average dog',
+      'Which sources?',
+      'Veterinary textbooks, peer-reviewed journals, university references, clinical guidelines',
+      'A forum post and a textbook count the same',
+      'No message boards. Ever.',
+      'Who checked them?',
+      'Reviewed by a licensed veterinarian',
+      'Not reviewed by anyone',
+      'A vet decided what counts',
+      'How do you know?',
+      'Tap any claim, read the source',
+      'Take its word for it',
+      'You don’t have to trust us',
+      'An AI chatbot'
+    ]) {
+      if (!html.includes(text)) {
+        failures.push(`${relative}: approved BarkLens Standard table text is missing "${text}"`);
+      }
+    }
+    if (html.includes('<span>General AI</span>')) {
+      failures.push(`${relative}: stale General AI table heading`);
+    }
+  }
+
   if (relative === 'terms/index.html' && /[🚨⚠️✅❌]/u.test(html)) {
     failures.push(`${relative}: legal terms must not contain emoji`);
   }

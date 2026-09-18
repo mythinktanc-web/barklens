@@ -6,25 +6,25 @@ import { routes } from '@config/site';
 
 const comparisonRows = [
   {
-    label: 'Draws on',
+    label: 'Whose information?',
     barklens: 'Your dog’s own dated records',
     general: 'Whatever it was trained on',
     why: 'Your dog isn’t the average dog'
   },
   {
-    label: 'Sources',
+    label: 'Which sources?',
     barklens: 'Veterinary textbooks, peer-reviewed journals, university references, clinical guidelines',
     general: 'A forum post and a textbook count the same',
     why: 'No message boards. Ever.'
   },
   {
-    label: 'Every source is',
+    label: 'Who checked them?',
     barklens: 'Reviewed by a licensed veterinarian',
     general: 'Not reviewed by anyone',
     why: 'A vet decided what counts'
   },
   {
-    label: 'Proof',
+    label: 'How do you know?',
     barklens: 'Tap any claim, read the source',
     general: 'Take its word for it',
     why: 'You don’t have to trust us'
@@ -79,11 +79,11 @@ const comparisonRows = [
       </div>
     </section>
 
-    <section class="sources-comparison sources-wrap" aria-label="BarkLens and general AI comparison">
+    <section class="sources-comparison sources-wrap" aria-label="BarkLens and an AI chatbot comparison">
       <div class="sources-inner">
         <div class="comparison-desktop">
           <div class="comparison-desktop__header" aria-hidden="true">
-            <span></span><span>BarkLens</span><span>General AI</span><span>Why it matters</span>
+            <span></span><span>BarkLens</span><span>An AI chatbot</span><span>Why it matters</span>
           </div>
           {comparisonRows.map((row) => (
             <div class="comparison-desktop__row">
@@ -97,7 +97,7 @@ const comparisonRows = [
 
         <div class="comparison-mobile">
           <div class="comparison-mobile__header">
-            <span>BarkLens</span><span>General AI</span>
+            <span>BarkLens</span><span>An AI chatbot</span>
           </div>
           {comparisonRows.map((row) => (
             <div class="comparison-mobile__row">
