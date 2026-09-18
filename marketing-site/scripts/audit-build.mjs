@@ -34,6 +34,8 @@ const connectTheirDotsCopy =
 const connectTheirDotsMobileCopy =
   'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens surfaces them and gives you a place to ask what they mean.';
 const snapPictureCopyTail = 'using your dog’s full history and veterinary research.';
+const desktopHeroLede =
+  'Every dog is different. BarkLens is an app that holds your dog’s health history. Ask anything about yours - we answer from their health history, your observations, and top-tier veterinary sources.';
 const mobileHeroLede =
   'Every dog is different. Ask anything about yours - BarkLens answers from their health history, your observations, and top-tier veterinary sources.';
 const whyDetailPages = new Set([
@@ -102,10 +104,7 @@ for (const file of htmlFiles) {
       failures.push(`${relative}: desktop Snap a Picture copy changed or leaked into mobile`);
     }
     if (
-      !html.includes('BarkLens is an app that holds your dog’s health history') ||
-      !html.includes('It connects their related records') ||
-      !html.includes('Always ready for a question.') ||
-      !html.includes('Every answer backed by a source.') ||
+      !html.includes(desktopHeroLede) ||
       !html.includes('How we differ from general AI') ||
       !html.includes('The BarkLens Standard →') ||
       !html.includes('href="/where-the-answers-come-from/"')
@@ -120,6 +119,9 @@ for (const file of htmlFiles) {
     }
     if (html.includes('Not just AI.') || html.includes('Real veterinary science. One answer.')) {
       failures.push(`${relative}: stale homepage hero proof copy`);
+    }
+    if (html.includes('Always ready for a question.') || html.includes('Every answer backed by a source.')) {
+      failures.push(`${relative}: removed homepage value line returned`);
     }
   }
 

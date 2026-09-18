@@ -26,19 +26,16 @@ import { routes } from '@config/site';
       <p class="eyebrow">The internet knows dogs.</p>
       <h1>
         <span class="hero__desktop-prefix">The internet knows dogs.</span>{' '}
-        <em>BarkLens knows yours.<span class="hero__asterisk">*</span></em>
+        <em>BarkLens knows yours.</em>
       </h1>
       <p class="hero__lede hero__lede--desktop">
-        Every dog is different. BarkLens is an app that holds your dog’s health history — labs,
-        medications, food, visit summaries, your observations. It connects their related records
-        and answers questions from published veterinary sources.
+        Every dog is different. BarkLens is an app that holds your dog’s health history. Ask
+        anything about yours - we answer from their health history, your observations, and top-tier
+        veterinary sources.
       </p>
       <p class="hero__lede hero__lede--mobile">
         Every dog is different. Ask anything about yours - BarkLens answers from their health
         history, your observations, and top-tier veterinary sources.
-      </p>
-      <p class="hero__proof">
-        <span>Always ready for a question. Every answer backed by a source.</span>
       </p>
       <div class="hero__actions">
         <ButtonLink href={routes.waitlist} variant="light">Join the waitlist</ButtonLink>
@@ -114,13 +111,6 @@ import { routes } from '@config/site';
     font-weight: 400;
   }
 
-  .hero h1 .hero__asterisk {
-    display: inline;
-    margin-left: .08em;
-    font-size: .55em;
-    vertical-align: super;
-  }
-
   .hero__lede {
     max-width: 34ch;
     margin-top: var(--space-6);
@@ -129,25 +119,6 @@ import { routes } from '@config/site';
 
   .hero__lede--mobile {
     display: none;
-  }
-
-  .hero__proof {
-    margin-top: var(--space-5);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    line-height: 1.5;
-  }
-
-  .hero__proof span,
-  .hero__proof a {
-    display: block;
-  }
-
-  .hero__proof a {
-    margin-top: var(--space-3);
-    color: var(--color-mint-400);
-    text-decoration: underline;
-    text-underline-offset: .2rem;
   }
 
   .hero__difference {
@@ -207,10 +178,6 @@ import { routes } from '@config/site';
       line-height: 1.6;
     }
 
-    .hero__proof {
-      font-size: .9375rem;
-      line-height: 1.6;
-    }
   }
 
   @media (max-width: 63.99rem) {
