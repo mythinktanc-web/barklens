@@ -134,10 +134,12 @@ for (const file of htmlFiles) {
       'Invite the people who help',
       'Each person gets their own login.',
       'One co-parent, included.',
-      'Guests, free and unlimited.',
+      'Add Guests For Free',
       'Everyone can log what they do',
       'The “did you already give it?” text, retired.',
       'You stay in control',
+      'Easy to invite. Easy to undo.',
+      'Add a sitter for the weekend and take them off on Monday. No awkward conversation, and nothing stays open after it’s needed.',
       'Every dog gets their own',
       'On BarkLens Family, your whole household is covered, up to four dogs.',
       'See plans ›'
@@ -148,7 +150,8 @@ for (const file of htmlFiles) {
     }
     if (
       html.includes('Add your partner, a sitter, a walker, or family at no cost.') ||
-      html.includes('Every dose logs who gave it and when. Nobody has to guess.')
+      html.includes('Every dose logs who gave it and when. Nobody has to guess.') ||
+      html.includes('You decide who’s in, and you can remove anyone at any time.')
     ) {
       failures.push(`${relative}: stale Care Circle page copy returned`);
     }
