@@ -285,7 +285,7 @@ export const conditionPages: ConditionPageData[] = [
       'A partner or sitter can use the same care-team record to confirm what they observed or whether a prescribed medication event occurred.'
     ],
     sources: [
-      { label: '2023 AAHA endocrinopathies guidelines', url: 'https://www.aaha.org/wp-content/uploads/globalassets/02-guidelines/2023-aaha-selected-endocrinopathies-of-dogs-and-cats-guidelines' },
+      { label: '2023 AAHA endocrinopathies guidelines', url: 'https://www.aaha.org/resources/2023-aaha-selected-endocrinopathies-of-dogs-and-cats-guidelines/' },
       { label: 'Cornell eClinPath, glucose', url: 'https://eclinpath.com/chemistry/energy-metabolism/glucose/' },
       { label: 'Merck Veterinary Manual, Cushing disease', url: 'https://www.merckvetmanual.com/endocrine-system/the-pituitary-gland/cushing-disease-pituitary-dependent-hyperadrenocorticism-in-animals' }
     ],
@@ -418,7 +418,7 @@ export const conditionPages: ConditionPageData[] = [
     ],
     sources: [
       { label: 'Cornell Riney Canine Health Center, hypothyroidism', url: 'https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/hypothyroidism' },
-      { label: '2023 AAHA endocrinopathies guidelines', url: 'https://www.aaha.org/wp-content/uploads/globalassets/02-guidelines/2023-aaha-selected-endocrinopathies-of-dogs-and-cats-guidelines' },
+      { label: '2023 AAHA endocrinopathies guidelines', url: 'https://www.aaha.org/resources/2023-aaha-selected-endocrinopathies-of-dogs-and-cats-guidelines/' },
       { label: 'Cornell Animal Health Diagnostic Center, thyroid testing', url: 'https://www.vet.cornell.edu/animal-health-diagnostic-center/testing/testing-protocols-interpretations/thyroid-testing-interpretation' },
       { label: 'Cornell eClinPath, cholesterol', url: 'https://eclinpath.com/chemistry/energy-metabolism/cholesterol/' }
     ],

@@ -163,6 +163,19 @@ for (const file of htmlFiles) {
     if (!conditionCta || /<h2\b/.test(conditionCta)) {
       failures.push(`${relative}: condition CTA must contain only the approved Join action`);
     }
+    if (
+      !html.includes('class="record-flow"') ||
+      !html.includes('Questions this history can carry') ||
+      !html.includes('Every source reviewed by a licensed veterinarian.')
+    ) {
+      failures.push(`${relative}: complete condition narrative structure is missing`);
+    }
+    if (
+      html.includes('class="feature-list"') ||
+      html.includes('BarkLens reads, compares, connects, and explains the information that matters to this history.')
+    ) {
+      failures.push(`${relative}: generic condition-page feature assembly returned`);
+    }
   }
 
   for (const match of html.matchAll(/<a\b[^>]*href="\/waitlist\/"[^>]*>([\s\S]*?)<\/a>/g)) {

@@ -3,12 +3,15 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import ButtonLink from './ButtonLink.astro';
 import { routes } from '@config/site';
 import type { ConditionPageData } from '../data/conditionPages';
+import { conditionNarratives } from '../data/conditionNarratives';
 
 interface Props {
   page: ConditionPageData;
 }
 
 const { page } = Astro.props;
+const narrative = conditionNarratives[page.slug];
+if (!narrative) throw new Error(`Missing condition narrative for ${page.slug}`);
 const canonicalUrl = new URL(`/conditions/${page.slug}/`, 'https://barklens.com').href;
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -57,18 +60,35 @@ const articleSchema = {
 
     <div class="condition-layout container">
       <div class="condition-content">
-        <section>
+        <section class="condition-opening">
           <p class="eyebrow">After diagnosis</p>
-          <h2>The diagnosis is the beginning</h2>
+          <h2>{narrative.afterTitle}</h2>
           {page.opening.map((paragraph) => <p>{paragraph}</p>)}
         </section>
 
-        <section>
-          <p class="eyebrow">The research</p>
-          <h2>What published veterinary sources commonly consider</h2>
-          <div class="research-list">
-            {page.research.map((item) => (
+        <section class="record-story">
+          <p class="eyebrow">Your dog’s history</p>
+          <h2>{narrative.recordTitle}</h2>
+          <p class="section-intro">{narrative.recordIntro}</p>
+          <div class="record-flow">
+            {narrative.recordBeats.map((beat, index) => (
               <article>
+                <span>{String(index + 1).padStart(2, '0')} · {beat.label}</span>
+                <h3>{beat.title}</h3>
+                <p>{beat.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="condition-research">
+          <p class="eyebrow">The research</p>
+          <h2>{narrative.researchTitle}</h2>
+          <p class="section-intro">{narrative.researchIntro}</p>
+          <div class="research-list">
+            {page.research.map((item, index) => (
+              <article>
+                <span>{String(index + 1).padStart(2, '0')}</span>
                 <h3>{item.title}</h3>
                 {item.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
               </article>
@@ -76,32 +96,25 @@ const articleSchema = {
           </div>
         </section>
 
-        <section>
-          <p class="eyebrow">Their complete record</p>
-          <h2>See it in your dog’s history</h2>
-          <p>BarkLens reads, compares, connects, and explains the information that matters to this history.</p>
-          <ul class="feature-list">
-            {page.features.map((feature) => <li>{feature}</li>)}
-          </ul>
+        <section class="condition-questions">
+          <p class="eyebrow">Ask from their chart</p>
+          <h2>{narrative.questionTitle}</h2>
+          <p class="section-intro">{narrative.questionIntro}</p>
           <div class="answer-demo" aria-label="Example question asked from a dog’s chart">
             <p class="answer-demo__label">Ask BarkLens from their chart</p>
             <blockquote>“{page.exampleQuestion}”</blockquote>
-            <p>{page.exampleBoundary}</p>
           </div>
-        </section>
-
-        <section>
-          <p class="eyebrow">Questions raised by their record</p>
-          <h2>Ask from their chart</h2>
-          <ul class="question-list">
-            {page.questions.map((question) => <li>{question}</li>)}
-          </ul>
-          <p>BarkLens turns these into chart-based questions by attaching the relevant results, dates, labels, and owner observations.</p>
+          <div class="question-prompts">
+            <h3>Questions this history can carry</h3>
+            <ul class="question-list">
+              {page.questions.map((question) => <li>{question}</li>)}
+            </ul>
+          </div>
         </section>
 
         <section class="condition-sharing">
           <p class="eyebrow">Easy to share records</p>
-          <h2>Bring the history with you</h2>
+          <h2>{narrative.handoffTitle}</h2>
           {page.sharing.map((paragraph) => <p>{paragraph}</p>)}
           <div class="share-demo" aria-label="Ways to share a BarkLens history">
             <span>Show the QR</span>
@@ -177,7 +190,7 @@ const articleSchema = {
   }
 
   .condition-hero h1 {
-    max-width: 20ch;
+    max-width: 24ch;
     margin-top: var(--space-5);
     font-size: clamp(2.8rem, 5.4vw, 5rem);
     line-height: 1.02;
@@ -225,18 +238,64 @@ const articleSchema = {
     text-wrap: pretty;
   }
 
+  .condition-content .section-intro {
+    max-width: 66ch;
+    color: #33453e;
+  }
+
+  .record-flow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-10);
+  }
+
+  .record-flow article {
+    min-height: 18rem;
+    padding: var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-cream-200);
+  }
+
+  .record-flow article > span,
+  .research-list article > span {
+    color: var(--color-green-600);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .record-flow h3 {
+    margin-top: var(--space-8);
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .record-flow p {
+    margin-top: var(--space-4);
+    color: var(--color-copy-muted);
+    font-size: .9375rem;
+    line-height: 1.65;
+  }
+
   .research-list {
     display: grid;
-    gap: var(--space-8);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
     margin-top: var(--space-10);
   }
 
   .research-list article {
-    padding-left: var(--space-5);
-    border-left: 2px solid var(--color-mint-500);
+    padding-top: var(--space-5);
+    border-top: 2px solid var(--color-mint-500);
   }
 
   .research-list h3 {
+    margin-top: var(--space-5);
     font-family: var(--font-display);
     font-size: 1.55rem;
     font-weight: 400;
@@ -249,22 +308,20 @@ const articleSchema = {
     line-height: 1.7;
   }
 
-  .feature-list,
   .question-list {
     display: grid;
-    gap: var(--space-4);
-    margin-top: var(--space-8);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4) var(--space-8);
+    margin-top: var(--space-6);
     list-style: none;
   }
 
-  .feature-list li,
   .question-list li {
     position: relative;
     padding-left: var(--space-6);
     line-height: 1.6;
   }
 
-  .feature-list li::before,
   .question-list li::before {
     position: absolute;
     left: 0;
@@ -272,8 +329,7 @@ const articleSchema = {
     font-weight: 700;
   }
 
-  .feature-list li::before { content: '✓'; }
-  .question-list li::before { content: '→'; }
+  .question-list li::before { content: '›'; }
 
   .answer-demo {
     margin-top: var(--space-10);
@@ -298,11 +354,15 @@ const articleSchema = {
     line-height: 1.3;
   }
 
-  .answer-demo > p:last-child {
-    margin-top: var(--space-5);
-    color: #c9c0b3;
-    font-size: var(--text-sm);
-    line-height: 1.55;
+  .question-prompts {
+    margin-top: var(--space-10);
+  }
+
+  .question-prompts h3 {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 1.2;
   }
 
   .share-demo {
@@ -391,7 +451,7 @@ const articleSchema = {
 
     .condition-hero h1 {
       max-width: none;
-      font-size: clamp(2.05rem, 9vw, 2.65rem);
+      font-size: clamp(1.6rem, 7vw, 2.15rem) !important;
     }
 
     .condition-hero__content > p {
@@ -421,7 +481,17 @@ const articleSchema = {
     }
 
     .research-list {
+      grid-template-columns: 1fr;
       gap: var(--space-6);
+    }
+
+    .record-flow,
+    .question-list {
+      grid-template-columns: 1fr;
+    }
+
+    .record-flow article {
+      min-height: 0;
     }
 
     .answer-demo {
@@ -438,6 +508,13 @@ const articleSchema = {
 
     .condition-cta {
       padding: var(--space-16) 0;
+    }
+  }
+
+  @media (max-width: 22rem) {
+    .condition-page[data-condition='diabetes'] .condition-hero h1 {
+      font-size: 1.45rem !important;
+      line-height: 1.05 !important;
     }
   }
 </style>
