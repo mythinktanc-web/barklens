@@ -110,6 +110,9 @@ for (const file of htmlFiles) {
     ) {
       failures.push(`${relative}: homepage hero proof or BarkLens Standard link changed`);
     }
+    if (html.includes('See the BarkLens standard') || html.includes('See the BarkLens Standard')) {
+      failures.push(`${relative}: homepage Standard link must not begin with "See"`);
+    }
     if (html.includes('Not just AI.') || html.includes('Real veterinary science. One answer.')) {
       failures.push(`${relative}: stale homepage hero proof copy`);
     }
