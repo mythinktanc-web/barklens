@@ -139,10 +139,7 @@ for (const file of htmlFiles) {
       'The “did you already give it?” text, retired.',
       'You stay in control',
       'Easy to invite. Easy to undo.',
-      'Add a sitter for the weekend and take them off on Monday. No awkward conversation, and nothing stays open after it’s needed.',
-      'Every dog gets their own',
-      'On BarkLens Family, your whole household is covered, up to four dogs.',
-      'See plans ›'
+      'Add a sitter for the weekend and take them off on Monday. No awkward conversation, and nothing stays open after it’s needed.'
     ]) {
       if (!html.includes(text)) {
         failures.push(`${relative}: approved Care Circle copy is missing "${text}"`);
@@ -151,7 +148,9 @@ for (const file of htmlFiles) {
     if (
       html.includes('Add your partner, a sitter, a walker, or family at no cost.') ||
       html.includes('Every dose logs who gave it and when. Nobody has to guess.') ||
-      html.includes('You decide who’s in, and you can remove anyone at any time.')
+      html.includes('You decide who’s in, and you can remove anyone at any time.') ||
+      html.includes('class="care-family"') ||
+      html.includes('One household. A separate history for every dog.')
     ) {
       failures.push(`${relative}: stale Care Circle page copy returned`);
     }
@@ -243,7 +242,10 @@ for (const file of htmlFiles) {
     }
     if (
       html.includes('class="feature-list"') ||
-      html.includes('BarkLens reads, compares, connects, and explains the information that matters to this history.')
+      html.includes('BarkLens reads, compares, connects, and explains the information that matters to this history.') ||
+      html.includes('class="condition-sharing"') ||
+      html.includes('Easy to share records') ||
+      html.includes('Show the QR')
     ) {
       failures.push(`${relative}: generic condition-page feature assembly returned`);
     }

@@ -150,13 +150,17 @@ const conditionPage = fs.readFileSync(
   path.join(root, 'src/components/ConditionPage.astro'),
   'utf8'
 );
-for (const declaration of [
+for (const removed of [
   '<section class="condition-sharing">',
-  '.condition-sharing,\n    .sources {\n      display: none;'
+  'class="share-demo"',
+  '.share-demo {'
 ]) {
-  if (!conditionPage.includes(declaration)) {
-    fail(`ConditionPage.astro: mobile condition-page ending lock is missing ${declaration}`);
+  if (conditionPage.includes(removed)) {
+    fail(`ConditionPage.astro: removed sharing block returned ${removed}`);
   }
+}
+if (!conditionPage.includes('.sources {\n      display: none;')) {
+  fail('ConditionPage.astro: mobile source-section visibility lock is missing');
 }
 
 if (failures.length) {

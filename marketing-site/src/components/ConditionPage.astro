@@ -112,17 +112,6 @@ const articleSchema = {
           </div>
         </section>
 
-        <section class="condition-sharing">
-          <p class="eyebrow">Easy to share records</p>
-          <h2>{narrative.handoffTitle}</h2>
-          {page.sharing.map((paragraph) => <p>{paragraph}</p>)}
-          <div class="share-demo" aria-label="Ways to share a BarkLens history">
-            <span>Show the QR</span>
-            <span>Send the link</span>
-            <span>Export the history</span>
-          </div>
-        </section>
-
         {page.urgent && <p class="urgent-note">{page.urgent}</p>}
 
         <section class="sources" id="condition-sources">
@@ -365,26 +354,6 @@ const articleSchema = {
     line-height: 1.2;
   }
 
-  .share-demo {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-3);
-    margin-top: var(--space-8);
-  }
-
-  .share-demo span {
-    display: grid;
-    min-height: 6rem;
-    place-items: center;
-    padding: var(--space-4);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    background: var(--color-cream-200);
-    color: var(--color-forest-900);
-    font-weight: 700;
-    text-align: center;
-  }
-
   .urgent-note {
     margin-top: var(--space-16);
     padding-left: var(--space-5);
@@ -436,7 +405,6 @@ const articleSchema = {
   }
 
   @media (max-width: 47.99rem) {
-    .condition-sharing,
     .sources {
       display: none;
     }
@@ -496,14 +464,6 @@ const articleSchema = {
 
     .answer-demo {
       padding: var(--space-6);
-    }
-
-    .share-demo {
-      grid-template-columns: 1fr;
-    }
-
-    .share-demo span {
-      min-height: 3.5rem;
     }
 
     .condition-cta {
