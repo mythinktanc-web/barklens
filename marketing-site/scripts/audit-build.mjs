@@ -34,6 +34,8 @@ const connectTheirDotsCopy =
 const connectTheirDotsMobileCopy =
   'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens surfaces them and gives you a place to ask what they mean.';
 const snapPictureCopyTail = 'using your dog’s full history and veterinary research.';
+const mobileHeroLede =
+  'Every dog is different. Ask anything about yours - BarkLens answers from their health history, your observations, and top-tier veterinary sources.';
 const whyDetailPages = new Set([
   'care-team/index.html',
   'where-the-answers-come-from/index.html',
@@ -109,6 +111,9 @@ for (const file of htmlFiles) {
       !html.includes('href="/where-the-answers-come-from/"')
     ) {
       failures.push(`${relative}: homepage hero proof or BarkLens Standard link changed`);
+    }
+    if (!html.includes(mobileHeroLede)) {
+      failures.push(`${relative}: mobile homepage hero body copy changed`);
     }
     if (html.includes('See the BarkLens standard') || html.includes('See the BarkLens Standard')) {
       failures.push(`${relative}: homepage Standard link must not begin with "See"`);
