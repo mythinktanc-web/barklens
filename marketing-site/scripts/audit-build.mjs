@@ -35,9 +35,9 @@ const connectTheirDotsMobileCopy =
   'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens surfaces them and gives you a place to ask what they mean.';
 const snapPictureCopyTail = 'using your dog’s full history and veterinary research.';
 const desktopHeroLede =
-  `Every dog is different. Ask anything about yours. The BarkLens app holds your dog's health history and answers from their records, your observations, and top-tier veterinary sources.`;
+  'Every dog is different. Ask anything about yours. BarkLens answers from their health history, your observations, and top-tier veterinary sources.';
 const mobileHeroLede =
-  `Every dog is different. Ask anything about yours. The BarkLens app holds your dog's health history and answers from their records, your observations, and top-tier veterinary sources.`;
+  'Every dog is different. Ask anything about yours. BarkLens answers from their health history, your observations, and top-tier veterinary sources.';
 const whyDetailPages = new Set([
   'care-team/index.html',
   'where-the-answers-come-from/index.html',
