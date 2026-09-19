@@ -122,6 +122,16 @@ for (const declaration of [
   }
 }
 
+const homepage = fs.readFileSync(path.join(root, 'src/pages/index.astro'), 'utf8');
+for (const declaration of [
+  '.hero__difference a {\n      order: 1;',
+  '.hero__difference span {\n      order: 2;'
+]) {
+  if (!homepage.includes(declaration)) {
+    fail(`index.astro: mobile BarkLens Standard line order lock is missing ${declaration}`);
+  }
+}
+
 const footer = fs.readFileSync(path.join(root, 'src/components/Footer.astro'), 'utf8');
 for (const declaration of [
   '<Wordmark inverse withMark />',
