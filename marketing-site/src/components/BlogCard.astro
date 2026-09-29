@@ -1,0 +1,187 @@
+---
+interface Props {
+  post: any;
+  feature?: boolean;
+  compact?: boolean;
+}
+
+const { post, feature = false, compact = false } = Astro.props;
+const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric'
+}).format(date);
+---
+
+<article class:list={['blog-card', { 'blog-card--feature': feature, 'blog-card--compact': compact, 'blog-card--creatinine': post.id === 'creatinine-in-dogs' }]} data-blog-card data-category={post.data.category}>
+  <a href={`/blog/${post.id}/`}>
+    <img src={post.data.coverImage} alt={post.data.coverAlt} loading={feature ? 'eager' : 'lazy'} />
+    <div class="blog-card__copy">
+      <p class="eyebrow">{post.data.category}</p>
+      <h2>{post.data.title}</h2>
+      <p>{post.data.description}</p>
+      <footer>
+        <span class="blog-card__byline">
+          <span>{post.data.author}</span>
+          <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
+        </span>
+        <span class="blog-card__read">Read article <span aria-hidden="true">›</span></span>
+      </footer>
+    </div>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: #fff;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-.2rem);
+    box-shadow: var(--shadow-card);
+  }
+
+  .blog-card > a {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .blog-card--feature {
+    grid-column: 1 / -1;
+  }
+
+  .blog-card--feature > a {
+    min-height: 34rem;
+    grid-template-columns: minmax(0, 1.14fr) minmax(25rem, .86fr);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .blog-card--feature img {
+    aspect-ratio: auto;
+  }
+
+  .blog-card--feature.blog-card--creatinine img {
+    object-position: 72% center;
+  }
+
+  .blog-card__copy {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-8);
+  }
+
+  h2 {
+    max-width: 19ch;
+    margin-top: var(--space-4);
+    font-size: clamp(1.65rem, 1.25rem + 1.15vw, 2.65rem);
+    line-height: 1.08;
+  }
+
+  .blog-card--compact h2 {
+    font-size: clamp(1.45rem, 1.2rem + .7vw, 2rem);
+  }
+
+  .blog-card--compact .blog-card__copy {
+    padding: var(--space-6);
+  }
+
+  .blog-card__copy > p:not(.eyebrow) {
+    max-width: 42ch;
+    margin-top: var(--space-4);
+    color: var(--color-copy-muted);
+    line-height: 1.6;
+  }
+
+  footer {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--space-5);
+    margin-top: auto;
+    padding-top: var(--space-8);
+    color: var(--color-copy-muted);
+    font-size: var(--text-xs);
+  }
+
+  .blog-card__byline {
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .blog-card__read {
+    color: var(--color-green-600);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .blog-card__read span {
+    display: inline-block;
+    margin-left: var(--space-1);
+    font-size: 1.25em;
+    transition: transform var(--transition);
+  }
+
+  .blog-card:hover .blog-card__read span {
+    transform: translateX(.18rem);
+  }
+
+  @media (max-width: 63.99rem) {
+    .blog-card--feature > a {
+      min-height: 0;
+      grid-template-columns: .9fr 1.1fr;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .blog-card--feature > a,
+    .blog-card > a {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-card--feature img,
+    img {
+      aspect-ratio: 4 / 3;
+      object-position: center 46%;
+    }
+
+    .blog-card--feature.blog-card--creatinine img {
+      object-position: 70% center;
+    }
+
+    .blog-card__copy {
+      padding: var(--space-6) var(--space-5);
+    }
+
+    h2 {
+      max-width: 19ch;
+      margin-top: var(--space-3);
+      font-size: var(--type-subhead-size);
+      line-height: var(--type-subhead-line);
+    }
+
+    .blog-card__copy > p:not(.eyebrow) {
+      margin-top: var(--space-4);
+      font-size: var(--type-body-size);
+      line-height: 1.55;
+    }
+
+    footer {
+      align-items: center;
+      margin-top: var(--space-8);
+      padding-top: 0;
+    }
+  }
+</style>

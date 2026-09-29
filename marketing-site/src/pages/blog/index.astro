@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { isPublishedBlog } from '../../lib/publishedBlog';
 
 const categories = [
   'All',
@@ -11,7 +12,7 @@ const categories = [
   'Veterinary Visit Preparation'
 ];
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft && data.sourcesVerified))
+const posts = (await getCollection('blog', isPublishedBlog))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
