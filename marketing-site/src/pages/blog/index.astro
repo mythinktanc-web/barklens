@@ -62,7 +62,7 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
       {posts.map((post, index) => (
         <article data-blog-card data-category={post.data.category} class:list={{ 'blog-card--feature': index === 0 }}>
           <a href={`/blog/${post.id}/`}>
-            <img src={post.data.coverImage} alt={post.data.coverAlt} loading={index === 0 ? 'eager' : 'lazy'} />
+            <img src={post.data.coverImage} alt={post.data.coverAlt} style={{ objectPosition: post.data.coverPosition || 'center' }} loading={index === 0 ? 'eager' : 'lazy'} />
             <div>
               <p class="eyebrow">{post.data.category}</p>
               <h2>{post.data.title}</h2>

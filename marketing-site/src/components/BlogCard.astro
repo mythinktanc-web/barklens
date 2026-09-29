@@ -15,7 +15,7 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
 
 <article class:list={['blog-card', { 'blog-card--feature': feature, 'blog-card--compact': compact, 'blog-card--creatinine': post.id === 'creatinine-in-dogs' }]} data-blog-card data-category={post.data.category}>
   <a href={`/blog/${post.id}/`}>
-    <img src={post.data.coverImage} alt={post.data.coverAlt} loading={feature ? 'eager' : 'lazy'} />
+    <img src={post.data.coverImage} alt={post.data.coverAlt} style={{ objectPosition: post.data.coverPosition || 'center' }} loading={feature ? 'eager' : 'lazy'} />
     <div class="blog-card__copy">
       <p class="eyebrow">{post.data.category}</p>
       <h2>{post.data.title}</h2>

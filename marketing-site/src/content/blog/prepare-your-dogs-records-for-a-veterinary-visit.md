@@ -11,7 +11,7 @@ tags:
   - Medications
 coverImage: "/images/blog/visit-preparation-gold-dog.webp"
 coverAlt: "A curly-coated golden dog standing beside its seated owner"
-coverPosition: "50% center"
+coverPosition: "45% center"
 draft: false
 sourcesVerified: true
 sources:
