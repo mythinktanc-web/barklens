@@ -28,7 +28,7 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
   canonicalPath="/blog/"
 >
   <header class="blog-hero">
-    <img src="/images/support/blog-1.webp" alt="A dog and their owner walking together on a quiet mountain path" width="1312" height="1600" />
+    <img src="/images/blog/blog-hero-dachshund.webp" alt="A woman carrying a dachshund over her shoulder on a tree-lined path" width="1774" height="887" fetchpriority="high" />
     <div class="blog-hero__shade"></div>
     <div class="blog-hero__content container">
       <p class="eyebrow">Dog health blog</p>
@@ -129,7 +129,9 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
   .blog-empty { margin-top: var(--space-10); padding: var(--space-12); border-radius: var(--radius-xl); background: var(--color-cream-200); text-align: center; }
   @media (max-width: 63.99rem) { .blog-grid { grid-template-columns: 1fr; } }
   @media (max-width: 47.99rem) {
-    .blog-hero { min-height: 31rem; }
+    .blog-hero { min-height: 42rem; }
+    .blog-hero > img { object-position: 80% center; }
+    .blog-hero__shade { background: linear-gradient(0deg, rgb(15 31 26 / 98%) 0%, rgb(15 31 26 / 85%) 30%, rgb(15 31 26 / 8%) 70%); }
     .blog-hero__content { padding-bottom: var(--space-8); }
     .blog-hero h1 { font-size: 2.65rem; }
     .blog-library { padding-block: var(--space-12); }
