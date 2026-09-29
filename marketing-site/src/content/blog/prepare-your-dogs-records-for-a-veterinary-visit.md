@@ -9,8 +9,9 @@ tags:
   - Veterinary visits
   - Records
   - Medications
-coverImage: "/images/blog/visit-preparation.webp"
-coverAlt: "A dog and their owner walking together on a quiet mountain path"
+coverImage: "/images/blog/visit-preparation-gold-dog.webp"
+coverAlt: "A curly-coated golden dog standing beside its seated owner"
+coverPosition: "50% center"
 draft: false
 sourcesVerified: true
 sources:
