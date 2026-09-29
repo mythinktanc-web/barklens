@@ -18,7 +18,7 @@ coverImage: /images/blog/posts/alp-and-alt-in-dogs.webp
 coverAlt: A person walking a small dog beside the sea, framed by a stone arch
 coverMobileImage: /images/blog/posts/alp-and-alt-in-dogs-mobile.webp
 coverPosition: 54% 100%
-draft: false
+draft: true
 sourcesVerified: true
 sources:
 - label: 'Cornell eClinPath: ALP'
@@ -55,7 +55,7 @@ readNext:
 - prepare-your-dogs-records-for-a-veterinary-visit
 fromParameter: alp-and-alt-in-dogs
 updatedDate: '2026-09-29'
-releaseApproved: true
+releaseApproved: false
 emergencyPointer: If your dog collapses, seek emergency veterinary care immediately.
   If they are vomiting, not eating, drinking or peeing much more or much less than
   usual, or seem very weak, contact your veterinarian or an emergency clinic now.

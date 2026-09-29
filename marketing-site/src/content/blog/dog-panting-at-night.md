@@ -50,7 +50,7 @@ readNext:
 - prepare-your-dogs-records-for-a-veterinary-visit
 fromParameter: dog-panting-at-night
 updatedDate: '2026-09-29'
-releaseApproved: true
+releaseApproved: false
 emergencyPointer: If your dog is struggling to breathe, using their belly to breathe,
   has blue or grey gums, or collapses, seek emergency veterinary care immediately.
   Call ahead if possible, but do not delay getting help to finish a breathing count
