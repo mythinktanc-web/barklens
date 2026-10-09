@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { site } from '@config/site';
+---
+
+<BaseLayout
+  title="Accessibility | BarkLens"
+  description="BarkLens is committed to WCAG 2.1 AA. If something on barklens.com doesn’t work for you, tell us and we’ll work to fix it."
+  canonicalPath="/accessibility/"
+>
+  <article class="access-page container">
+    <p class="eyebrow">Accessibility</p>
+    <h1>Accessibility statement</h1>
+
+    <section>
+      <h2>Our commitment</h2>
+      <p>
+        {site.legalName} d/b/a BarkLens wants barklens.com and the BarkLens app to be usable by
+        everyone, including people with disabilities. We are committed to meeting the Web Content
+        Accessibility Guidelines (WCAG) 2.1, Level AA.
+      </p>
+    </section>
+
+    <section>
+      <h2>If something doesn’t work for you</h2>
+      <p>
+        If you have trouble using any part of BarkLens, email{' '}
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>. Tell us the page or screen,
+        what you were trying to do, and any assistive technology you use. We’ll respond and work to
+        fix the problem.
+      </p>
+    </section>
+
+    <p class="access-page__date">Last updated October 9, 2026</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .access-page {
+    max-width: 46rem;
+    padding-block: var(--space-20);
+  }
+
+  .access-page h1 {
+    margin-top: var(--space-5);
+    font-size: var(--text-2xl);
+  }
+
+  .access-page section {
+    margin-top: var(--space-10);
+  }
+
+  .access-page h2 {
+    font-size: var(--text-lg);
+  }
+
+  .access-page section p {
+    margin-top: var(--space-3);
+    color: var(--color-copy);
+    line-height: 1.65;
+  }
+
+  .access-page a {
+    color: var(--color-green-600);
+    text-decoration: underline;
+    text-underline-offset: .15em;
+  }
+
+  .access-page__date {
+    margin-top: var(--space-10);
+    color: var(--color-copy-muted);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 47.99rem) {
+    .access-page {
+      padding-block: var(--space-12);
+    }
+  }
+</style>

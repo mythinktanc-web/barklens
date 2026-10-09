@@ -27,7 +27,9 @@ const signup = {
   breed: 'Dachshund',
   age: 'Senior',
   multi: 'No',
-  referredBy: 'friend123'
+  referredBy: 'friend123',
+  isAdult: true,
+  marketingOptIn: false
 };
 
 test('new signup is stored and receives one welcome email', async () => {
@@ -40,7 +42,9 @@ test('new signup is stored and receives one welcome email', async () => {
     assert.match(result.referralUrl, /^https:\/\/barklens\.com\/waitlist\/\?refer=/);
     assert.equal(stored.sent.length, 1);
     assert.equal(stored.members['ben@example.com'].vars.referred_by, 'friend123');
-    assert.equal(stored.members['ben@example.com'].vars.consent_version, 'waitlist-v1-2026-09-16');
+    assert.equal(stored.members['ben@example.com'].vars.consent_version, 'waitlist-v2-2026-10-09');
+    assert.equal(stored.members['ben@example.com'].vars.age_confirmed, true);
+    assert.equal(stored.members['ben@example.com'].vars.marketing_opt_in, false);
     assert.equal(stored.members['ben@example.com'].vars.signup_source, '/waitlist/');
     assert.ok(stored.members['ben@example.com'].vars.welcome_sent_at);
   } finally {
@@ -103,6 +107,30 @@ test('invalid input is rejected before Mailgun is called', async () => {
       testFixture.service.signup({ ...signup, email: 'not-an-email' }, 'https://barklens.com'),
       ValidationError
     );
+  } finally {
+    await testFixture.cleanup();
+  }
+});
+
+test('signup without the 18-or-older confirmation is rejected', async () => {
+  const testFixture = await fixture();
+  try {
+    await assert.rejects(
+      testFixture.service.signup({ ...signup, isAdult: false }, 'https://barklens.com'),
+      ValidationError
+    );
+  } finally {
+    await testFixture.cleanup();
+  }
+});
+
+test('marketing consent is stored only when the optional box is checked', async () => {
+  const testFixture = await fixture();
+  try {
+    await testFixture.service.signup({ ...signup, marketingOptIn: true }, 'https://barklens.com');
+    const stored = JSON.parse(await readFile(testFixture.file, 'utf8'));
+    assert.equal(stored.members['ben@example.com'].vars.marketing_opt_in, true);
+    assert.ok(stored.members['ben@example.com'].vars.marketing_consent_at);
   } finally {
     await testFixture.cleanup();
   }

@@ -185,6 +185,33 @@ We may update this Policy. If a change is material — for example, a new catego
 
 **Email: info@barklens.com.** Mail: ThinkTanc LLC d/b/a BarkLens, 7804 Fairview Rd C-162, Charlotte, NC 28226. If you are unsatisfied with our response, you may contact your state attorney general.
 
+
+### 2.16 Consumer Health Data (Washington and similar state laws)
+
+Some state laws, including Washington's My Health My Data Act, give residents specific rights over consumer health data. This section explains how BarkLens handles that data. It applies in addition to the rest of this Policy.
+
+**2.16.1 What we collect.** Most of what you add to BarkLens is about your dog: veterinary records, laboratory reports, medications and supplements, photographs, your observations, and the questions you ask and the answers returned (§2.3.2–§2.3.5). Because this information is linked to your account, and because some of it could reveal information about you, we apply the protections in this section to it. We do not ask for information about your own health. If you include it anyway, for example in a question or a note, it is covered here too. This section also covers account, waitlist, and device information when it is linked to that data.
+
+**2.16.2 Why we collect it.** Only to provide the Service you ask for: to store and organize your dog's records, read the documents and photographs you submit, answer your questions, share records with Care Circle members you invite, provide export, keep the Service secure, and meet our legal obligations. We do not use it for advertising.
+
+**2.16.3 Where it comes from.** From you, from Care Circle members acting within the access you granted, and from vendors that process it on our behalf.
+
+**2.16.4 Who we share it with.** We share consumer health data only with the vendors below, which process it on our behalf under written agreements (§7), with people you choose to share with, and where the law requires it (§2.5).
+
+| Vendor | What it does | What it receives |
+|---|---|---|
+| **Firebase / Google Cloud Platform** (Google LLC) | Sign-in, file storage, database, and infrastructure | Your account information and your dog's records, photographs, questions, and answers |
+| **Model providers listed in §7** | Generating answers | The material needed to answer the question you asked (§2.7) |
+| **Vercel** | Hosting barklens.com | Request data such as IP address and the page requested; no account records |
+| **Mailgun** (Sinch) | Sending email | Your email address, name, waitlist details, and the content of the emails we send you |
+| **Google Analytics 4** (Google LLC) | Measuring website use, only if you accept analytics cookies | Page and event data and device and browser type; never your dog's records or health values (§5.5) |
+
+**2.16.5 Never sold.** **We never sell consumer health data.** We do not use it for targeted advertising, and we do not share it with data brokers.
+
+**2.16.6 Access and deletion.** You may ask us to confirm whether we collect or share your consumer health data, to give you a copy of it along with a list of the third parties we have shared it with, and to delete it, including the copies held by our vendors. You may also withdraw any consent you have given. Use the in-app privacy controls or email **info@barklens.com** with "Consumer health data request" in the subject line. We respond within forty-five (45) days. If we deny your request, you may appeal as described in §2.9. Washington residents whose appeal is denied may contact the Washington State Attorney General.
+
+**2.16.7 Consent.** We collect and share consumer health data only as needed to provide the Service you request, or with your consent.
+
 ---
 
 ---

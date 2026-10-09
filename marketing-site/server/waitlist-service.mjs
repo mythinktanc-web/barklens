@@ -29,6 +29,7 @@ export function validateSignup(input) {
   const multipleDogs = cleanText(input.multi, 'Multiple dogs', 3);
   if (!allowedAges.has(age)) throw new ValidationError('Choose a valid age range.');
   if (!allowedMulti.has(multipleDogs)) throw new ValidationError('Choose Yes or No.');
+  if (input.isAdult !== true) throw new ValidationError('Confirm that you are 18 or older.');
   return {
     email,
     firstName: cleanText(input.firstName, 'First name', 80),
@@ -37,6 +38,8 @@ export function validateSignup(input) {
     age,
     multipleDogs,
     referredBy: String(input.referredBy || '').trim().slice(0, 32),
+    isAdult: true,
+    marketingOptIn: input.marketingOptIn === true,
     consentVersion: String(input.consentVersion || '').trim().slice(0, 80),
     signupSource: String(input.signupSource || '').trim().slice(0, 160),
     signupIp: String(input.signupIp || '').trim().slice(0, 80)
@@ -76,7 +79,10 @@ export class WaitlistService {
         referral_code: makeToken(8),
         referred_by: signup.referredBy || null,
         joined_at: new Date().toISOString(),
-        consent_version: signup.consentVersion || 'waitlist-v1-2026-09-16',
+        consent_version: signup.consentVersion || 'waitlist-v2-2026-10-09',
+        age_confirmed: true,
+        marketing_opt_in: signup.marketingOptIn,
+        marketing_consent_at: signup.marketingOptIn ? new Date().toISOString() : null,
         signup_source: signup.signupSource || '/waitlist/',
         signup_ip: signup.signupIp || null,
         unsubscribe_token: makeToken(24),

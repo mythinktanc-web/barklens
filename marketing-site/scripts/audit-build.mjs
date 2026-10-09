@@ -163,7 +163,7 @@ for (const file of htmlFiles) {
   }
 
   if (relative === 'your-records-are-yours/index.html') {
-    if (!html.includes('barklens.com/8731') || !html.includes('/images/records/share-qr.png')) {
+    if (!html.includes('barklens.com/s/k7Qx9mT2pLw4') || !html.includes('/images/records/share-qr.png')) {
       failures.push(`${relative}: records share example URL and QR must remain aligned`);
     }
   }
@@ -183,7 +183,7 @@ for (const file of htmlFiles) {
       'Not reviewed by anyone',
       'A vet decided what counts',
       'How do you know?',
-      'Tap any claim, read the source',
+      'Every fact links to its published source, so you can read it yourself.',
       'Take its word for it',
       'You don’t have to trust us',
       'An AI chatbot'

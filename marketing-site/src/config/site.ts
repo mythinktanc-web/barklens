@@ -33,6 +33,8 @@ export const routes = {
   records: '/your-records-are-yours/',
   blog: '/blog/',
   privacy: '/privacy/',
+  consumerHealthData: '/privacy/#216-consumer-health-data-washington-and-similar-state-laws',
+  accessibility: '/accessibility/',
   terms: '/terms/',
   waitlist: '/waitlist/'
 } as const;

@@ -216,7 +216,7 @@ We may investigate suspected violations, and we may suspend or terminate access 
 
 ### 1.13 Fees, plans, and subscriptions
 
-Paid features are sold as auto-renewing subscriptions purchased through the Apple App Store or Google Play. Plan definitions, pricing, the free tier, the free trial, renewal, cancellation, refunds, price changes, and what happens after cancellation are set out in full in **§3 (Subscription and Billing Terms)**, which is incorporated into these Terms. In summary: **Plus** is $14.95 per month or $149 per year for one dog; **Family** is $24.95 per month or $249 per year for up to four dogs; a free account may extract up to 125 pages within a 7-day window; billing, renewal, and refunds are governed by the store that sold the subscription; and **your records and your ability to export them remain available to you free of charge after cancellation.** Selecting a plan authorizes the store to charge you under the store's terms. **BarkLens does not control store billing, renewal processing, or refunds, and deleting the app, stopping use, or closing your BarkLens account does not cancel a store-billed subscription.**
+Paid features are sold as auto-renewing subscriptions purchased through the Apple App Store or Google Play. Plan definitions, pricing, the free trial, renewal, cancellation, refunds, price changes, and what happens after cancellation are set out in full in **§3 (Subscription and Billing Terms)**, which is incorporated into these Terms. In summary: **Plus** is $14.95 per month or $149 per year for one dog; **Family** is $24.95 per month or $249 per year for up to four dogs; billing, renewal, and refunds are governed by the store that sold the subscription; and **your records and your ability to export them remain available to you free of charge after cancellation.** Selecting a plan authorizes the store to charge you under the store's terms. **BarkLens does not control store billing, renewal processing, or refunds, and deleting the app, stopping use, or closing your BarkLens account does not cancel a store-billed subscription.**
 
 ### 1.14 Disclaimers of warranty
 
@@ -326,9 +326,9 @@ These Terms and any dispute arising out of or relating to them or to the Service
 
 These Subscription and Billing Terms are part of the Terms of Use at §1 and govern paid access to BarkLens.
 
-### 3.1 Free tier
+### 3.1 Paid subscription
 
-You may use BarkLens without paying. **A free account may extract up to 125 pages within a rolling 7-day window.** The limit is measured in **pages**, not documents: there is no cap on the number of documents, no per-document page cap, and no monthly allowance. When you reach the limit, extraction pauses until the window resets or you subscribe. **Records you already have, and your ability to export them, remain available to you at no cost.**  We may apply reasonable technical rules to prevent duplicate, fraudulent, or abusive page processing.
+BarkLens is a paid subscription. New subscribers may be offered a free trial, as described on our Plans page.
 
 ### 3.2 Paid plans and prices
 
@@ -345,7 +345,7 @@ Plan names describe software features only; they do not describe insurance or ve
 
 ### 3.3 Free trial
 
-**A 7-day free trial is available to new subscribers.**  The trial gives you access to the features of the plan you selected. **Unless you cancel before the trial ends, the trial converts automatically into a paid subscription for the plan and billing period you selected, and the app store charges your payment method at the then-current price.** The store will tell you the price and the conversion date at purchase, and the trial's end date is visible in your store subscription settings at any time. If you cancel during the trial, you keep access until the trial's scheduled end date and are not charged. Only one trial per person or per store account; we and the stores may refuse a trial to anyone who has already had one. **The store purchase screen and the store receipt state the authoritative trial end time**, and repeated-trial abuse may result in suspension under §1.11.4.
+**A 7-day free trial is available to new subscribers.** During a free trial, we'll email you before your trial ends and before your first charge, with a reminder of the price and how to cancel. The trial gives you access to the features of the plan you selected. **Unless you cancel before the trial ends, the trial converts automatically into a paid subscription for the plan and billing period you selected, and the app store charges your payment method at the then-current price.** The store will tell you the price and the conversion date at purchase, and the trial's end date is visible in your store subscription settings at any time. If you cancel during the trial, you keep access until the trial's scheduled end date and are not charged. Only one trial per person or per store account; we and the stores may refuse a trial to anyone who has already had one. **The store purchase screen and the store receipt state the authoritative trial end time**, and repeated-trial abuse may result in suspension under §1.11.4.
 
 ### 3.4 Billing through the app stores
 
@@ -359,7 +359,7 @@ Plan names describe software features only; they do not describe insurance or ve
 
 ### 3.6 Cancellation
 
-**You may cancel at any time, and you cancel through the store that sold the subscription** — in iOS Settings under your Apple Account subscriptions, or in the Google Play app under Payments and subscriptions. **We cannot cancel a store-billed subscription for you.** Cancellation stops future renewals; **it does not shorten the period you already paid for, and your paid access continues to the end of that period.** After that, your account moves to the free state described in §3.8. Deleting the app does not cancel a subscription, and closing your BarkLens account does not cancel a subscription — you must cancel with the store. Reinstalling the app does not reverse a cancellation, although restoring an active purchase may restore paid access.
+**You may cancel at any time, and you cancel through the store that sold the subscription** — in iOS Settings under your Apple Account subscriptions, or in the Google Play app under Payments and subscriptions. **We cannot cancel a store-billed subscription for you.** Cancellation stops future renewals; **it does not shorten the period you already paid for, and your paid access continues to the end of that period.** After that, your account moves to the unpaid state described in §3.8. Deleting the app does not cancel a subscription, and closing your BarkLens account does not cancel a subscription — you must cancel with the store. Reinstalling the app does not reverse a cancellation, although restoring an active purchase may restore paid access.
 
 ### 3.7 Refunds
 
@@ -383,7 +383,7 @@ When a paid plan ends — whether you cancel, the trial does not convert, paymen
 
 - **Connect-the-dots analysis** — cross-record analysis, trend surfaces, and derived comparisons.
 - **Any other premium feature** identified as such in the app and in the store listing at the time of purchase.
-- **New extraction beyond the free-tier limit** — the 125-pages-per-7-days limit in §3.1 applies again.
+- **New extraction** — reading new documents and photographs into your dog's records.
 
 ### 3.9 Export, including after you leave
 
@@ -397,7 +397,7 @@ When a paid plan ends — whether you cancel, the trial does not convert, paymen
 
 ### 3.10 Price changes
 
-We may change prices. **We will give you at least thirty (30) days' notice by email and in-app notice before a price change applies to your subscription, and the change will take effect only at the start of a renewal period.** You may cancel before then, through the store, and the store's own price-change consent rules also apply — in some cases a store will require your affirmative consent before charging a higher price, and if you do not consent your subscription may not renew. **Founding-member pricing is locked as described in §4.6.** Promotional prices apply only for the stated promotional period and revert to the standard price afterward, which we will tell you at purchase. **We will not retroactively shorten a period you have already paid for.** Remedies for a discontinued feature remain subject to applicable law and store policy.
+We may change prices. **We will give you at least thirty (30) days' notice by email and in-app notice before a price change applies to your subscription, and the change will take effect only at the start of a renewal period.** You may cancel before then, through the store, and the store's own price-change consent rules also apply — in some cases a store will require your affirmative consent before charging a higher price, and if you do not consent your subscription may not renew. **The Founding Member offer is described in §4.6.** Promotional prices apply only for the stated promotional period and revert to the standard price afterward, which we will tell you at purchase. **We will not retroactively shorten a period you have already paid for.** Remedies for a discontinued feature remain subject to applicable law and store policy.
 
 ### 3.11 Failed payments; taxes; other
 
@@ -423,7 +423,7 @@ These terms govern the BarkLens waitlist, our email communications, the founding
 
 ### 4.2 Consent — joining the waitlist and the welcome email
 
-When you join the BarkLens waitlist on barklens.com, you give us your email address and you **opt in** to receive: (a) a **welcome email** confirming your sign-up; (b) launch and availability updates; and (c) the founding-member offer described in §4.6, if it is open. The opt-in is presented as an affirmative, unchecked action on the sign-up form, with plain text next to it describing what you will receive. **We do not pre-check consent boxes, we do not bury consent in a privacy policy link, and we do not add anyone to the waitlist who did not enter their own address.**
+When you join the BarkLens waitlist on barklens.com, you give us your email address and confirm that you are 18 or older. We send you a **welcome email** confirming your sign-up and messages about your waitlist spot and access. Marketing email — including launch news, product updates, and founding-member offers under §4.6 — is sent only if you also check the separate, optional box on the sign-up form. That box is unchecked by default, with plain text next to it describing what you will receive. **We do not pre-check consent boxes, we do not bury consent in a privacy policy link, and we do not add anyone to the waitlist who did not enter their own address.**
 
 **Consent records.** For each sign-up we retain the email address, the date and time, the page or source, the IP address at sign-up, and the exact consent text displayed, so we can demonstrate consent later.
 
@@ -457,13 +457,13 @@ When you unsubscribe, we add your address to a **suppression list that we retain
 
 If we make a founding-member offer to waitlist subscribers, these terms apply, subject to the specific offer text presented at the time:
 
-**4.6.1 What it is.** Early access to the app before general availability, and **a locked subscription price for twelve (12) months** from the start of the first paid term — meaning that a general price increase under §3.10 will not apply to a founding member during those twelve months.
+**4.6.1 What it is.** The Founding Member offer gives the first 1,000 paid subscribers 50% off their subscription price for their first 12 months. After 12 months, the subscription renews at the then-current standard price unless canceled. The offer is limited to one per account, cannot be combined with other offers, and ends when 1,000 subscribers have redeemed it.
 
 **4.6.2 Conditions.** The offer is available to waitlist subscribers who enroll during the stated offer window, is limited to the number of memberships stated in the offer, requires an active paid subscription purchased through an app store, and applies to the plan selected at enrollment.
 
-**4.6.3 What happens after twelve months.** At the end of the lock period, the subscription renews at the then-current standard price for the plan, and we will give the notice required by §3.10 before that happens.
+**4.6.3 What happens after twelve months.** At the end of the first 12 months, the subscription renews at the then-current standard price for the plan unless canceled, and we will give the notice required by §3.10 before that happens.
 
-**4.6.4 Lapse and plan changes.** The founding-member price is lost if the subscription lapses. During the original twelve-month lock period, a change between Plus and Family or between monthly and annual billing preserves the equivalent founding-member discount where the app store permits it.
+**4.6.4 Lapse and plan changes.** The founding-member discount is lost if the subscription lapses. During the first 12 months, a change between Plus and Family or between monthly and annual billing preserves the equivalent founding-member discount where the app store permits it.
 
 **4.6.5 Transferability.** The founding-member benefit is personal and non-transferable. It cannot be sold, assigned, or moved to another person or store account.
 
