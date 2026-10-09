@@ -311,7 +311,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
               <span>{item.question}</span><b aria-hidden="true">+</b>
             </button>
           </h3>
-          <div id={`faq-answer-${index}`} data-faq-answer hidden><p>{item.answer}</p></div>
+          <div id={`faq-answer-${index}`} data-faq-answer hidden>{(Array.isArray(item.answer) ? item.answer : [item.answer]).map((paragraph) => <p>{paragraph}</p>)}</div>
         </article>
       ))}
     </div>
@@ -710,6 +710,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   .faq__list button b { font-family: var(--font-body); font-size: var(--text-lg); font-weight: 400; transition: transform var(--transition); }
   .faq__list button[aria-expanded='true'] b { transform: rotate(45deg); }
   .faq__list [data-faq-answer] { padding: 0 0 var(--space-5); color: rgb(255 255 255 / 84%); }
+  .faq__list [data-faq-answer] p + p { margin-top: var(--space-3); }
 
   .closing { min-height: 20rem; color: var(--color-forest-900); background: var(--color-cream-200); }
   .closing__content { display: flex; min-height: 20rem; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-10) var(--space-8); text-align: center; }
