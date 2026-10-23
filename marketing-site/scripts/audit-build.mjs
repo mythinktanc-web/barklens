@@ -272,6 +272,7 @@ for (const file of htmlFiles) {
     failures.push(`${relative}: visible right arrow must use a chevron`);
   }
   for (const phrase of prohibited) {
+    if (phrase === 'gmail' && relative === 'data-ai-policy/index.html') continue; // required Google Limited Use disclosure
     if (lower.includes(phrase)) failures.push(`${relative}: prohibited phrase "${phrase}"`);
   }
   for (const phrase of legalDraftArtifacts) {
