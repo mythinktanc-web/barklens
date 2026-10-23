@@ -62,7 +62,7 @@ const legal = defineCollection({
     title: z.string().min(5),
     description: z.string().min(40).max(180),
     effectiveDate: z.coerce.date(),
-    documentType: z.enum(['terms', 'privacy'])
+    documentType: z.enum(['terms', 'privacy', 'data-ai'])
   })
 });
 
