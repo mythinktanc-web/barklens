@@ -18,6 +18,10 @@ import { routes } from '@config/site';
         <h1 class="records-title">
           A pass for the ER, the groomer, the boarder — anyone who needs your dog’s history.
         </h1>
+        <p class="records-complete-note">
+          <span class="copy-desktop">It shows only the records you’ve added, so tell the clinic anything important.</span>
+          <span class="copy-mobile">It shows only what you’ve added.</span>
+        </p>
         <p>
           Your dog’s history shouldn’t depend on what you can remember at the front desk. Share the
           records you’ve added to BarkLens with a link or QR code, so a new vet or caregiver has the
@@ -122,6 +126,14 @@ import { routes } from '@config/site';
     color: #273a33;
     font-size: 1.0625rem;
     line-height: 1.65;
+  }
+
+  .records-complete-note {
+    max-width: 62ch;
+    margin-top: 1.25rem;
+    color: #273a33;
+    font-size: var(--text-sm);
+    line-height: 1.55;
   }
 
   .records-share__copy {
@@ -306,6 +318,12 @@ import { routes } from '@config/site';
       font-size: clamp(2.8rem, 13vw, 3.65rem);
       line-height: 1.02;
       text-wrap: wrap;
+    }
+
+    .records-complete-note {
+      order: 3;
+      width: 100%;
+      margin-top: var(--space-4);
     }
 
     .records-page__hero > p:last-child {

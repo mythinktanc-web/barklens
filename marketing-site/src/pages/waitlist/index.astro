@@ -6,7 +6,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
 
 <BaseLayout
   title="Join the BarkLens Waitlist"
-  description="Join the first wave of invites. Your dog’s records in one timeline, with answers from top-tier veterinary sources."
+  description="Join the first wave of invites. Your dog’s records in one timeline, with answers from published veterinary sources."
   canonicalPath="/waitlist/"
 >
   <section class="waitlist-page" data-waitlist data-api-url={waitlistApiUrl}>
@@ -14,11 +14,13 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
       <div class="waitlist-offer">
         <p class="eyebrow">Founding member offer</p>
         <h1>First year at <em>half price.</em></h1>
-        <p>Join the first wave of invites. Your dog’s records in one timeline, with answers from top-tier veterinary sources.</p>
-        <p>Founding members get 50% off their first year. Limited to the first 1,000 subscribers.</p>
+        <p>Join the first wave of invites. Your dog’s records in one timeline, with answers from published veterinary sources.</p>
+        <p>
+          <span class="copy-desktop">50% off your first 12 months for the first 1,000 paid subscribers. Renews at the standard price after that unless you cancel. Needs a paid App Store or Google Play subscription. Joining doesn’t guarantee the offer. <a href="/terms/#46-founding-member-offer">See offer terms</a>.</span>
+          <span class="copy-mobile">Founding offer: 50% off year one, first 1,000 paid subscribers. <a href="/terms/#46-founding-member-offer">Offer terms</a>.</span>
+        </p>
         <dl>
           <div><dt>First in the door</dt><dd>Access is granted in the order you joined.</dd><dd class="waitlist-offer__status">Included</dd></div>
-          <div><dt>Bring three people with you</dt><dd>Three invitations for friends to skip the list and enter when you do.</dd><dd class="waitlist-offer__status">Included</dd></div>
         </dl>
       </div>
 
@@ -51,7 +53,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
           <label class="waitlist-check"><input type="checkbox" name="marketingOptIn" value="yes" /><span>Send me BarkLens updates and launch news.</span></label>
         </div>
         <button class="waitlist-form__submit" type="submit" data-submit-button>Confirm Spot ›</button>
-        <p class="waitlist-form__privacy">By joining, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+        <p class="waitlist-form__privacy">By joining, you agree to our <a href="/terms/">Terms</a> and <a href="/privacy/">Privacy Policy</a>.</p>
         <p class="waitlist-form__status" data-form-status aria-live="polite"></p>
       </form>
     </div>
@@ -69,7 +71,6 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
         <ol>
           <li><span>01</span><div><strong>Check your inbox</strong><p>Your welcome email from Ben is on its way.</p></div><em>Now</em></li>
           <li><span>02</span><div><strong>Watch for your wave</strong><p>Invites go out in waves. Early joiners get priority.</p></div><em>Soon</em></li>
-          <li><span>03</span><div><strong>Bring three friends</strong><p>Founding members receive three invitations for friends to skip the waitlist.</p></div><em>At launch</em></li>
         </ol>
       </div>
     </div>
@@ -78,7 +79,10 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
       <div class="share-dialog__copy">
         <p class="eyebrow">Founding member invites</p>
         <h2 id="share-title">Spread the <em>BarkLove.</em></h2>
-        <p>Invite three friends to skip the line and enter with you.</p>
+        <p>
+          <span class="copy-desktop">Share with friends. Your BarkCode lets friends join the waitlist.</span>
+          <span class="copy-mobile">Friends can join with your BarkCode.</span>
+        </p>
         <button type="button" data-close-share>Maybe later</button>
       </div>
       <div class="share-dialog__tools">
@@ -186,7 +190,7 @@ const waitlistApiUrl = import.meta.env.PUBLIC_WAITLIST_API_URL || '/api/waitlist
     root.querySelector('[data-native-share]')?.addEventListener('click', async () => {
       try {
         if (navigator.share) {
-          await navigator.share({ title: 'BarkLens', text: 'Skip the BarkLens waitlist with my invite.', url: referralUrl });
+          await navigator.share({ title: 'BarkLens', text: 'Join the BarkLens waitlist with my BarkCode.', url: referralUrl });
           return;
         }
       } catch { return; }

@@ -45,7 +45,7 @@ Most of what BarkLens holds is information about **a dog**, not about a person. 
 
 **2.3.9 Communications with us.** Emails and support messages you send us, and our replies.
 
-**2.3.10 Cookies and similar technologies on our website.** See §5 and the separate Cookie Policy.
+**2.3.10 Cookies and similar technologies on our website.** See §5.
 
 **2.3.11 What we do not collect.** We do not access your email inbox — **there is no email or inbox integration in the Service** (see §1.3.5). We do not collect precise geolocation, we do not access your contacts, and we do not access your photo library except for the images you choose to submit. We do not buy personal information from data brokers. We do not use your information for third-party advertising, and we do not run ad-network trackers in the app.
 
@@ -219,12 +219,6 @@ Some state laws, including Washington's My Health My Data Act, give residents sp
 ## Cookie and Analytics Policy
 
 This section explains the technologies that may be used on barklens.com, what may operate before consent, and the boundaries that apply to analytics data.
-
-### Analytics disclosure
-
-If analytics is enabled, the following terms apply:
-
-> If analytics is enabled, we may use **Google Analytics 4** to understand how visitors use barklens.com — which pages are viewed, how visitors arrive, and where they encounter problems. Google Analytics is configured so that **IP addresses are not stored and are anonymized or truncated on collection**, **Google Signals and all advertising features are disabled**, **no data is shared with Google advertising products or used for remarketing or ad personalization**, and **no data is used for Google's own product improvement beyond what our agreement permits**. Data retention in Google Analytics is set to the shortest practical period. We do not link analytics data to your BarkLens account, and we do not attempt to identify you from it. Our use is governed by a **data processing agreement with Google**, including Google's data-processing terms and the applicable standard contractual clauses. If you are in a region where consent is required, **no analytics tag loads until you consent**, and you may withdraw consent at any time through the cookie preferences link in our footer.
 
 ### 5.4 What may run before consent
 

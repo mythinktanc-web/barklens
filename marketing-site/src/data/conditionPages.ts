@@ -27,6 +27,8 @@ export interface ConditionPageData {
   sharing: string[];
   sources: ConditionSource[];
   urgent?: string;
+  medicineNote?: string;
+  medicineNoteMobile?: string;
 }
 
 export const conditionPages: ConditionPageData[] = [
@@ -235,7 +237,7 @@ export const conditionPages: ConditionPageData[] = [
     mobileImage: '/images/conditions/mobile/cushings-disease.webp',
     imageAlt: 'A black-and-white close-up of a resting dog’s nose and face',
     heroDescription:
-      'The diagnosis does not replace the timeline that led to it or the record that follows. BarkLens reads laboratory results, dedicated testing, medications, water intake, urination, appetite, panting, skin, coat, weight, and other conditions together, then explains what published veterinary sources say veterinarians commonly consider.',
+      'The diagnosis does not replace the timeline that led to it or the record that follows. BarkLens keeps your dog’s lab results, testing and medications together with your notes on water intake, urination, appetite, panting, skin, coat and weight. It doesn’t assess photos of your dog’s body.',
     opening: [
       'Many owners first hear “Cushing’s” after a routine panel shows a high ALP. A raised ALP can be part of the history, but it is not the whole history. Dedicated testing, medications, other illnesses, and owner observations provide additional context.',
       'After diagnosis, BarkLens keeps the testing history connected to subsequent laboratory results, medication labels, veterinarian-provided instructions, and what the owner records at home. This makes it easier to ask about change without asking the app to make a clinical judgment.'
@@ -382,7 +384,8 @@ export const conditionPages: ConditionPageData[] = [
       {
         title: 'Medication and draw timing',
         paragraphs: [
-          'The timing of thyroid medication and the blood draw can affect how a post-pill result is read. Preserve the veterinarian’s instructions, the owner-confirmed medication time, and the draw time together.'
+          'The timing of thyroid medication and the blood draw can affect how a post-pill result is read. Preserve the veterinarian’s instructions, the owner-confirmed medication time, and the draw time together.',
+          'BarkLens doesn’t diagnose, prescribe, set doses or say a medicine is safe for your dog. Your vet decides.'
         ]
       },
       {
@@ -435,7 +438,7 @@ export const conditionPages: ConditionPageData[] = [
     heroDescription:
       'The murmur date, stage, imaging, rhythm testing, medications, kidney values, electrolytes, blood pressure, weight, breathing records, and what you notice at home may all tell different parts of the history. BarkLens connects them and explains what published veterinary sources say veterinarians commonly consider.',
     opening: [
-      'Bloodwork cannot show a murmur, valve shape, chamber size, or heart rhythm. A normal blood panel can exist beside meaningful heart disease because listening, imaging, electrical recordings, laboratory work, and owner observations answer different questions.',
+      'Bloodwork cannot show a murmur, valve shape, chamber size, or heart rhythm. A blood panel inside its ranges can exist beside heart disease because listening, imaging, electrical recordings, laboratory work, and owner observations answer different questions.',
       'BarkLens connects imaging history, medication labels, laboratory results, breathing records, weight, and dated owner observations. That history remains available across routine visits, specialist appointments, and urgent care.'
     ],
     research: [
@@ -500,6 +503,8 @@ export const conditionPages: ConditionPageData[] = [
     imageAlt: 'A black-and-white dog outdoors',
     heroDescription:
       'The difficulty rising, the hesitation before a stair, the shorter walk, the medication change, the weight record, and the kidney or liver panel may happen weeks apart. BarkLens connects those moments and explains what published veterinary sources say veterinarians commonly consider.',
+    medicineNote: 'BarkLens doesn’t diagnose, prescribe, set doses or say a medicine is safe for your dog. Your vet decides.',
+    medicineNoteMobile: 'No diagnoses, prescriptions or doses. Your vet decides.',
     opening: [
       'There is no blood test for arthritis. What the owner sees at home, the physical examination, imaging, weight, medication history, and the dog’s response over time contribute different parts of the record.',
       'BarkLens puts short dated videos and observations beside medication and supplement labels, weight, body-condition records, imaging, and laboratory results. That makes gradual change easier to show than a memory reconstructed in the exam room.'
@@ -520,7 +525,8 @@ export const conditionPages: ConditionPageData[] = [
       {
         title: 'Laboratory work',
         paragraphs: [
-          'Bloodwork does not diagnose arthritis. Veterinarians may use kidney and liver values before and during some pain medications or to investigate other conditions. Keep the medication label, laboratory report, date, and veterinarian-provided plan connected.'
+          'Bloodwork does not diagnose arthritis. Veterinarians may use kidney and liver values before and during some pain medications or to investigate other conditions. Keep the medication label, laboratory report, date, and veterinarian-provided plan connected.',
+          'BarkLens doesn’t diagnose, prescribe, set doses or say a medicine is safe for your dog. Your vet decides.'
         ]
       }
     ],

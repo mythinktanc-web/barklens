@@ -456,3 +456,18 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Responsive copy variants: full wording on wider screens, short wording on phones. */
+.copy-mobile {
+  display: none;
+}
+
+@media (max-width: 47.99rem) {
+  .copy-desktop {
+    display: none;
+  }
+
+  .copy-mobile {
+    display: inline;
+  }
+}

@@ -15,21 +15,23 @@ const comparisonRows = [
     label: 'Which sources?',
     barklens: 'Veterinary textbooks, peer-reviewed journals, university references, clinical guidelines',
     general: 'A forum post and a textbook count the same',
-    why: 'No message boards. Ever.'
+    why: 'No message boards.'
   },
   {
     label: 'Who checked them?',
-    barklens: 'Reviewed by a licensed veterinarian',
-    general: 'Not reviewed by anyone',
+    barklens: 'A licensed veterinarian reviewed every source.',
+    barklensMobile: 'Every source vet-reviewed.',
+    general: 'Doesn’t show where each fact came from.',
     why: 'A vet decided what counts'
   },
   {
     label: 'How do you know?',
-    barklens: 'Every fact links to its published source, so you can read it yourself.',
-    general: 'Take its word for it',
+    barklens: 'Library facts link to the published source they came from.',
+    barklensMobile: 'Library facts link to their source.',
+    general: 'Doesn’t show where each fact came from.',
     why: 'You don’t have to trust us'
   }
-] as const;
+] as Array<{ label: string; barklens: string; barklensMobile?: string; general: string; why: string }>;
 ---
 
 <BaseLayout
@@ -43,16 +45,15 @@ const comparisonRows = [
     <section class="sources-hero sources-wrap">
       <div class="sources-inner">
         <BackToWhy />
-        <p class="eyebrow">Not all answers are built the same.</p>
+        <p class="eyebrow">Where the answers come from.</p>
         <h1>The BarkLens <em>Standard.</em></h1>
         <p class="sources-hero__desktop-copy">
-          Everything BarkLens tells you about your dog comes from one of two places: your dog’s
-          own records, or a published veterinary source that a licensed veterinarian approved.
-          Not the open internet, and not whatever a model happens to remember.
+          BarkLens answers from your dog’s own records and top-tier veterinary sources reviewed by
+          a licensed veterinarian. Not the open internet, and not whatever a model happens to
+          remember.
         </p>
         <p class="sources-hero__mobile-copy">
-          Everything BarkLens tells you comes from your dog’s own records, or a veterinary
-          source a licensed vet approved.
+          Your dog’s records and top-tier, vet-reviewed sources. Not the open internet.
         </p>
       </div>
     </section>
@@ -102,12 +103,14 @@ const comparisonRows = [
           {comparisonRows.map((row) => (
             <div class="comparison-mobile__row">
               <span class="comparison-mobile__label">{row.label}</span>
-              <div><span>{row.barklens}</span><span>{row.general}</span></div>
+              <div><span>{row.barklensMobile ?? row.barklens}</span><span>{row.general}</span></div>
               <p>› {row.why}</p>
             </div>
           ))}
         </div>
 
+        <p class="source-names-note source-names--desktop">Sources we draw from. These organizations don’t endorse BarkLens.</p>
+        <p class="source-names-note source-names--mobile">Sources we draw from. Not an endorsement.</p>
         <p class="source-names source-names--desktop">
           Merck Veterinary Manual · Cornell University eClinPath · Animal Health Diagnostic
           Center · AAHA practice guidelines · ACVIM consensus statements · ACVS · IRIS ·
@@ -131,14 +134,16 @@ const comparisonRows = [
         <article>
           <span class="source-card__number">02</span>
           <h2>Who checks them</h2>
-          <p>A licensed veterinarian reviews every source before it’s used.</p>
+          <p class="desktop-only">A licensed veterinarian reviewed every source. That review covers the sources, not each answer BarkLens writes.</p>
+          <p class="mobile-only">Every source vet-reviewed.</p>
           <p class="desktop-only">They’re not reviewing your dog’s results. Those belong to your own vet, who has examined your dog.</p>
           <p class="mobile-only">Not your dog’s results. Those belong to your own vet.</p>
         </article>
         <article>
           <span class="source-card__number">03</span>
           <h2>What you can see</h2>
-          <p>Every fact links to its published source, so you can read it yourself.</p>
+          <p class="desktop-only">Library facts link to the published source they came from.</p>
+          <p class="mobile-only">Library facts link to their source.</p>
           <p>If a source is unclear or contradicts itself, the claim doesn’t get used.</p>
         </article>
       </div>
@@ -271,6 +276,20 @@ const comparisonRows = [
     font-size: 1.1875rem;
     font-style: italic;
     line-height: 1.35;
+  }
+
+  .source-names-note {
+    margin-top: 1.25rem;
+    color: #5a6660;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .source-names-note + .source-names-note + .source-names,
+  .source-names-note + .source-names {
+    margin-top: .5rem;
   }
 
   .source-names {
