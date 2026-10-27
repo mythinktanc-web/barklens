@@ -84,6 +84,9 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat('en-US', {
           <span>{post.data.author}{post.data.authorDisclosure && ` · ${post.data.authorDisclosure}`}</span>
           <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
         </div>
+        <div class="article-note" role="note">
+          <p>Educational only. Not veterinary advice. BarkLens doesn’t diagnose. Your vet does.</p>
+        </div>
         {post.data.emergencyPointer && (
           <div class="article-note" role="note">
             <p>{post.data.emergencyPointer}</p>

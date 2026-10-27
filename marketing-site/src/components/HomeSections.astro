@@ -60,8 +60,8 @@ const mobileWhyItems = whyItems.map((item, index) => ({
       <p class="section-label section-label--light">Connect Their Dots</p>
       <h2 class="closer__desktop-title">Brings together the pieces of your dog’s chart <em>you might not think to connect.</em></h2>
       <h2 class="closer__mobile-title">Brings the easy-to-miss pieces together.</h2>
-      <p class="closer__mobile-intro">Your dog’s records may hold details you wouldn’t know to ask about. BarkLens surfaces them and gives you a place to ask what they mean.</p>
-      <p class="closer__desktop-copy">Your dog’s records may hold details you wouldn’t know to ask about. BarkLens brings those details to your attention and gives you a place to ask what they mean.</p>
+      <p class="closer__mobile-intro">BarkLens puts related records side by side, so you can ask what they mean.</p>
+      <p class="closer__desktop-copy">Your dog’s records may hold details you wouldn’t know to ask about. BarkLens puts related records side by side and gives you a place to ask what they mean.</p>
     </div>
     <article class="chart-card">
       <p class="number-label">Closer Look</p>
@@ -80,8 +80,8 @@ const mobileWhyItems = whyItems.map((item, index) => ({
     <div class="capture__grid">
       <div class="capture__copy">
         <p class="section-label">Snap a picture</p>
-        <h2 class="capture__desktop-title"><em>You snap it. We explain it</em> using your dog’s full history and veterinary research.</h2>
-        <h2 class="capture__mobile-title"><em>You snap it. We explain it.</em></h2>
+        <h2 class="capture__desktop-title"><em>You snap it. BarkLens explains it</em> using your dog’s full history and veterinary research.</h2>
+        <h2 class="capture__mobile-title"><em>You snap it. BarkLens explains it.</em></h2>
         <p class="capture__mobile-body">From their history and published veterinary research.</p>
         <div class="capture__tabs" role="tablist" aria-label="Record types">
           {captureItems.map((item, index) => (
@@ -155,7 +155,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
                     <p class="capture__lab-caption">ALT · U/L · Lab range 10–100</p>
                     <div class="capture__lab-legend">
                       <span><i></i>In range</span>
-                      <span><i></i>Out of range</span>
+                      <span><i></i>Outside range</span>
                     </div>
                     <div class="capture__ask"><span>Ask about this…</span><b aria-hidden="true">↑</b></div>
                   </div>
@@ -184,6 +184,10 @@ const mobileWhyItems = whyItems.map((item, index) => ({
         </div>
       </div>
     </div>
+    <p class="capture__accuracy">
+      <span class="copy-desktop">Lens Capture reads photos automatically and can get things wrong. Check any number that matters against the original. It doesn’t assess photos of your dog’s body.</span>
+      <span class="copy-mobile">Readings can be wrong. Check numbers that matter against the original.</span>
+    </p>
   </div>
 </section>
 
@@ -194,8 +198,8 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   <div class="trends__grid container">
     <div class="trends__copy">
       <p class="section-label section-label--light">Trends</p>
-      <h2 class="trends__desktop-title">Every result was ‘in range.’ <em>Together, they told a different story.</em></h2>
-      <h2 class="trends__mobile-title">Every result was ‘in range.’ <em>Together, they told a different story.</em></h2>
+      <h2 class="trends__desktop-title">Every result was in range. <em>Side by side, you can see how they moved, and bring that to your vet.</em></h2>
+      <h2 class="trends__mobile-title">In range, every time. <em>Side by side, see how they moved.</em></h2>
       <p class="trends__desktop-copy">
         A single lab result is one moment. BarkLens puts every draw in one view so you can see the
         change — and walk into the next visit with it.
@@ -278,8 +282,8 @@ const mobileWhyItems = whyItems.map((item, index) => ({
       <div>
         <p>
           You don’t have to become a veterinarian overnight. BarkLens helps you understand the
-          condition, the labs, the medication, and what to watch between visits — so you can manage
-          care from knowledge, not from panic.
+          condition, the labs, the medication, and what your vet asked you to note between visits, so
+          you can manage care from knowledge, not from panic.
         </p>
         <a href={routes.conditions}>Read the conditions guide ›</a>
       </div>
@@ -323,7 +327,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
     <h2>The internet knows dogs. <em>BarkLens knows yours.</em></h2>
     <p>Try it free. Bring your dog’s records into one place.</p>
     <ButtonLink href={routes.waitlist}>Join</ButtonLink>
-    <small>Seven-day free trial.</small>
+    <small>Free for 7 days, then a paid plan unless you cancel. <a href={routes.plans}>See plans.</a></small>
   </div>
 </section>
 
@@ -719,6 +723,8 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   .closing p { margin-top: var(--space-5); color: var(--color-copy-muted); }
   .closing :global(.button-link) { margin-top: var(--space-6); }
   .closing small { margin-top: var(--space-3); color: var(--color-copy-muted); }
+  .closing small a { color: inherit; text-decoration: underline; text-underline-offset: .2rem; }
+  .capture__accuracy { max-width: 62rem; margin-top: var(--space-6); color: var(--color-copy-muted); font-size: var(--text-xs); line-height: 1.5; }
 
   @media (min-width: 64rem) {
     .conditions > .container {
@@ -1020,5 +1026,9 @@ const mobileWhyItems = whyItems.map((item, index) => ({
     .closing, .closing__content { min-height: 18rem; }
     .closing__content { padding-inline: var(--space-5); }
     .closing h2 { max-width: 18ch; font-size: 2rem; }
+  }
+
+  @media (max-width: 47.99rem) {
+    .capture__accuracy { margin: var(--space-6) auto 0; padding: 0 var(--space-5) var(--space-6); text-align: center; }
   }
 </style>

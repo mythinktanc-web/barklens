@@ -30,14 +30,14 @@ const legalDraftArtifacts = [
 const homepageSearchTitle = "BarkLens — Your Dog's Health Records, Explained";
 const homepageSocialTitle = 'The internet knows dogs. BarkLens knows yours.';
 const connectTheirDotsCopy =
-  'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens brings those details to your attention and gives you a place to ask what they mean.';
+  'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens puts related records side by side and gives you a place to ask what they mean.';
 const connectTheirDotsMobileCopy =
-  'Your dog’s records may hold details you wouldn’t know to ask about. BarkLens surfaces them and gives you a place to ask what they mean.';
+  'BarkLens puts related records side by side, so you can ask what they mean.';
 const snapPictureCopyTail = 'using your dog’s full history and veterinary research.';
 const desktopHeroLede =
-  'Every dog is different. Ask anything about yours. BarkLens answers from their health history, your observations, and top-tier veterinary sources.';
+  'Every dog is different. BarkLens keeps their health history in one place, and answers your questions from their records, your notes, and published veterinary sources.';
 const mobileHeroLede =
-  'Every dog is different. Ask anything about yours. BarkLens answers from their health history, your observations, and top-tier veterinary sources.';
+  'Their health history in one place, with answers from published veterinary sources.';
 const whyDetailPages = new Set([
   'care-team/index.html',
   'where-the-answers-come-from/index.html',
@@ -139,7 +139,7 @@ for (const file of htmlFiles) {
       'The “did you already give it?” text, retired.',
       'You stay in control',
       'Easy to invite. Easy to undo.',
-      'Add a sitter for the weekend and take them off on Monday. No awkward conversation, and nothing stays open after it’s needed.'
+      'Add a sitter for the weekend and take them off on Monday. Removing someone stops their access from then on. It can’t undo what they already saw.'
     ]) {
       if (!html.includes(text)) {
         failures.push(`${relative}: approved Care Circle copy is missing "${text}"`);
@@ -177,20 +177,22 @@ for (const file of htmlFiles) {
       'Which sources?',
       'Veterinary textbooks, peer-reviewed journals, university references, clinical guidelines',
       'A forum post and a textbook count the same',
-      'No message boards. Ever.',
+      'No message boards.',
       'Who checked them?',
-      'Reviewed by a licensed veterinarian',
-      'Not reviewed by anyone',
+      'A licensed veterinarian reviewed every source.',
+      'Doesn’t show where each fact came from.',
       'A vet decided what counts',
       'How do you know?',
-      'Every fact links to its published source, so you can read it yourself.',
-      'Take its word for it',
+      'Library facts link to the published source they came from.',
       'You don’t have to trust us',
       'An AI chatbot'
     ]) {
       if (!html.includes(text)) {
         failures.push(`${relative}: approved BarkLens Standard table text is missing "${text}"`);
       }
+    }
+    if (html.includes('No message boards. Ever.') || html.includes('Not reviewed by anyone') || html.includes('Take its word for it')) {
+      failures.push(`${relative}: retired BarkLens Standard table text returned`);
     }
     if (html.includes('<span>General AI</span>')) {
       failures.push(`${relative}: stale General AI table heading`);
@@ -236,7 +238,7 @@ for (const file of htmlFiles) {
     if (
       !html.includes('class="record-flow"') ||
       !html.includes('Questions this history can carry') ||
-      !html.includes('Every source reviewed by a licensed veterinarian.')
+      !html.includes('A licensed veterinarian reviewed every source.')
     ) {
       failures.push(`${relative}: complete condition narrative structure is missing`);
     }
