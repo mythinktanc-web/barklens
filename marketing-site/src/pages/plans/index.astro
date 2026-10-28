@@ -27,18 +27,21 @@ const planFaqs = [
         <h1>A calmer way <em>to keep their story in one place.</em></h1>
         <div class="billing-toggle" role="group" aria-label="Billing period">
           <button type="button" aria-pressed="true" data-billing="monthly">Monthly</button>
-          <button type="button" aria-pressed="false" data-billing="annual">Annual · 2 mo free</button>
+          <button type="button" aria-pressed="false" data-billing="annual">Annual · Save 20%</button>
         </div>
         <div class="plan-list">
           <article data-plan="plus">
             <div><h2>BarkLens+</h2><p>One dog, one chart.</p></div>
-            <p class="plan-price"><strong data-monthly>$14.95</strong><strong data-annual hidden>$149</strong><small data-monthly>/mo</small><small data-annual hidden>/yr</small></p>
+            <p class="plan-price"><strong data-monthly>$14.95</strong><strong data-annual hidden>$143.52</strong><small data-monthly>/mo</small><small data-annual hidden>/yr</small></p>
+            <p class="plan-trial copy-mobile">7 days free, then $14.95/mo or $143.52/yr until you cancel.</p>
           </article>
           <article data-plan="family">
             <div><h2>BarkLens Family</h2><p>Up to four dogs, each with their own chart.</p></div>
-            <p class="plan-price"><strong data-monthly>$24.95</strong><strong data-annual hidden>$249</strong><small data-monthly>/mo</small><small data-annual hidden>/yr</small></p>
+            <p class="plan-price"><strong data-monthly>$24.95</strong><strong data-annual hidden>$239.52</strong><small data-monthly>/mo</small><small data-annual hidden>/yr</small></p>
+            <p class="plan-trial copy-mobile">7 days free, then $24.95/mo or $239.52/yr until you cancel.</p>
           </article>
         </div>
+        <p class="plan-terms copy-desktop">7-day free trial, then $14.95 a month or $143.52 a year for BarkLens+, or $24.95 a month or $239.52 a year for BarkLens Family, plus any tax the app store collects, until you cancel.</p>
         <p class="plan-free">
           <span class="copy-desktop">Free BarkLens lets you add and view your dog’s records, plus reminders, meds, history and your Care Circle. BarkLens+ and BarkLens Family add Chat, Vet Questions for Visits, Lens Capture for poop, food and meds, Closer look, Trends and Conditions.</span>
           <span class="copy-mobile">Free: records, reminders, history and Care Circle. Paid adds Chat, Lens Capture, Trends and more.</span>
@@ -92,6 +95,8 @@ const planFaqs = [
   .plan-price { display: flex; align-items: baseline; }
   .plan-price strong { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; }
   .plan-price small { color: #a9bdb6; }
+  .plan-trial { grid-column: 1 / -1; color: #d8cfc0; font-size: var(--text-sm); line-height: 1.45; }
+  .plan-terms { max-width: 40rem; margin-top: var(--space-4); color: #e7dfd2; font-size: var(--text-base); line-height: 1.55; }
   .plan-faq { display: grid; grid-template-columns: .7fr 1.3fr; gap: var(--space-16); padding-block: var(--space-20); }
   .plan-faq h2 { margin-top: var(--space-5); font-size: var(--text-2xl); }
   .plan-faq details { border-bottom: 1px solid var(--color-border); }

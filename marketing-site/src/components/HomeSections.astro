@@ -171,6 +171,12 @@ const mobileWhyItems = whyItems.map((item, index) => ({
                       <div>
                         <div class="capture__reply-copy">
                           {item.rows.map((row) => <p>{row}</p>)}
+                          {'source' in item && item.source && (
+                            <p class="capture__pairing">
+                              <span class="copy-desktop">{item.source.desktop}</span>
+                              <span class="copy-mobile">{item.source.mobile}</span>
+                            </p>
+                          )}
                         </div>
                         <small>BarkLens · Just now</small>
                       </div>
@@ -596,6 +602,7 @@ const mobileWhyItems = whyItems.map((item, index) => ({
   .capture__reply > div { min-width: 0; }
   .capture__reply-copy { display: grid; gap: .625rem; overflow: hidden; padding: .6875rem .875rem; border-radius: 1.125rem 1.125rem 1.125rem .25rem; background: #3a3a40; }
   .capture__reply-copy p { color: #ede3d4; font-size: .875rem; line-height: 1.45; }
+  .capture__reply-copy .capture__pairing { color: rgb(237 227 212 / 72%); font-size: .75rem; line-height: 1.4; }
   .capture__reply small { display: block; padding: .25rem 0 0 .25rem; }
   .capture__ask { display: flex; align-items: center; justify-content: space-between; gap: .625rem; margin: .875rem; padding: .375rem .375rem .375rem 1rem; border: 1px solid rgb(255 255 255 / 22%); border-radius: var(--radius-pill); color: #a89f92; font-size: .8125rem; }
   .capture__ask b { display: grid; width: 1.75rem; height: 1.75rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #0b1f19; background: var(--color-mint-500); }
