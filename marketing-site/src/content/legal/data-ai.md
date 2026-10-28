@@ -1,11 +1,11 @@
 ---
 title: "BarkLens Data & AI Usage Policy"
 description: "How BarkLens uses AI, what data is sent to which AI services, why, how long it is kept, and how to turn AI data sharing off."
-effectiveDate: 2026-10-23
+effectiveDate: 2026-10-28
 documentType: data-ai
 ---
 
-**Effective date: October 23, 2026**
+**Effective date: October 28, 2026**
 
 ## The short version
 
