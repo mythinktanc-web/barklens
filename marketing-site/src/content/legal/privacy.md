@@ -1,13 +1,13 @@
 ---
 title: "BarkLens Privacy Policy"
 description: "How BarkLens collects, uses, shares, retains, exports, and deletes account, record, waitlist, and Care Circle information."
-effectiveDate: 2026-09-16
+effectiveDate: 2026-10-28
 documentType: privacy
 ---
 
 ## 2. BarkLens Privacy Policy
 
-**Effective: September 16, 2026**
+**Effective: October 28, 2026**
 
 ### 2.1 Who we are and how to reach us
 
@@ -59,7 +59,7 @@ We use information for these purposes and no others:
 
 **2.4.1 To run the Service for you.** To create and secure your account; to store and organize your dog's records; to read documents you submit and extract values from them; to build and display your dog's chart with provenance back to each source; to answer your questions using our source library; to produce exports; to deliver Care Circle access you have granted; and to keep your history available across your devices.
 
-**2.4.2 Model inference on your own account's data.** To answer a question or produce an interpretation, we send the **relevant** portion of your account's content — for example, the extracted text of a report you asked about, along with retrieved library passages — to a third-party artificial-intelligence provider, which returns output to us and to you. **This processing is performed to serve you, on your own data. It is not used to build a profile of you, it is not shared with advertisers, and it is our contractual requirement that it is not used to train the provider's models.** See §2.7 and §7.
+**2.4.2 Model inference on your own account's data.** To answer a question or produce an interpretation, we send the **relevant** portion of your account's content — for example, the extracted text of a report you asked about, along with retrieved library passages — to a third-party artificial-intelligence provider, which returns output to us and to you. **This processing is performed to serve you, on your own data. It is not used to build a profile of you, and it is not shared with advertisers.** See §2.7 and §7.
 
 **2.4.3 Transactional communications.** To send account, security, billing, trial, renewal, Care Circle, and service-change messages. These are not marketing and you cannot unsubscribe from them while you have an account, although you may close your account at any time.
 
@@ -106,9 +106,7 @@ If we ever process personal information for a purpose not described in this Poli
 
 Where a state law requires consent to process a category of information that the law treats as sensitive, we will request the required consent before that processing and provide the withdrawal mechanism the law requires.  Consent to receive marketing email may be withdrawn at any time, and withdrawal does not affect the transactional messages described in §2.4.3.
 
-### 2.7 Artificial-intelligence model providers — plain statement about training
-
-This is the question users ask most, so we answer it directly.
+### 2.7 Artificial-intelligence model providers
 
 **2.7.1 What is sent, and when.** We send a model provider only the material a feature needs:
 
@@ -122,15 +120,13 @@ This is the question users ask most, so we answer it directly.
 
 We do not send your records for any purpose other than these features. We seek to minimize what is sent, to avoid direct identifiers where reasonably possible, and to use enterprise or API offerings rather than consumer chat accounts.
 
-**2.7.2 Training.** **It is our requirement and our contractual position that content from your account is not used to train, fine-tune, or improve any third-party model.** We use enterprise or API service tiers whose terms provide that submitted content is not used for model training, and we configure zero-retention or limited-retention options where available.
+**2.7.2 Provider-side retention for safety.** Some providers may retain submitted content for a short period for abuse monitoring.
 
-**2.7.3 Provider-side retention for safety.** Some providers retain submitted content for a short period for abuse monitoring, even where training is contractually excluded. Where that is the case, retention is limited by contract and content is deleted at the end of that period.
+**2.7.3 Which providers.** The model providers we use are listed in §7.
 
-**2.7.4 Which providers.** The model providers we use are listed in §7.
+**2.7.4 Human review.** Our own staff do not read your questions or records except as described in §2.4.5 and §2.4.6.
 
-**2.7.5 Human review.** Our own staff do not read your questions or records except as described in §2.4.5 and §2.4.6.
-
-**2.7.6 What these safeguards do not do.** Generated answers are not individually reviewed by a veterinarian, model processing can produce mistakes even where the underlying source passages are accurate, and **no privacy safeguard converts a generated answer into veterinary care.**
+**2.7.5 What these safeguards do not do.** Generated answers are not individually reviewed by a veterinarian, model processing can produce mistakes even where the underlying source passages are accurate, and **no privacy safeguard converts a generated answer into veterinary care.**
 
 ### 2.8 Retention and deletion
 
@@ -304,7 +300,7 @@ Analytics events must describe interface behavior and nothing else. **No analyti
 
 ## 6. Data Retention and Deletion Schedule
 
-**Effective: September 16, 2026**
+**Effective: October 28, 2026**
 *This schedule is part of the Privacy Policy (§2.8) and is incorporated into the Terms of Use.*
 
 ### 6.1 Schedule
@@ -331,7 +327,7 @@ Analytics events must describe interface behavior and nothing else. **No analyti
 | **Backups and disaster-recovery copies** | Encrypted snapshots of production data | **30–90 days rolling** | Automatic expiry. Deleted content may persist in a backup until the backup that contains it ages out; backups are not used to restore individual deleted items. |
 | **Gmail connection** | Connected address, scopes, encrypted token, connect and sync dates | **Until you disconnect** | On disconnect we revoke access at Google and delete the token and connection. |
 | **Gmail import history** | Search used, record types, match count, imported message IDs | **Until you disconnect** | Deleted when you disconnect Gmail. |
-| **Model-provider transient copies** | Content transmitted for inference | Per provider contract; our requirement is **zero retention where available**, otherwise a short abuse-monitoring window |  |
+| **Model-provider transient copies** | Content transmitted for inference | Set by each provider's terms (see §2.7) |  |
 | **Analytics data** | Aggregated and anonymized usage events | **two (2) months** | Aggregate or delete at the end of the configured period; never allow User Content into an analytics event. Security analytics may follow the log schedule, and consent and opt-out records may be retained longer. |
 | **De-identified and aggregated data** | Statistics that cannot reasonably be linked to you | **Indefinite** | Not deleted, because it is no longer personal information. We do not attempt re-identification. |
 | **Legal-hold material** | Anything subject to litigation hold, subpoena, or regulatory demand | **Until the hold is released** | Manual, documented, and limited to the specific items in scope. Retained for that purpose only. |
@@ -354,7 +350,7 @@ Analytics events must describe interface behavior and nothing else. **No analyti
 
 ## 7. Vendor and AI Processing Disclosure
 
-**Effective: September 16, 2026**
+**Effective: October 28, 2026**
 *This disclosure is part of the Privacy Policy (§2.5.1) and is referenced by the Terms of Use (§1.12.5).*
 
 ### 7.1 Vendors by category

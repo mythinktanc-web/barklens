@@ -15,7 +15,6 @@ documentType: data-ai
 | Do you ask first? | Yes. Nothing is sent to an AI service until you tap **Allow** on the AI data sharing screen. |
 | Which AI? | Google Gemini and OpenAI (some OpenAI requests are handled through Microsoft Azure), reached through Vercel AI Gateway. |
 | Can I turn it off? | Yes, any time, in **Settings > Data & usage > AI data sharing**. |
-| Is my data used to train AI? | We use paid API access, not consumer chat accounts. Every AI request asks Vercel AI Gateway to use only providers that do not train on submitted content. |
 | Does a vet check my answers? | **No.** A licensed veterinarian has reviewed the safety guidelines for our app, not your answers. |
 | Is this veterinary advice? | **No.** It is education and record-keeping. Your vet decides. |
 | Where is my data stored? | In Sydney, Australia, with our database provider, Supabase. Some vendors, including the AI services, process it in the United States and other countries. See Privacy Policy §2.12 and §7. |
@@ -102,7 +101,6 @@ All requests go through **Vercel AI Gateway** (Vercel Inc.), which passes them t
 | After you close your account | 30-day grace period; export for 90 days; then deleted (Privacy §6) |
 | Gmail connection and token | Until you disconnect |
 | Gmail import history (searches used, record types, match count, imported message IDs) | Deleted when you disconnect Gmail |
-| Copies held by AI services | Zero data retention is turned on for all AI calls through Vercel AI Gateway, so AI services do not keep copies of your requests. |
 | Backups and system logs | 30–90 days, rolling |
 
 ## 10. Your choices

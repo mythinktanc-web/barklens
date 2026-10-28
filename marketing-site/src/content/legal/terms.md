@@ -1,13 +1,13 @@
 ---
 title: "BarkLens Terms of Use"
 description: "Terms governing BarkLens accounts, records, source-backed answers, subscriptions, email, and Care Circle sharing."
-effectiveDate: 2026-09-16
+effectiveDate: 2026-10-28
 documentType: terms
 ---
 
 ## 1. BarkLens Terms of Use
 
-**Effective: September 16, 2026**
+**Effective: October 28, 2026**
 
 These Terms of Use (the "**Terms**") are a binding contract between you and **ThinkTanc LLC**, a Delaware limited liability company doing business as **BarkLens** ("**BarkLens**," "**we**," "**us**," or "**our**"). They govern your use of the BarkLens mobile application, the barklens.com website, and every related feature, tool, and service we make available (together, the "**Service**"). "You" means the individual who accesses or uses the Service and, where applicable, the account owner who invites another person to a Care Circle.
 
@@ -212,9 +212,9 @@ We may investigate suspected violations, and we may suspend or terminate access 
 
 **1.12.3 Your content stays yours.** **You retain all ownership of the records, documents, photographs, values, notes, questions, and other material you submit to the Service ("Your Content").** We claim no ownership of Your Content. **You may export Your Content at any time, including after you cancel a paid plan and after you close your account, as described in §3.9 and §6.** An export may not reproduce third-party library content beyond what the applicable publisher license permits.
 
-**1.12.4 The narrow license you grant us.** You grant us a limited, worldwide, royalty-free, non-exclusive license to host, store, back up, transmit, reproduce, reformat, and process Your Content, and to create derived technical artifacts from it (for example, extracted text from a photograph and structured data fields derived from that text), **solely for the following purposes**: (a) providing, maintaining, and securing the Service for you; (b) producing answers, chart projections, exports, and other output for you and for the Care Circle members you have authorized; (c) making backups and ensuring disaster recovery; (d) complying with law and enforcing these Terms; and (e) diagnosing and fixing errors reported by you or detected in your account. The license permits us to make Your Content available to the subprocessors listed in §7 that act for us under contractual restrictions, and you represent that you hold the rights necessary to grant it. It does not transfer ownership of Your Content to us, it does not authorize any sale of Your Content, and it does not authorize third-party model training. This license exists only to run the product for you. It ends when Your Content is deleted, except for copies retained in backups until they age out under §6 and copies we must keep by law.
+**1.12.4 The narrow license you grant us.** You grant us a limited, worldwide, royalty-free, non-exclusive license to host, store, back up, transmit, reproduce, reformat, and process Your Content, and to create derived technical artifacts from it (for example, extracted text from a photograph and structured data fields derived from that text), **solely for the following purposes**: (a) providing, maintaining, and securing the Service for you; (b) producing answers, chart projections, exports, and other output for you and for the Care Circle members you have authorized; (c) making backups and ensuring disaster recovery; (d) complying with law and enforcing these Terms; and (e) diagnosing and fixing errors reported by you or detected in your account. The license permits us to make Your Content available to the subprocessors listed in §7 that act for us under contractual restrictions, and you represent that you hold the rights necessary to grant it. It does not transfer ownership of Your Content to us, and it does not authorize any sale of Your Content. This license exists only to run the product for you. It ends when Your Content is deleted, except for copies retained in backups until they age out under §6 and copies we must keep by law.
 
-**1.12.5 What the license does not permit.** For the avoidance of doubt, the license in §1.12.4 does **not** permit us to sell Your Content, to share Your Content with advertisers or data brokers, to publish Your Content, or to provide Your Content to any third party for that party's own purposes. **We do not sell or share personal information as those terms are used in state privacy laws (see §2.10).** With respect to artificial-intelligence model providers, see §2.7 and §7: user content is transmitted to model providers only to produce output for you, and it is our position and contractual requirement that user content is **not** used to train third-party models.
+**1.12.5 What the license does not permit.** For the avoidance of doubt, the license in §1.12.4 does **not** permit us to sell Your Content, to share Your Content with advertisers or data brokers, to publish Your Content, or to provide Your Content to any third party for that party's own purposes. **We do not sell or share personal information as those terms are used in state privacy laws (see §2.10).** With respect to artificial-intelligence model providers, see §2.7 and §7: user content is transmitted to model providers only to produce output for you.
 
 **1.12.6 Product improvement.** We may use **de-identified and aggregated** information derived from use of the Service — for example, error rates in reading a class of document, retrieval quality metrics, and feature-usage counts — to improve accuracy, safety, and reliability. Where we would use identifiable content from your account for improvement beyond fixing a problem you reported, we will do so only with your consent, and you may withdraw that consent at any time.
 
@@ -330,7 +330,7 @@ These Terms and any dispute arising out of or relating to them or to the Service
 
 ## 3. Subscription and Billing Terms
 
-**Effective: September 16, 2026**
+**Effective: October 28, 2026**
 
 These Subscription and Billing Terms are part of the Terms of Use at §1 and govern paid access to BarkLens.
 
@@ -417,7 +417,7 @@ If a payment fails, the store may retry, and premium features may pause until pa
 
 ## 4. Email and Waitlist Terms
 
-**Effective: September 16, 2026**
+**Effective: October 28, 2026**
 
 These terms govern the BarkLens waitlist, our email communications, the founding-member offer, and referrals. Email is delivered by Mailgun on our behalf (see §7).
 
@@ -431,7 +431,7 @@ These terms govern the BarkLens waitlist, our email communications, the founding
 
 ### 4.2 Consent — joining the waitlist and the welcome email
 
-When you join the BarkLens waitlist on barklens.com, you give us your email address and confirm that you are 18 or older. We send you a **welcome email** confirming your sign-up and messages about your waitlist spot and access. **The founding-member offer under §4.6 is sent to everyone on the waitlist as a message about their waitlist spot**, whether or not you check the optional box. Other marketing email — including launch news and product updates — is sent only if you also check the separate, optional box on the sign-up form. That box is unchecked by default, with plain text next to it describing what you will receive. **We do not pre-check consent boxes, we do not bury consent in a privacy policy link, and we do not add anyone to the waitlist who did not enter their own address.**
+When you join the BarkLens waitlist on barklens.com, you give us your email address and confirm that you are 18 or older. We send you a **welcome email** confirming your sign-up and messages about your waitlist spot and access. **The founding-member offer under §4.6 is sent to everyone on the waitlist who has not unsubscribed. It includes an unsubscribe link and our postal address.** Other marketing email — including launch news and product updates — is sent only if you also check the separate, optional box on the sign-up form. That box is unchecked by default, with plain text next to it describing what you will receive. **We do not pre-check consent boxes, we do not bury consent in a privacy policy link, and we do not add anyone to the waitlist who did not enter their own address.**
 
 **Consent records.** For each sign-up we retain the email address, the date and time, the page or source, the IP address at sign-up, and the exact consent text displayed, so we can demonstrate consent later.
 
@@ -497,7 +497,7 @@ Email depends on systems we do not control. **We do not guarantee that any email
 
 ## 8. Care Circle Sharing Terms
 
-**Effective: September 16, 2026**
+**Effective: October 28, 2026**
 *These terms are part of the Terms of Use (§1.9) and the Privacy Policy (§2.5.2).*
 
 ### 8.1 What Care Circle is
