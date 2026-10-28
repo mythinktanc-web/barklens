@@ -94,15 +94,15 @@ function clean(input) {
     )
     .replace(
       /\*\*4\.6\.4 Lapse and plan changes\.\*\*\n\n\*\*4\.6\.5 Transferability\.\*\*/g,
-      `**4.6.4 Lapse and plan changes.** The founding-member price is lost if the subscription lapses. During the original twelve-month lock period, a change between Plus and Family or between monthly and annual billing preserves the equivalent founding-member discount where the app store permits it.\n\n**4.6.5 Transferability.** The founding-member benefit is personal and non-transferable. It cannot be sold, assigned, or moved to another person or store account.`
+      `**4.6.4 Lapse and plan changes.** The founders discount is lost if the subscription lapses. During the original twelve-month lock period, a change between Plus and Family or between monthly and annual billing preserves the equivalent founders discount where the app store permits it.\n\n**4.6.5 Transferability.** The founders discount is personal and non-transferable. It cannot be sold, assigned, or moved to another person or store account.`
     )
     .replace(
       '**4.6.4 Lapse and plan changes.**',
-      '**4.6.4 Lapse and plan changes.** The founding-member price is lost if the subscription lapses. During the original twelve-month lock period, a change between Plus and Family or between monthly and annual billing preserves the equivalent founding-member discount where the app store permits it.'
+      '**4.6.4 Lapse and plan changes.** The founders discount is lost if the subscription lapses. During the original twelve-month lock period, a change between Plus and Family or between monthly and annual billing preserves the equivalent founders discount where the app store permits it.'
     )
     .replace(
       '**4.6.5 Transferability.**',
-      '**4.6.5 Transferability.** The founding-member benefit is personal and non-transferable. It cannot be sold, assigned, or moved to another person or store account.'
+      '**4.6.5 Transferability.** The founders discount is personal and non-transferable. It cannot be sold, assigned, or moved to another person or store account.'
     )
     .replace(
       /California residents may designate an authorized agent, and may contact us at info@barklens\.com or \./g,

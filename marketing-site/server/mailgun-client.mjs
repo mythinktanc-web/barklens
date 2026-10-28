@@ -81,8 +81,8 @@ export class MailgunClient {
   async createList() {
     const form = new FormData();
     form.set('address', this.listAddress);
-    form.set('name', 'BarkLens Founding Members');
-    form.set('description', 'BarkLens founding-member waitlist');
+    form.set('name', 'BarkLens Waitlist');
+    form.set('description', 'BarkLens waitlist');
     form.set('access_level', 'readonly');
     form.set('reply_preference', 'list');
     return this.request('/v3/lists', { method: 'POST', form });

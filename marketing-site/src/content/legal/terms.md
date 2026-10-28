@@ -405,7 +405,7 @@ When a paid plan ends — whether you cancel, the trial does not convert, paymen
 
 ### 3.10 Price changes
 
-We may change prices. **We will give you at least thirty (30) days' notice by email and in-app notice before a price change applies to your subscription, and the change will take effect only at the start of a renewal period.** You may cancel before then, through the store, and the store's own price-change consent rules also apply — in some cases a store will require your affirmative consent before charging a higher price, and if you do not consent your subscription may not renew. **The Founding Member offer is described in §4.6.** Promotional prices apply only for the stated promotional period and revert to the standard price afterward, which we will tell you at purchase. **We will not retroactively shorten a period you have already paid for.** Remedies for a discontinued feature remain subject to applicable law and store policy.
+We may change prices. **We will give you at least thirty (30) days' notice by email and in-app notice before a price change applies to your subscription, and the change will take effect only at the start of a renewal period.** You may cancel before then, through the store, and the store's own price-change consent rules also apply — in some cases a store will require your affirmative consent before charging a higher price, and if you do not consent your subscription may not renew. **The founders discount is described in §4.6.** Promotional prices apply only for the stated promotional period and revert to the standard price afterward, which we will tell you at purchase. **We will not retroactively shorten a period you have already paid for.** Remedies for a discontinued feature remain subject to applicable law and store policy.
 
 ### 3.11 Failed payments; taxes; other
 
@@ -419,19 +419,19 @@ If a payment fails, the store may retry, and premium features may pause until pa
 
 **Effective: October 28, 2026**
 
-These terms govern the BarkLens waitlist, our email communications, the founding-member offer, and referrals. Email is delivered by Mailgun on our behalf (see §7).
+These terms govern the BarkLens waitlist, our email communications, the founders discount, and referrals. Email is delivered by Mailgun on our behalf (see §7).
 
 ### 4.1 Two kinds of email, and the difference matters
 
 **4.1.1 Transactional and relationship email.** If you have an account, we send messages necessary to the relationship: account confirmation and sign-in, security notices, trial-conversion and renewal notices, receipts and billing problems, Care Circle invitations and revocation confirmations, export confirmations, service interruptions, and changes to these Terms or the Privacy Policy. **These are not marketing messages, and the primary purpose of each is transactional or relationship-based, as CAN-SPAM uses those terms. You cannot unsubscribe from them while you hold an account**, because they carry information you need. You can end them by closing your account.
 
-**4.1.2 Marketing email.** Product news, launch announcements, founding-member offers (other than the founding-member offer message to waitlist members described in §4.2), educational content, feature announcements, and promotions. **We send these only if you asked for them**, and you may unsubscribe at any time with one click. We do not send marketing email to anyone who has unsubscribed, and we do not resubscribe you because you later created an account, bought a subscription, or contacted support. If a form collects your address only to carry out a transaction — a password reset or a record export, for example — **we do not treat that action alone as consent to unrelated marketing.**
+**4.1.2 Marketing email.** Product news, launch announcements, founders discount offers (other than the founders discount messages to waitlist members described in §4.2), educational content, feature announcements, and promotions. **We send these only if you asked for them**, and you may unsubscribe at any time with one click. We do not send marketing email to anyone who has unsubscribed, and we do not resubscribe you because you later created an account, bought a subscription, or contacted support. If a form collects your address only to carry out a transaction — a password reset or a record export, for example — **we do not treat that action alone as consent to unrelated marketing.**
 
 **4.1.3 Hybrid messages are treated as marketing.** If a message combines transactional content with promotional content, we treat it as marketing for compliance purposes: it carries the unsubscribe mechanism and the sender identification described below.
 
 ### 4.2 Consent — joining the waitlist and the welcome email
 
-When you join the BarkLens waitlist on barklens.com, you give us your email address and confirm that you are 18 or older. We send you a **welcome email** confirming your sign-up and messages about your waitlist spot and access. **The founding-member offer under §4.6 is sent to everyone on the waitlist who has not unsubscribed. It includes an unsubscribe link and our postal address.** Other marketing email — including launch news and product updates — is sent only if you also check the separate, optional box on the sign-up form. That box is unchecked by default, with plain text next to it describing what you will receive. **We do not pre-check consent boxes, we do not bury consent in a privacy policy link, and we do not add anyone to the waitlist who did not enter their own address.**
+When you join the BarkLens waitlist on barklens.com, you give us your email address and confirm that you are 18 or older. We send you a **welcome email** confirming your sign-up and messages about your waitlist spot and access. **Messages about the founders discount under §4.6 go only to waitlist members who have not unsubscribed, and include an unsubscribe link and our postal address. Joining the waitlist does not make you eligible for the discount.** Other marketing email — including launch news and product updates — is sent only if you also check the separate, optional box on the sign-up form. That box is unchecked by default, with plain text next to it describing what you will receive. **We do not pre-check consent boxes, we do not bury consent in a privacy policy link, and we do not add anyone to the waitlist who did not enter their own address.**
 
 **Consent records.** For each sign-up we retain the email address, the date and time, the page or source, the IP address at sign-up, and the exact consent text displayed, so we can demonstrate consent later.
 
@@ -461,21 +461,21 @@ Every marketing email includes a **clear and conspicuous unsubscribe link in the
 
 When you unsubscribe, we add your address to a **suppression list that we retain indefinitely**. We keep it for one reason: so that we can continue to honor your unsubscribe, including after a database migration, a change of email vendor, or a new campaign. **A suppression record is used only to prevent email — never to market to you, never to profile you, and never for any other purpose.** We do not delete a suppression record on a deletion request unless you ask us specifically to remove your address from the suppression list, which we will explain carries the risk that a later sign-up or import could email you again. See §6.
 
-### 4.6 Founding-member offer
+### 4.6 Founders discount
 
-If we make a founding-member offer to waitlist subscribers, these terms apply, subject to the specific offer text presented at the time:
+If we offer the founders discount, these terms apply, subject to the specific offer text presented at the time:
 
-**4.6.1 What it is.** The Founding Member offer gives the first 1,000 paid subscribers 50% off their subscription price for their first 12 months. After 12 months, the subscription renews at the then-current standard price unless canceled. The offer is limited to one per account, cannot be combined with other offers, and ends when 1,000 subscribers have redeemed it.
+**4.6.1 What it is.** The founders discount gives the first 1,000 paid subscribers 33% off their subscription price for their first 12 months. After 12 months, the subscription renews at the then-current standard price unless canceled. The offer is limited to one per account, cannot be combined with other offers, and ends when 1,000 subscribers have redeemed it.
 
-**4.6.2 Conditions.** The offer is available to waitlist subscribers who enroll during the stated offer window, is limited to the number of memberships stated in the offer, requires an active paid subscription purchased through an app store, and applies to the plan selected at enrollment.
+**4.6.2 Conditions.** The discount is limited to the first 1,000 paid subscribers who enroll during the stated offer window, requires an active paid subscription purchased through an app store, and applies to the plan selected at enrollment. Joining the waitlist does not make you eligible for the discount.
 
 **4.6.3 What happens after twelve months.** At the end of the first 12 months, the subscription renews at the then-current standard price for the plan unless canceled, and we will give the notice required by §3.10 before that happens.
 
-**4.6.4 Lapse and plan changes.** The founding-member discount is lost if the subscription lapses. During the first 12 months, a change between Plus and Family or between monthly and annual billing preserves the equivalent founding-member discount where the app store permits it.
+**4.6.4 Lapse and plan changes.** The founders discount is lost if the subscription lapses. During the first 12 months, a change between Plus and Family or between monthly and annual billing preserves the equivalent founders discount where the app store permits it.
 
-**4.6.5 Transferability.** The founding-member benefit is personal and non-transferable. It cannot be sold, assigned, or moved to another person or store account.
+**4.6.5 Transferability.** The founders discount is personal and non-transferable. It cannot be sold, assigned, or moved to another person or store account.
 
-**4.6.6 Our rights.** We may modify or end the offer prospectively at any time before you enroll, and we may revoke a benefit obtained through fraud, multiple accounts, or violation of §1.10. Void where prohibited. The offer is not a lifetime price guarantee, and it is not a warranty about future features. Acceptance occurs only when an eligible person completes the stated store purchase or redemption process; joining the waitlist alone does not guarantee price, availability, or membership. **Any benefit described as "lifetime" must define its duration, the product it attaches to, the account continuity it requires, and what happens if the Service is discontinued, and no offer may imply a health outcome, emergency review, or veterinary care.**
+**4.6.6 Our rights.** We may modify or end the offer prospectively at any time before you enroll, and we may revoke a benefit obtained through fraud, multiple accounts, or violation of §1.10. Void where prohibited. The offer is not a lifetime price guarantee, and it is not a warranty about future features. Acceptance occurs only when an eligible person completes the stated store purchase or redemption process; joining the waitlist alone does not guarantee price, availability, or the founders discount. **Any benefit described as "lifetime" must define its duration, the product it attaches to, the account continuity it requires, and what happens if the Service is discontinued, and no offer may imply a health outcome, emergency review, or veterinary care.**
 
 ### 4.7 Referrals and invitations
 

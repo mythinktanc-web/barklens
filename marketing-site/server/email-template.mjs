@@ -12,7 +12,7 @@ BarkLens was built in honor of my boy Charlie. We had sixteen and a half years t
 
 What happens next
 
-You're on the founding-member waitlist, which puts you in the first wave of invites. We plan to send them before public signup opens. I'll email you the day yours is ready.
+You're on the waitlist, which puts you in the first wave of invites. We plan to send them before public signup opens. I'll email you the day yours is ready.
 
 Thank you for being one of the first.
 
@@ -60,7 +60,7 @@ export function welcomeEmail(unsubscribeUrl) {
                 ${htmlBody}
                 <p style="font-family:Arial,sans-serif;font-size:12px;line-height:1.5;margin:30px 0 0;color:#68736f;">
                   BarkLens is not veterinary care. Your vet decides.<br>
-                  You joined the BarkLens founding-member waitlist.<br>
+                  You joined the BarkLens waitlist.<br>
                   ThinkTanc LLC d/b/a BarkLens · 7804 Fairview Rd C-162, Charlotte, NC 28226<br>
                   <a href="${safeUnsubscribeUrl}" style="color:#177158;">Unsubscribe</a>
                 </p>

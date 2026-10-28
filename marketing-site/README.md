@@ -51,7 +51,7 @@ npm run dev
 
 Phase 4 adds a portable Node backend under `server/`.
 
-- `POST /api/waitlist` validates and stores a founding-member signup in the
+- `POST /api/waitlist` validates and stores a waitlist signup in the
   Mailgun list `waitlist@barklens.com`.
 - New members receive the approved welcome email from
   `Ben at BarkLens <info@barklens.com>`.
