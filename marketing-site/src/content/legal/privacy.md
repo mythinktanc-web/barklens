@@ -47,9 +47,11 @@ Most of what BarkLens holds is information about **a dog**, not about a person. 
 
 **2.3.10 Cookies and similar technologies on our website.** See §5.
 
-**2.3.11 What we do not collect.** We do not access your email inbox — **there is no email or inbox integration in the Service** (see §1.3.5). We do not collect precise geolocation, we do not access your contacts, and we do not access your photo library except for the images you choose to submit. We do not buy personal information from data brokers. We do not use your information for third-party advertising, and we do not run ad-network trackers in the app.
+**2.3.11 What we do not collect.** We do not read your email unless you choose to connect Gmail, and then only as described in §2.17. We do not collect precise geolocation, we do not access your contacts, and we do not access your photo library except for the images you choose to submit. We do not buy personal information from data brokers. We do not use your information for third-party advertising, and we do not run ad-network trackers in the app.
 
 **2.3.12 Information we receive from other people and services.** We may receive information from an account owner who invites you to a Care Circle, from a Care Circle member who adds information within the access the owner granted, from an app store, from an authentication provider, and from a service provider that helps us operate and secure the Service. Do not submit information about another person unless you are authorized to do so.
+
+**2.3.13 Email you choose to import.** If you connect a Gmail account, we receive the information described in §2.17.
 
 ### 2.4 How we use information
 
@@ -77,7 +79,7 @@ We use information for these purposes and no others:
 
 We share personal information only in the following circumstances. **We do not sell personal information and we do not share it for cross-context behavioral advertising** (see §2.10.2).
 
-**2.5.1 Service providers and subprocessors.** With vendors that process information on our behalf, under contract, only for the purposes we specify, and subject to confidentiality and security obligations. The categories are: email delivery; web hosting; authentication, storage, and database; artificial-intelligence inference; usage analytics; and app-store billing. **Each vendor, what it does, and where it processes are listed in §7 (Vendor and AI Processing Disclosure).**
+**2.5.1 Service providers and subprocessors.** With vendors that process information on our behalf, under contract, only for the purposes we specify, and subject to confidentiality and security obligations. The categories are: email delivery; web and API hosting; authentication, storage, and database; artificial-intelligence inference; background job processing; push-notification delivery; usage analytics; and app-store billing. If you connect Gmail, Google provides the messages you choose to import (§2.17). **Each vendor, what it does, and where it processes are listed in §7 (Vendor and AI Processing Disclosure).**
 
 **2.5.2 Care Circle members you invite.** With the people you invite, limited to the parts of the record you selected, until you revoke access. See §8. **You control this sharing; we do not initiate it.**
 
@@ -108,7 +110,17 @@ Where a state law requires consent to process a category of information that the
 
 This is the question users ask most, so we answer it directly.
 
-**2.7.1 What is sent, and when.** When you ask a question or request an interpretation, we transmit to a third-party model provider the material needed to produce that specific output — typically the extracted text of the relevant document or chart rows, the passages retrieved from our source library, and your question. Transmission happens only in response to an action you take. We do not send your library of records to a model provider in bulk, and we do not send content for background processing you did not request. We seek to minimize what is sent, to avoid direct identifiers where reasonably possible, and to use enterprise or API offerings rather than consumer chat accounts.
+**2.7.1 What is sent, and when.** We send a model provider only the material a feature needs:
+
+| When | What is sent | Why |
+|---|---|---|
+| You upload or import a record or photo | The file or image, and its text | To read it and pull out lab values |
+| You take a photo | The photo | To check it is clear enough to read |
+| You ask a question | Your question, related parts of your dog's records and details, and passages from our library | To answer your questions |
+| After a chat | The conversation | To note facts for later answers (for example, your dog's medicines) |
+| About every 12 hours, in the background | Records and details already on file for each active dog | To keep your dog's summary up to date |
+
+We do not send your records for any purpose other than these features. We seek to minimize what is sent, to avoid direct identifiers where reasonably possible, and to use enterprise or API offerings rather than consumer chat accounts.
 
 **2.7.2 Training.** **It is our requirement and our contractual position that content from your account is not used to train, fine-tune, or improve any third-party model.** We use enterprise or API service tiers whose terms provide that submitted content is not used for model training, and we configure zero-retention or limited-retention options where available.
 
@@ -167,11 +179,13 @@ Regardless of where you live in the United States, we offer every user the follo
 
 ### 2.12 International visitors
 
-**2.12.1 United States only.** The Service is offered only in the United States, and information is processed in the United States and, for web hosting and content delivery, at global edge locations operated by our hosting vendor (see §7). **We do not offer the Service in the European Economic Area, the United Kingdom, Switzerland, Canada, or anywhere else, and we do not target users in those places.**
+**2.12.1 Where your information is processed.** The Service is offered only in the United States. **Our main database and file storage are hosted in Sydney, Australia**, by our database provider (Supabase, on Amazon Web Services). Other vendors process information in the United States and in other countries (see §7). This means your information is transferred to, stored in, and processed in Australia and other countries whose privacy laws may differ from those of your state. Wherever it is processed, we protect it under this Policy, under written agreements with our vendors, and with encryption in transit and at rest. **We do not offer the Service in the European Economic Area, the United Kingdom, Switzerland, Canada, or anywhere else, and we do not target users in those places.**
 
-**2.12.2 If you visit our website from outside the United States.** You may still be able to view barklens.com. If you do, we collect the minimum necessary to serve the page and keep it secure — request logs including IP address, and, only with your consent where consent is required, analytics cookies (see §5). We do not use that information to market to you, and we will not create an account for you. **If you sign up for the waitlist from outside the United States, you consent to the transfer of your email address to and its processing in the United States**, where privacy laws differ from those in your country. You may unsubscribe and request deletion at any time at info@barklens.com. **The mere accessibility of barklens.com from another country is not an offer of the Service in that country.** If BarkLens later targets a jurisdiction that restricts transfers, it will assess local obligations and implement the required transfer mechanism, such as the EU Standard Contractual Clauses or a UK addendum, before doing so.
+**2.12.1A Cross-border transfers.** By using the Service you understand that your information will be transferred outside the United States as described above. We require each vendor that receives your information abroad to protect it at least as well as this Policy does, to use it only on our instructions, and to delete or return it when our contract ends. If we move our database to another country, we will update this Policy and §7 first.
 
-**2.12.3 Transfer mechanism.** Where personal information of an individual in the EEA, UK, or Switzerland is transferred to us or our vendors in the United States incidentally, we and our vendors rely on the European Commission's Standard Contractual Clauses and the UK International Data Transfer Addendum, or another lawful mechanism, as applicable.
+**2.12.2 If you visit our website from outside the United States.** You may still be able to view barklens.com. If you do, we collect the minimum necessary to serve the page and keep it secure — request logs including IP address, and, only with your consent where consent is required, analytics cookies (see §5). We do not use that information to market to you, and we will not create an account for you. **If you sign up for the waitlist from outside the United States, you consent to the transfer of your email address to and its processing in the United States and the other countries listed in §7**, where privacy laws differ from those in your country. You may unsubscribe and request deletion at any time at info@barklens.com. **The mere accessibility of barklens.com from another country is not an offer of the Service in that country.** If BarkLens later targets a jurisdiction that restricts transfers, it will assess local obligations and implement the required transfer mechanism, such as the EU Standard Contractual Clauses or a UK addendum, before doing so.
+
+**2.12.3 Transfer mechanism.** Where personal information of an individual in the EEA, UK, or Switzerland is transferred to us or our vendors in the United States, Australia, or the other countries listed in §7 incidentally, we and our vendors rely on the European Commission's Standard Contractual Clauses and the UK International Data Transfer Addendum, or another lawful mechanism, as applicable.
 
 ### 2.13 Children
 
@@ -200,9 +214,11 @@ Some state laws, including Washington's My Health My Data Act, give residents sp
 
 | Vendor | What it does | What it receives |
 |---|---|---|
-| **Firebase / Google Cloud Platform** (Google LLC) | Sign-in, file storage, database, and infrastructure | Your account information and your dog's records, photographs, questions, and answers |
-| **Model providers listed in §7** | Generating answers | The material needed to answer the question you asked (§2.7) |
-| **Vercel** | Hosting barklens.com | Request data such as IP address and the page requested; no account records |
+| **Supabase** (Supabase, Inc.) | Sign-in, database, and file storage (hosted in Sydney, Australia; see §2.12) | Your account information and your dog's records, photographs, questions, answers, and imported email attachments |
+| **Vercel** (Vercel Inc.) | Hosting barklens.com and our app's server (API); routing AI requests (Vercel AI Gateway) | Request data; and, for the API and AI Gateway, the account content each request needs |
+| **Google Gemini** (Google LLC) and **OpenAI** (OpenAI, L.L.C., with some requests handled through Microsoft Azure) | Reading records and photos, answering questions, search, chat memory, and summaries | The material each feature needs (§2.7.1) |
+| **Inngest** (Inngest, Inc.) | Running background jobs | Job instructions and identifiers |
+| **Google** (Gmail API) | Source of email you choose to import | Only if you connect Gmail (§2.17) |
 | **Mailgun** (Sinch) | Sending email | Your email address, name, waitlist details, and the content of the emails we send you |
 | **Google Analytics 4** (Google LLC) | Measuring website use, only if you accept analytics cookies | Page and event data and device and browser type; never your dog's records or health values (§5.5) |
 
@@ -211,6 +227,41 @@ Some state laws, including Washington's My Health My Data Act, give residents sp
 **2.16.6 Access and deletion.** You may ask us to confirm whether we collect or share your consumer health data, to give you a copy of it along with a list of the third parties we have shared it with, and to delete it, including the copies held by our vendors. You may also withdraw any consent you have given. Use the in-app privacy controls or email **info@barklens.com** with "Consumer health data request" in the subject line. We respond within forty-five (45) days. If we deny your request, you may appeal as described in §2.9. Washington residents whose appeal is denied may contact the Washington State Attorney General.
 
 **2.16.7 Consent.** We collect and share consumer health data only as needed to provide the Service you request, or with your consent.
+
+### 2.17 Gmail import
+
+**2.17.1 What it is.** Gmail import is optional. It lets you find your dog's records in your Gmail and add them to BarkLens. You connect through Google's own sign-in screen. We ask Google for **read-only** access to Gmail (`gmail.readonly`) and for your basic Google profile and email address. **We cannot send, delete, label, or change your email.**
+
+**2.17.2 What we read.**
+
+| Step | What we read |
+|---|---|
+| Search | Only messages that match the record types you pick (for example, vaccines or lab results) and any names or words you add. Spam and trash are always excluded. You cannot widen the search to your whole inbox. |
+| Preview | For each match: sender, subject line, and date. |
+| Import | Only the messages you select. We open each one to take out its PDF attachments. Today we import PDF attachments only. |
+
+The search runs on our server. Your phone never holds your Google access token.
+
+**2.17.3 What we keep.**
+
+| What | How long |
+|---|---|
+| The Gmail address you connected, the access you granted, and connect and sync dates | Until you disconnect |
+| An encrypted Google access token (so we can search when you ask) | Until you disconnect |
+| An import history: each search used, the record types picked, the number of matches, and the IDs of imported messages | Until you disconnect |
+| The PDF attachments you import | Like any other record (§6). They are read like any upload, including by AI providers (§2.7.1). |
+
+**We do not store email bodies, and we do not keep messages you did not import.**
+
+**2.17.4 Disconnecting.** You can disconnect in the app or in your Google Account under third-party connections. When you disconnect, we ask Google to revoke our access and we delete the stored token, the connection, and your import history. **Records you already imported stay in your account until you delete them.** You can delete them like any other record.
+
+**2.17.5 Google API Services User Data Policy.** **BarkLens's use and transfer of information received from Google APIs to any other app will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.** In plain terms:
+
+- We use Gmail data only to find and import the records you ask for.
+- We share it only as needed to provide that feature (for example, sending an imported PDF to an AI provider to read it), for security, or to comply with law.
+- We do not sell it, and we do not use it for advertising.
+- **We do not use it to develop, improve, or train general AI or machine-learning models.**
+- No person at BarkLens reads it unless you ask us to (for example, for support), it is needed for security or to comply with law, or it has been aggregated and made anonymous.
 
 ---
 
@@ -278,6 +329,8 @@ Analytics events must describe interface behavior and nothing else. **No analyti
 | **Support communications** | Your emails to us and our replies | **24 months** from the last message in the thread  | Automatic. |
 | **Security and system logs** | Request logs, IP addresses, authentication events, error and crash logs, audit logs of staff access | **30–90 days rolling**, except that logs pertaining to an open security investigation, an abuse case, or a legal hold are preserved until it closes | Automatic rolling expiry. |
 | **Backups and disaster-recovery copies** | Encrypted snapshots of production data | **30–90 days rolling** | Automatic expiry. Deleted content may persist in a backup until the backup that contains it ages out; backups are not used to restore individual deleted items. |
+| **Gmail connection** | Connected address, scopes, encrypted token, connect and sync dates | **Until you disconnect** | On disconnect we revoke access at Google and delete the token and connection. |
+| **Gmail import history** | Search used, record types, match count, imported message IDs | **Until you disconnect** | Deleted when you disconnect Gmail. |
 | **Model-provider transient copies** | Content transmitted for inference | Per provider contract; our requirement is **zero retention where available**, otherwise a short abuse-monitoring window |  |
 | **Analytics data** | Aggregated and anonymized usage events | **two (2) months** | Aggregate or delete at the end of the configured period; never allow User Content into an analytics event. Security analytics may follow the log schedule, and consent and opt-out records may be retained longer. |
 | **De-identified and aggregated data** | Statistics that cannot reasonably be linked to you | **Indefinite** | Not deleted, because it is no longer personal information. We do not attempt re-identification. |
@@ -306,16 +359,19 @@ Analytics events must describe interface behavior and nothing else. **No analyti
 
 ### 7.1 Vendors by category
 
-| Vendor | Category | What it does for us | Data it processes | Processing location |
-|---|---|---|---|---|
-| **Mailgun** (Sinch) | Email delivery | Sends waitlist confirmation and welcome email, marketing email, and transactional/account email; handles bounces, complaints, and unsubscribe processing | Email address, name if provided, message content, delivery and engagement events, IP at sign-up where included | United States  |
-| **Vercel** | Web hosting and content delivery | Hosts and serves barklens.com and related web endpoints | Request data including IP address, user agent, and requested URL; no account records are stored here | United States primary, with global edge locations for content delivery  |
-| **Firebase / Google Cloud Platform** (Google LLC) | Authentication, file storage, database, and infrastructure | Authenticates sign-in; stores uploaded documents and images; stores the chart, extracted values, questions, and answers; runs backend functions | Account identifiers, credentials handled by the identity provider, all uploaded records and images, extracted text and structured values, chart data, chat history, device and log data | United States  |
-| **Model providers — enterprise or API model providers used by BarkLens** | Artificial-intelligence inference | Generates educational answers and interpretive output from your account's content plus retrieved library passages, in response to your request | The specific content sent for that request: extracted document text or chart rows, retrieved source passages, and your question | United States  |
-| **Google Analytics 4** (Google LLC) | Usage analytics | Measures website usage in anonymized form, as described in §5.3 | Anonymized/truncated IP, page and event data, device and browser type, referrer; not linked to your account | United States  |
-
-| **Apple App Store** (Apple Inc.) | Billing and distribution | Distributes the iOS app; sells, renews, cancels, and refunds subscriptions; processes payment | Purchase and entitlement data, payment information handled entirely by Apple, store account identifiers | United States  |
-| **Google Play** (Google LLC) | Billing and distribution | Distributes the Android app; sells, renews, cancels, and refunds subscriptions; processes payment | Purchase and entitlement data, payment information handled entirely by Google, store account identifiers | United States  |
+| Vendor | What it does for us | Data it processes | Where |
+|---|---|---|---|
+| **Supabase** (Supabase, Inc.) | Database (Postgres), sign-in, file storage, server functions | Account details, all records and images, extracted values, chats, notes drawn from chats, Gmail connection tokens | **Sydney, Australia** (Amazon Web Services) |
+| **Vercel** (Vercel Inc.) | Hosts barklens.com and the app's server (API); routes AI requests (Vercel AI Gateway) | Request data (IP address, device, URL); the account content each API or AI request needs | United States primary, with global edge locations for web pages |
+| **Google Gemini** (Google LLC) | Reads records and photos, checks photo quality, writes chat answers, keeps your dog's summary up to date | The material each feature needs (§2.7.1) | United States and other countries |
+| **OpenAI** (OpenAI, L.L.C.), with some requests handled through **Microsoft Azure** (Microsoft Corporation) | Search, chat memory, and follow-up question suggestions | Chat text and record text | United States and other countries |
+| **Inngest** (Inngest, Inc.) | Runs background jobs: reading uploads, refreshing summaries about every 12 hours, reminders, pulling facts from chats | Job events and identifiers | United States and other countries |
+| **Expo** (650 Industries, Inc.), then **Apple** (Apple Push Notification service) or **Google** (Firebase Cloud Messaging) | Delivers push notifications | Device push token; notification title and text | United States and other countries |
+| **Mailgun** (Sinch) | Waitlist list and welcome email; sign-in, password and Care Circle invitation email | Email address, name if given, message content, delivery events, sign-up IP | United States |
+| **Google** (Google LLC), Gmail API | Source of email you choose to import (§2.17) | Only if you connect Gmail | Google's systems |
+| **Google Analytics 4** (Google LLC) | Website analytics, only if turned on and, where required, after you consent | Page and event data, device and browser type; never record content | United States |
+| **Apple App Store** (Apple Inc.) | Distributes the iOS app; sells, renews, cancels and refunds subscriptions | Purchase and entitlement data; Apple handles payment | United States |
+| **Google Play** (Google LLC) | Distributes the Android app; sells, renews, cancels and refunds subscriptions | Purchase and entitlement data; Google handles payment | United States |
 
 ### 7.2 How we govern vendors
 
@@ -323,9 +379,9 @@ Each vendor that processes personal information on our behalf is engaged under a
 
 ### 7.3 Processing locations and international transfers
 
-**Primary processing is in the United States.** A vendor's stated country is not a promise that every support, telemetry, or edge operation happens only there, which is why each row in §7.1 requires the vendor to identify its actual locations. The exception is web content delivery: our hosting vendor serves the marketing site from global edge locations, which means a request from outside the United States may be served from an edge node in that region, and request-level data (IP address, URL) may be processed there transiently.
+**Our main database and file storage are in Sydney, Australia (Supabase). Other processing happens in the United States and the other locations listed in §7.1.** A vendor's stated country is not a promise that every support, telemetry, or edge operation happens only there, which is why each row in §7.1 requires the vendor to identify its actual locations. The exception is web content delivery: our hosting vendor serves the marketing site from global edge locations, which means a request from outside the United States may be served from an edge node in that region, and request-level data (IP address, URL) may be processed there transiently.
 
-We do not intentionally transfer personal information outside the United States. **If personal information of a person in the EEA, the UK, or Switzerland reaches us or our vendors incidentally — for example, because someone abroad visited barklens.com or joined the waitlist — we and our vendors rely on the European Commission's Standard Contractual Clauses and the UK International Data Transfer Addendum, or another lawful transfer mechanism, as applicable.** See §2.12.
+We transfer personal information to Australia for database and file storage, and to other countries only as listed in §7.1, under the protections in §2.12.1A. **If personal information of a person in the EEA, the UK, or Switzerland reaches us or our vendors incidentally — for example, because someone abroad visited barklens.com or joined the waitlist — we and our vendors rely on the European Commission's Standard Contractual Clauses and the UK International Data Transfer Addendum, or another lawful transfer mechanism, as applicable.** See §2.12.
 
 ### 7.4 Changes to this list
 

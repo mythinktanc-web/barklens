@@ -84,8 +84,7 @@ All requests go through **Vercel AI Gateway** (Vercel Inc.), which passes them t
 | Reviewed by a licensed veterinarian | Not reviewed |
 |---|---|
 | The safety guidelines for our app (when to contact a vet) | Your answers |
-| — | The sources in our library |
-| — | How we word or summarize them |
+| Every source in our library | How we word or summarize them |
 | — | Our marketing |
 
 ## 8. Not veterinary advice

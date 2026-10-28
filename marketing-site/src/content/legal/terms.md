@@ -53,7 +53,15 @@ You must be located in the United States when you create an account or use the S
 
 **1.3.4 Photo capture is limited to supported categories.** The camera and image-processing features support: **(a)** stool, **(b)** food labels, guaranteed-analysis panels, and photographed meals, **(c)** medication and supplement labels, **(d)** product, treat, and chew packaging, and **(e)** veterinary records and lab reports. BarkLens does not assess skin, coat, wounds, lumps, masses, eyes, ears, teeth, gums, gait, posture, or body condition, and it does not evaluate photographs of your dog's body. If you submit an unsupported image, the Service may refuse it or misread it. Do not rely on image output for diagnosis, urgent review, or physical examination.
 
-**1.3.5 No email or inbox integration at launch.** BarkLens does **not** connect to, read, or import from your email account. There is no email or inbox integration of any kind in the Service at launch. Any statement or expectation to the contrary — including in earlier marketing material, press coverage, beta communications, or community discussion — is wrong. Records enter the Service only when you put them there. We do not undertake to locate a missing record, to obtain records from your veterinarian, to synchronize an inbox or a clinic portal, or to determine whether what you have submitted amounts to a complete chart. You must deliberately choose and submit each supported item through the methods the Service makes available.
+**1.3.5 Optional Gmail import.** You may connect a Gmail account so BarkLens can search it for your dog's records. Access is **read-only**. We search only for the record types and words you choose. We import only the messages you select, and today only their PDF attachments. Privacy Policy §2.17 explains what we read, what we keep, and how to disconnect.
+
+Gmail import is a convenience, not a sync service:
+
+- We do not watch your inbox or import new mail on our own.
+- We do not promise to find every record, or that a found record is complete or current.
+- You choose each item that enters the Service.
+
+We do not undertake to locate a missing record, to obtain records from your veterinarian, to synchronize an inbox or a clinic portal, or to determine whether what you have submitted amounts to a complete chart. If you disconnect Gmail, records you already imported stay in your account until you delete them.
 
 ### 1.4 No veterinarian-client-patient relationship
 
@@ -216,7 +224,7 @@ We may investigate suspected violations, and we may suspend or terminate access 
 
 ### 1.13 Fees, plans, and subscriptions
 
-Paid features are sold as auto-renewing subscriptions purchased through the Apple App Store or Google Play. Plan definitions, pricing, the free trial, renewal, cancellation, refunds, price changes, and what happens after cancellation are set out in full in **§3 (Subscription and Billing Terms)**, which is incorporated into these Terms. In summary: **Plus** is $14.95 per month or $149 per year for one dog; **Family** is $24.95 per month or $249 per year for up to four dogs; billing, renewal, and refunds are governed by the store that sold the subscription; and **your records and your ability to export them remain available to you free of charge after cancellation.** Selecting a plan authorizes the store to charge you under the store's terms. **BarkLens does not control store billing, renewal processing, or refunds, and deleting the app, stopping use, or closing your BarkLens account does not cancel a store-billed subscription.**
+Paid features are sold as auto-renewing subscriptions purchased through the Apple App Store or Google Play. Plan definitions, pricing, the free trial, renewal, cancellation, refunds, price changes, and what happens after cancellation are set out in full in **§3 (Subscription and Billing Terms)**, which is incorporated into these Terms. In summary: **Plus** is $14.95 per month or $143.52 per year for one dog; **Family** is $24.95 per month or $239.52 per year for up to four dogs; billing, renewal, and refunds are governed by the store that sold the subscription; and **your records and your ability to export them remain available to you free of charge after cancellation.** Selecting a plan authorizes the store to charge you under the store's terms. **BarkLens does not control store billing, renewal processing, or refunds, and deleting the app, stopping use, or closing your BarkLens account does not cancel a store-billed subscription.**
 
 ### 1.14 Disclaimers of warranty
 
@@ -334,8 +342,8 @@ BarkLens is a paid subscription. New subscribers may be offered a free trial, as
 
 | Plan | Dogs covered | Monthly price | Annual price |
 |---|---|---|---|
-| **BarkLens Plus** | 1 dog | **$14.95 / month** | **$149 / year** |
-| **BarkLens Family** | up to 4 dogs | **$24.95 / month** | **$249 / year** |
+| **BarkLens Plus** | 1 dog | **$14.95 / month** | **$143.52 / year** |
+| **BarkLens Family** | up to 4 dogs | **$24.95 / month** | **$239.52 / year** |
 
 Prices are in U.S. dollars and exclude any tax the app store collects. Paid plans unlock the premium features described in §3.8, including Ask, Care Circle invitations, and connect-the-dots analysis across a dog's records.
 
@@ -417,13 +425,13 @@ These terms govern the BarkLens waitlist, our email communications, the founding
 
 **4.1.1 Transactional and relationship email.** If you have an account, we send messages necessary to the relationship: account confirmation and sign-in, security notices, trial-conversion and renewal notices, receipts and billing problems, Care Circle invitations and revocation confirmations, export confirmations, service interruptions, and changes to these Terms or the Privacy Policy. **These are not marketing messages, and the primary purpose of each is transactional or relationship-based, as CAN-SPAM uses those terms. You cannot unsubscribe from them while you hold an account**, because they carry information you need. You can end them by closing your account.
 
-**4.1.2 Marketing email.** Product news, launch announcements, founding-member offers, educational content, feature announcements, and promotions. **We send these only if you asked for them**, and you may unsubscribe at any time with one click. We do not send marketing email to anyone who has unsubscribed, and we do not resubscribe you because you later created an account, bought a subscription, or contacted support. If a form collects your address only to carry out a transaction — a password reset or a record export, for example — **we do not treat that action alone as consent to unrelated marketing.**
+**4.1.2 Marketing email.** Product news, launch announcements, founding-member offers (other than the founding-member offer message to waitlist members described in §4.2), educational content, feature announcements, and promotions. **We send these only if you asked for them**, and you may unsubscribe at any time with one click. We do not send marketing email to anyone who has unsubscribed, and we do not resubscribe you because you later created an account, bought a subscription, or contacted support. If a form collects your address only to carry out a transaction — a password reset or a record export, for example — **we do not treat that action alone as consent to unrelated marketing.**
 
 **4.1.3 Hybrid messages are treated as marketing.** If a message combines transactional content with promotional content, we treat it as marketing for compliance purposes: it carries the unsubscribe mechanism and the sender identification described below.
 
 ### 4.2 Consent — joining the waitlist and the welcome email
 
-When you join the BarkLens waitlist on barklens.com, you give us your email address and confirm that you are 18 or older. We send you a **welcome email** confirming your sign-up and messages about your waitlist spot and access. Marketing email — including launch news, product updates, and founding-member offers under §4.6 — is sent only if you also check the separate, optional box on the sign-up form. That box is unchecked by default, with plain text next to it describing what you will receive. **We do not pre-check consent boxes, we do not bury consent in a privacy policy link, and we do not add anyone to the waitlist who did not enter their own address.**
+When you join the BarkLens waitlist on barklens.com, you give us your email address and confirm that you are 18 or older. We send you a **welcome email** confirming your sign-up and messages about your waitlist spot and access. **The founding-member offer under §4.6 is sent to everyone on the waitlist as a message about their waitlist spot**, whether or not you check the optional box. Other marketing email — including launch news and product updates — is sent only if you also check the separate, optional box on the sign-up form. That box is unchecked by default, with plain text next to it describing what you will receive. **We do not pre-check consent boxes, we do not bury consent in a privacy policy link, and we do not add anyone to the waitlist who did not enter their own address.**
 
 **Consent records.** For each sign-up we retain the email address, the date and time, the page or source, the IP address at sign-up, and the exact consent text displayed, so we can demonstrate consent later.
 

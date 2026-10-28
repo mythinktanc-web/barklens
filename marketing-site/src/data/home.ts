@@ -59,7 +59,11 @@ export const captureItems = [
     rows: [
       'Glucosamine 500 mg, chondroitin 400 mg, MSM 300 mg, and omega-3 150 mg per two chews.',
       'Charlie is on Rimadyl for arthritis. Ask the veterinarian about using them together.'
-    ]
+    ],
+    source: {
+      desktop: 'Why these are together: Charlie’s vet record lists Rimadyl, and you added this supplement label.',
+      mobile: 'Paired by: Charlie’s vet record and your label.'
+    }
   },
   {
     number: '04',

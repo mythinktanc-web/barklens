@@ -207,6 +207,16 @@ for (const file of htmlFiles) {
     if (!html.includes('/images/support/plans-desktop.webp') || !html.includes('/images/support/plans.webp')) {
       failures.push(`${relative}: desktop and mobile plan backgrounds must remain separate`);
     }
+    for (const text of [
+      'Annual · Save 20%',
+      '$143.52',
+      '$239.52',
+      '7-day free trial, then $14.95 a month or $143.52 a year for BarkLens+, or $24.95 a month or $239.52 a year for BarkLens Family, plus any tax the app store collects, until you cancel.',
+      '7 days free, then $14.95/mo or $143.52/yr until you cancel.',
+      '7 days free, then $24.95/mo or $239.52/yr until you cancel.'
+    ]) {
+      if (!html.includes(text)) failures.push(`${relative}: approved price text is missing "${text}"`);
+    }
   }
 
   const primaryHeaderNav = html.match(
@@ -260,6 +270,15 @@ for (const file of htmlFiles) {
     }
   }
 
+  if (html.includes('$149') || html.includes('$249') || html.includes('2 mo free')) {
+    failures.push(`${relative}: retired price text returned ($149, $249 or 2 mo free)`);
+  }
+  if (relative === 'privacy/index.html' && (html.includes('Firebase / Google Cloud Platform') || html.includes('there is no email or inbox integration') || html.includes('Primary processing is in the United States'))) {
+    failures.push(`${relative}: retired privacy text returned`);
+  }
+  if (relative === 'data-ai-policy/index.html' && (!html.includes('Every source in our library') || html.includes('The sources in our library'))) {
+    failures.push(`${relative}: Data & AI section 7 must list library sources as reviewed`);
+  }
   const lower = html.toLowerCase();
   const visibleText = decodeHtmlEntities(
     html
@@ -274,7 +293,7 @@ for (const file of htmlFiles) {
     failures.push(`${relative}: visible right arrow must use a chevron`);
   }
   for (const phrase of prohibited) {
-    if (phrase === 'gmail' && relative === 'data-ai-policy/index.html') continue; // required Google Limited Use disclosure
+    if (phrase === 'gmail' && ['data-ai-policy/index.html', 'privacy/index.html', 'terms/index.html'].includes(relative)) continue; // required Google Limited Use and Gmail import disclosures in legal pages only
     if (lower.includes(phrase)) failures.push(`${relative}: prohibited phrase "${phrase}"`);
   }
   for (const phrase of legalDraftArtifacts) {
