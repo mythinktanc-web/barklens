@@ -6,13 +6,13 @@ If you signed up for this, I already know something about you. Your dog isn't a 
 
 You've been carrying all of that yourself. Not because anyone asked you to, but because no one else was going to.
 
-That's what BarkLens is for. Every record in one place. Every lab value sitting next to the ones before it. Every answer traced to veterinary sources a licensed veterinarian approved. Not to replace what you know about your dog but to finally give it somewhere to live.
+That's what BarkLens is for. Every record in one place. Every lab value sitting next to the ones before it. Answers point to the veterinary sources behind them. Not to replace what you know about your dog but to finally give it somewhere to live.
 
 BarkLens was built in honor of my boy Charlie. We had sixteen and a half years together, and paying close attention to his health was part of how I loved him. I built it because it's the tool I wish I'd had for him — especially toward the end.
 
 What happens next
 
-You're a founding member, which puts you in the first wave of invites. They’ll be sent as soon as testing is complete, before any public signup. I'll email you the day yours is ready.
+You're on the founding-member waitlist, which puts you in the first wave of invites. We plan to send them before public signup opens. I'll email you the day yours is ready.
 
 Thank you for being one of the first.
 
@@ -45,7 +45,7 @@ export function welcomeEmail(unsubscribeUrl) {
   return {
     subject,
     oneClickUnsubscribeUrl,
-    text: `${body}\n\nUnsubscribe from BarkLens email: ${unsubscribeUrl}`,
+    text: `${body}\n\nBarkLens is not veterinary care. Your vet decides.\n\nUnsubscribe from BarkLens email: ${unsubscribeUrl}`,
     html: `<!doctype html>
 <html lang="en">
   <body style="margin:0;padding:0;background:#f4f0e8;">
@@ -59,6 +59,7 @@ export function welcomeEmail(unsubscribeUrl) {
                 <p style="font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;margin:0 0 26px;color:#177158;">BARKLENS</p>
                 ${htmlBody}
                 <p style="font-family:Arial,sans-serif;font-size:12px;line-height:1.5;margin:30px 0 0;color:#68736f;">
+                  BarkLens is not veterinary care. Your vet decides.<br>
                   You joined the BarkLens founding-member waitlist.<br>
                   ThinkTanc LLC d/b/a BarkLens · 7804 Fairview Rd C-162, Charlotte, NC 28226<br>
                   <a href="${safeUnsubscribeUrl}" style="color:#177158;">Unsubscribe</a>
