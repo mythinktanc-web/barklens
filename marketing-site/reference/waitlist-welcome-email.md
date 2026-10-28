@@ -1,5 +1,5 @@
 ---
-name: BarkLens founding-member welcome email
+name: BarkLens waitlist welcome email
 subject: Thank you — from Ben
 approved_by: Ben Singer
 approved_date: 2026-09-16
@@ -19,7 +19,7 @@ BarkLens was built in honor of my boy Charlie. We had sixteen and a half years t
 
 What happens next
 
-You're on the founding-member waitlist, which puts you in the first wave of invites. We plan to send them before public signup opens. I'll email you the day yours is ready.
+You're on the waitlist, which puts you in the first wave of invites. We plan to send them before public signup opens. I'll email you the day yours is ready.
 
 Thank you for being one of the first.
 

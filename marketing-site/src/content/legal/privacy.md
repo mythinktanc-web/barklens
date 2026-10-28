@@ -63,7 +63,7 @@ We use information for these purposes and no others:
 
 **2.4.3 Transactional communications.** To send account, security, billing, trial, renewal, Care Circle, and service-change messages. These are not marketing and you cannot unsubscribe from them while you have an account, although you may close your account at any time.
 
-**2.4.4 Marketing communications.** To send you product news, launch announcements, founding-member offers, and educational content **if you opted in**. Every marketing email includes one-click unsubscribe. See §4.
+**2.4.4 Marketing communications.** To send you product news, launch announcements, founders discount offers, and educational content **if you opted in**. Every marketing email includes one-click unsubscribe. See §4.
 
 **2.4.5 Support.** To respond to you, investigate a problem you report, and fix errors. Support staff access account content only when necessary to resolve an issue, under the access controls described in §2.11.
 
@@ -161,7 +161,7 @@ Regardless of where you live in the United States, we offer every user the follo
 
 **2.10.5 Your state generally.** If you live in any other state, including a state that enacts a privacy law after the effective date of this Policy, **we extend the same rights to you** — access, correction, deletion, export, portability, opt-out of marketing, and appeal — through info@barklens.com. We will update this section as new laws take effect.
 
-**2.10.6 Notice of financial incentive.** Any founding-member pricing or referral reward described in §4 is offered as a commercial promotion, not in exchange for permission to sell or share your personal information.  We do not offer a financial incentive in exchange for personal information unless a program notice explains its material terms, the good-faith value calculation, and the right to withdraw. A subscription discount, a founding-member price, or a referral reward based on purchase or participation is not intended as payment for personal information.
+**2.10.6 Notice of financial incentive.** Any founders discount or referral reward described in §4 is offered as a commercial promotion, not in exchange for permission to sell or share your personal information.  We do not offer a financial incentive in exchange for personal information unless a program notice explains its material terms, the good-faith value calculation, and the right to withdraw. A subscription discount, the founders discount, or a referral reward based on purchase or participation is not intended as payment for personal information.
 
 ### 2.11 Security
 
